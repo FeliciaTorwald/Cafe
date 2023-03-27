@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Pool;
-using UnityEngine.Rendering;
+
 
 public class BobaSpawner : MonoBehaviour
 {
