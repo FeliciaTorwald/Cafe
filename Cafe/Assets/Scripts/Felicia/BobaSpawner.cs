@@ -43,13 +43,13 @@ public class BobaSpawner : MonoBehaviour
 
             if (!pooledObjects[i].activeSelf)
             {
-                pooledObjects[i].transform.position = new Vector3(Random.Range(-1f, 5), Random.Range(-1f, 5), 0);
+                pooledObjects[i].transform.position = new Vector3(Random.Range(-10f, 11),5, Random.Range(-10f, 11));
                 pooledObjects[i].SetActive(true);
                 return;
 
             }
         }
-        GameObject newPoint = Instantiate(preFab, new Vector3(Random.Range(-1f, 5), Random.Range(-1f, 5), 0), Quaternion.identity);
+        GameObject newPoint = Instantiate(preFab, new Vector3(Random.Range(-10f, 11),5, Random.Range(-10f, 11)), Quaternion.identity);
         pooledObjects.Add(newPoint);
     }
     private void DisableObjects()
