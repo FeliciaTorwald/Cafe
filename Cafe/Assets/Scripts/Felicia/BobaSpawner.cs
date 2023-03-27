@@ -14,10 +14,7 @@ public class BobaSpawner : MonoBehaviour
     public List<GameObject> pooledObjects;
     
 
-    private void Awake()
-    {
-       
-    }
+  
     private void Start()
     {
         StartCoroutine(spawnPoints(bobaInterval, preFab));
@@ -46,20 +43,20 @@ public class BobaSpawner : MonoBehaviour
 
             if (!pooledObjects[i].activeSelf)
             {
-                pooledObjects[i].transform.position = new Vector3(Random.Range(-2f, 2), Random.Range(-2f, 2), 0);
+                pooledObjects[i].transform.position = new Vector3(Random.Range(-10f, 11),5, Random.Range(-10f, 11));
                 pooledObjects[i].SetActive(true);
                 return;
 
             }
         }
-        GameObject newPoint = Instantiate(preFab, new Vector3(Random.Range(-2f, 2), Random.Range(-2f, 2), 0), Quaternion.identity);
+        GameObject newPoint = Instantiate(preFab, new Vector3(Random.Range(-10f, 11),5, Random.Range(-10f, 11)), Quaternion.identity);
         pooledObjects.Add(newPoint);
     }
     private void DisableObjects()
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (pooledObjects[i].transform.position.x < -10)
+            if (pooledObjects[i].transform.position.y < -10)
             {
                 pooledObjects[i].SetActive(false);
             }
