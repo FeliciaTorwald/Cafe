@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3229608191006498562}
   - component: {fileID: -8675251801881133073}
   m_Layer: 0
-  m_Name: Guest
+  m_Name: GuestB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0c7817bc322fc1d4aa372e0a58cad26f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,10 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91d1d611fd0a714799e3ee69ffae9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guestModel:
-  - {fileID: 4300000, guid: ea93c3bdb1f88ae44beb4e6073d52d74, type: 2}
-  - {fileID: 4300000, guid: 1f3290cc7c919964aaa15ec92cf3d5e4, type: 2}
-  - {fileID: 4300000, guid: 0fbf7527f9555df4e832ff9ee47fe701, type: 2}
   guestMaterial:
   - {fileID: 2100000, guid: 4b189ad99adfde447966238982b292db, type: 2}
   - {fileID: 2100000, guid: 0c7817bc322fc1d4aa372e0a58cad26f, type: 2}
