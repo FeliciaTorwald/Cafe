@@ -15,7 +15,7 @@ public class EquipTool : MonoBehaviour
 
         
     }
-    //använd mesh collider för att detta scriptet ska fungera,sätt på convex
+    //använd mesh collider för att detta scriptet ska fungera,sätt på convex och sen en boxcollider som är trigger
 
     // Update is called once per frame
     void Update()
