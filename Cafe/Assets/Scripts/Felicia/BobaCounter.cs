@@ -7,14 +7,14 @@ using UnityEngine;
 public class BobaCounter : MonoBehaviour
 {
     public TextMeshProUGUI bobaCounterText;
-    public int amountOfBoba = 0;
+    public int amountOfBoba;
     
 
 
     public void AddBoba(int points)//int adds to boba counter
     {
         amountOfBoba += points;
-        bobaCounterText.text = string.Format("{0:000}", amountOfBoba);
+        bobaCounterText.text = string.Format("boba " + "{0:0}", amountOfBoba);
 
     }
   

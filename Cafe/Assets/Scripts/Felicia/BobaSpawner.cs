@@ -53,7 +53,8 @@ public class BobaSpawner : MonoBehaviour
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (pooledObjects[i].transform.position.y < -10)
+            if (pooledObjects[i].transform.position.y < -15
+                )
             {
                 pooledObjects[i].SetActive(false);
             }
