@@ -5,11 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Movement
-    public float moveSpeed = 15;
+    public float moveSpeed = 5;
     public float groundDrag;
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
     bool readyToJump;
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -56,13 +53,7 @@ public class PlayerMovement : MonoBehaviour
         //calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        //on ground
-        if(grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
-        //in Air
-        else if(!grounded)
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 
     private void speedControl()
