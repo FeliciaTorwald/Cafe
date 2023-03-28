@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 1851829579704992447}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,9 +183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   groundDrag: 4
-  jumpForce: 12
-  jumpCooldown: 0.25
-  airMultiplier: 0.4
   jumpKey: 32
   playerHeight: 2
   whatIsGround:
