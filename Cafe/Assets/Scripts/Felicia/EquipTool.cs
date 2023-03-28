@@ -15,6 +15,7 @@ public class EquipTool : MonoBehaviour
 
         
     }
+    //använd mesh collider för att detta scriptet ska fungera
 
     // Update is called once per frame
     void Update()
@@ -33,10 +34,7 @@ public class EquipTool : MonoBehaviour
         toolParent.DetachChildren();
         tool.transform.eulerAngles = new Vector3(tool.transform.position.x, tool.transform.position.z, tool.transform.position.y);
         tool.GetComponent<Rigidbody>().isKinematic = false;
-        tool.GetComponent<CapsuleCollider>().enabled = true;
-
-   
-
+        tool.GetComponent<MeshCollider>().enabled = true;
 
         equipped = false;
         slotIsfull= false;
@@ -49,12 +47,9 @@ public class EquipTool : MonoBehaviour
         tool.transform.position = toolParent.transform.position;
         tool.transform.rotation = toolParent.transform.rotation;
 
-        tool.GetComponent<CapsuleCollider>().enabled = false;
+        tool.GetComponent<MeshCollider>().enabled = false;
 
         tool.transform.SetParent(toolParent);
-
-
-       
 
         equipped = true;
         slotIsfull = true;
