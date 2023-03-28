@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GuestSpawner : MonoBehaviour
 {
-    [SerializeField] private Guest guest;
+    [SerializeField] private List<Guest> guests;
     private GameObject spawnedGuest;
     private float guestSpawnTimer;
-    private List<Vector3> spawnPositions = new List<Vector3>();
+    private List<Vector3> spawnPositions = new();
     
     void Start()
     {
@@ -22,29 +22,34 @@ public class GuestSpawner : MonoBehaviour
 
     private void AddSpawners()
     {
-        spawnPositions.Add(FindObjectOfType<GuestSpawnPos>().transform.position);
+        foreach (GuestSpawnPos spawner in FindObjectsOfType<GuestSpawnPos>())
+        {
+            spawnPositions.Add(spawner.transform.position);
+        }
     }
     
     public void SpawnNewGuest()
     {
-        // Vector3 spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Count)];
-        Guest spawnedGuest = Instantiate(guest, spawnPositions[Random.Range(0, spawnPositions.Count)], transform.rotation);
-        SetupGuest(spawnedGuest);
+        int guestRandomizerResult = GuestRandomizer();
+
+        Guest spawnedGuest = Instantiate(guests[guestRandomizerResult], spawnPositions[Random.Range(0, spawnPositions.Count)], transform.rotation);
+
+        SetupGuest(spawnedGuest, guestRandomizerResult);
     }
 
-    private void SetupGuest(Guest spawnedGuest)
+    private void SetupGuest(IGuest spawnedGuest, int RandomizerResult)
     {
-        spawnedGuest.OnSpawn(GuestRandomizer());
+        spawnedGuest.OnSpawn();
     }
 
     private int GuestRandomizer()
     {
         int randomizer = Random.Range(0, 99);
         if (randomizer is >= 0 and <= 49)
-            return 1;
+            return 0;
         if (randomizer is >= 50 and <= 94)
-            return 2;
-        return 3;
+            return 1;
+        return 2;
     }
 }
 

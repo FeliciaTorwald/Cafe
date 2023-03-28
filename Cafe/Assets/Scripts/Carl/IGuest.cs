@@ -11,7 +11,7 @@ public interface IGuest
         TypeC
     }
     
-    void OnSpawn(int guestType);
+    void OnSpawn();
     void OnOrder();
     void OnOrderFulfilled();
     void OnFinished();
