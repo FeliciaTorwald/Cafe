@@ -5,6 +5,7 @@ using UnityEngine;
 public class Guest : MonoBehaviour, IGuest
 {
     [SerializeField] private List<Mesh> guestModel;
+    [SerializeField] private List<Material> guestMaterial;
 
     public enum GuestType
     {
@@ -25,9 +26,9 @@ public class Guest : MonoBehaviour, IGuest
         
     }
 
-    public void OnSpawn(int guestType)
+    public void OnSpawn(int guestID)
     {
-        switch (guestType)
+        switch (guestID)
         {
             case 1:
                 this.guestType = GuestType.TypeA;
@@ -40,21 +41,24 @@ public class Guest : MonoBehaviour, IGuest
                 break;
         }
         
-        ChangeModel(guestType);
+        ChangeModel(guestID);
     }
 
-    private void ChangeModel(int guestType)
+    private void ChangeModel(int guestID)
     {
-        switch (guestType)
+        switch (guestID)
         {
             case 1:
-                gameObject.GetComponent<MeshFilter>().mesh = guestModel[0];
+                gameObject.GetComponent<MeshRenderer>().material = guestMaterial[0];
+                // gameObject.GetComponent<MeshFilter>().mesh = guestModel[0];
                 break;
             case 2:
-                gameObject.GetComponent<MeshFilter>().mesh = guestModel[1];
+                gameObject.GetComponent<MeshRenderer>().material = guestMaterial[1];
+                // gameObject.GetComponent<MeshFilter>().mesh = guestModel[1];
                 break;
             case 3:
-                gameObject.GetComponent<MeshFilter>().mesh = guestModel[2];
+                gameObject.GetComponent<MeshRenderer>().material = guestMaterial[2];
+                // gameObject.GetComponent<MeshFilter>().mesh = guestModel[2];
                 break;
         }
     }

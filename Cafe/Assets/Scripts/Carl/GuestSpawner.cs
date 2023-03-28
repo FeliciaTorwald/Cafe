@@ -12,6 +12,7 @@ public class GuestSpawner : MonoBehaviour
     void Start()
     {
         AddSpawners();
+        SpawnNewGuest();
     }
     
     void Update()
@@ -38,10 +39,10 @@ public class GuestSpawner : MonoBehaviour
 
     private int GuestRandomizer()
     {
-        var randomizer = Random.Range(0, 99);
-        if (randomizer <= 0 && randomizer >= 49)
+        int randomizer = Random.Range(0, 99);
+        if (randomizer is >= 0 and <= 49)
             return 1;
-        if (randomizer <= 50 && randomizer >= 94)
+        if (randomizer is >= 50 and <= 94)
             return 2;
         return 3;
     }
