@@ -7,20 +7,13 @@ public class PlayerMovement : MonoBehaviour
     //Movement
     public float moveSpeed = 5;
     public float groundDrag;
-    bool readyToJump;
-    public KeyCode jumpKey = KeyCode.Space;
-
-    //Ground check
-    public float playerHeight;
-    public LayerMask whatIsGround;
-    bool grounded;
-
-
     public Transform orientation;
     float horizontalInput;
     float verticalInput;
     Vector3 moveDirection;
     Rigidbody rb;
+
+    GameObject newpos;
 
     void Start()
     {
@@ -34,20 +27,38 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MyInput();
-        speedControl();       
-    }
+        speedControl(); 
 
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+
+            
+        }      
+    }
     private void FixedUpdate() 
     {
         MovePlayer();
     }
-
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
     }
-
     private void MovePlayer()
     {
         //calculate movement direction

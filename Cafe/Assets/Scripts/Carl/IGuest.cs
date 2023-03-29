@@ -16,4 +16,5 @@ public interface IGuest
     void OnOrderFulfilled();
     void OnFinished();
     void OnLeaving();
+    Guest GetGameObject();
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3808121291133999767}
   - component: {fileID: 3229608191006498562}
   - component: {fileID: -8675251801881133073}
+  - component: {fileID: 1402628450446193513}
   m_Layer: 0
   m_Name: GuestB
   m_TagString: Untagged
@@ -124,4 +125,27 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 4b189ad99adfde447966238982b292db, type: 2}
   - {fileID: 2100000, guid: 0c7817bc322fc1d4aa372e0a58cad26f, type: 2}
   - {fileID: 2100000, guid: 5b046597be8f5f34c8a3327641bf6df2, type: 2}
+  door: {fileID: 0}
   guestType: 0
+--- !u!195 &1402628450446193513
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801400200221963687}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.9999999
+  m_BaseOffset: 0.99999994
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
