@@ -9,6 +9,7 @@ public class BobaSpawner : MonoBehaviour
     public float bobaInterval = 3.5f;
     public int amountToPool;
     public List<GameObject> pooledObjects;
+   
     
 
   
@@ -40,13 +41,13 @@ public class BobaSpawner : MonoBehaviour
 
             if (!pooledObjects[i].activeSelf)
             {
-                pooledObjects[i].transform.position = new Vector3(Random.Range(-10f, 11),5, Random.Range(-10f, 11));
+                pooledObjects[i].transform.position = new Vector3(Random.Range(-3f, 1),8, Random.Range(-3f, 8));
                 pooledObjects[i].SetActive(true);
                 return;
 
             }
         }
-        GameObject newPoint = Instantiate(preFab, new Vector3(Random.Range(-10f, 11),5, Random.Range(-10f, 11)), Quaternion.identity);
+        GameObject newPoint = Instantiate(preFab, new Vector3(Random.Range(-3f, 1),8, Random.Range(-3f, 8)), Quaternion.identity);
         pooledObjects.Add(newPoint);
     }
     private void DisableObjects()

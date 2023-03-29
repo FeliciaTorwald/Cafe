@@ -8,7 +8,7 @@ public class EquipTool : MonoBehaviour
     public GameObject tool;
     public Transform toolParent;
     public bool equipped;
-    public static bool slotIsfull;
+    public bool slotIsfull;
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
