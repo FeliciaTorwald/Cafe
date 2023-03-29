@@ -15,7 +15,7 @@ public class EquipTool : MonoBehaviour
 
         
     }
-    //använd mesh collider för att detta scriptet ska fungera,sätt på convex och sen en boxcollider som är trigger
+    //anvï¿½nd mesh collider fï¿½r att detta scriptet ska fungera,sï¿½tt pï¿½ convex och sen en boxcollider som ï¿½r trigger
 
     // Update is called once per frame
     void Update()
@@ -59,12 +59,10 @@ public class EquipTool : MonoBehaviour
     {
         if(!equipped && !slotIsfull && other.gameObject.tag == "Player")
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKey(KeyCode.E))
             {
-                Equip();
+                Equip();  
             }
         }
-
-        
     }
 }
