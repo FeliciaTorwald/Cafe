@@ -5,19 +5,31 @@ using UnityEngine;
 public class GuestSpawner : MonoBehaviour
 {
     [SerializeField] private List<Guest> guests;
+    [SerializeField] private GameManager gameManager;
     private GameObject spawnedGuest;
     private float guestSpawnTimer;
     private List<Vector3> spawnPositions = new();
+    private List<Door> doors = new();
     
     void Start()
     {
-        AddSpawners();
-        SpawnNewGuest();
+        StartCoroutine(StartUpFunction());
     }
-    
+
+
     void Update()
     {
         
+    }
+
+    IEnumerator StartUpFunction()
+    {
+        yield return new WaitForSeconds(.1f);
+        AddSpawners();
+        yield return new WaitForSeconds(.1f);
+        AddDoors();
+        yield return new WaitForSeconds(.1f);
+        SpawnNewGuest();
     }
 
     private void AddSpawners()
@@ -25,6 +37,14 @@ public class GuestSpawner : MonoBehaviour
         foreach (GuestSpawnPos spawner in FindObjectsOfType<GuestSpawnPos>())
         {
             spawnPositions.Add(spawner.transform.position);
+        }
+    }
+    
+    private void AddDoors()
+    {
+        foreach (Door foundDoor in FindObjectsOfType<Door>())
+        {
+            doors.Add(foundDoor);
         }
     }
     
@@ -39,6 +59,7 @@ public class GuestSpawner : MonoBehaviour
 
     private void SetupGuest(IGuest spawnedGuest, int RandomizerResult)
     {
+        spawnedGuest.GetGameObject().door = doors[doors.Count-1];
         spawnedGuest.OnSpawn();
     }
 
