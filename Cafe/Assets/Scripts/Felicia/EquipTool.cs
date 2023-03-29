@@ -12,8 +12,6 @@ public class EquipTool : MonoBehaviour
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
-
-        
     }
     //anv�nd mesh collider f�r att detta scriptet ska fungera,s�tt p� convex och sen en boxcollider som �r trigger
 
