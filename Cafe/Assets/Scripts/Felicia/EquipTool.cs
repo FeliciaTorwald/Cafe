@@ -8,12 +8,12 @@ public class EquipTool : MonoBehaviour
     public GameObject tool;
     public Transform toolParent;
     public bool equipped;
-    public bool slotIsfull;
+    public static bool slotIsfull;
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
     }
-    //anv�nd mesh collider f�r att detta scriptet ska fungera,s�tt p� convex och sen en boxcollider som �r trigger
+    //use meshcollider,turn on convex then add boxcollider as trigger
 
     // Update is called once per frame
     void Update()
