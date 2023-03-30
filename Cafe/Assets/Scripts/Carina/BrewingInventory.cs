@@ -2,18 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class BrewingInventory : MonoBehaviour
 {
     public bool hasBoba;
+    public bool hasWater;
     public bool canMakeBoba = true;
+    public float gameTime;
 
-    private int boba = 0;
+    private bool stopTimer;
+
+    [SerializeField] private int boba = 0;
+    [SerializeField] private int water = 0;
 
     [SerializeField] GameObject finishedTea;
     [SerializeField] GameObject spawnTeaPos;
     [SerializeField] TextMeshProUGUI addItemText;
+    [SerializeField] Slider timerSlider;
+    [SerializeField] TextMeshProUGUI timerText;
 
+
+    private void Start()
+    {
+        stopTimer = false;
+        timerSlider.maxValue = gameTime;
+        //timerSlider.value
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -21,14 +36,18 @@ public class BrewingInventory : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                addItemText.gameObject.SetActive(true);
                 boba++;
                 hasBoba = false;
-                Invoke("HideInteractText", 0.5f);
             }
         }
 
-        if (boba >= 2 && canMakeBoba)
+        if (collision.gameObject.CompareTag("Player") && hasWater)
+        {
+            water++;
+            hasWater = false;
+        }
+
+        if (boba >= 2 && canMakeBoba && water >= 1)
         {
             BobaTea();
             canMakeBoba = false;
@@ -39,18 +58,6 @@ public class BrewingInventory : MonoBehaviour
     {
         Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity);
         boba = 0;
-    }
-
-    private void HideInteractText()
-    {
-        addItemText.gameObject.SetActive(false);
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            addItemText.gameObject.SetActive(false);
-        }
+        water = 0;
     }
 }
