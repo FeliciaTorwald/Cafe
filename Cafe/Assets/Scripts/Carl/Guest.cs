@@ -38,6 +38,7 @@ public class Guest : MonoBehaviour
         stateMachine = new GuestStatemachine(this);
         stateMachine.RegisterState(new GuestArrivedState());
         stateMachine.RegisterState(new GuestAtDoorState());
+        stateMachine.RegisterState(new GuestAtTableState());
         stateMachine.SetInitialState(initialState);
     }
     

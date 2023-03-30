@@ -1,9 +1,12 @@
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GuestAtTableState : GuestState
 {
+    public bool served;
+    
     public GuestStateID GetID()
     {
         return GuestStateID.AtTable;
@@ -13,6 +16,12 @@ public class GuestAtTableState : GuestState
     {
         Debug.Log("Switched to At table state");
         ShowOrder(guest);
+        Order();
+    }
+
+    private void Order()
+    {
+        
     }
 
 
@@ -30,4 +39,5 @@ public class GuestAtTableState : GuestState
     {
         guest.orderText.SetText("Tea 1");
     }
+    
 }

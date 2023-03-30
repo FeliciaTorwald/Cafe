@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuestC
       objectReference: {fileID: 0}
+    - target: {fileID: 3808121291133999767, guid: 8b8185f6fbcbf9d48a9b5c6a67670df4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b046597be8f5f34c8a3327641bf6df2, type: 2}
     - target: {fileID: 9035230381816799333, guid: 8b8185f6fbcbf9d48a9b5c6a67670df4, type: 3}
       propertyPath: m_RootOrder
       value: 0

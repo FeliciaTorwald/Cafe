@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GuestAtDoorState : GuestState
 {
-    
+    private bool moving;
     
     public GuestStateID GetID()
     {
@@ -26,8 +27,17 @@ public class GuestAtDoorState : GuestState
         }
         else
         {
-            guest.waitToBeSeatedTimer = guest.waitToBeSeatedTimer - 1f * Time.deltaTime;
+            guest.waitToBeSeatedTimer -= 1f * Time.deltaTime;
             Debug.Log(guest.waitToBeSeatedTimer);
+        }
+
+        if (moving)
+        {
+            if (guest.navMeshAgent.remainingDistance < 0.1f)
+            {
+                guest.navMeshAgent.ResetPath();
+                guest.stateMachine.ChangeState(GuestStateID.AtTable);
+            }
         }
     }
 
@@ -48,20 +58,8 @@ public class GuestAtDoorState : GuestState
     {
         Debug.Log("Moving to table");
         guest.navMeshAgent.destination = target.position;
+        if (guest.navMeshAgent.remainingDistance > 1)
+            moving = true;
     }
-    
-    private void CheckIfAtSeat(Guest guest)
-    {
-        if (!guest.navMeshAgent.pathPending)
-        {
-            if (guest.navMeshAgent.remainingDistance <= guest.navMeshAgent.stoppingDistance)
-            {
-                if (!guest.navMeshAgent.hasPath || guest.navMeshAgent.velocity.sqrMagnitude == 0f)
-                {
-                    guest.stateMachine.ChangeState(GuestStateID.AtTable);
-                }
-            }
-        }
-    }
-    
+   
 }
