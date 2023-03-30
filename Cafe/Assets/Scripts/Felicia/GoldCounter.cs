@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class GoldCounter : MonoBehaviour
 {
-    public TextMeshProUGUI bobaCounterText;
+    public TextMeshProUGUI goldCounterText;
     public int amountOfGold;
 
 
 
-    public void AddBoba(int points)//int adds to boba counter
+    public void AddGold(int points)//int adds to gold counter
     {
         amountOfGold += points;
-        bobaCounterText.text = string.Format("boba " + "{0:0}", amountOfGold);
+        goldCounterText.text = string.Format("gold " + "{0:0}", amountOfGold);
 
     }
 }
