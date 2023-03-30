@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guests:
   - {fileID: -8675251801881133073, guid: 8b8185f6fbcbf9d48a9b5c6a67670df4, type: 3}
-  - {fileID: -8675251801881133073, guid: 9c65ba2b8f6f5e749ac382cf04854f5c, type: 3}
-  - {fileID: -8675251801881133073, guid: e15470400a263e24eaf923caa8f97344, type: 3}
+  - {fileID: 7494166227890089403, guid: ecc9ac04e862628499fd2654d91e82a9, type: 3}
+  - {fileID: 3398732857719304374, guid: 465cf4de0285bb94da19c81a06a9f7b2, type: 3}
+  gameManager: {fileID: 0}

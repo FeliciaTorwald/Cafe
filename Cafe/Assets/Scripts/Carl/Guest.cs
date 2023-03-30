@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Guest : MonoBehaviour, IGuest
 {
     [SerializeField] private List<Material> guestMaterial;
+    [SerializeField] private Canvas guestCanvas;
+    [SerializeField] private TMP_Text orderText;
+    private Camera camera;
     public Door door;
     private NavMeshAgent navMeshAgent;
-    public bool holding = false;
+    public bool holding;
+    public GameManager gameManager;
+    private float waitToBeSeatedTimer = 2f;
     
     public enum GuestType
     {
@@ -36,12 +44,41 @@ public class Guest : MonoBehaviour, IGuest
     {
         numberOfStates = System.Enum.GetValues(typeof(GuestStatus)).Length;
         guestStatus = GuestStatus.Arrived;
+        camera = Camera.main;
+        guestCanvas.worldCamera = camera;
     }
     
     void Update()
     {
-        
         CheckIfMoving();
+        if (guestStatus == GuestStatus.AtDoor && holding)
+        {
+            if (waitToBeSeatedTimer <= 0f)
+                LookForFreeSeat();
+            else
+            {
+                waitToBeSeatedTimer -= 1f * Time.deltaTime;
+            }
+        }
+
+        if (guestStatus == GuestStatus.AtTable && holding)
+        {
+            orderText.SetText("Tea 1");
+        }
+
+        guestCanvas.transform.forward = camera.transform.forward;
+
+        // guestCanvas.transform.LookAt(transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+    }
+
+    private void LookForFreeSeat()
+    {
+        if (gameManager.freeSeats > 0)
+        {
+            
+            MoveTo(gameManager.AssignSeat().transform);
+            holding = false;
+        }
     }
 
     private void CheckIfMoving()
@@ -61,25 +98,24 @@ public class Guest : MonoBehaviour, IGuest
             }
         }
     }
-
-    private void MoveToNextState()
-    {
-        guestStatus++;
-    }
-
+    
     public void OnSpawn()
     {
-        MoveTo(door);
+        MoveTo(door.transform);
     }
 
-    public void OnWaiting()
+    public void OnAtDoor()
+    {
+        
+    }
+    
+    public void OnAtTable()
     {
         
     }
     
     public void OnOrder()
     {
-        
         
     }
 
@@ -98,14 +134,23 @@ public class Guest : MonoBehaviour, IGuest
         
     }
 
-    private void MoveTo(Door target)
+    private void MoveTo(Transform target)
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        navMeshAgent.destination = target.transform.position;
+        navMeshAgent.destination = target.position;
     }
-
-    public Guest GetGameObject()
+    
+    private void MoveToNextState()
+    {
+        guestStatus++;
+        if (guestStatus == GuestStatus.AtDoor)
+            door.queue.Add(this);
+    }
+    
+    public Guest GetGuestObject()
     {
         return this;
     }
+    
+    
 }

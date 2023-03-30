@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GuestSpawner guestSpawner;
     public List<ISeat> seatsInScene = new();
-    public int freeSeats;
+    public int freeSeats = 0;
     
     void Start()
     {
@@ -18,8 +18,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    // public ISeat FindFreeSeat()
-    // {
-    //     
-    // }
+    public Chair AssignSeat()
+    {
+        freeSeats--;
+        return seatsInScene[Random.Range(0, seatsInScene.Count-1)].GetGameObject();
+    }
 }

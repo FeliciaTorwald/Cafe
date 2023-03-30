@@ -21,6 +21,10 @@ public class Chair : MonoBehaviour, ISeat
         gameManager = FindObjectOfType<GameManager>();
         gameManager.seatsInScene.Add(this);
         gameManager.freeSeats++;
-
+    }
+    
+    public Chair GetGameObject()
+    {
+        return this;
     }
 }

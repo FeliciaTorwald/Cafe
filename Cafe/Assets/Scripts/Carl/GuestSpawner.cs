@@ -16,7 +16,6 @@ public class GuestSpawner : MonoBehaviour
         StartCoroutine(StartUpFunction());
     }
 
-
     void Update()
     {
         
@@ -59,7 +58,8 @@ public class GuestSpawner : MonoBehaviour
 
     private void SetupGuest(IGuest spawnedGuest, int RandomizerResult)
     {
-        spawnedGuest.GetGameObject().door = doors[doors.Count-1];
+        spawnedGuest.GetGuestObject().door = doors[doors.Count-1];
+        spawnedGuest.GetGuestObject().gameManager = gameManager;
         spawnedGuest.OnSpawn();
     }
 
