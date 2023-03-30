@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class BobaPoints : MonoBehaviour
 {
+
+    BrewingInventory brewingPot;
+
+    private void Start()
+    {
+        brewingPot = FindFirstObjectByType<BrewingInventory>().GetComponent<BrewingInventory>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Net")
@@ -12,6 +20,7 @@ public class BobaPoints : MonoBehaviour
            
            FindObjectOfType<BobaCounter>().AddBoba(1);
 
+            brewingPot.hasBoba = true;
         }
 
     }
