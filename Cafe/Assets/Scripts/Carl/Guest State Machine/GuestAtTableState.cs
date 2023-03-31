@@ -21,13 +21,14 @@ public class GuestAtTableState : GuestState
 
     private void Order()
     {
-        
+        //TODO: Implement functionality for when the guest orders
     }
 
 
     public void Update(Guest guest)
     {
         guest.guestCanvas.transform.forward = guest.camera.transform.forward;
+        //Rotate the ordering canvas to always angle towards the camera
     }
 
     public void Exit(Guest guest)
@@ -38,6 +39,8 @@ public class GuestAtTableState : GuestState
     private void ShowOrder(Guest guest)
     {
         guest.orderText.SetText("Tea 1");
+        //Display what the guest has ordered.
     }
+    
     
 }
