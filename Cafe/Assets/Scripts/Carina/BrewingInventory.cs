@@ -20,7 +20,6 @@ public class BrewingInventory : MonoBehaviour
     [SerializeField] GameObject spawnTeaPos;
     [SerializeField] TextMeshProUGUI addItemText;
     [SerializeField] Slider timerSlider;
-    [SerializeField] TextMeshProUGUI timerText;
 
 
     // On collision, will check if player has boba, and if they do, add boba to count
@@ -67,19 +66,12 @@ public class BrewingInventory : MonoBehaviour
         BobaTea();
     }
 
-    private void FormatTime()
-    {
-        int minutes = Mathf.FloorToInt(timer / 60);
-        int seconds = Mathf.FloorToInt(timer - minutes * 60f);
-
-        string timeText = string.Format("{0:0}:{1:0}", minutes, seconds);
-    }
-
     // Spawns finished tea at a spawnpoint set to pot position
     private void BobaTea()
     {
         Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity);
         boba = 0;
         water = 0;
+        timerSlider.value = 0;
     }
 }
