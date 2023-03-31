@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
-public class Guest : MonoBehaviour, IGuest
+public class Guest : MonoBehaviour
 {
-    [SerializeField] private List<Material> guestMaterial;
+    public GuestStatemachine stateMachine;
+    public GuestStateID initialState;
+    public GuestConfig guestConfig;
+    
+    public Canvas guestCanvas;
+    public TMP_Text orderText;
+    
+    public Camera camera;
     public Door door;
-    private NavMeshAgent navMeshAgent;
-    public bool holding = false;
+    public NavMeshAgent navMeshAgent;
+    public float waitToBeSeatedTimer = 2f;
     
     public enum GuestType
     {
@@ -17,95 +27,24 @@ public class Guest : MonoBehaviour, IGuest
         TypeC
     }
 
-    public enum GuestStatus
-    {
-        Arrived,
-        AtDoor,
-        AtTable,
-        Ordered,
-        Served,
-        Leaving
-    }
-
-    public GuestStatus guestStatus;
     public GuestType guestType;
 
-    private int numberOfStates;
-    
     void Start()
     {
-        numberOfStates = System.Enum.GetValues(typeof(GuestStatus)).Length;
-        guestStatus = GuestStatus.Arrived;
+        
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        camera = Camera.main;
+        guestCanvas.worldCamera = camera;
+        stateMachine = new GuestStatemachine(this);
+        stateMachine.RegisterState(new GuestArrivedState());
+        stateMachine.RegisterState(new GuestAtDoorState());
+        stateMachine.RegisterState(new GuestAtTableState());
+        stateMachine.SetInitialState(initialState);
     }
     
     void Update()
     {
-        
-        CheckIfMoving();
-    }
-
-    private void CheckIfMoving()
-    {
-        if (!holding)
-        {
-            if (!navMeshAgent.pathPending)
-            {
-                if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-                {
-                    if (!navMeshAgent.hasPath || navMeshAgent.velocity.sqrMagnitude == 0f)
-                    {
-                        MoveToNextState();
-                        holding = true;
-                    }
-                }
-            }
-        }
-    }
-
-    private void MoveToNextState()
-    {
-        guestStatus++;
-    }
-
-    public void OnSpawn()
-    {
-        MoveTo(door);
-    }
-
-    public void OnWaiting()
-    {
-        
+        stateMachine.Update();
     }
     
-    public void OnOrder()
-    {
-        
-        
-    }
-
-    public void OnOrderFulfilled()
-    {
-        
-    }
-
-    public void OnFinished()
-    {
-        
-    }
-
-    public void OnLeaving()
-    {
-        
-    }
-
-    private void MoveTo(Door target)
-    {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        navMeshAgent.destination = target.transform.position;
-    }
-
-    public Guest GetGameObject()
-    {
-        return this;
-    }
 }

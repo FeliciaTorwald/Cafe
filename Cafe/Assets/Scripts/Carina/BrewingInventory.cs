@@ -2,55 +2,76 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class BrewingInventory : MonoBehaviour
 {
     public bool hasBoba;
+    public bool hasWater;
     public bool canMakeBoba = true;
+    public float gameTime = 10f;
 
-    private int boba = 0;
+    private float timer = 0f;
+
+    [SerializeField] private int boba = 0;
+    [SerializeField] private int water = 0;
 
     [SerializeField] GameObject finishedTea;
     [SerializeField] GameObject spawnTeaPos;
     [SerializeField] TextMeshProUGUI addItemText;
+    [SerializeField] Slider timerSlider;
 
 
+    // On collision, will check if player has boba, and if they do, add boba to count
     private void OnCollisionEnter(Collision collision)
     {
         if (hasBoba)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                addItemText.gameObject.SetActive(true);
                 boba++;
                 hasBoba = false;
-                Invoke("HideInteractText", 0.5f);
             }
         }
 
-        if (boba >= 2 && canMakeBoba)
+        // If player has water it will add water to it
+        if (collision.gameObject.CompareTag("Player") && hasWater)
         {
-            BobaTea();
+            water++;
+            hasWater = false;
+        }
+
+        // If amount of boba is equal or more than 2, and have water it will start the timer that will make boba tea
+        if (boba >= 2 && canMakeBoba && water >= 1)
+        {
+            StartCoroutine(Timer());
             canMakeBoba = false;
         }
     }
 
+    // When called will wait 10sec before calling function Bobatea, while filling the slider to show progress remaining
+    private IEnumerator Timer()
+    {
+        timer = gameTime;
+
+        do
+        {
+            timer -= Time.deltaTime;
+            timerSlider.value = 1- timer / gameTime;
+
+            yield return null;
+
+        } while (timer > 0);
+
+        BobaTea();
+    }
+
+    // Spawns finished tea at a spawnpoint set to pot position
     private void BobaTea()
     {
         Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity);
         boba = 0;
-    }
-
-    private void HideInteractText()
-    {
-        addItemText.gameObject.SetActive(false);
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            addItemText.gameObject.SetActive(false);
-        }
+        water = 0;
+        timerSlider.value = 0;
     }
 }

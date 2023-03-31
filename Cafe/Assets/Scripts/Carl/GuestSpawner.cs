@@ -5,7 +5,6 @@ using UnityEngine;
 public class GuestSpawner : MonoBehaviour
 {
     [SerializeField] private List<Guest> guests;
-    [SerializeField] private GameManager gameManager;
     private GameObject spawnedGuest;
     private float guestSpawnTimer;
     private List<Vector3> spawnPositions = new();
@@ -15,7 +14,6 @@ public class GuestSpawner : MonoBehaviour
     {
         StartCoroutine(StartUpFunction());
     }
-
 
     void Update()
     {
@@ -51,16 +49,13 @@ public class GuestSpawner : MonoBehaviour
     public void SpawnNewGuest()
     {
         int guestRandomizerResult = GuestRandomizer();
-
-        Guest spawnedGuest = Instantiate(guests[guestRandomizerResult], spawnPositions[Random.Range(0, spawnPositions.Count)], transform.rotation);
-
-        SetupGuest(spawnedGuest, guestRandomizerResult);
+        SetupGuest(guestRandomizerResult);
     }
 
-    private void SetupGuest(IGuest spawnedGuest, int RandomizerResult)
+    private void SetupGuest(int RandomizerResult)
     {
-        spawnedGuest.GetGameObject().door = doors[doors.Count-1];
-        spawnedGuest.OnSpawn();
+        Guest spawnedGuest = Instantiate(guests[RandomizerResult], spawnPositions[Random.Range(0, spawnPositions.Count)], transform.rotation);
+        spawnedGuest.door = doors[doors.Count-1];
     }
 
     private int GuestRandomizer()

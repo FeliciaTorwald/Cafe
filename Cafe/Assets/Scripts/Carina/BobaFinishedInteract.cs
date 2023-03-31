@@ -11,12 +11,20 @@ public class BobaFinishedInteract : MonoBehaviour
         pot = FindFirstObjectByType<BrewingInventory>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            pot.GetComponent<BrewingInventory>().canMakeBoba = true;
-            Destroy(gameObject);
+            if (Input.GetKey(KeyCode.E))
+            {
+                pot.GetComponent<BrewingInventory>().canMakeBoba = true;
+                Invoke("RemoveTea", 1f);
+            }
         }
+    }
+
+    private void RemoveTea()
+    {
+        Destroy(gameObject);
     }
 }

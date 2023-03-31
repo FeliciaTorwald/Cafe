@@ -12,9 +12,11 @@ public interface IGuest
     }
     
     void OnSpawn();
+    void OnAtDoor();
+    void OnAtTable();
     void OnOrder();
     void OnOrderFulfilled();
     void OnFinished();
     void OnLeaving();
-    Guest GetGameObject();
+    Guest GetGuestObject();
 }
