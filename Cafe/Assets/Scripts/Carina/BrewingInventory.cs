@@ -9,9 +9,9 @@ public class BrewingInventory : MonoBehaviour
     public bool hasBoba;
     public bool hasWater;
     public bool canMakeBoba = true;
-    public float gameTime;
+    public float gameTime = 10f;
 
-    private bool stopTimer;
+    private float timer = 0f;
 
     [SerializeField] private int boba = 0;
     [SerializeField] private int water = 0;
@@ -23,13 +23,7 @@ public class BrewingInventory : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
 
 
-    private void Start()
-    {
-        stopTimer = false;
-        timerSlider.maxValue = gameTime;
-        //timerSlider.value
-    }
-
+    // On collision, will check if player has boba, and if they do, add boba to count
     private void OnCollisionEnter(Collision collision)
     {
         if (hasBoba)
@@ -41,19 +35,47 @@ public class BrewingInventory : MonoBehaviour
             }
         }
 
+        // If player has water it will add water to it
         if (collision.gameObject.CompareTag("Player") && hasWater)
         {
             water++;
             hasWater = false;
         }
 
+        // If amount of boba is equal or more than 2, and have water it will start the timer that will make boba tea
         if (boba >= 2 && canMakeBoba && water >= 1)
         {
-            BobaTea();
+            StartCoroutine(Timer());
             canMakeBoba = false;
         }
     }
 
+    // When called will wait 10sec before calling function Bobatea, while filling the slider to show progress remaining
+    private IEnumerator Timer()
+    {
+        timer = gameTime;
+
+        do
+        {
+            timer -= Time.deltaTime;
+            timerSlider.value = 1- timer / gameTime;
+
+            yield return null;
+
+        } while (timer > 0);
+
+        BobaTea();
+    }
+
+    private void FormatTime()
+    {
+        int minutes = Mathf.FloorToInt(timer / 60);
+        int seconds = Mathf.FloorToInt(timer - minutes * 60f);
+
+        string timeText = string.Format("{0:0}:{1:0}", minutes, seconds);
+    }
+
+    // Spawns finished tea at a spawnpoint set to pot position
     private void BobaTea()
     {
         Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity);
