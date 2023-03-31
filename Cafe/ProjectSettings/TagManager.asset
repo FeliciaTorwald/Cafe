@@ -8,6 +8,7 @@ TagManager:
   - Pond
   - Mop
   - TeaPot
+  - Brush
   layers:
   - Default
   - TransparentFX
