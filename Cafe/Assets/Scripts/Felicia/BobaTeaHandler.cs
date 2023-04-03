@@ -16,10 +16,7 @@ public class BobaTeaHandler : MonoBehaviour
         //Invoke("DrinkingTea",timeConsumedTea);
         Destroy(tea);
     }
-    private void DrinkingTea()
-    {
-        FinishedTea();
-    }
+  
     private void FinishedTea()
     {
         Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
