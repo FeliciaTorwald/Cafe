@@ -10,18 +10,19 @@ public class Door : MonoBehaviour
 {
     public Transform doorEnterSpot;
     public Transform doorExitSpot;
+    public Transform openPosRef;
     public GameObject doorModel;
     public List<Guest> queue;
     private Vector3 closedPos;
     private Vector3 openPos;
-    private float timer = 1.5f;
+    private float timer = 3f;
     public bool open;
     public bool closed = true;
 
     private void Start()
     {
         closedPos = doorModel.transform.position;
-        openPos = closedPos + new Vector3(4, 0, 0);
+        openPos = openPosRef.position;
     }
 
     public Transform GetTransform()
@@ -46,7 +47,7 @@ public class Door : MonoBehaviour
             if (timer <= 0f)
             {
                 CloseDoor();
-                timer = 1.5f;
+                timer = 3f;
             }
             else
                 timer -= 1f * Time.deltaTime;

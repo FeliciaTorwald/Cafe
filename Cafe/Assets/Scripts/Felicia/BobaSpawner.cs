@@ -9,14 +9,15 @@ public class BobaSpawner : MonoBehaviour
     public float bobaInterval = 3.5f;
     public int amountToPool;
     public List<GameObject> pooledObjects;
-   
+    public Transform playerPosRef;
+    private Vector3 spawnPointRef;
     
-
-  
     private void Start()
     {
         StartCoroutine(spawnPoints(bobaInterval, preFab));
         pooledObjects = new List<GameObject>();
+
+        spawnPointRef = playerPosRef.position;
     }
 
     private IEnumerator spawnPoints(float interval, GameObject point)
@@ -41,13 +42,13 @@ public class BobaSpawner : MonoBehaviour
 
             if (!pooledObjects[i].activeSelf)
             {
-                pooledObjects[i].transform.position = new Vector3(Random.Range(-3f, 1),8, Random.Range(-3f, 8));
+                pooledObjects[i].transform.position = new Vector3(spawnPointRef.x+Random.Range(-3f, 1),spawnPointRef.y+8, spawnPointRef.z+Random.Range(-3f, 8));
                 pooledObjects[i].SetActive(true);
                 return;
 
             }
         }
-        GameObject newPoint = Instantiate(preFab, new Vector3(Random.Range(-3f, 1),8, Random.Range(-3f, 8)), Quaternion.identity);
+        GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x+Random.Range(-3f, 1),spawnPointRef.y+8, spawnPointRef.z+Random.Range(-3f, 8)), Quaternion.identity);
         pooledObjects.Add(newPoint);
     }
     private void DisableObjects()
