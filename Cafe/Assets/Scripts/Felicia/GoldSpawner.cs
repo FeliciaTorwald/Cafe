@@ -7,23 +7,27 @@ public class GoldSpawner : MonoBehaviour
 {
     public GameObject preFabGold;
     public bool onOrderFulfilled = true;
-  
+     GameObject coin; 
+
 
     //TO DO turn off toolscript on the tea so you cant get unlimited money glitch
     private void Spawn()
     {
-       if(onOrderFulfilled)
+        if (onOrderFulfilled)
         {
-        Instantiate(preFabGold, transform.position, Quaternion.identity);
+            GameObject coin = Instantiate(preFabGold, transform.position, Quaternion.identity);
         }
+
     }
 
-  
-
-    
-private void OnTriggerExit(Collider other)
+    public void Destroy()
     {
-        Debug.Log("coilldingGold");
+        Destroy(coin);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.tag == ("Boba"))
         {
             Spawn();

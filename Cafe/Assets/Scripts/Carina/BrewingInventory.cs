@@ -21,6 +21,8 @@ public class BrewingInventory : MonoBehaviour
     [SerializeField] TextMeshProUGUI addItemText;
     [SerializeField] Slider timerSlider;
 
+    GameObject teaToHold;
+
 
     // On collision, will check if player has boba, and if they do, add boba to count
     private void OnCollisionEnter(Collision collision)
@@ -69,12 +71,19 @@ public class BrewingInventory : MonoBehaviour
     // Spawns finished tea at a spawnpoint set to pot position
     public void BobaTea()
     {
-        GameObject teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
+        if (teaToHold == null)
+            teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
         boba = 0;
         water = 0;
-        if (Input.GetKey(KeyCode.F))
+    }
+
+    public void RemoveBobaTea()
+    {
+        if (teaToHold != null)
         {
-            Destroy(teaToHold, 1.0f);
+            Destroy(teaToHold,0.5f);
         }
     }
+
+
 }

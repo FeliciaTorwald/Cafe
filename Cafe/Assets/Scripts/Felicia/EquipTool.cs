@@ -9,7 +9,6 @@ public class EquipTool : MonoBehaviour
     public Transform toolParent;
     public bool equipped;
     public static bool slotIsfull;
-    public bool haveBobaTea;
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
@@ -62,6 +61,11 @@ public class EquipTool : MonoBehaviour
             slotIsfull = false;
             equipped = false;
         }
+        if (toolParent == null)
+        {
+            slotIsfull = false;
+            equipped = false;
+        }
 
         if(!equipped && !slotIsfull && other.gameObject.tag == "Player")
         {
@@ -72,19 +76,4 @@ public class EquipTool : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.tag == "Boba")
-    //    {
-    //        haveBobaTea= true;
-    //    }
-
-    //}
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if(haveBobaTea = true && other.gameObject.tag == "Table")
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
 }

@@ -6,15 +6,17 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class BobaTeaHandler : MonoBehaviour
 {
     //add this script to tables
-    public GameObject fullBobaTea;
+    public GameObject fakefullBobaTea;
     public GameObject emptyBobaTea;
     public int timeConsumedTea = 1;
 
+    bool inTriggerArea;
+
     private void ServedTea()
     {
-        GameObject tea = Instantiate(fullBobaTea, transform.position, Quaternion.identity) as GameObject;
+        GameObject tea = Instantiate(fakefullBobaTea, transform.position, Quaternion.identity) as GameObject;
         //Invoke("DrinkingTea",timeConsumedTea);
-        Destroy(tea);
+        Destroy(tea,2f);
     }
   
     private void FinishedTea()
@@ -23,15 +25,13 @@ public class BobaTeaHandler : MonoBehaviour
 
     }
 
-    private void OnTriggerStay(Collider other)
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-
-            Debug.Log("coilldingBobaHandler");
-            if (other.tag == ("Boba"))
+            if (inTriggerArea == true)
             {
-                FindObjectOfType<BrewingInventory>().BobaTea();
+                FindObjectOfType<BrewingInventory>().RemoveBobaTea();
                 ServedTea();
                 FinishedTea();
             }
@@ -39,4 +39,19 @@ public class BobaTeaHandler : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Boba"))
+        {
+            inTriggerArea = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Boba"))
+        {
+            inTriggerArea = false;
+        }
+    }
 }
