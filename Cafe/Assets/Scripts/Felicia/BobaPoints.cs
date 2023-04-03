@@ -17,6 +17,7 @@ public class BobaPoints : MonoBehaviour
         if (other.tag == "Net")
         {
             gameObject.SetActive(false);
+            Debug.Log("Collided");
            
            FindObjectOfType<BobaCounter>().AddBoba(1);
 
