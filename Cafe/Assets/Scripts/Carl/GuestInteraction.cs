@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +6,18 @@ using UnityEngine;
 public class GuestInteraction : MonoBehaviour
 {
     public Guest parentGuest;
-    
-    public void GuestInteractionExampleFunction(TeaType teaType)
+    public BobaTeaHandler table;
+
+    private void Update()
     {
-        if (parentGuest.teaType == teaType && parentGuest.stateMachine.currentState == GuestStateID.Ordered)
-        {
-            //If the right tea is served, change guest state to served
+        if (Input.GetKeyDown(KeyCode.Space))
+            ServeGuest(TeaType.TypeA);
+    }
+
+    public void ServeGuest(TeaType teaType)
+    {
+        //Add check for whether the correct tea is served or not
+        // if (teaType == parentGuest.teaType && parentGuest.stateMachine.currentState == GuestStateID.Ordered)
             parentGuest.stateMachine.ChangeState(GuestStateID.Served);
-        }
-        else
-        {
-            //Wrong tea is served, something else happens
-        }
     }
 }

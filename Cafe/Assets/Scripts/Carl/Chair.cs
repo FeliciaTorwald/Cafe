@@ -16,7 +16,7 @@ public class Chair : MonoBehaviour, ISeat
 
     public void AddSelf()
     {
-        GameManager.Instance.seatsInScene.Add(this);
+        GameManager.Instance.freeSeatsInScene.Add(this);
         GameManager.Instance.freeSeats++;
     }
     

@@ -11,16 +11,16 @@ public class GuestOrderedState : GuestState
 
     public void Enter(Guest guest)
     {
-        
+        Debug.Log("Entered ordered state");
     }
 
     public void Update(Guest guest)
     {
-        
+        guest.guestCanvas.transform.forward = guest.camera.transform.forward;
     }
 
     public void Exit(Guest guest)
     {
-        
+        Debug.Log("Left ordered state");
     }
 }

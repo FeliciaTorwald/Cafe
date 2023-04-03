@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class GuestAtTableState : GuestState
 {
-    public bool served;
-    
     public GuestStateID GetID()
     {
         return GuestStateID.AtTable;
@@ -16,19 +14,17 @@ public class GuestAtTableState : GuestState
     {
         Debug.Log("Switched to At table state");
         ShowOrder(guest);
-        Order();
+        Order(guest);
     }
 
-    private void Order()
+    private void Order(Guest guest)
     {
-        //TODO: Implement functionality for when the guest orders
+        guest.stateMachine.ChangeState(GuestStateID.Ordered);
     }
-
 
     public void Update(Guest guest)
     {
         guest.guestCanvas.transform.forward = guest.camera.transform.forward;
-        //Rotate the ordering canvas to always angle towards the camera
     }
 
     public void Exit(Guest guest)
@@ -41,6 +37,5 @@ public class GuestAtTableState : GuestState
         guest.orderText.SetText("Tea 1");
         //Display what the guest has ordered.
     }
-    
     
 }

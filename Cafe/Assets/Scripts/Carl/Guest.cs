@@ -12,6 +12,8 @@ public class Guest : MonoBehaviour
     public GuestStateID initialState;
     public GuestConfig guestConfig;
     public GuestInteraction GuestInteraction;
+
+    public Transform guestSpawnPos;
     
     public Canvas guestCanvas;
     public TMP_Text orderText;
@@ -20,6 +22,9 @@ public class Guest : MonoBehaviour
     public Door door;
     public NavMeshAgent navMeshAgent;
     public float waitToBeSeatedTimer = 2f;
+    public Chair chairRef;
+
+    public GuestSpawner guestSpawner;
     
     //Enum to identify type of guest, can be set in prefab or when instantiating guest
     public enum GuestType
@@ -58,5 +63,9 @@ public class Guest : MonoBehaviour
     {
         stateMachine.Update();
     }
-    
+
+    public void DespawnGuest()
+    {
+        Destroy(gameObject);
+    }
 }

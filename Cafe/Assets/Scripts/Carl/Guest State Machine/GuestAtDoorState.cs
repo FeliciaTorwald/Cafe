@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
@@ -7,7 +8,8 @@ using UnityEngine.AI;
 public class GuestAtDoorState : GuestState
 {
     private bool moving;
-    
+    private bool askedForSeat;
+
     public GuestStateID GetID()
     {
         return GuestStateID.AtDoor;
@@ -17,21 +19,16 @@ public class GuestAtDoorState : GuestState
     {
         Debug.Log("Switched to At door state");
         guest.door.queue.Add(guest);
-        //Adds this guest to the queue at the door. Functionality to be implemented.
+        guest.door.OpenDoor();
     }
 
     public void Update(Guest guest)
     {
-        if (guest.waitToBeSeatedTimer <= 0f)
+        if (guest.door.open && !askedForSeat)
         {
             LookForFreeSeat(guest);
+            askedForSeat = !askedForSeat;
         }
-        else
-        {
-            guest.waitToBeSeatedTimer -= 1f * Time.deltaTime;
-            Debug.Log(guest.waitToBeSeatedTimer);
-        }
-
         CheckIfAtDestination(guest);
     }
 
@@ -41,11 +38,12 @@ public class GuestAtDoorState : GuestState
         Debug.Log("Left At door state");
     }
 
-    private void LookForFreeSeat(Guest guest)
+    public void LookForFreeSeat(Guest guest)
     {
         if (GameManager.Instance.freeSeats > 0)
         {
-            MoveToDestination(guest, GameManager.Instance.AssignSeat().transform);
+            guest.chairRef = GameManager.Instance.AssignSeat();
+            MoveToDestination(guest, guest.chairRef.transform);
         }
     }
     
@@ -62,12 +60,9 @@ public class GuestAtDoorState : GuestState
     {
         if (moving && ReachedDestinationOrGaveUp(guest))
         {
-            // if (guest.navMeshAgent.remainingDistance < 0.1f & guest.navMeshAgent.path.corners.Length == 0)
-            // {
-                guest.navMeshAgent.ResetPath();
-                moving = !moving;
-                guest.stateMachine.ChangeState(GuestStateID.AtTable);
-            // }
+            guest.navMeshAgent.ResetPath();
+            moving = !moving;
+            guest.stateMachine.ChangeState(GuestStateID.AtTable);
         }
     }
     

@@ -15,7 +15,7 @@ public class GuestArrivedState : GuestState
     public void Enter(Guest guest)
     {
         Debug.Log("Switched to Arrived state");
-        MoveToDestination(guest, guest.door.transform);
+        MoveToDestination(guest, guest.door.doorEnterSpot);
     }
 
     public void Update(Guest guest)
