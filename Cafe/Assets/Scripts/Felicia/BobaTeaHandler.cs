@@ -16,7 +16,8 @@ public class BobaTeaHandler : MonoBehaviour
     {
         GameObject tea = Instantiate(fakefullBobaTea, transform.position, Quaternion.identity) as GameObject;
         //Invoke("DrinkingTea",timeConsumedTea);
-        Destroy(tea,2f);
+        Destroy(tea,1f);
+        //Invoke ("FinishedTea,",2);
     }
   
     private void FinishedTea()
@@ -27,14 +28,18 @@ public class BobaTeaHandler : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.F))
         {
             if (inTriggerArea == true)
             {
                 FindObjectOfType<BrewingInventory>().RemoveBobaTea();
                 ServedTea();
-                FinishedTea();
+                Invoke("FinishedTea", 2);
+                //FinishedTea();
+                Debug.Log("intriggerarea true");
+                inTriggerArea = false;
             }
+         
 
         }
     }
@@ -44,6 +49,7 @@ public class BobaTeaHandler : MonoBehaviour
         if (other.CompareTag("Boba"))
         {
             inTriggerArea = true;
+            Debug.Log(inTriggerArea);
         }
     }
 
@@ -52,6 +58,7 @@ public class BobaTeaHandler : MonoBehaviour
         if (other.CompareTag("Boba"))
         {
             inTriggerArea = false;
+            Debug.Log(inTriggerArea);
         }
     }
 }
