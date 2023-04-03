@@ -12,6 +12,7 @@ public class EquipTool : MonoBehaviour
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
+        toolParent = GameObject.Find("ToolParent").transform;//now transfom works with prefabs
     }
     //use meshcollider,turn on convex then add boxcollider as trigger
 
@@ -55,6 +56,17 @@ public class EquipTool : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if(tool == null)
+        {
+            slotIsfull = false;
+            equipped = false;
+        }
+        if (toolParent == null)
+        {
+            slotIsfull = false;
+            equipped = false;
+        }
+
         if(!equipped && !slotIsfull && other.gameObject.tag == "Player")
         {
             if (Input.GetKey(KeyCode.E))
@@ -63,4 +75,5 @@ public class EquipTool : MonoBehaviour
             }
         }
     }
+
 }
