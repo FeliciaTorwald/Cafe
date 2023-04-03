@@ -30,13 +30,12 @@ public class BobaTeaHandler : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.F))
         {
-            if (inTriggerArea == true)
+            if (inTriggerArea)
             {
                 FindObjectOfType<BrewingInventory>().RemoveBobaTea();
                 ServedTea();
                 Invoke("FinishedTea", 2);
-                //FinishedTea();
-                Debug.Log("intriggerarea true");
+                FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
                 inTriggerArea = false;
             }
          
@@ -49,7 +48,6 @@ public class BobaTeaHandler : MonoBehaviour
         if (other.CompareTag("Boba"))
         {
             inTriggerArea = true;
-            Debug.Log(inTriggerArea);
         }
     }
 
@@ -58,7 +56,6 @@ public class BobaTeaHandler : MonoBehaviour
         if (other.CompareTag("Boba"))
         {
             inTriggerArea = false;
-            Debug.Log(inTriggerArea);
         }
     }
 }
