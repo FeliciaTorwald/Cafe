@@ -72,9 +72,9 @@ public class BrewingInventory : MonoBehaviour
         GameObject teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
         boba = 0;
         water = 0;
-        if (Input.GetKey(KeyCode.F))//den kmr fortfarande inte kolla den här när du går till bordet???????reeeeeeeeeee
+        if (Input.GetKey(KeyCode.F))
         {
-            Destroy(teaToHold, 1.0f);//hur
+            Destroy(teaToHold, 1.0f);
         }
     }
 }
