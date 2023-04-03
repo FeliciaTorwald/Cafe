@@ -126,13 +126,16 @@ MonoBehaviour:
   initialState: 0
   guestConfig: {fileID: 11400000, guid: 17c3f9bd1f557e341894d4bcc90e46d7, type: 2}
   GuestInteraction: {fileID: 1266874527961247281}
+  guestSpawnPos: {fileID: 0}
   guestCanvas: {fileID: 7645055476772757985}
   orderText: {fileID: 8799141597569359364}
   camera: {fileID: 0}
   door: {fileID: 0}
   navMeshAgent: {fileID: 0}
   waitToBeSeatedTimer: 2
+  chairRef: {fileID: 0}
   guestType: 0
+  teaType: 0
 --- !u!195 &-8075359401094702259
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -143,11 +146,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 4
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -437,3 +440,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentGuest: {fileID: -8675251801881133073}
+  table: {fileID: 0}

@@ -6,8 +6,8 @@ public class GuestSpawner : MonoBehaviour
 {
     [SerializeField] private List<Guest> guests;
     private GameObject spawnedGuest;
-    private float guestSpawnTimer;
-    public List<Vector3> spawnPositions = new();
+    private float guestSpawnTimer = 2f;
+    public List<Transform> spawnPositions = new();
     private List<Door> doors = new();
     
     void Start()
@@ -29,7 +29,7 @@ public class GuestSpawner : MonoBehaviour
     {
         foreach (GuestSpawnPos spawner in FindObjectsOfType<GuestSpawnPos>())
         {
-            spawnPositions.Add(spawner.transform.position);
+            spawnPositions.Add(spawner.transform);
         }
         
         //Adds the guest spawner objects as use when spawning new guests.
@@ -41,24 +41,34 @@ public class GuestSpawner : MonoBehaviour
         {
             doors.Add(foundDoor);
         }
-        
         //Adds the doors in the scene for reference by the guests. Can be removed if we decide to only
         //use a single door in the scene.
     }
     
     public void SpawnNewGuest()
     {
-        int guestRandomizerResult = GuestRandomizer();
-        SetupGuest(guestRandomizerResult);
-        
+        // if (guestSpawnTimer <= 0)
+        // {
+            int guestRandomizerResult = GuestRandomizer();
+            SetupGuest(guestRandomizerResult);
+        //     guestSpawnTimer = 8f;
+        // }
+        // else
+        // {
+        //     guestSpawnTimer -= 1 * Time.deltaTime;
+        // }
         //Spawns a new guest of random type.
     }
 
     private void SetupGuest(int RandomizerResult)
     {
-        Guest spawnedGuest = Instantiate(guests[RandomizerResult], spawnPositions[Random.Range(0, spawnPositions.Count)], transform.rotation);
+        Transform spawnPos = spawnPositions[Random.Range(0, spawnPositions.Count)];
+        Guest spawnedGuest = Instantiate(guests[RandomizerResult], spawnPos.position, transform.rotation);
         spawnedGuest.door = doors[doors.Count-1];
-        GameManager.Instance.guestsInScene.Add(spawnedGuest);
+        spawnedGuest.guestSpawnPos = spawnPos;
+        spawnedGuest.guestSpawner = this;
+        GameManager.Instance.AddGuest(spawnedGuest);
+        
         
         //Setup the guest, here we seed the type of guest, what tea they want etc.
     }
