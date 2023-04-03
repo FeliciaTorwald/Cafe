@@ -18,7 +18,7 @@ public class BobaFinishedInteract : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 pot.GetComponent<BrewingInventory>().canMakeBoba = true;
-                Invoke("RemoveTea", 1f);
+                //Invoke("RemoveTea", 1f);
             }
         }
     }
@@ -27,4 +27,7 @@ public class BobaFinishedInteract : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+   
+
 }

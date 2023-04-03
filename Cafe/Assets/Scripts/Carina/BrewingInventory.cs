@@ -57,7 +57,7 @@ public class BrewingInventory : MonoBehaviour
         do
         {
             timer -= Time.deltaTime;
-            timerSlider.value = 1- timer / gameTime;
+            timerSlider.value = 1 - timer / gameTime;
 
             yield return null;
 
@@ -67,11 +67,14 @@ public class BrewingInventory : MonoBehaviour
     }
 
     // Spawns finished tea at a spawnpoint set to pot position
-    private void BobaTea()
+    public void BobaTea()
     {
-        Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity);
+        GameObject teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
         boba = 0;
         water = 0;
-        timerSlider.value = 0;
+        if (Input.GetKey(KeyCode.F))//den kmr fortfarande inte kolla den här när du går till bordet???????reeeeeeeeeee
+        {
+            Destroy(teaToHold, 1.0f);//hur
+        }
     }
 }
