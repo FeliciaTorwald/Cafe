@@ -33,7 +33,7 @@ public class GuestLeavingState : GuestState
     
     private void MoveToDestination(Guest guest, Transform target)
     {
-        Debug.Log("Moving to table");
+        Debug.Log("Leave cafe");
         guest.navMeshAgent.destination = target.position;
         moving = true;
         
@@ -44,13 +44,10 @@ public class GuestLeavingState : GuestState
     {
         if (moving && ReachedDestinationOrGaveUp(guest))
         {
-            // if (guest.navMeshAgent.remainingDistance < 0.1f & guest.navMeshAgent.path.corners.Length == 0)
-            // {
             guest.navMeshAgent.ResetPath();
             moving = !moving;
-            guest.guestSpawner.SpawnNewGuest();
+            // guest.guestSpawner.SpawnNewGuest();
             guest.DespawnGuest();
-            // }
         }
     }
     

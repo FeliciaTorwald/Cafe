@@ -18,11 +18,14 @@ public class Door : MonoBehaviour
     private float timer = 3f;
     public bool open;
     public bool closed = true;
+    private Animator animator;
+    
 
     private void Start()
     {
         closedPos = doorModel.transform.position;
         openPos = openPosRef.position;
+        animator = GetComponent<Animator>();
     }
 
     public Transform GetTransform()
@@ -32,12 +35,12 @@ public class Door : MonoBehaviour
 
     public void OpenDoor()
     {
-        StartCoroutine(OpenDoor(1f));
+        // StartCoroutine(OpenDoor(1f));
     }
     
     public void CloseDoor()
     {
-        StartCoroutine(CloseDoor(1f));
+        // StartCoroutine(CloseDoor(1f));
     }
     
     private void Update()
@@ -69,7 +72,7 @@ public class Door : MonoBehaviour
     public IEnumerator OpenDoor(float moveTime)
     {
         closed = !closed;
-
+        
         float time = 0;
         while (time < moveTime)
         {
@@ -91,5 +94,40 @@ public class Door : MonoBehaviour
             yield return null;
         }
         closed = !closed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger enter");
+        if (other.CompareTag("Guest") || other.CompareTag("Player"))
+        {
+            Debug.Log(other);
+            animator.SetTrigger("Open");
+        }
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Guest") || other.CompareTag("Player"))
+        {
+            animator.SetTrigger("Close");
+        }
+    }
+
+    public void ChangeOpenBool(int binary)
+    {
+        switch (binary)
+        {
+            case 0:
+                if (open)
+                    open = !open;
+                break;
+            case 1:
+                if (!open)
+                    open = !open;
+                break;
+        }
+            
     }
 }

@@ -30,6 +30,8 @@ public class GuestServedState : GuestState
 
     public void Exit(Guest guest)
     {
+        GameManager.Instance.freeSeats++;
+        GameManager.Instance.ReturnFreeSeat(guest.chairRef);
         Debug.Log("Left served state");
     }
     
@@ -46,12 +48,9 @@ public class GuestServedState : GuestState
     {
         if (moving && ReachedDestinationOrGaveUp(guest))
         {
-            // if (guest.navMeshAgent.remainingDistance < 0.1f & guest.navMeshAgent.path.corners.Length == 0)
-            // {
             guest.navMeshAgent.ResetPath();
             moving = !moving;
             guest.door.OpenDoor();
-            // }
         }
     }
     
