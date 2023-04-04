@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -41,11 +42,12 @@ public class Guest : MonoBehaviour
     void Start()
     {
         //Set reference camera for the canvas that will display what the guest has ordered
-        guestCanvas.worldCamera = camera;
         
         //Create references for use in state machine state scripts
         navMeshAgent = GetComponent<NavMeshAgent>();
         camera = Camera.main;
+        
+        guestCanvas.worldCamera = camera;
         
         //Register state machine and state machine states
         stateMachine = new GuestStatemachine(this);
