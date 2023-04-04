@@ -4,44 +4,39 @@ using UnityEngine;
 
 public class Tutorial_Script : MonoBehaviour
 {
-     bool W_is_pressed = false;
-    bool  A_is_pressed = false;
-    bool S_is_pressed = false;
-    bool D_is_pressed = false;
     public GameObject ShowControllsDone;
-    public float time = 10;
+    bool Escapepushed = false;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Escapepushed == false)
         {
-            W_is_pressed = true;
+           if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Invoke("DoNotShowControlls", 0);
+     
+        }
+        
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Escapepushed == true)
         {
-            A_is_pressed = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
+           if (Input.GetKeyDown(KeyCode.Escape))
         {
-            S_is_pressed = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-
-            D_is_pressed = true;
+            Invoke("DoShowControlls", 0);
+           
+        } 
         }
 
         //When player tested all controlls stop showing controlls after ... seconds
-        if (W_is_pressed == true && A_is_pressed == true && S_is_pressed == true && D_is_pressed == true)
-        {
-            Invoke("DoNotShowControlls", 3);  
-        }
     }
         private void DoNotShowControlls()
         {
             ShowControllsDone.SetActive(false);
+            
+        }
+         private void DoShowControlls()
+        {
+            ShowControllsDone.SetActive(true);
         }
 }
