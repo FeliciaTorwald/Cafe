@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Chair : MonoBehaviour, ISeat
 {
+    public BobaTeaHandler tableRef;
+    
     void Start()
     {
         Invoke(nameof(AddSelf), .1f);
@@ -23,5 +25,10 @@ public class Chair : MonoBehaviour, ISeat
     public Chair GetGameObject()
     {
         return this;
+    }
+
+    public void AddGuestToTable(Guest guest)
+    {
+        tableRef.AddGuestToTeaOrder(guest);
     }
 }
