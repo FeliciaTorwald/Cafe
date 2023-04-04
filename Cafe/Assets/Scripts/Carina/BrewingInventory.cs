@@ -44,7 +44,7 @@ public class BrewingInventory : MonoBehaviour
         }
 
         // If amount of boba is equal or more than 2, and have water it will start the timer that will make boba tea
-        if (boba >= 2 && canMakeBoba && water >= 1)
+        if (boba >= 1 && canMakeBoba && water >= 1)
         {
             StartCoroutine(Timer());
             canMakeBoba = false;
