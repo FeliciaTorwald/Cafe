@@ -17,7 +17,7 @@ public class GuestInteraction : MonoBehaviour
     public void ServeGuest(TeaType teaType)
     {
         //Add check for whether the correct tea is served or not
-        // if (teaType == parentGuest.teaType && parentGuest.stateMachine.currentState == GuestStateID.Ordered)
+        if (teaType == parentGuest.teaType && parentGuest.stateMachine.currentState == GuestStateID.Ordered)
             parentGuest.stateMachine.ChangeState(GuestStateID.Served);
     }
 }

@@ -13,6 +13,7 @@ TagManager:
   - BrewingPot
   - Table
   - BobaPearls
+  - Guest
   layers:
   - Default
   - TransparentFX
