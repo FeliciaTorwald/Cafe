@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialState: 0
   guestConfig: {fileID: 11400000, guid: 17c3f9bd1f557e341894d4bcc90e46d7, type: 2}
-  GuestInteraction: {fileID: 1266874527961247281}
+  guestInteraction: {fileID: 1266874527961247281}
   guestSpawnPos: {fileID: 0}
   guestCanvas: {fileID: 7645055476772757985}
   orderText: {fileID: 8799141597569359364}

@@ -51,7 +51,7 @@ public class BobaTeaHandler : MonoBehaviour
                 FindObjectOfType<BrewingInventory>().RemoveBobaTea();
                 ServedTea();
                 Invoke("FinishedTea", 2);
-                FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
+                // FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
                 //FindObjectOfType<GoldSpawner>().Spawn();
                 gS.onOrderFullfilled = true;
                 inTriggerArea = false;

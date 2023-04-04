@@ -11,7 +11,7 @@ public class Guest : MonoBehaviour
     public GuestStatemachine stateMachine;
     public GuestStateID initialState;
     public GuestConfig guestConfig;
-    public GuestInteraction GuestInteraction;
+    public GuestInteraction guestInteraction;
 
     public Transform guestSpawnPos;
     
