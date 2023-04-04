@@ -6,7 +6,7 @@ public class BobaShooterController : MonoBehaviour
 {
     //references
     public float MoveSpeed = 30;
-    public Transform Ball;
+    public GameObject Ball;
     public Transform Arms;
     public Transform PosOverHead;
     public Transform posDribble;
@@ -35,7 +35,7 @@ public class BobaShooterController : MonoBehaviour
             //Hold over head
             if (Input.GetKey(KeyCode.Space))
             {
-               Ball.position = PosOverHead.position;
+                GameObject.FindGameObjectWithTag("BobaPearls").transform.position = PosOverHead.position;
                //Arms.localEulerAngles = Vector3.right * 180;
 
                transform.LookAt(Target.position);
@@ -43,7 +43,7 @@ public class BobaShooterController : MonoBehaviour
             //dribbling
             else
             {
-                Ball.position = posDribble.position;
+                GameObject.FindGameObjectWithTag("BobaPearls").transform.position = posDribble.position;
                 //Arms.localEulerAngles = Vector3.right * 1;
             } 
             //throw ball
@@ -70,7 +70,7 @@ public class BobaShooterController : MonoBehaviour
 
             // move in arc
             Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
-            Ball.position = pos + arc;
+            GameObject.FindGameObjectWithTag("BobaPearls").transform.position = pos + arc;
 
             if (t01 >= 1)
             {
