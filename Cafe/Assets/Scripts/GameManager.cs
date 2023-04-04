@@ -42,10 +42,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // if (freeSeats >= guestsInScene.Count)
-        // {
-        //     guestSpawner.SpawnNewGuest();
-        // }
+        if (freeSeats > 0)
+        {
+            guestSpawner.SpawnNewGuest();
+        }
     }
 
     public Chair AssignSeat()

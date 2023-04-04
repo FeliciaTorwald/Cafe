@@ -47,16 +47,16 @@ public class GuestSpawner : MonoBehaviour
     
     public void SpawnNewGuest()
     {
-        // if (guestSpawnTimer <= 0)
-        // {
+        if (guestSpawnTimer <= 0)
+        {
             int guestRandomizerResult = GuestRandomizer();
             SetupGuest(guestRandomizerResult);
-        //     guestSpawnTimer = 8f;
-        // }
-        // else
-        // {
-        //     guestSpawnTimer -= 1 * Time.deltaTime;
-        // }
+            guestSpawnTimer = 8f;
+        }
+        else
+         {
+             guestSpawnTimer -= 1 * Time.deltaTime;
+         }
         //Spawns a new guest of random type.
     }
 
