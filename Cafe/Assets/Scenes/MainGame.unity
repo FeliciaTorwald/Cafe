@@ -2156,6 +2156,9 @@ MonoBehaviour:
   fakefullBobaTea: {fileID: 4230480408052588206, guid: 501db8f7a0990204a98130a10bb73566, type: 3}
   emptyBobaTea: {fileID: 6430880715227328911, guid: cfd1c40e871913a448904d5be5768964, type: 3}
   timeConsumedTea: 1
+  gS: {fileID: 0}
+  chairRef: {fileID: 0}
+  guestRef: {fileID: 0}
 --- !u!65 &699598977
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2190,7 +2193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFulfilled: 1
+  onOrderFullfilled: 1
 --- !u!1 &719029829
 GameObject:
   m_ObjectHideFlags: 0
@@ -2929,7 +2932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1049831478622463210, guid: 682bd250929ca684a83b0dbcc5c699f1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.5071874
+      value: 1.3418717
       objectReference: {fileID: 0}
     - target: {fileID: 1049831478622463210, guid: 682bd250929ca684a83b0dbcc5c699f1, type: 3}
       propertyPath: m_LocalScale.y
@@ -3155,6 +3158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551388525c7ca374abdc95249a007edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tableRef: {fileID: 0}
 --- !u!1 &1031303715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,6 +3457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551388525c7ca374abdc95249a007edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tableRef: {fileID: 0}
 --- !u!1001 &1134514037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3909,6 +3914,9 @@ MonoBehaviour:
   fakefullBobaTea: {fileID: 4230480408052588206, guid: 501db8f7a0990204a98130a10bb73566, type: 3}
   emptyBobaTea: {fileID: 6430880715227328911, guid: cfd1c40e871913a448904d5be5768964, type: 3}
   timeConsumedTea: 1
+  gS: {fileID: 0}
+  chairRef: {fileID: 0}
+  guestRef: {fileID: 0}
 --- !u!114 &1396744535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3922,7 +3930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFulfilled: 1
+  onOrderFullfilled: 1
 --- !u!65 &1396744536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4046,6 +4054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551388525c7ca374abdc95249a007edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tableRef: {fileID: 0}
 --- !u!1 &1413846132
 GameObject:
   m_ObjectHideFlags: 0
@@ -4624,6 +4633,9 @@ MonoBehaviour:
   fakefullBobaTea: {fileID: 4230480408052588206, guid: 501db8f7a0990204a98130a10bb73566, type: 3}
   emptyBobaTea: {fileID: 6430880715227328911, guid: cfd1c40e871913a448904d5be5768964, type: 3}
   timeConsumedTea: 1
+  gS: {fileID: 0}
+  chairRef: {fileID: 0}
+  guestRef: {fileID: 0}
 --- !u!114 &1666694963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4637,7 +4649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFulfilled: 1
+  onOrderFullfilled: 1
 --- !u!65 &1666694964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4999,6 +5011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551388525c7ca374abdc95249a007edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tableRef: {fileID: 0}
 --- !u!1 &1896306109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5731,6 +5744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551388525c7ca374abdc95249a007edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tableRef: {fileID: 0}
 --- !u!1 &2094507501
 GameObject:
   m_ObjectHideFlags: 0
@@ -5933,6 +5947,9 @@ MonoBehaviour:
   fakefullBobaTea: {fileID: 4230480408052588206, guid: 501db8f7a0990204a98130a10bb73566, type: 3}
   emptyBobaTea: {fileID: 6430880715227328911, guid: cfd1c40e871913a448904d5be5768964, type: 3}
   timeConsumedTea: 1
+  gS: {fileID: 0}
+  chairRef: {fileID: 0}
+  guestRef: {fileID: 0}
 --- !u!114 &2106795694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5946,7 +5963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFulfilled: 1
+  onOrderFullfilled: 1
 --- !u!65 &2106795695
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6170,6 +6187,9 @@ MonoBehaviour:
   fakefullBobaTea: {fileID: 4230480408052588206, guid: 501db8f7a0990204a98130a10bb73566, type: 3}
   emptyBobaTea: {fileID: 6430880715227328911, guid: cfd1c40e871913a448904d5be5768964, type: 3}
   timeConsumedTea: 1
+  gS: {fileID: 0}
+  chairRef: {fileID: 0}
+  guestRef: {fileID: 0}
 --- !u!114 &2133757149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6183,7 +6203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFulfilled: 1
+  onOrderFullfilled: 1
 --- !u!65 &2133757150
 BoxCollider:
   m_ObjectHideFlags: 0

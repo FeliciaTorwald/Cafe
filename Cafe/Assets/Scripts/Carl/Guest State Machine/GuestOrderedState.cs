@@ -11,6 +11,7 @@ public class GuestOrderedState : GuestState
 
     public void Enter(Guest guest)
     {
+        guest.chairRef.tableRef.AddGuestToTeaOrder(guest);
         Debug.Log("Entered ordered state");
     }
 
