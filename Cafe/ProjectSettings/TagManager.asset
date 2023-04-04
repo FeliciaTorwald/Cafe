@@ -9,6 +9,10 @@ TagManager:
   - Mop
   - TeaPot
   - Brush
+  - Boba
+  - BrewingPot
+  - Table
+  - BobaPearls
   layers:
   - Default
   - TransparentFX

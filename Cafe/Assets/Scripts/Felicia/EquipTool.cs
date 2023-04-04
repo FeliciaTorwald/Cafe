@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class EquipTool : MonoBehaviour
 {
     public GameObject tool;
+    public GameObject playerRef;
     public Transform toolParent;
     public bool equipped;
     public static bool slotIsfull;
+    bool inTriggerArea;
     void Start()
     {
-        tool.GetComponent<Rigidbody>().isKinematic = true;
+        playerRef = GameObject.Find("Player Object");
+        //playerRef.GetComponent<BobaShooterController>().enabled= false;
+        //tool.GetComponent<Rigidbody>().isKinematic = true;
         toolParent = GameObject.Find("ToolParent").transform;//now transfom works with prefabs
     }
     //use meshcollider,turn on convex then add boxcollider as trigger
@@ -26,6 +30,16 @@ public class EquipTool : MonoBehaviour
                 Drop();
             }
         }
+
+        if(inTriggerArea == true)
+        {
+            //playerRef.GetComponent<BobaShooterController>().enabled = true;
+        }
+         if(inTriggerArea == false)
+        {
+            //playerRef.GetComponent<BobaShooterController>().enabled = false;
+        }
+
     }
 
     void Drop()
@@ -76,4 +90,21 @@ public class EquipTool : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BobaPearls"))
+        {
+            inTriggerArea = true;
+            Debug.Log("inTriggerArea = true");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("BobaPearls"))
+        {
+            inTriggerArea = false;
+            Debug.Log("inTriggerArea = false");
+        }
+    }
 }
