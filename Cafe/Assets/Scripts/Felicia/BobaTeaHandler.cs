@@ -21,6 +21,7 @@ public class BobaTeaHandler : MonoBehaviour
         //Invoke("DrinkingTea",timeConsumedTea);
         Destroy(tea,1f);
         //Invoke ("FinishedTea,",2);
+        guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
     }
 
   
