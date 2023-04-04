@@ -9,10 +9,12 @@ public class EquipTool : MonoBehaviour
     public Transform toolParent;
     public bool equipped;
     public static bool slotIsfull;
+
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
         toolParent = GameObject.Find("ToolParent").transform;//now transfom works with prefabs
+        
     }
     //use meshcollider,turn on convex then add boxcollider as trigger
 

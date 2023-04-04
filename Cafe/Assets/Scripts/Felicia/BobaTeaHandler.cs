@@ -9,7 +9,10 @@ public class BobaTeaHandler : MonoBehaviour
     public GameObject fakefullBobaTea;
     public GameObject emptyBobaTea;
     public int timeConsumedTea = 1;
-
+    GameObject emptyTea;
+    public GoldSpawner gS;
+    public Chair chairRef;
+    public Guest guestRef;
     bool inTriggerArea;
 
     private void ServedTea()
@@ -19,11 +22,23 @@ public class BobaTeaHandler : MonoBehaviour
         Destroy(tea,1f);
         //Invoke ("FinishedTea,",2);
     }
+
   
     private void FinishedTea()
-    {
-        Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
 
+    {
+        if (emptyTea == null)
+        {
+          emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
+        }
+    }
+    public void WashDishes()
+    {
+        if (emptyTea != null)
+        {
+            Destroy(emptyTea, 0.5f);
+            Debug.Log("Washing");
+        }
     }
 
     private void Update()
@@ -36,11 +51,18 @@ public class BobaTeaHandler : MonoBehaviour
                 ServedTea();
                 Invoke("FinishedTea", 2);
                 FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
+                //FindObjectOfType<GoldSpawner>().Spawn();
+                gS.onOrderFullfilled = true;
                 inTriggerArea = false;
             }
          
 
         }
+    }
+
+    public void AddGuestToTeaOrder(Guest guest)
+    {
+        guestRef = guest;
     }
 
     private void OnTriggerEnter(Collider other)

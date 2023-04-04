@@ -20,8 +20,8 @@ public class BrewingInventory : MonoBehaviour
     [SerializeField] GameObject spawnTeaPos;
     [SerializeField] TextMeshProUGUI addItemText;
     [SerializeField] Slider timerSlider;
-
     GameObject teaToHold;
+
 
 
     // On collision, will check if player has boba, and if they do, add boba to count

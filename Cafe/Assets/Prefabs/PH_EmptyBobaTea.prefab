@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6489118674764961899}
   - component: {fileID: -5631039414369082676}
   - component: {fileID: -190457352555247521}
+  - component: {fileID: 1655678125126226891}
   m_Layer: 0
   m_Name: PH_EmptyBobaTea
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &703739551981466084
 MeshFilter:
@@ -196,3 +197,15 @@ MonoBehaviour:
   tool: {fileID: 6430880715227328911}
   toolParent: {fileID: 0}
   equipped: 0
+--- !u!114 &1655678125126226891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6430880715227328911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2ba3637a1350e49a3cd16a22766d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

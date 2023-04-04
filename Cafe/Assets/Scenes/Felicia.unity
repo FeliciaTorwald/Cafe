@@ -1013,6 +1013,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039981e7a73a2034da68a33ac396dffd, type: 3}
+--- !u!114 &836671658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6018833850296937033, guid: 810e7f607a3d5d949ba7b4784c095c79, type: 3}
+  m_PrefabInstance: {fileID: 2312816074679366192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e43877bd1596a409f834f56aea2761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &872012819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,9 +1921,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1618393981947882933, guid: 628681a83b17ae047bac598a86e081f6, type: 3}
+      propertyPath: m_Radius
+      value: 0.7703574
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618393981947882933, guid: 628681a83b17ae047bac598a86e081f6, type: 3}
+      propertyPath: m_Center.z
+      value: -0.10181582
+      objectReference: {fileID: 0}
     - target: {fileID: 3992739988316819724, guid: 628681a83b17ae047bac598a86e081f6, type: 3}
       propertyPath: m_Name
       value: Pond
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847286548375732755, guid: 628681a83b17ae047bac598a86e081f6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2306,6 +2329,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9109038053390609296, guid: 810e7f607a3d5d949ba7b4784c095c79, type: 3}
+      propertyPath: gS
+      value: 
+      objectReference: {fileID: 836671658}
     - target: {fileID: 9109038053390609296, guid: 810e7f607a3d5d949ba7b4784c095c79, type: 3}
       propertyPath: fakefullBobaTea
       value: 

@@ -6,14 +6,14 @@ using UnityEngine;
 public class GoldSpawner : MonoBehaviour
 {
     public GameObject preFabGold;
-    public bool onOrderFulfilled = true;
-     GameObject coin; 
+    public bool onOrderFullfilled = true;
+    GameObject coin; 
 
 
-    //TO DO turn off toolscript on the tea so you cant get unlimited money glitch
-    private void Spawn()
+    
+    public void Spawn()
     {
-        if (onOrderFulfilled)
+        if (onOrderFullfilled)
         {
             GameObject coin = Instantiate(preFabGold, transform.position, Quaternion.identity);
         }
@@ -22,7 +22,7 @@ public class GoldSpawner : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(coin);
+        Destroy(coin,0.5f);
     }
 
 
