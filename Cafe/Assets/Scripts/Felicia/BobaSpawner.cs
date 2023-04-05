@@ -30,7 +30,6 @@ public class BobaSpawner : MonoBehaviour
             Spawn();
         }
 
-
         StartCoroutine(spawnPoints(interval, point));
     }
 
@@ -45,12 +44,13 @@ public class BobaSpawner : MonoBehaviour
                 pooledObjects[i].transform.position = new Vector3(spawnPointRef.x+Random.Range(-3f, 1),spawnPointRef.y+8, spawnPointRef.z+Random.Range(-3f, 8));
                 pooledObjects[i].SetActive(true);
                 return;
-
             }
         }
+
         GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x+Random.Range(-3f, 1),spawnPointRef.y+8, spawnPointRef.z+Random.Range(-3f, 8)), Quaternion.identity);
         pooledObjects.Add(newPoint);
     }
+
     private void DisableObjects()
     {
         for (int i = 0; i < pooledObjects.Count; i++)

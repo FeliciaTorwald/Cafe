@@ -6,32 +6,36 @@ using UnityEngine;
 public class GoldSpawner : MonoBehaviour
 {
     public GameObject preFabGold;
-    public bool onOrderFullfilled = true;
-    GameObject coin; 
+    public bool onOrderFullfilled;
+    GameObject coin;
+    //public Transform moneyPlace;
+    //private Vector3 spawnPointRef;
 
-
-    
+    public void Start()
+    {
+        onOrderFullfilled= false;
+        //spawnPointRef = moneyPlace.position;
+    }
+    public void Update()
+    {
+        Spawn();
+        DestroyCoin();
+    }
     public void Spawn()
     {
         if (onOrderFullfilled)
         {
-            GameObject coin = Instantiate(preFabGold, transform.position, Quaternion.identity);
+            coin = Instantiate(preFabGold, transform.position, Quaternion.identity);//TODO Change so that coin spawn on moneyPlace, do this when we build in the gamescene together
         }
-
     }
 
-    public void Destroy()
+    public void DestroyCoin()
     {
-        Destroy(coin,0.5f);
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == ("Boba"))
+        if (onOrderFullfilled == false)
         {
-            Spawn();
-        }
+        Destroy(coin,0.5f);
+        Debug.Log("Destroyed");
 
+        }
     }
 }

@@ -41,6 +41,7 @@ public class BrewingInventory : MonoBehaviour
         {
             water++;
             hasWater = false;
+            FindObjectOfType<Get_water_In_Teapot>().PouringWater();
         }
 
         // If amount of boba is equal or more than 2, and have water it will start the timer that will make boba tea
@@ -73,8 +74,8 @@ public class BrewingInventory : MonoBehaviour
     {
         if (teaToHold == null)
             teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
-        boba = 0;
-        water = 0;
+            boba = 0;
+            water = 0;
     }
 
     public void RemoveBobaTea()

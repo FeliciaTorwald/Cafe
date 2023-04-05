@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class WashDishes : MonoBehaviour
 {
-
     bool inTriggerArea;
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.F))
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        if (inTriggerArea)
         {
-            if (inTriggerArea)
-            {
-                FindObjectOfType<BobaTeaHandler>().WashDishes();
-                Debug.Log("Washed");
-                inTriggerArea = false;
-            }
+            FindObjectOfType<BobaTeaHandler>().WashDish();
+            Debug.Log("Washed");
+            inTriggerArea = false;
         }
+        //}
     }
     private void OnTriggerEnter(Collider other)
     {

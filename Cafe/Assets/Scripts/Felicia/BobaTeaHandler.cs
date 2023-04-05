@@ -8,7 +8,6 @@ public class BobaTeaHandler : MonoBehaviour
     //add this script to tables
     public GameObject fakefullBobaTea;
     public GameObject emptyBobaTea;
-    public int timeConsumedTea = 1;
     GameObject emptyTea;
     public GoldSpawner gS;
     public Chair chairRef;
@@ -18,47 +17,44 @@ public class BobaTeaHandler : MonoBehaviour
     private void ServedTea()
     {
         GameObject tea = Instantiate(fakefullBobaTea, transform.position, Quaternion.identity) as GameObject;
-        //Invoke("DrinkingTea",timeConsumedTea);
         Destroy(tea,1f);
-        //Invoke ("FinishedTea,",2);
-        guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
     }
 
-  
     private void FinishedTea()
-
     {
         if (emptyTea == null)
         {
           emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
+          guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
         }
     }
-    public void WashDishes()
+    public void WashDish()
     {
         if (emptyTea != null)
         {
-            Destroy(emptyTea, 0.5f);
+            Destroy(emptyTea,0.5f);
             Debug.Log("Washing");
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             if (inTriggerArea)
             {
                 FindObjectOfType<BrewingInventory>().RemoveBobaTea();
                 ServedTea();
                 Invoke("FinishedTea", 2);
-                // FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
-                //FindObjectOfType<GoldSpawner>().Spawn();
                 gS.onOrderFullfilled = true;
+                gS.Spawn();
+                FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
                 inTriggerArea = false;
+                gS.onOrderFullfilled = false;
             }
-         
 
         }
+
     }
 
     public void AddGuestToTeaOrder(Guest guest)

@@ -9,11 +9,14 @@ public class EquipTool : MonoBehaviour
     public Transform toolParent;
     public bool equipped;
     public static bool slotIsfull;
+    public bool inCollision;
+    Get_water_In_Teapot gWIT;
 
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
         toolParent = GameObject.Find("ToolParent").transform;//now transfom works with prefabs
+        gWIT  = FindFirstObjectByType<Get_water_In_Teapot>();
         
     }
     //use meshcollider,turn on convex then add boxcollider as trigger
@@ -21,13 +24,32 @@ public class EquipTool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (equipped)
+        if (!equipped && !slotIsfull && inCollision)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+           if (Input.GetKeyDown(KeyCode.E))
+            {
+                Equip();
+            }
+        }
+       
+
+        else if (equipped && slotIsfull)
+        {
+
+            if(gWIT.inTriggerArea == true)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    gWIT.PickingUpWater();
+                }
+            }
+            
+            else if (Input.GetKeyDown(KeyCode.E))
             {
                 Drop();
             }
         }
+
     }
 
     void Drop()
@@ -40,6 +62,7 @@ public class EquipTool : MonoBehaviour
         equipped = false;
         slotIsfull= false;
     }
+
 
     void Equip()
     {
@@ -56,7 +79,7 @@ public class EquipTool : MonoBehaviour
         slotIsfull = true;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other) // should deal with ghostobjects
     {
         if(tool == null)
         {
@@ -65,17 +88,27 @@ public class EquipTool : MonoBehaviour
         }
         if (toolParent == null)
         {
+            toolParent.DetachChildren();
             slotIsfull = false;
             equipped = false;
         }
 
-        if(!equipped && !slotIsfull && other.gameObject.tag == "Player")
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!equipped && !slotIsfull && other.gameObject.tag == "Player")
         {
-            if (Input.GetKey(KeyCode.E))
-            {
-                Equip();  
-            }
+             inCollision = true;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+        {
+        if (!equipped && !slotIsfull && other.gameObject.tag == "Player")
+         {
+            inCollision = false;
+         }
+
     }
 
 }
