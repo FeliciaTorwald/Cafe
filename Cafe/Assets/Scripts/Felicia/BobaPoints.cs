@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class BobaPoints : MonoBehaviour
 {
+    public ItemData item;
 
-    BrewingInventory brewingPot;
-
-    private void Start()
-    {
-        brewingPot = FindFirstObjectByType<BrewingInventory>().GetComponent<BrewingInventory>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,8 +15,18 @@ public class BobaPoints : MonoBehaviour
            
            FindObjectOfType<BobaCounter>().AddBoba(1);
 
-            brewingPot.hasBoba = true;
+            OnInteract();
         }
 
+    }
+
+    public string GetInteractPrompt()
+    {
+        return string.Format("Pickup {0}", item.displayName);
+    }
+
+    public void OnInteract()
+    {
+        Inventory.instance.AddItem(item);
     }
 }

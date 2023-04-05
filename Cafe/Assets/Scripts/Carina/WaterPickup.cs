@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class WaterPickup : MonoBehaviour
 {
+    public ItemData item;
 
     BrewingInventory brewPot;
+    Resource addWater;
 
     private void Start()
     {
         brewPot = FindFirstObjectByType<BrewingInventory>();
+        addWater = FindObjectOfType<Resource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,6 +20,7 @@ public class WaterPickup : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             brewPot.hasWater = true;
+            addWater.Gather();
         }
     }
 }

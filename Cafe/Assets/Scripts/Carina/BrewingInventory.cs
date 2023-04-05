@@ -9,6 +9,7 @@ public class BrewingInventory : MonoBehaviour
     public bool hasBoba;
     public bool hasWater;
     public bool canMakeBoba = true;
+    public bool isMakingTea;
     public float gameTime = 10f;
 
     private float timer = 0f;
@@ -18,7 +19,6 @@ public class BrewingInventory : MonoBehaviour
 
     [SerializeField] GameObject finishedTea;
     [SerializeField] GameObject spawnTeaPos;
-    [SerializeField] TextMeshProUGUI addItemText;
     [SerializeField] Slider timerSlider;
     GameObject teaToHold;
 
@@ -27,15 +27,7 @@ public class BrewingInventory : MonoBehaviour
     // On collision, will check if player has boba, and if they do, add boba to count
     private void OnCollisionEnter(Collision collision)
     {
-        if (hasBoba)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                boba++;
-                hasBoba = false;
-            }
-        }
-
+     
         // If player has water it will add water to it
         if (collision.gameObject.CompareTag("Player") && hasWater)
         {
@@ -43,12 +35,15 @@ public class BrewingInventory : MonoBehaviour
             hasWater = false;
             FindObjectOfType<Get_water_In_Teapot>().PouringWater();
         }
+    }
 
-        // If amount of boba is equal or more than 2, and have water it will start the timer that will make boba tea
-        if (boba >= 1 && canMakeBoba && water >= 1)
+    public void StartMakingTea()
+    {
+        if (!isMakingTea)
         {
             StartCoroutine(Timer());
             canMakeBoba = false;
+            isMakingTea = true;
         }
     }
 
@@ -74,8 +69,9 @@ public class BrewingInventory : MonoBehaviour
     {
         if (teaToHold == null)
             teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
-            boba = 0;
-            water = 0;
+
+        timerSlider.value = 0;
+        isMakingTea = false;
     }
 
     public void RemoveBobaTea()

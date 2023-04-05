@@ -6,21 +6,20 @@ using UnityEngine;
 public enum ItemType
 {
     Resource,
-    Equipable,
+    Product,
 }
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
 public class ItemData : ScriptableObject
 {
 
-    [Header("Info")]
-    public string displayName;
-    public string description;
-    public ItemType type;
-    public Sprite icon;
-    public GameObject dropPrefab;
-
     [Header("Stacking")]
     public bool canStack;
     public int maxStackAmount;
+
+    [Header("Info")]
+    public string displayName;
+    public ItemType type;
+    public Sprite icon;
+    public GameObject dropPrefab;
 }
