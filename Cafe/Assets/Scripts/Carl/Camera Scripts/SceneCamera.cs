@@ -8,6 +8,7 @@ public class SceneCamera : MonoBehaviour
     [SerializeField] private Transform cameraRef;
     [SerializeField] private Transform zoomOutRef;
     [SerializeField] private float idleTimer = 5f;
+    [SerializeField] private AnimationCurve lerpCurve;
 
     private Vector3 latestPos = Vector3.zero;
     
@@ -25,6 +26,7 @@ public class SceneCamera : MonoBehaviour
         else
         {
             MoveCamera(latestPos);
+            idleTimer = 5f;
         }
     }
 
@@ -40,13 +42,12 @@ public class SceneCamera : MonoBehaviour
     IEnumerator CameraMovement(Vector3 newPos)
     {
         Vector3 currentPos = cameraRef.transform.position;
-        float time = 0f;
-        float duration = 0.5f;
+        float animationTimePosition = 0f;
         latestPos = newPos;
-        while (time < duration)
+        while (cameraRef.position != newPos)
         {
-            cameraRef.transform.position = Vector3.Slerp(currentPos, newPos, time / duration);
-            time += Time.unscaledDeltaTime;
+            cameraRef.transform.position = Vector3.Lerp(currentPos, newPos, lerpCurve.Evaluate(animationTimePosition));
+            animationTimePosition += 1 * Time.deltaTime;
             yield return null;
         }
     }
