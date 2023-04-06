@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3992739988316819724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.569424, y: 3.5070167, z: -0.08459027}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1378514105502305423}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6414295308265574638
 GameObject:
@@ -43,8 +43,7 @@ GameObject:
   - component: {fileID: 1378514105502305423}
   - component: {fileID: 2301104371066667018}
   - component: {fileID: 4975430796380374464}
-  - component: {fileID: 4847286548375732755}
-  - component: {fileID: 1618393981947882933}
+  - component: {fileID: 1990725701888885168}
   m_Layer: 0
   m_Name: Pond Object
   m_TagString: Pond
@@ -60,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6414295308265574638}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6294236, y: -2.79, z: 0.24459027}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: -0.30354786, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,7 +73,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6414295308265574638}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4975430796380374464
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -117,31 +116,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4847286548375732755
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6414295308265574638}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.66854167
-  m_Height: 20.767368
-  m_Direction: 1
-  m_Center: {x: -0.006669998, y: 8.994346, z: -0.00000011920929}
---- !u!136 &1618393981947882933
-CapsuleCollider:
+--- !u!65 &1990725701888885168
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,8 +134,6 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5141612
-  m_Height: 37.761772
-  m_Direction: 1
-  m_Center: {x: -0.008640528, y: 0.49714258, z: 0.017760634}
+  serializedVersion: 3
+  m_Size: {x: 1.2719123, y: 1, z: 1.699546}
+  m_Center: {x: -0.13595632, y: 0, z: -0.02055949}
