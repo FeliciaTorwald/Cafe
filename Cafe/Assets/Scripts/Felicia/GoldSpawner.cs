@@ -19,7 +19,7 @@ public class GoldSpawner : MonoBehaviour
     public void Update()
     {
         Spawn();
-        DestroyCoin();
+        //DestroyCoin();
     }
     public void Spawn()
     {
@@ -34,8 +34,6 @@ public class GoldSpawner : MonoBehaviour
         if (onOrderFullfilled == false)
         {
         Destroy(coin,0.5f);
-        Debug.Log("Destroyed");
-
         }
     }
 }

@@ -11,7 +11,7 @@ public class EquipTool : MonoBehaviour
     public static bool slotIsfull;
     public bool inCollision;
     Get_water_In_Teapot gWIT;
-
+    
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
@@ -27,9 +27,9 @@ public class EquipTool : MonoBehaviour
         if (!equipped && !slotIsfull && inCollision)
         {
            if (Input.GetKeyDown(KeyCode.E))
-            {
+           {
                 Equip();
-            }
+           }
         }
        
 
@@ -49,7 +49,6 @@ public class EquipTool : MonoBehaviour
                 Drop();
             }
         }
-
     }
 
     void Drop()
@@ -79,20 +78,20 @@ public class EquipTool : MonoBehaviour
         slotIsfull = true;
     }
 
-    private void OnTriggerStay(Collider other) // should deal with ghostobjects
+    private void OnTriggerStay(Collider other) // should deal with some ghostobjects, if item is destroyed in your hand(parentTool) you need to set the equipped bool to false in the method that destroys it
     {
         if(tool == null)
         {
             slotIsfull = false;
-            equipped = false;
+            equipped = false;         
         }
+
         if (toolParent == null)
         {
             toolParent.DetachChildren();
             slotIsfull = false;
             equipped = false;
         }
-
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -103,12 +102,10 @@ public class EquipTool : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other)
-        {
+    {
         if (!equipped && !slotIsfull && other.gameObject.tag == "Player")
          {
             inCollision = false;
          }
-
     }
-
 }

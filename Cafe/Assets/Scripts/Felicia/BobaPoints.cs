@@ -6,7 +6,6 @@ public class BobaPoints : MonoBehaviour
 {
     public ItemData item;
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Net")
@@ -17,9 +16,7 @@ public class BobaPoints : MonoBehaviour
 
             OnInteract();
         }
-
     }
-
     public string GetInteractPrompt()
     {
         return string.Format("Pickup {0}", item.displayName);

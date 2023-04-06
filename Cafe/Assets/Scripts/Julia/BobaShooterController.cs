@@ -11,6 +11,9 @@ public class BobaShooterController : MonoBehaviour
     public Transform PosOverHead;
     public Transform posDribble;
     public Transform Target;
+    public AudioSource source;
+
+    public AudioClip sound_of_boba;
 
     //variables
     public bool IsBallInHands = false;
@@ -24,11 +27,7 @@ public class BobaShooterController : MonoBehaviour
 
     void Update()
     {
-        //walkin
-        Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        transform.position += direction * MoveSpeed * Time.deltaTime;
-        transform.LookAt(transform.position + direction);
-        
+
         //Ball in hands
         if (IsBallInHands == true)
         {
@@ -52,6 +51,7 @@ public class BobaShooterController : MonoBehaviour
                 IsBallInHands = false;
                 IsBallFlying = true;
                 T = 0;
+                source.PlayOneShot(sound_of_boba);
             }
         }
 
@@ -71,6 +71,7 @@ public class BobaShooterController : MonoBehaviour
             // move in arc
             Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
             GameObject.FindGameObjectWithTag("BobaPearls").transform.position = pos + arc;
+            
 
             if (t01 >= 1)
             {

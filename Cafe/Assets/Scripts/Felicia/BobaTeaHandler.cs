@@ -13,10 +13,17 @@ public class BobaTeaHandler : MonoBehaviour
     public Chair chairRef;
     public Guest guestRef;
     bool inTriggerArea;
+    EquipTool eT;
+
+    private void Start()
+    {
+        eT = FindFirstObjectByType<EquipTool>();
+    }
 
     private void ServedTea()
     {
         GameObject tea = Instantiate(fakefullBobaTea, transform.position, Quaternion.identity) as GameObject;
+        eT.equipped = false;
         Destroy(tea,1f);
     }
 
@@ -28,12 +35,27 @@ public class BobaTeaHandler : MonoBehaviour
           guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
         }
     }
+
+    private void SpawnDish()
+    {
+       if(Input.GetKeyDown(KeyCode.F))
+        {
+            emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
+        } 
+    }
+
+    private void DestroyDish()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Destroy(emptyTea);
+        }
+    }
     public void WashDish()
     {
         if (emptyTea != null)
         {
             Destroy(emptyTea,0.5f);
-            Debug.Log("Washing");
         }
     }
 
@@ -52,9 +74,9 @@ public class BobaTeaHandler : MonoBehaviour
                 inTriggerArea = false;
                 gS.onOrderFullfilled = false;
             }
-
         }
-
+        SpawnDish();
+        DestroyDish();
     }
 
     public void AddGuestToTeaOrder(Guest guest)
