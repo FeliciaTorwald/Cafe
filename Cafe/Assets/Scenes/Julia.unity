@@ -372,10 +372,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFab: {fileID: 6648930191670280467, guid: 6ee6a662eabf5c44fb46a09359fe253e, type: 3}
-  bobaInterval: 3.5
-  amountToPool: 2
+  bobaInterval: 1
+  amountToPool: 1
   pooledObjects: []
   playerPosRef: {fileID: 1139813245}
+  maxBobaInScene: 5
 --- !u!4 &318481888
 Transform:
   m_ObjectHideFlags: 0

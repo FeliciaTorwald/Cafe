@@ -6,11 +6,13 @@ using UnityEngine;
 public class BobaSpawner : MonoBehaviour
 {
     public GameObject preFab;
-    public float bobaInterval = 3.5f;
+    public float bobaInterval = 1f;
     public int amountToPool;
     public List<GameObject> pooledObjects;
     public Transform playerPosRef;
     private Vector3 spawnPointRef;
+    public float maxBobaInScene = 5;
+    public float timer = 0;
     
     private void Start()
     {
@@ -26,16 +28,13 @@ public class BobaSpawner : MonoBehaviour
         DisableObjects();
         for (int i = 0; i < amountToPool; i++)
         {
-
             Spawn();
         }
-
         StartCoroutine(spawnPoints(interval, point));
     }
 
     private void Spawn()
     {
-
         for (int i = 0; i < pooledObjects.Count; i++)
         {
 
@@ -46,9 +45,18 @@ public class BobaSpawner : MonoBehaviour
                 return;
             }
         }
+        
+    }
 
+    private void Update() 
+    {
+        timer += Time.deltaTime;
+
+        if(GameObject.FindGameObjectsWithTag("BobaPearls").Length < maxBobaInScene && timer >= 10) 
+        {
         GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x+Random.Range(-3f, 1),spawnPointRef.y+8, spawnPointRef.z+Random.Range(-3f, 8)), Quaternion.identity);
         pooledObjects.Add(newPoint);
+        }
     }
 
     private void DisableObjects()
