@@ -24,11 +24,7 @@ public class BobaShooterController : MonoBehaviour
 
     void Update()
     {
-        //walkin
-        Vector3 direction = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        transform.position += direction * MoveSpeed * Time.deltaTime;
-        transform.LookAt(transform.position + direction);
-        
+
         //Ball in hands
         if (IsBallInHands == true)
         {
