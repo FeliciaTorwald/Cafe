@@ -5,17 +5,23 @@ using UnityEngine;
 public class WashDishes : MonoBehaviour
 {
     bool inTriggerArea;
+    EquipTool eT;
+
+    private void Start()
+    {
+        eT = FindFirstObjectByType<EquipTool>();
+    }
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        if (inTriggerArea)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            FindObjectOfType<BobaTeaHandler>().WashDish();
-            Debug.Log("Washed");
-            inTriggerArea = false;
+            if (inTriggerArea)
+            {
+                eT.equipped = false;
+                Destroy(gameObject);
+                FindObjectOfType<CleanDishes>().Spawn();
+            }
         }
-        //}
     }
     private void OnTriggerEnter(Collider other)
     {
