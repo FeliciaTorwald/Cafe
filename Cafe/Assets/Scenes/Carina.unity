@@ -4806,6 +4806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f0859dcd988e64a872c7aa1a5b4a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstOptionButton: {fileID: 1229435260}
+  optionsClosedButton: {fileID: 1076781132}
 --- !u!1001 &5725748259176764698
 PrefabInstance:
   m_ObjectHideFlags: 0

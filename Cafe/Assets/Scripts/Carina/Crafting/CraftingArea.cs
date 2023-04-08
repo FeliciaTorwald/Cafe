@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CraftingArea : MonoBehaviour, IInteractable
 {
+    public GameObject firstOptionButton, optionsClosedButton;
 
     private CraftingWindow craftingWindow;
     private PlayerMovement player;
@@ -30,6 +32,8 @@ public class CraftingArea : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         craftingWindow.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstOptionButton);
     }
 
     private void OnCollisionExit(Collision collision)
