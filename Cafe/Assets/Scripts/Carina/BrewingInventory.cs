@@ -49,7 +49,7 @@ public class BrewingInventory : MonoBehaviour
         {
             StartCoroutine(Timer());
             canMakeBoba = false;
-            isMakingTea = true;
+            //isMakingTea = true;
         }
     }
 
@@ -91,8 +91,8 @@ public class BrewingInventory : MonoBehaviour
         if (teaToHold == null)
             teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
 
-        timerSlider.value = 0;
         isMakingTea = false;
+        timerSlider.value = 0;
     }
 
     public void RemoveBobaTea()

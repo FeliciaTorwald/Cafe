@@ -43,6 +43,7 @@ public class CraftingWindow : MonoBehaviour
 
         timerRef.canMakeBoba = true;
         timerRef.StartMakingTea();
+        timerRef.isMakingTea = true;
 
         //Inventory.instance.AddItem(recipe.itemToCraft);
 

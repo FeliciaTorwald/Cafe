@@ -931,6 +931,8 @@ MonoBehaviour:
   amountToPool: 2
   pooledObjects: []
   playerPosRef: {fileID: 1828131829}
+  maxBobaInScene: 5
+  timer: 0
 --- !u!4 &318481888
 Transform:
   m_ObjectHideFlags: 0
@@ -2331,9 +2333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 1229435262}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -2697,10 +2699,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 1076781134}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -4775,6 +4777,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2109936372718001184, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811740937051264688, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
+      propertyPath: canMakeBoba
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5811740937051264688, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
