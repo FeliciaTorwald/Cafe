@@ -14,6 +14,9 @@ public class BrewingInventory : MonoBehaviour
 
     private float timer = 0f;
 
+    // Make a queue of IEnumerators
+    public Queue<IEnumerator> recipeQueue = new Queue<IEnumerator>();
+
     [SerializeField] private int boba = 0;
     [SerializeField] private int water = 0;
 
@@ -39,6 +42,9 @@ public class BrewingInventory : MonoBehaviour
 
     public void StartMakingTea()
     {
+        // Add timer IEnumerator to queue
+        recipeQueue.Enqueue(Timer());
+
         if (!isMakingTea)
         {
             StartCoroutine(Timer());
@@ -50,6 +56,15 @@ public class BrewingInventory : MonoBehaviour
     // When called will wait 10sec before calling function Bobatea, while filling the slider to show progress remaining
     private IEnumerator Timer()
     {
+
+        if (recipeQueue.Count == 0)
+        {
+            yield break;
+        }
+
+        // dequeue oldest ienumerator from queue
+        IEnumerator currentRecipe = recipeQueue.Dequeue();
+
         timer = gameTime;
 
         do
@@ -62,6 +77,12 @@ public class BrewingInventory : MonoBehaviour
         } while (timer > 0);
 
         BobaTea();
+
+        // if queue is over 0, start timer coroutine 
+        if (recipeQueue.Count > 0)
+        {
+            yield return StartCoroutine(Timer());
+        }
     }
 
     // Spawns finished tea at a spawnpoint set to pot position
