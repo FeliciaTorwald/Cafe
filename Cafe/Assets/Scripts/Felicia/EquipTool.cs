@@ -11,42 +11,59 @@ public class EquipTool : MonoBehaviour
     public static bool slotIsfull;
     public bool inCollision;
     Get_water_In_Teapot gWIT;
+    BobaShooterController bSC;
+    bool canYouEquipBoba;
     
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
         toolParent = GameObject.Find("ToolParent").transform;//now transfom works with prefabs
         gWIT  = FindFirstObjectByType<Get_water_In_Teapot>();
-        
+        bSC = FindFirstObjectByType<BobaShooterController>();
+
     }
     //use meshcollider,turn on convex then add boxcollider as trigger
 
     // Update is called once per frame
     void Update()
     {
-        if (!equipped && !slotIsfull && inCollision)
+        if (!equipped && !slotIsfull && inCollision && canYouEquipBoba == false)
         {
            if (Input.GetKeyDown(KeyCode.E))
            {
                 Equip();
-           }
-        }
+                canYouEquipBoba = false;
+            }
        
+        }
+
+        else if (canYouEquipBoba)
+        {
+            if (bSC.inTriggerArea == true)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    bSC.PickingUpBall();
+                }
+            }
+        }
 
         else if (equipped && slotIsfull)
         {
 
-            if(gWIT.inTriggerArea == true)
+            if (gWIT.inTriggerArea == true)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     gWIT.PickingUpWater();
                 }
             }
+
             
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 Drop();
+                canYouEquipBoba = true;
             }
         }
     }

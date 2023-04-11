@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -13,12 +14,14 @@ public class BobaSpawner : MonoBehaviour
     private Vector3 spawnPointRef;
     public float maxBobaInScene = 5;
     public float timer = 0;
+    BobaShooterController bSC;
     
     private void Start()
     {
+        bSC = FindFirstObjectByType<BobaShooterController>();
         StartCoroutine(spawnPoints(bobaInterval, preFab));
         pooledObjects = new List<GameObject>();
-
+        bSC.Balls = pooledObjects;
         spawnPointRef = playerPosRef.position;
     }
 
@@ -50,12 +53,15 @@ public class BobaSpawner : MonoBehaviour
 
     private void Update() 
     {
+        //Invoke("RemoveFromList",20);
         timer += Time.deltaTime;
 
-        if(GameObject.FindGameObjectsWithTag("BobaPearls").Length < maxBobaInScene && timer >= 10) 
+        if(GameObject.FindGameObjectsWithTag("BobaPearls").Length < maxBobaInScene && timer >= 1) 
         {
-        GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x+Random.Range(-3f, 1),spawnPointRef.y+8, spawnPointRef.z+Random.Range(-3f, 8)), Quaternion.identity);
-        pooledObjects.Add(newPoint);
+            GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x+Random.Range(-3f, 1),spawnPointRef.y+8, spawnPointRef.z+Random.Range(-3f, 8)), Quaternion.identity);
+            pooledObjects.Add(newPoint);
+            bSC.Ball = newPoint;
+            timer = 0;
         }
     }
 
@@ -70,5 +76,15 @@ public class BobaSpawner : MonoBehaviour
             }
         }
     }
+
+    //private void RemoveFromList()
+    //{
+    //    for (int i = 0; i < pooledObjects.Count; i++)
+    //    {
+    //        pooledObjects.Remove(pooledObjects[i]);
+    //        //Destroy(pooledObjects[i]);
+    //        break;
+    //    }
+    //}
 
 }
