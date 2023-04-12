@@ -16,7 +16,7 @@ public class CraftingArea : MonoBehaviour, IInteractable
         player = FindObjectOfType<PlayerMovement>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -36,7 +36,7 @@ public class CraftingArea : MonoBehaviour, IInteractable
         EventSystem.current.SetSelectedGameObject(firstOptionButton);
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

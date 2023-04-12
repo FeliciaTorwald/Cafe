@@ -28,7 +28,7 @@ public class BrewingInventory : MonoBehaviour
 
 
     // On collision, will check if player has boba, and if they do, add boba to count
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
      
         // If player has water it will add water to it
