@@ -13,11 +13,11 @@ public class BobaLifespan : MonoBehaviour
 
     void Update()
     {
-        Invoke("Destroy_boba", 20);
+        //Invoke("Destroy_boba", 20);
     }
 
     private void Destroy_boba()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
