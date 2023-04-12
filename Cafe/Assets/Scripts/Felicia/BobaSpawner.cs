@@ -64,6 +64,7 @@ public class BobaSpawner : MonoBehaviour
         GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8)), Quaternion.identity);
         newPoint.SetActive(true);
         pooledObjects.Add(newPoint);
+        bSC.Ball = newPoint;
         StartCoroutine(Despawn(bobaLifeTime, newPoint));
     }
     

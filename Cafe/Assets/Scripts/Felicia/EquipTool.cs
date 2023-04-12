@@ -12,7 +12,7 @@ public class EquipTool : MonoBehaviour
     public bool inCollision;
     Get_water_In_Teapot gWIT;
     BobaShooterController bSC;
-    bool canYouEquipBoba;
+    public bool canYouEquipBoba;
     
     void Start()
     {
@@ -27,30 +27,41 @@ public class EquipTool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!equipped && !slotIsfull && inCollision && canYouEquipBoba == false)
+        //pick up tools
+        if (!equipped && !slotIsfull && inCollision)
         {
            if (Input.GetKeyDown(KeyCode.E))
            {
                 Equip();
-                canYouEquipBoba = false;
-            }
-       
-        }
+                //canYouEquipBoba = false;
+           }
 
-        else if (canYouEquipBoba)
-        {
-            if (bSC.inTriggerArea == true)
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    bSC.PickingUpBall();
-                }
-            }
         }
+        //picks up boba
+        //else if (!equipped && !slotIsfull && bSC.inTriggerArea == true)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.E))
+        //    {
+        //        bSC.PickingUpBall();
+        //        equipped= true;
+        //        Debug.Log(equipped);
+        //    }
+        //}
+
+        //else if (canYouEquipBoba)
+        //{
+        //    if (bSC.inTriggerArea == true)
+        //    {
+        //        if (Input.GetKeyDown(KeyCode.E))
+        //        {
+        //            bSC.PickingUpBall();
+        //        }
+        //    }
+        //}
 
         else if (equipped && slotIsfull)
         {
-
+            //picks up water
             if (gWIT.inTriggerArea == true)
             {
                 if (Input.GetKeyDown(KeyCode.E))
@@ -59,7 +70,7 @@ public class EquipTool : MonoBehaviour
                 }
             }
 
-            
+            //drops tool
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 Drop();

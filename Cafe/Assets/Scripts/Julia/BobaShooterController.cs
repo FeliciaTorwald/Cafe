@@ -18,6 +18,8 @@ public class BobaShooterController : MonoBehaviour
     private Vector3 DistanceRef;
     float MinDist = 2;
     public float Distance;
+    bool equipped = false;
+    int maxBobaInHand = 1;
 
     public AudioClip sound_of_boba;
 
@@ -31,13 +33,13 @@ public class BobaShooterController : MonoBehaviour
 
     void Start()
     {
-        eQ= FindFirstObjectByType<EquipTool>();
+        eQ = FindFirstObjectByType<EquipTool>();
         //GameObject.FindGameObjectWithTag("BobaPearls")
     }
 
     void Update()
     {
-        
+
 
         //Ball in hands
         if (IsBallInHands == true)
@@ -47,32 +49,52 @@ public class BobaShooterController : MonoBehaviour
             {
 
                 Ball.transform.position = PosOverHead.position;
-              // Arms.localEulerAngles = Vector3.right * 180;
+                // Arms.localEulerAngles = Vector3.right * 180;
 
-               transform.LookAt(Target.position);
+                transform.LookAt(Target.position);
 
             }
             //dribbling
-            //else
+            //else if(Ball !=null) 
             //{
             //    Ball.transform.position = posDribble.position;// + Vector3.up * Mathf.Abs(Mathf.Sin(Time.time * 5));
             //    //Arms.localEulerAngles = Vector3.right * 1;
-            //} 
-            else
-            {
+            //}
+                //if (Balls.Count >= maxBobaInHand && IsBallInHands)
+                //{
+                //    return;
+                //}
 
+         }
+
+            if (EquipTool.slotIsfull == false && eQ.equipped == false)
+            //else
+            {
                 for (int i = 0; i < Balls.Count; i++)
+            {
+                //EquipTool.slotIsfull = false;
+                float Distance = Vector3.Distance(Balls[i].transform.position, PlayerRef.position);
+                if (Distance < MinDist)
                 {
-                    float Distance = Vector3.Distance(Balls[i].transform.position, PlayerRef.position);
-                    if (Distance < MinDist)
-                    {
-                        Balls[i].transform.position = posDribble.position;
-                        //posDribble = Ball.transform; får ta upp men inte kasta
-                        //Balls[i] = Ball; det ballar ur
-                        Ball = Balls[i];    
-                    }
+
+                    Balls[i].transform.position = posDribble.position;
+                    Ball = Balls[i];
+
+                    //if(Balls[i] >= maxBobaInHand)
+                    //{
+                    //    posDribble.DetachChildren();
+                    //}
+                   
+                    //EquipTool.slotIsfull = true;
+                    //equipped = true;
+                    //eQ.canYouEquipBoba = false;
+                    //eQ.equipped = true;
+
                 }
+                
             }
+
+
             //throw ball
             if (Input.GetKeyUp(KeyCode.Space))
             {
@@ -80,14 +102,19 @@ public class BobaShooterController : MonoBehaviour
                 IsBallFlying = true;
                 T = 0;
                 source.PlayOneShot(sound_of_boba);
+                eQ.canYouEquipBoba = true;
+                equipped = false;
+                Debug.Log(equipped);
+                eQ.equipped = false;
+                EquipTool.slotIsfull = false;
             }
 
         }
 
 
         //ball in the air
-         if (IsBallFlying)
-         {
+        if (IsBallFlying)
+        {
             T += Time.deltaTime;
             float duration = 1.5f;
             float t01 = T / duration;
@@ -125,13 +152,15 @@ public class BobaShooterController : MonoBehaviour
 
     public void PickingUpBall()
     {
-       
-        if(inTriggerArea && IsBallInHands == false && IsBallFlying == false)
+
+        if (inTriggerArea && IsBallInHands == false && IsBallFlying == false)
         {
             IsBallInHands = true;
             Ball.GetComponent<Rigidbody>().isKinematic = true;
+            //equipped = true;
+            //eQ.equipped = true;
         }
- 
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -139,9 +168,19 @@ public class BobaShooterController : MonoBehaviour
         if (other.gameObject.tag == "BobaPearls" && !IsBallInHands && !IsBallFlying)
         {
             inTriggerArea = true;
-            eQ.equipped = false;
-
+            IsBallInHands = true;
+            //EquipTool.slotIsfull = true;
+            Ball.GetComponent<Rigidbody>().isKinematic = true;
+            //eQ.equipped = false;
+            EquipTool.slotIsfull = true;
         }
+
+        //if (other.gameObject.tag == "BobaPearls" && IsBallInHands && !IsBallFlying)
+        //{
+           
+        //    EquipTool.slotIsfull = true;
+            
+        //}
     }
 
     public void OnTriggerExit(Collider other)
@@ -149,14 +188,18 @@ public class BobaShooterController : MonoBehaviour
         if (other.gameObject.tag == "BobaPearls" && !IsBallInHands && !IsBallFlying)
         {
             inTriggerArea = false;
+            EquipTool.slotIsfull = false;
+
         }
         if (other.gameObject.tag == "BobaPearls" && IsBallInHands)
         {
             inTriggerArea = false;
+            //EquipTool.slotIsfull = false;
         }
         if (other.gameObject.tag == "BobaPearls" && IsBallFlying)
         {
             inTriggerArea = false;
+            EquipTool.slotIsfull = false;
         }
     }
 }
