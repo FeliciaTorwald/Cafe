@@ -13,16 +13,40 @@ public static class CameraController
         return camera == activeCamera;
     }
     
-    public static void SwitchCamera(CinemachineVirtualCamera camera)
+    public static void SwitchCamera(CinemachineVirtualCamera camera, bool topCameraSwitch)
     {
-        camera.Priority = 10;
-        activeCamera = camera;
-
-        foreach (CinemachineVirtualCamera c in cameras)
+        if (!topCameraSwitch)
         {
-            if (c != activeCamera && c.Priority != 0)
+            camera.Priority = 10;
+            activeCamera = camera;
+
+            foreach (CinemachineVirtualCamera c in cameras)
             {
-                c.Priority = 0;
+                if (c != activeCamera && c.Priority != 0)
+                {
+                    c.Priority = 0;
+                }
+            }
+        }
+        else
+        {
+            if (camera.Priority == 10)
+                camera.Priority = 0;
+            else
+            {
+                foreach (CinemachineVirtualCamera c in cameras)
+                {
+                    if (c == activeCamera)
+                        c.Priority = 1;
+                    else if (c != activeCamera && c.Priority != 0)
+                    {
+                        c.Priority = 0;
+                    }
+                }
+                camera.Priority = 10;
+                
+                activeCamera = camera;
+                
             }
         }
     }
