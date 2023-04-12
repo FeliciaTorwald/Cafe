@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class WaterPickup : MonoBehaviour
 {
-    public ItemData item;
+    public bool hasWater;
 
-    BrewingInventory brewPot;
+    [SerializeField] GameObject waterInBucket;
+
     Resource addWater;
 
     private void Start()
     {
-        brewPot = FindFirstObjectByType<BrewingInventory>();
         addWater = FindObjectOfType<Resource>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("BrewingPot"))
         {
-            brewPot.hasWater = true;
-            addWater.Gather();
+            if (hasWater)
+            {
+                addWater.Gather();
+                hasWater = false;
+                waterInBucket.gameObject.SetActive(false);
+            }
+
+        }
+
+        if (other.gameObject.CompareTag("Pond"))
+        {
+            waterInBucket.gameObject.SetActive(true);
+            hasWater = true;
         }
     }
 }
