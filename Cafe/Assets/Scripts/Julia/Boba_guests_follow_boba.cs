@@ -13,7 +13,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
         allBobaPearls = GameObject.FindGameObjectsWithTag(tagToDetect);
     }
 
-    private void Update() 
+    private void Update()
     {
         //Vector3 BobaPos = boba.transform.position;
         //transform.position = Vector3.MoveTowards(transform.position, BobaPos, speed * Time.deltaTime);

@@ -432,7 +432,6 @@ GameObject:
   - component: {fileID: 395939915}
   - component: {fileID: 395939914}
   - component: {fileID: 395939913}
-  - component: {fileID: 395939912}
   - component: {fileID: 395939917}
   m_Layer: 0
   m_Name: Boba eating guests
@@ -441,20 +440,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &395939912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395939911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d167108d97067cc40b2cfb71db2a4f68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boba: {fileID: 6648930191670280467, guid: 6ee6a662eabf5c44fb46a09359fe253e, type: 3}
-  speed: 1.5
 --- !u!65 &395939913
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -755,6 +740,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2222518193980088155, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 846318933}
+    - targetCorrespondingSourceObject: {fileID: 2222518193980088155, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 846318940}
+    - targetCorrespondingSourceObject: {fileID: 2222518193980088155, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 846318941}
   m_SourcePrefab: {fileID: 100100000, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
 --- !u!1 &846318922 stripped
 GameObject:
@@ -908,6 +899,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &846318940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846318922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d167108d97067cc40b2cfb71db2a4f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagToDetect: BobaPearls
+  allBobaPearls: []
+  closestBoba: {fileID: 0}
+--- !u!114 &846318941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846318922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7415e87f13bd46f43a6f3df533ec43a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1058359093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4599598111076307074, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
