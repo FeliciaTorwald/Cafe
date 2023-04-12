@@ -64,23 +64,8 @@ public class BobaSpawner : MonoBehaviour
         GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8)), Quaternion.identity);
         newPoint.SetActive(true);
         pooledObjects.Add(newPoint);
-        //bSC.Ball = newPoint;
         StartCoroutine(Despawn(bobaLifeTime, newPoint));
     }
     
-    private void Update()
-    {
-
-        //timer += Time.deltaTime;
-
-        //if (GameObject.FindGameObjectsWithTag("BobaPearls").Length < maxBobaInScene && timer >= 1)
-        //{
-        //    Invoke("DisableObjects", 10);
-        //    GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8)), Quaternion.identity);
-        //    pooledObjects.Add(newPoint);
-        //    bSC.Ball = newPoint;
-        //    timer = 0;
-        //}
-       
-    }
+   
 }
