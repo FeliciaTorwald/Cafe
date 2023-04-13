@@ -13,6 +13,7 @@ public class EquipTool : Pickupable
     Get_water_In_Teapot gWIT;
     BobaShooterController bSC;
     public bool canYouEquipBoba;
+    public float force = 200;
 
     public override void Interact()
     {
@@ -35,6 +36,7 @@ public class EquipTool : Pickupable
             else
             {
                 Drop();
+                //Shoot();
             }
         }
 
@@ -45,6 +47,7 @@ public class EquipTool : Pickupable
         toolParent = GameObject.Find("ToolParent").transform;//now transfom works with prefabs
         gWIT  = FindFirstObjectByType<Get_water_In_Teapot>();
         bSC = FindFirstObjectByType<BobaShooterController>();
+
 
     }
     //use meshcollider,turn on convex then add boxcollider as trigger
@@ -130,6 +133,7 @@ public class EquipTool : Pickupable
         equipped = true;
         slotIsfull = true;
     }
+
 
     private void OnTriggerStay(Collider other) // should deal with some ghostobjects, if item is destroyed in your hand(parentTool) you need to set the equipped bool to false in the method that destroys it
     {
