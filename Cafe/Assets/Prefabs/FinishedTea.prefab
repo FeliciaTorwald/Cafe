@@ -37,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3782468210464772785
 MeshFilter:
@@ -120,8 +120,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.4627733, y: 2, z: 4.6860986}
-  m_Center: {x: 0.19235611, y: 0, z: 0.08843581}
+  m_Size: {x: 5.4627733, y: 7.799654, z: 7.4307613}
+  m_Center: {x: 0.19235611, y: -3.099842, z: -0.06679614}
 --- !u!64 &2537820846023146578
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -159,6 +159,8 @@ MonoBehaviour:
   tool: {fileID: 4843697783794987271}
   toolParent: {fileID: 0}
   equipped: 0
+  inCollision: 0
+  canYouEquipBoba: 0
 --- !u!54 &3441574218380553410
 Rigidbody:
   m_ObjectHideFlags: 0
