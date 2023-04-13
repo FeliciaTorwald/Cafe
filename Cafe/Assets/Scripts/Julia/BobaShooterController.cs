@@ -60,40 +60,40 @@ public class BobaShooterController : MonoBehaviour
             //    Ball.transform.position = posDribble.position;// + Vector3.up * Mathf.Abs(Mathf.Sin(Time.time * 5));
             //    //Arms.localEulerAngles = Vector3.right * 1;
             //}
-                //if (Balls.Count >= maxBobaInHand && IsBallInHands)
-                //{
-                //    return;
-                //}
+            //if (Balls.Count >= maxBobaInHand && IsBallInHands)
+            //{
+            //    return;
+            //}
 
-         }
 
-            if (EquipTool.slotIsfull == false && eQ.equipped == false)
-            //else
+
+            //if (EquipTool.slotIsfull == false && eQ.equipped == false)
+            else
             {
                 for (int i = 0; i < Balls.Count; i++)
-            {
-                //EquipTool.slotIsfull = false;
-                float Distance = Vector3.Distance(Balls[i].transform.position, PlayerRef.position);
-                if (Distance < MinDist)
                 {
+                    //EquipTool.slotIsfull = false;
+                    float Distance = Vector3.Distance(Balls[i].transform.position, PlayerRef.position);
+                    if (Distance < MinDist)
+                    {
 
-                    Balls[i].transform.position = posDribble.position;
-                    Ball = Balls[i];
+                        Balls[i].transform.position = posDribble.position;
+                        Ball = Balls[i];
 
-                    //if(Balls[i] >= maxBobaInHand)
-                    //{
-                    //    posDribble.DetachChildren();
-                    //}
-                   
-                    //EquipTool.slotIsfull = true;
-                    //equipped = true;
-                    //eQ.canYouEquipBoba = false;
-                    //eQ.equipped = true;
+                        //if(Balls[i] >= maxBobaInHand)
+                        //{
+                        //    posDribble.DetachChildren();
+                        //}
+
+                        //EquipTool.slotIsfull = true;
+                        //equipped = true;
+                        //eQ.canYouEquipBoba = false;
+                        //eQ.equipped = true;
+
+                    }
 
                 }
-                
             }
-
 
             //throw ball
             if (Input.GetKeyUp(KeyCode.Space))
@@ -177,9 +177,9 @@ public class BobaShooterController : MonoBehaviour
 
         //if (other.gameObject.tag == "BobaPearls" && IsBallInHands && !IsBallFlying)
         //{
-           
+
         //    EquipTool.slotIsfull = true;
-            
+
         //}
     }
 
