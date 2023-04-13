@@ -11,9 +11,13 @@ public class BrewingInventory : MonoBehaviour
     public bool canMakeBoba = true;
     public bool isMakingTea;
     public float gameTime = 10f;
+    public EquipTool eT;
 
     private float timer = 0f;
-
+    private void Start()
+    {
+        eT = FindFirstObjectByType<EquipTool>();
+    }
     // Make a queue of IEnumerators
     public Queue<IEnumerator> recipeQueue = new Queue<IEnumerator>();
 
@@ -99,9 +103,14 @@ public class BrewingInventory : MonoBehaviour
     {
         if (teaToHold != null)
         {
-            Destroy(teaToHold,0.5f);
+            Invoke("DestroyBoba", 0.5f);
         }
     }
 
-
+    public void DestroyBoba()
+    {
+        eT.equipped = false;
+        EquipTool.slotIsfull= false;
+        Destroy(teaToHold);
+    }
 }

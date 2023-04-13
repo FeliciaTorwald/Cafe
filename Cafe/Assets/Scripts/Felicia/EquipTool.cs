@@ -14,6 +14,7 @@ public class EquipTool : Pickupable
     BobaShooterController bSC;
     public bool canYouEquipBoba;
     public float force = 200;
+    BobaTeaHandler bTH;
 
     public override void Interact()
     {
@@ -21,23 +22,28 @@ public class EquipTool : Pickupable
         if (!equipped && !slotIsfull && inCollision)
         {
             Equip();
-
         }
 
         else if (equipped && slotIsfull)
         {
-            //picks up water
-            if (gWIT.inTriggerArea == true)
+            if (bTH.inTriggerArea)
             {
-             gWIT.PickingUpWater();   
+                bTH.ServedSequence();
             }
+            ////picks up water
+            //if (gWIT.inTriggerArea == true)
+            //{
+            // gWIT.PickingUpWater();   
+            //}
 
             //drops tool
             else
             {
                 Drop();
-                //Shoot();
             }
+
+            //Shoot();
+
         }
 
     }
@@ -45,8 +51,9 @@ public class EquipTool : Pickupable
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
         toolParent = GameObject.Find("ToolParent").transform;//now transfom works with prefabs
-        gWIT  = FindFirstObjectByType<Get_water_In_Teapot>();
+        gWIT = FindFirstObjectByType<Get_water_In_Teapot>();
         bSC = FindFirstObjectByType<BobaShooterController>();
+        bTH = FindFirstObjectByType<BobaTeaHandler>();
 
 
     }
@@ -115,7 +122,7 @@ public class EquipTool : Pickupable
         tool.GetComponent<MeshCollider>().enabled = true;
 
         equipped = false;
-        slotIsfull= false;
+        slotIsfull = false;
     }
 
 
@@ -137,10 +144,10 @@ public class EquipTool : Pickupable
 
     private void OnTriggerStay(Collider other) // should deal with some ghostobjects, if item is destroyed in your hand(parentTool) you need to set the equipped bool to false in the method that destroys it
     {
-        if(tool == null)
+        if (tool == null)
         {
             slotIsfull = false;
-            equipped = false;         
+            equipped = false;
         }
 
         if (toolParent == null)
@@ -154,15 +161,15 @@ public class EquipTool : Pickupable
     {
         if (!equipped && !slotIsfull && other.gameObject.tag == "Player")
         {
-             inCollision = true;
+            inCollision = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!equipped && !slotIsfull && other.gameObject.tag == "Player")
-         {
+        {
             inCollision = false;
-         }
+        }
     }
 }

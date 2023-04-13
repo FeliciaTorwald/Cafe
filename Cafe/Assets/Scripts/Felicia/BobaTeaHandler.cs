@@ -12,9 +12,19 @@ public class BobaTeaHandler : MonoBehaviour
     public GoldSpawner gS;
     public Chair chairRef;
     public Guest guestRef;
-    bool inTriggerArea;
+    public bool inTriggerArea;
     EquipTool eT;
-
+    //public override void Interact()
+    //{
+    //    FindObjectOfType<BrewingInventory>().RemoveBobaTea();
+    //    ServedTea();
+    //    Invoke("FinishedTea", 2);
+    //    gS.onOrderFullfilled = true;
+    //    gS.Spawn();
+    //    FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
+    //    inTriggerArea = false;
+    //    gS.onOrderFullfilled = false;
+    //}
     private void Start()
     {
         eT = FindFirstObjectByType<EquipTool>();
@@ -32,6 +42,7 @@ public class BobaTeaHandler : MonoBehaviour
         if (emptyTea == null)
         {
           emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
+          Debug.Log("spooky");
           guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
         }
     }
@@ -61,24 +72,37 @@ public class BobaTeaHandler : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            if (inTriggerArea)
-            {
-                FindObjectOfType<BrewingInventory>().RemoveBobaTea();
-                ServedTea();
-                Invoke("FinishedTea", 2);
-                gS.onOrderFullfilled = true;
-                gS.Spawn();
-                FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
-                inTriggerArea = false;
-                gS.onOrderFullfilled = false;
-            }
-        }
+        //if (Input.GetKeyUp(KeyCode.E))
+        //{
+        //    if (inTriggerArea)
+        //    {
+        //        FindObjectOfType<BrewingInventory>().RemoveBobaTea();
+        //        ServedTea();
+        //        Invoke("FinishedTea", 2);
+        //        gS.onOrderFullfilled = true;
+        //        gS.Spawn();
+        //        FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
+        //        inTriggerArea = false;
+        //        gS.onOrderFullfilled = false;
+        //    }
+        //}
         SpawnDish();
         DestroyDish();
     }
-
+    public void ServedSequence()
+    {
+        //if (inTriggerArea)
+        //{
+            FindObjectOfType<BrewingInventory>().RemoveBobaTea();
+            ServedTea();
+            Invoke("FinishedTea", 2);
+            gS.onOrderFullfilled = true;
+            gS.Spawn();
+            FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
+            inTriggerArea = false;
+            gS.onOrderFullfilled = false;
+        //}
+    }
     public void AddGuestToTeaOrder(Guest guest)
     {
         guestRef = guest;

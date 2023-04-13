@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class PickupManager : MonoBehaviour
 {
@@ -15,14 +16,23 @@ public class PickupManager : MonoBehaviour
    
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.E))
         {
+            CleanList();
             Pickupable closest = pickupables.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).First();
             closest.Interact();
         }
     }
-
+    private void CleanList()
+    {
+        for (int i = pickupables.Count - 1; i >= 0; i--)
+        {
+            if (pickupables[i] == null)
+            {
+                pickupables.RemoveAt(i);
+            }
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<Pickupable>() != null)
