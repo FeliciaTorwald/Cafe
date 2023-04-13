@@ -30,7 +30,7 @@ public class BobaShooterController : MonoBehaviour
     public bool inTriggerArea;
 
     EquipTool eQ;
-
+   
     void Start()
     {
         eQ = FindFirstObjectByType<EquipTool>();
@@ -55,7 +55,7 @@ public class BobaShooterController : MonoBehaviour
 
             }
             //dribbling
-            //else if(Ball !=null) 
+            //else if (Ball != null)
             //{
             //    Ball.transform.position = posDribble.position;// + Vector3.up * Mathf.Abs(Mathf.Sin(Time.time * 5));
             //    //Arms.localEulerAngles = Vector3.right * 1;
@@ -68,13 +68,13 @@ public class BobaShooterController : MonoBehaviour
 
 
             //if (EquipTool.slotIsfull == false && eQ.equipped == false)
-            else
+            else 
             {
                 for (int i = 0; i < Balls.Count; i++)
                 {
                     //EquipTool.slotIsfull = false;
                     float Distance = Vector3.Distance(Balls[i].transform.position, PlayerRef.position);
-                    if (Distance < MinDist)
+                    if (Distance < MinDist && inTriggerArea)
                     {
 
                         Balls[i].transform.position = posDribble.position;
@@ -135,7 +135,10 @@ public class BobaShooterController : MonoBehaviour
                 Ball.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
-
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            PickingUpBall();
+        }
     }
 
     //private void OnTriggerStay(Collider other) 
@@ -165,14 +168,15 @@ public class BobaShooterController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "BobaPearls" && !IsBallInHands && !IsBallFlying)
+
+        if (!IsBallInHands && !IsBallFlying)
         {
             inTriggerArea = true;
-            IsBallInHands = true;
+            //IsBallInHands = true;
             //EquipTool.slotIsfull = true;
-            Ball.GetComponent<Rigidbody>().isKinematic = true;
+            //Ball.GetComponent<Rigidbody>().isKinematic = true;
             //eQ.equipped = false;
-            EquipTool.slotIsfull = true;
+            //EquipTool.slotIsfull = true;
         }
 
         //if (other.gameObject.tag == "BobaPearls" && IsBallInHands && !IsBallFlying)
@@ -183,24 +187,24 @@ public class BobaShooterController : MonoBehaviour
         //}
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "BobaPearls" && !IsBallInHands && !IsBallFlying)
-        {
-            inTriggerArea = false;
-            EquipTool.slotIsfull = false;
+    //public void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.tag == "BobaPearls" && !IsBallInHands && !IsBallFlying)
+    //    {
+    //        inTriggerArea = false;
+    //        EquipTool.slotIsfull = false;
 
-        }
-        if (other.gameObject.tag == "BobaPearls" && IsBallInHands)
-        {
-            inTriggerArea = false;
-            //EquipTool.slotIsfull = false;
-        }
-        if (other.gameObject.tag == "BobaPearls" && IsBallFlying)
-        {
-            inTriggerArea = false;
-            EquipTool.slotIsfull = false;
-        }
-    }
+    //    }
+    //    if (other.gameObject.tag == "BobaPearls" && IsBallInHands)
+    //    {
+    //        inTriggerArea = false;
+    //        //EquipTool.slotIsfull = false;
+    //    }
+    //    if (other.gameObject.tag == "BobaPearls" && IsBallFlying)
+    //    {
+    //        inTriggerArea = false;
+    //        EquipTool.slotIsfull = false;
+    //    }
+    //}
 }
 

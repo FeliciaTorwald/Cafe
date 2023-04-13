@@ -425,8 +425,8 @@ MonoBehaviour:
   pooledObjects: []
   playerPosRef: {fileID: 579412930}
   maxBobaInScene: 5
-  spawnPoint1: {fileID: 0}
-  spawnPoint2: {fileID: 0}
+  spawnPoint1: {fileID: 318481888}
+  spawnPoint2: {fileID: 318481888}
 --- !u!4 &318481888
 Transform:
   m_ObjectHideFlags: 0
@@ -435,8 +435,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318481886}
   m_LocalRotation: {x: -0.13557026, y: -0.7006179, z: 0.13830817, w: 0.6867504}
-  m_LocalPosition: {x: 0, y: -2.5, z: -7.12}
-  m_LocalScale: {x: 2.2198, y: 2.2198, z: 2.2198}
+  m_LocalPosition: {x: 0, y: 6.65, z: 4.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
