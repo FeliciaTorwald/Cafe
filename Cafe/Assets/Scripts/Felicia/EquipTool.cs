@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EquipTool : MonoBehaviour
+public class EquipTool : Pickupable
 {
     public GameObject tool;
     public Transform toolParent;
@@ -13,7 +13,32 @@ public class EquipTool : MonoBehaviour
     Get_water_In_Teapot gWIT;
     BobaShooterController bSC;
     public bool canYouEquipBoba;
-    
+
+    public override void Interact()
+    {
+        //picks up tools
+        if (!equipped && !slotIsfull && inCollision)
+        {
+            Equip();
+
+        }
+
+        else if (equipped && slotIsfull)
+        {
+            //picks up water
+            if (gWIT.inTriggerArea == true)
+            {
+             gWIT.PickingUpWater();   
+            }
+
+            //drops tool
+            else
+            {
+                Drop();
+            }
+        }
+
+    }
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
@@ -28,15 +53,15 @@ public class EquipTool : MonoBehaviour
     void Update()
     {
         //pick up tools
-        if (!equipped && !slotIsfull && inCollision)
-        {
-           if (Input.GetKeyDown(KeyCode.E))
-           {
-                Equip();
-                //canYouEquipBoba = false;
-           }
+        //if (!equipped && !slotIsfull && inCollision)
+        //{
+        //   if (Input.GetKeyDown(KeyCode.E))
+        //   {
+        //        Equip();
+        //        //canYouEquipBoba = false;
+        //   }
 
-        }
+        //}
         //picks up boba
         //else if (!equipped && !slotIsfull && bSC.inTriggerArea == true)
         //{
@@ -59,24 +84,24 @@ public class EquipTool : MonoBehaviour
         //    }
         //}
 
-        else if (equipped && slotIsfull)
-        {
-            //picks up water
-            if (gWIT.inTriggerArea == true)
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    gWIT.PickingUpWater();
-                }
-            }
+        //else if (equipped && slotIsfull)
+        //{
+        //    //picks up water
+        //    if (gWIT.inTriggerArea == true)
+        //    {
+        //        if (Input.GetKeyDown(KeyCode.E))
+        //        {
+        //            gWIT.PickingUpWater();
+        //        }
+        //    }
 
-            //drops tool
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                Drop();
-                canYouEquipBoba = true;
-            }
-        }
+        //    //drops tool
+        //    else if (Input.GetKeyDown(KeyCode.E))
+        //    {
+        //        Drop();
+        //        canYouEquipBoba = true;
+        //    }
+        //}
     }
 
     void Drop()
