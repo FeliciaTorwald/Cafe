@@ -19,7 +19,7 @@ public class Guest : MonoBehaviour
     public Canvas guestCanvas;
     public TMP_Text orderText;
     
-    public Camera camera;
+    public new Camera camera;
     public Door door;
     public NavMeshAgent navMeshAgent;
     public float waitToBeSeatedTimer = 2f;
