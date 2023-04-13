@@ -15,6 +15,7 @@ public class BobaSpawner : MonoBehaviour
     private Vector3 spawnPointRef;
     public float maxBobaInScene = 5;
     BobaShooterController bSC;
+    public Transform spawnPoint1, spawnPoint2;
 
     private void Start()
     {
@@ -22,7 +23,8 @@ public class BobaSpawner : MonoBehaviour
         pooledObjects = new List<GameObject>();
         StartCoroutine(SpawnBobas(bobaInterval, preFab));
         bSC.Balls = pooledObjects;
-        spawnPointRef = playerPosRef.position;
+        //spawnPointRef = playerPosRef.position;
+        spawnPointRef = spawnPoint1.position;
     }
 
     private IEnumerator SpawnBobas(float interval, GameObject bobaBall)
@@ -49,7 +51,8 @@ public class BobaSpawner : MonoBehaviour
             //if something in pooledObjects is empty activate them
             if (!pooledObjects[i].activeSelf)
             {
-                pooledObjects[i].transform.position = new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8));
+                //pooledObjects[i].transform.position = new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8));
+                pooledObjects[i].transform.position = spawnPoint1.transform.position;
                 pooledObjects[i].SetActive(true);
                 StartCoroutine(Despawn(bobaLifeTime, pooledObjects[i]));
                 return;
@@ -61,7 +64,8 @@ public class BobaSpawner : MonoBehaviour
             return;
         }
         //instantiates the boba once
-        GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8)), Quaternion.identity);
+        //GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8)), Quaternion.identity);
+        GameObject newPoint = Instantiate(preFab, spawnPoint1);
         newPoint.SetActive(true);
         pooledObjects.Add(newPoint);
         bSC.Ball = newPoint;

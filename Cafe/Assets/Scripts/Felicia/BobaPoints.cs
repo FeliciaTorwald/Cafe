@@ -16,6 +16,11 @@ public class BobaPoints : MonoBehaviour
 
             OnInteract();
         }
+
+        if (other.gameObject.CompareTag("BrewingPot"))
+        {
+            Inventory.instance.AddItem(item);
+        }
     }
     public string GetInteractPrompt()
     {
