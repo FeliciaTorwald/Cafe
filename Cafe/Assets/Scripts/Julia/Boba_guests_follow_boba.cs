@@ -45,12 +45,12 @@ public class Boba_guests_follow_boba : MonoBehaviour
         return closest;
     }
 
-    private void Ontrigger(Collider other) 
+    private void OnTriggerEnter(Collider other) 
     {
         Debug.Log("collision");
-        if (other.tag == "BobaPearls" && ful_Mouth == false)
+        if (other.gameObject.tag == "BobaPearls" && ful_Mouth == false)
         {
-            Debug.Log("hello");
+            Debug.Log("Is boba in mounth");
             Boba_In_Mouth += 1;
             Destroy(closestBoba);
             
