@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+// using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BobaTeaHandler : MonoBehaviour
 {
@@ -47,13 +47,13 @@ public class BobaTeaHandler : MonoBehaviour
         }
     }
 
-    private void SpawnDish()
-    {
-       if(Input.GetKeyDown(KeyCode.F))
-        {
-            emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
-        } 
-    }
+    // private void SpawnDish()
+    // {
+    //    if(Input.GetKeyDown(KeyCode.F))
+    //     {
+    //         emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
+    //     } 
+    // }
 
     private void DestroyDish()
     {
@@ -86,7 +86,7 @@ public class BobaTeaHandler : MonoBehaviour
         //        gS.onOrderFullfilled = false;
         //    }
         //}
-        SpawnDish();
+        // SpawnDish();
         DestroyDish();
     }
     public void ServedSequence()
@@ -98,7 +98,7 @@ public class BobaTeaHandler : MonoBehaviour
             Invoke("FinishedTea", 2);
             gS.onOrderFullfilled = true;
             gS.Spawn();
-            FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
+            guestRef.GetComponent<GuestInteraction>().ServeGuest(TeaType.TypeA);
             inTriggerArea = false;
             gS.onOrderFullfilled = false;
         //}

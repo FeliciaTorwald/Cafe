@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,6 +47,9 @@ public class GameManager : MonoBehaviour
         {
             guestSpawner.SpawnNewGuest();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(1);
     }
 
     public Chair AssignSeat()
@@ -54,7 +58,6 @@ public class GameManager : MonoBehaviour
         Chair chosenRef = freeSeatsInScene[chosenSeat].GetGameObject();
         freeSeatsInScene.RemoveAt(chosenSeat);
         freeSeats--;
-
         return chosenRef;
 
         //Gives a reference to a free seat to a guest upon request.
