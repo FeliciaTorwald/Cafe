@@ -55,7 +55,8 @@ public class BobaSpawner : MonoBehaviour
             if (!pooledObjects[i].activeSelf)
             {
                 //pooledObjects[i].transform.position = new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8));
-                pooledObjects[i].transform.position = spawnPoints[firstIndex].position; 
+                pooledObjects[i].transform.position = spawnPoints[firstIndex].position;
+                pooledObjects[i].GetComponent<Rigidbody>().isKinematic = true;
                 pooledObjects[i].SetActive(true);
                 StartCoroutine(Despawn(bobaLifeTime, pooledObjects[i]));
                 return;

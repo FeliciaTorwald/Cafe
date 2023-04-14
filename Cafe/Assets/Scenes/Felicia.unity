@@ -426,7 +426,9 @@ MonoBehaviour:
   pooledObjects: []
   playerPosRef: {fileID: 579412930}
   maxBobaInScene: 5
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 318481888}
+  - {fileID: 318481888}
 --- !u!4 &318481888
 Transform:
   m_ObjectHideFlags: 0
@@ -1188,7 +1190,7 @@ PrefabInstance:
       objectReference: {fileID: 306184784}
     - target: {fileID: 4599598111076307074, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.052
+      value: 0.087
       objectReference: {fileID: 0}
     - target: {fileID: 4599598111076307074, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1196,7 +1198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4599598111076307074, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.088
+      value: 0.526
       objectReference: {fileID: 0}
     - target: {fileID: 7603465026384874555, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1565,32 +1567,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: -91.145, z: 0}
---- !u!1 &1520191517 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
-  m_PrefabInstance: {fileID: 4539134081883943821}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1520191526
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520191517}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.271683, z: 1}
-  m_Center: {x: 0, y: 0.52710545, z: 0}
 --- !u!1001 &1573355654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2724,14 +2700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EmptyBobaTea
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4451945149578627237, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1520191526}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
 --- !u!1001 &4875207605268296663
 PrefabInstance:

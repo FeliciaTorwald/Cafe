@@ -16,6 +16,7 @@ public class BobaShooterController : MonoBehaviour
     public AudioSource source;
     public Transform PlayerRef;
     public float Distance;
+    Vector3 startThrowPos;
     bool equipped = false;
 
     public AudioClip sound_of_boba;
@@ -36,7 +37,6 @@ public class BobaShooterController : MonoBehaviour
     void Update()
     {
 
-
         //Ball in hands
         if (IsBallInHands == true)
         {
@@ -46,8 +46,8 @@ public class BobaShooterController : MonoBehaviour
 
                 Ball.transform.position = PosOverHead.position;
                 // Arms.localEulerAngles = Vector3.right * 180;
-
                 transform.LookAt(Target.position);
+                Debug.Log(PosOverHead.position);
 
             }
             //dribbling
@@ -58,17 +58,18 @@ public class BobaShooterController : MonoBehaviour
             }
 
             //throw ball
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space))
             {
                 Ball.GetComponent<Rigidbody>().isKinematic = true;
+                Debug.Log(Ball.GetComponent<Rigidbody>().isKinematic);
                 //Ball.GetComponent<Rigidbody>().AddForce(new Vector3(1,1,1)*10, ForceMode.Impulse);// use this to shoot customers later
                 IsBallInHands = false;
                 IsBallFlying = true;
-                //T = 0;
+                T = 0;
                 source.PlayOneShot(sound_of_boba);
-                Debug.Log(equipped);
                 eQ.equipped = false;
                 EquipTool.slotIsfull = false;
+                startThrowPos = PosOverHead.position;
             }
 
         }
@@ -82,7 +83,7 @@ public class BobaShooterController : MonoBehaviour
             float t01 = T / duration;
 
             // move to target
-            Vector3 A = PosOverHead.position;
+            Vector3 A = startThrowPos;
             Vector3 B = Target.position;
             Vector3 pos = Vector3.Lerp(A, B, t01);
 
@@ -91,7 +92,7 @@ public class BobaShooterController : MonoBehaviour
             Ball.transform.position = pos + arc;
 
 
-            if (t01 >= 1.5)
+            if (t01 >= 2)
             {
                 IsBallFlying = false;
                 Ball.GetComponent<Rigidbody>().isKinematic = false;

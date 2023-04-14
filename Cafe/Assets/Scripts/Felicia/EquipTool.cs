@@ -53,7 +53,7 @@ public class EquipTool : Pickupable
         toolParent = GameObject.Find("ToolParent").transform;//now transfom works with prefabs
         gWIT = FindFirstObjectByType<Get_water_In_Teapot>();
         bSC = FindFirstObjectByType<BobaShooterController>();
-        bTH = FindFirstObjectByType<BobaTeaHandler>();
+        bTH = FindObjectOfType<BobaTeaHandler>();
 
 
     }

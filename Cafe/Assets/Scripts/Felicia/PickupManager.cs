@@ -18,7 +18,7 @@ public class PickupManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            CleanList();
+            //CleanList();
             Pickupable closest = pickupables.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).First();
             closest.Interact();
         }
