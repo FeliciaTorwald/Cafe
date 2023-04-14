@@ -9,6 +9,7 @@ public class Chair : MonoBehaviour, ISeat
     void Start()
     {
         Invoke(nameof(AddSelf), .1f);
+        tableRef = GetComponentInChildren<BobaTeaHandler>();
     }
     
     void Update()
