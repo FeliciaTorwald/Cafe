@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+// using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class GoldSpawner : MonoBehaviour
@@ -18,7 +18,7 @@ public class GoldSpawner : MonoBehaviour
     }
     public void Update()
     {
-        Spawn();
+        // Spawn();
         //DestroyCoin();
     }
     public void Spawn()

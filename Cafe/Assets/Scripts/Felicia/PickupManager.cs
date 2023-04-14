@@ -37,6 +37,7 @@ public class PickupManager : MonoBehaviour
     {
         if(other.GetComponent<Pickupable>() != null)
         {
+            Debug.Log("Added pearl to list");
             pickupables.Add(other.GetComponent<Pickupable>());
         }
     }
