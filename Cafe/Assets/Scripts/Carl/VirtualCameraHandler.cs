@@ -10,12 +10,15 @@ public class VirtualCameraHandler : MonoBehaviour
     [SerializeField] private BoxCollider cameraChangeTrigger; 
     [SerializeField] private bool isTopCamera;
     [SerializeField] private float idleTimer = 5f;
+    private CameraController cameraController;
 
     public bool topCameraActive;
     
     private void Start()
     {
-        CameraController.RegisterCamera(virtualCamera);
+        cameraController = FindObjectOfType<CameraController>();
+        cameraController.RegisterCamera(virtualCamera);
+        
     }
 
     private void Update()
@@ -24,7 +27,7 @@ public class VirtualCameraHandler : MonoBehaviour
         {
             if (!Input.anyKey && idleTimer <= 0f && !topCameraActive)
             {
-                CameraController.SwitchCamera(virtualCamera, isTopCamera);
+                cameraController.SwitchCamera(virtualCamera, isTopCamera);
                 idleTimer = 5f;
                 topCameraActive = true;
             }
@@ -34,7 +37,7 @@ public class VirtualCameraHandler : MonoBehaviour
                 idleTimer = 5f;
             else if (Input.anyKey && topCameraActive)
             {
-                CameraController.SwitchCamera(virtualCamera, isTopCamera);
+                cameraController.SwitchCamera(virtualCamera, isTopCamera);
                 topCameraActive = false;
             }
         }
@@ -43,6 +46,6 @@ public class VirtualCameraHandler : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            CameraController.SwitchCamera(virtualCamera, isTopCamera);
+            cameraController.SwitchCamera(virtualCamera, isTopCamera);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public static class CameraController
+public class CameraController : MonoBehaviour
 {
     private static List<CinemachineVirtualCamera> cameras = new List<CinemachineVirtualCamera>();
     public static CinemachineVirtualCamera activeCamera = null;
@@ -13,7 +13,7 @@ public static class CameraController
         return camera == activeCamera;
     }
     
-    public static void SwitchCamera(CinemachineVirtualCamera camera, bool topCameraSwitch)
+    public void SwitchCamera(CinemachineVirtualCamera camera, bool topCameraSwitch)
     {
         if (!topCameraSwitch)
         {
@@ -51,9 +51,8 @@ public static class CameraController
         }
     }
 
-    public static void RegisterCamera(CinemachineVirtualCamera camera)
+    public void RegisterCamera(CinemachineVirtualCamera camera)
     {
         cameras.Add(camera);
-        Debug.Log("Added 1 camera to index");
     }
 }

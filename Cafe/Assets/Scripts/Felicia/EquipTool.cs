@@ -26,7 +26,7 @@ public class EquipTool : Pickupable
 
         else if (equipped && slotIsfull)
         {
-            if (bTH.inTriggerArea)
+            if (bTH.inTriggerArea && bTH.guestRef != null)
             {
                 bTH.ServedSequence();
             }
@@ -53,7 +53,7 @@ public class EquipTool : Pickupable
         toolParent = GameObject.Find("ToolParent").transform;//now transfom works with prefabs
         gWIT = FindFirstObjectByType<Get_water_In_Teapot>();
         bSC = FindFirstObjectByType<BobaShooterController>();
-        bTH = FindFirstObjectByType<BobaTeaHandler>();
+        // bTH = FindFirstObjectByType<BobaTeaHandler>();
 
 
     }
@@ -163,6 +163,9 @@ public class EquipTool : Pickupable
         {
             inCollision = true;
         }
+
+        if (other.GetComponent<BobaTeaHandler>() != null)
+            bTH = other.GetComponent<BobaTeaHandler>();
     }
 
     private void OnTriggerExit(Collider other)
