@@ -15,7 +15,8 @@ public class BobaSpawner : MonoBehaviour
     private Vector3 spawnPointRef;
     public float maxBobaInScene = 5;
     BobaShooterController bSC;
-    public Transform spawnPoint1, spawnPoint2;
+    public Transform[] spawnPoints; 
+    int firstIndex; 
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class BobaSpawner : MonoBehaviour
         StartCoroutine(SpawnBobas(bobaInterval, preFab));
         bSC.Balls = pooledObjects;
         //spawnPointRef = playerPosRef.position;
-        spawnPointRef = spawnPoint1.position;
+
     }
 
     private IEnumerator SpawnBobas(float interval, GameObject bobaBall)
@@ -46,13 +47,15 @@ public class BobaSpawner : MonoBehaviour
     }
     private void Spawn()
     {
+        firstIndex = Random.Range(0, 2);
+
         for (int i = 0; i < pooledObjects.Count; i++)
         {
             //if something in pooledObjects is empty activate them
             if (!pooledObjects[i].activeSelf)
             {
                 //pooledObjects[i].transform.position = new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8));
-                pooledObjects[i].transform.position = spawnPoint1.transform.position;
+                pooledObjects[i].transform.position = spawnPoints[firstIndex].position; 
                 pooledObjects[i].SetActive(true);
                 StartCoroutine(Despawn(bobaLifeTime, pooledObjects[i]));
                 return;
@@ -65,10 +68,11 @@ public class BobaSpawner : MonoBehaviour
         }
         //instantiates the boba once
         //GameObject newPoint = Instantiate(preFab, new Vector3(spawnPointRef.x + Random.Range(-3f, 1), spawnPointRef.y + 18, spawnPointRef.z + Random.Range(-3f, 8)), Quaternion.identity);
-        GameObject newPoint = Instantiate(preFab, spawnPoint1);
+        GameObject newPoint = Instantiate(preFab, spawnPoints[firstIndex].position, spawnPoints[firstIndex].rotation);
         newPoint.SetActive(true);
         pooledObjects.Add(newPoint);
         bSC.Ball = newPoint;
+        newPoint.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 100); //
         StartCoroutine(Despawn(bobaLifeTime, newPoint));
     }
     
