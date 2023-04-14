@@ -19,7 +19,7 @@ public class WashDishes : MonoBehaviour
             {
                 eT.equipped = false;
                 Destroy(gameObject);
-                FindObjectOfType<CleanDishes>().Spawn();
+                //FindObjectOfType<CleanDishes>().Spawn();
             }
         }
     }
