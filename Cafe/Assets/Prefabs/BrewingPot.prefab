@@ -11,11 +11,13 @@ GameObject:
   - component: {fileID: 2109936372718001184}
   - component: {fileID: 6549946348110340904}
   - component: {fileID: 743745164214695495}
-  - component: {fileID: 3928616589044139227}
+  - component: {fileID: 3382933792509491619}
   - component: {fileID: 5811740937051264688}
+  - component: {fileID: 8162423024866599091}
+  - component: {fileID: 2102895581633470980}
   m_Layer: 0
   m_Name: BrewingPot
-  m_TagString: Untagged
+  m_TagString: BrewingPot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,12 +31,12 @@ Transform:
   m_GameObject: {fileID: 59440733011113277}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5747323, y: 1.017, z: -1.3406634}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 260, y: 260, z: 260}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2900581185739192630}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6549946348110340904
 MeshFilter:
@@ -43,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59440733011113277}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -20022648493213359, guid: 254630ee669bfba4ebf9b1e184b1cdb3, type: 3}
 --- !u!23 &743745164214695495
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -86,7 +88,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3928616589044139227
+--- !u!65 &3382933792509491619
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,12 +103,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.245925, y: 1, z: 1.1885815}
-  m_Center: {x: 0.03405142, y: 0, z: -0.015962362}
+  m_Size: {x: 0.0088793235, y: 0.012602617, z: 0.020938857}
+  m_Center: {x: -0.001403009, y: -0.0032113285, z: -0.0005541223}
 --- !u!114 &5811740937051264688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,13 +124,55 @@ MonoBehaviour:
   hasBoba: 0
   hasWater: 0
   canMakeBoba: 1
+  isMakingTea: 0
   gameTime: 10
+  eT: {fileID: 0}
   boba: 0
   water: 0
   finishedTea: {fileID: 4843697783794987271, guid: d6c63fbf3fc1e0d4195640bfdf1c5f84, type: 3}
   spawnTeaPos: {fileID: 3524713289546466264}
-  addItemText: {fileID: 0}
   timerSlider: {fileID: 0}
+--- !u!114 &8162423024866599091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59440733011113277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf4e777505a7a24c982d329a170ff0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inventoryWindow: {fileID: 0}
+  dropPosition: {fileID: 0}
+  onOpenInventory:
+    m_PersistentCalls:
+      m_Calls: []
+  onCloseInventory:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2102895581633470980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59440733011113277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f0859dcd988e64a872c7aa1a5b4a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstOptionButton: {fileID: 0}
+  optionsClosedButton: {fileID: 0}
 --- !u!1 &3524713289546466264
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3524713289546466264}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03226781, y: 0.5305357, z: 0.015663385}
+  m_LocalPosition: {x: -0.042, y: 1.176, z: 0.016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
