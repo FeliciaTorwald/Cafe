@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7761529524782031685}
   - component: {fileID: 8144753161808442268}
   - component: {fileID: 1894588669029334120}
+  - component: {fileID: 1179608525846705339}
   m_Layer: 0
   m_Name: PH_Gold
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &981610277686535655
 MeshFilter:
@@ -103,7 +104,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1.2780708
   m_Height: 13.775283
@@ -144,3 +145,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf0f6ee0816d7fb409455f4f242dc560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1179608525846705339
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5855194005249689738}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.7583475, y: 1.9999998, z: 4.367241}
+  m_Center: {x: -0.07781716, y: 0, z: -0.06161395}

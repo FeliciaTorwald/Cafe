@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 71c18e0877f030845b2f7a1c1a714db3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Ball: {instanceID: 0}
+  - Arms: {instanceID: 0}
+  - PosOverHead: {instanceID: 0}
+  - posDribble: {instanceID: 0}
+  - Target: {instanceID: 0}
+  - source: {instanceID: 0}
+  - PlayerRef: {instanceID: 0}
+  - sound_of_boba: {fileID: 8300000, guid: 04e58e9ccf1b1e04abf973ae90ae1cfd, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

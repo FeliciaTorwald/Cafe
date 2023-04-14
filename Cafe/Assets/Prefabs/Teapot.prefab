@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3942978125572387222}
   m_Layer: 0
   m_Name: Teapot
-  m_TagString: Untagged
+  m_TagString: TeaPot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 3115097167723223459}
   - {fileID: 7428347359704615809}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &930527171757401386
 BoxCollider:
