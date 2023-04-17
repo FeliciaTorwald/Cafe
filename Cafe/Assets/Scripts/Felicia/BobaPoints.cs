@@ -20,6 +20,7 @@ public class BobaPoints : MonoBehaviour
         if (other.gameObject.CompareTag("BrewingPot"))
         {
             OnInteract();
+            FindObjectOfType<BobaShooterController>().Despawn();
         }
     }
     public string GetInteractPrompt()
@@ -31,4 +32,6 @@ public class BobaPoints : MonoBehaviour
     {
         Inventory.instance.AddItem(item);
     }
+
+
 }

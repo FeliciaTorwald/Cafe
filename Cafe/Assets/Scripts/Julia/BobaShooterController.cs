@@ -112,7 +112,10 @@ public class BobaShooterController : MonoBehaviour
     //            }
     //        }
     //}
-
+    public void Despawn()
+    {
+        Ball.SetActive(false);
+    }
     public void PickingUpBall(GameObject bobaObject)
     {
 
@@ -126,7 +129,7 @@ public class BobaShooterController : MonoBehaviour
 
     }
 
-   
+  
 
 
 
