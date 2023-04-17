@@ -13,6 +13,7 @@ public class BrewingInventory : MonoBehaviour
     public float gameTime = 10f;
     public EquipTool eT;
 
+    private int queueAmount;
     private float timer = 0f;
     private void Start()
     {
@@ -23,7 +24,7 @@ public class BrewingInventory : MonoBehaviour
 
     [SerializeField] private int boba = 0;
     [SerializeField] private int water = 0;
-
+    [SerializeField] TextMeshProUGUI queueText;
     [SerializeField] GameObject finishedTea;
     [SerializeField] GameObject spawnTeaPos;
     [SerializeField] Slider timerSlider;
@@ -48,6 +49,8 @@ public class BrewingInventory : MonoBehaviour
     {
         // Add timer IEnumerator to queue
         recipeQueue.Enqueue(Timer());
+        queueAmount++;
+        CheckQueueAmount();
 
         if (!isMakingTea)
         {
@@ -81,11 +84,17 @@ public class BrewingInventory : MonoBehaviour
         } while (timer > 0);
 
         BobaTea();
+        queueAmount--;
+        CheckQueueAmount();
 
         // if queue is over 0, start timer coroutine 
         if (recipeQueue.Count > 0)
         {
             yield return StartCoroutine(Timer());
+        }
+        else
+        {
+            queueText.text = "";
         }
     }
 
@@ -113,5 +122,9 @@ public class BrewingInventory : MonoBehaviour
     {
 
         Destroy(teaToHold);
+    }
+    public void CheckQueueAmount()
+    {
+        queueText.text = queueAmount.ToString();
     }
 }
