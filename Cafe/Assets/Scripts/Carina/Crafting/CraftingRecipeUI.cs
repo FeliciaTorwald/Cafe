@@ -21,6 +21,7 @@ public class CraftingRecipeUI : MonoBehaviour
     private void OnEnable()
     {
         UpdateCanCraft();
+        CheckCanMakeTea();
     }
 
     public void UpdateCanCraft()
@@ -62,6 +63,14 @@ public class CraftingRecipeUI : MonoBehaviour
     }
 
     public void OnClickButton()
+    {
+        if (canCraft)
+        {
+            CraftingWindow.instance.Craft(recipe);
+        }
+    }
+
+    public void CheckCanMakeTea()
     {
         if (canCraft)
         {
