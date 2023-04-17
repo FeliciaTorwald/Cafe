@@ -8,38 +8,50 @@ public class EquipTool : Pickupable
     public GameObject tool;
     public Transform toolParent;
     public bool equipped;
-    public static bool slotIsfull;
+    public static bool slotIsFull;
     public bool inCollision;
     Get_water_In_Teapot gWIT;
     BobaShooterController bSC;
     public bool canYouEquipBoba;
     public float force = 200;
     BobaTeaHandler bTH;
+    WaterPickup wP;
 
     [SerializeField] private ToolType toolType;
     
     public override void Interact()
     {
         //picks up tools
-        if (!equipped && !slotIsfull && inCollision)
+        if (!equipped && !slotIsFull && inCollision)
         {
             Equip();
         }
 
-        else if (equipped && slotIsfull)
+        else if (equipped && slotIsFull)
         {
             if (bTH.inTriggerArea)
             {
                 bTH.ServedSequence();
             }
-            ////picks up water
-            //if (gWIT.inTriggerArea == true)
+            //Picks up water
+
+            else if(wP.PTriggerArea)
+            {
+                wP.AddWaterToBucket();
+                if (wP.BPTriggerArea)
+                {
+                    wP.AddWaterToKettle();
+                }
+            }
+
+            ////Pours in kettle
+            //else if (wP.BPTriggerArea)
             //{
-            // gWIT.PickingUpWater();   
+            //    wP.AddWaterToKettle();   
             //}
 
             //drops tool
-            else
+            else if (wP.PTriggerArea == false && wP.BPTriggerArea == false)
             {
                 Drop();
             }
@@ -56,6 +68,7 @@ public class EquipTool : Pickupable
         gWIT = FindFirstObjectByType<Get_water_In_Teapot>();
         bSC = FindFirstObjectByType<BobaShooterController>();
         bTH = FindObjectOfType<BobaTeaHandler>();
+        wP = FindObjectOfType<WaterPickup>();
     }
     //use meshcollider,turn on convex then add boxcollider as trigger
 
@@ -127,7 +140,7 @@ public class EquipTool : Pickupable
         tool.GetComponent<MeshCollider>().enabled = true;
 
         equipped = false;
-        slotIsfull = false;
+        slotIsFull = false;
     }
 
 
@@ -143,7 +156,7 @@ public class EquipTool : Pickupable
         tool.transform.SetParent(toolParent);
 
         equipped = true;
-        slotIsfull = true;
+        slotIsFull = true;
     }
 
 
@@ -151,20 +164,20 @@ public class EquipTool : Pickupable
     {
         if (tool == null)
         {
-            slotIsfull = false;
+            slotIsFull = false;
             equipped = false;
         }
 
         if (toolParent == null)
         {
             toolParent.DetachChildren();
-            slotIsfull = false;
+            slotIsFull = false;
             equipped = false;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!equipped && !slotIsfull && other.gameObject.tag == "Player")
+        if (!equipped && !slotIsFull && other.gameObject.tag == "Player")
         {
             inCollision = true;
         }
@@ -172,7 +185,7 @@ public class EquipTool : Pickupable
 
     private void OnTriggerExit(Collider other)
     {
-        if (!equipped && !slotIsfull && other.gameObject.tag == "Player")
+        if (!equipped && !slotIsFull && other.gameObject.tag == "Player")
         {
             inCollision = false;
         }
