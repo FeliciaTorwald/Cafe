@@ -111,8 +111,7 @@ public class BrewingInventory : MonoBehaviour
 
     public void DestroyBoba()
     {
-        //eT.equipped = false;
-        //EquipTool.slotIsfull= false;
+
         Destroy(teaToHold);
     }
 }

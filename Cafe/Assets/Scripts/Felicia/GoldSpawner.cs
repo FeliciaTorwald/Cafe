@@ -20,6 +20,14 @@ public class GoldSpawner : MonoBehaviour
     {
         // Spawn();
         //DestroyCoin();
+        if (Input.GetKeyUp(KeyCode.M))
+        {
+            Spawn();
+        }
+        if (Input.GetKeyUp(KeyCode.N))
+        {
+            DestroyCoin();
+        }
     }
     public void Spawn()
     {
@@ -33,7 +41,7 @@ public class GoldSpawner : MonoBehaviour
     {
         if (onOrderFullfilled == false)
         {
-        Destroy(coin,0.5f);
+            Destroy(coin);
         }
     }
 }
