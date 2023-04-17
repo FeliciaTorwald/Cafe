@@ -16,5 +16,5 @@ MonoBehaviour:
   maxStackAmount: 10
   displayName: Boba1
   type: 0
-  icon: {fileID: 21300000, guid: 7a6e5c77fdb7aed468df409f3b9ea859, type: 3}
+  icon: {fileID: 21300000, guid: 450711196d3bcca449d4a208adcda0a2, type: 3}
   dropPrefab: {fileID: 0}
