@@ -103,14 +103,16 @@ public class BrewingInventory : MonoBehaviour
     {
         if (teaToHold != null)
         {
+            eT.equipped = false;
+            EquipTool.slotIsfull = false;
             Invoke("DestroyBoba", 0.5f);
         }
     }
 
     public void DestroyBoba()
     {
-        eT.equipped = false;
-        EquipTool.slotIsfull= false;
+        //eT.equipped = false;
+        //EquipTool.slotIsfull= false;
         Destroy(teaToHold);
     }
 }
