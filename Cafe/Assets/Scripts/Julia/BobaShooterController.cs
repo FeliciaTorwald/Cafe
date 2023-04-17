@@ -68,7 +68,7 @@ public class BobaShooterController : MonoBehaviour
                 T = 0;
                 source.PlayOneShot(sound_of_boba);
                 eQ.equipped = false;
-                EquipTool.slotIsfull = false;
+                EquipTool.slotIsFull = false;
                 startThrowPos = PosOverHead.position;
             }
 

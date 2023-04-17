@@ -8,7 +8,6 @@ public class BobaBall : Pickupable
     
     public override void Interact()
     {
-        Debug.Log("ball");
         FindObjectOfType<BobaShooterController>().PickingUpBall(gameObject);
     }
     
