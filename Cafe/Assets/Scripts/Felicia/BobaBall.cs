@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class BobaBall : Pickupable
 {
+    [SerializeField] private ToolType toolType;
+    
     public override void Interact()
     {
         Debug.Log("ball");
         FindObjectOfType<BobaShooterController>().PickingUpBall(gameObject);
     }
-
+    
+    public ToolType IdentifyToolType()
+    {
+        return toolType;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -187,6 +187,7 @@ MonoBehaviour:
   inCollision: 0
   canYouEquipBoba: 0
   force: 20
+  toolType: 4
 --- !u!114 &662012146989877158
 MonoBehaviour:
   m_ObjectHideFlags: 0

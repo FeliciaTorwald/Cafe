@@ -18,7 +18,8 @@ public class VirtualCameraHandler : MonoBehaviour
     {
         cameraController = FindObjectOfType<CameraController>();
         cameraController.RegisterCamera(virtualCamera);
-        
+
+        virtualCamera.Follow = FindObjectOfType<NewPlayerMovement>().transform;
     }
 
     private void Update()

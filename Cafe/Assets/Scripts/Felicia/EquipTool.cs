@@ -16,6 +16,8 @@ public class EquipTool : Pickupable
     public float force = 200;
     BobaTeaHandler bTH;
 
+    [SerializeField] private ToolType toolType;
+    
     public override void Interact()
     {
         //picks up tools
@@ -54,8 +56,6 @@ public class EquipTool : Pickupable
         gWIT = FindFirstObjectByType<Get_water_In_Teapot>();
         bSC = FindFirstObjectByType<BobaShooterController>();
         bTH = FindObjectOfType<BobaTeaHandler>();
-
-
     }
     //use meshcollider,turn on convex then add boxcollider as trigger
 
@@ -114,6 +114,11 @@ public class EquipTool : Pickupable
         //}
     }
 
+    public ToolType IdentifyToolType()
+    {
+        return toolType;
+    }
+    
     void Drop()
     {
         toolParent.DetachChildren();
