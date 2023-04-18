@@ -20,28 +20,35 @@ public class GoldSpawner : MonoBehaviour
     {
         // Spawn();
         //DestroyCoin();
-        if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             Spawn();
         }
-        if (Input.GetKeyUp(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             DestroyCoin();
         }
     }
     public void Spawn()
     {
-        if (onOrderFullfilled)
+        //if (onOrderFullfilled)
+        //{
+        if(coin == null)
         {
             coin = Instantiate(preFabGold, transform.position, Quaternion.identity);//TODO Change so that coin spawn on moneyPlace, do this when we build in the gamescene together
         }
+        //}
     }
 
     public void DestroyCoin()
     {
-        if (onOrderFullfilled == false)
+        //if (onOrderFullfilled == false)
+        //{
+        if(coin != null)
         {
             Destroy(coin);
         }
+        //}
     }
+
 }

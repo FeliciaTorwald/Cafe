@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ public class EquipTool : Pickupable
     public bool canYouEquipBoba;
     public float force = 200;
     BobaTeaHandler bTH;
+    List<BobaTeaHandler> bTHs;
     WaterPickup wP;
 
     [SerializeField] private ToolType toolType;
@@ -29,13 +31,22 @@ public class EquipTool : Pickupable
 
         else if (equipped && slotIsFull)
         {
-            if (bTH.inTriggerArea)
+            foreach (var bobaTea in bTHs)
             {
-                bTH.ServedSequence();
+                if (bobaTea.inTriggerArea)
+                {
+                    Debug.Log("tea in area");
+                    bobaTea.ServedSequence();
+                    return;
+                }
             }
+            //if (bTH.inTriggerArea)
+            //{
+            //    bTH.ServedSequence();
+            //}
             //Picks up water
 
-            else if(wP.PTriggerArea)
+            if (wP.PTriggerArea)
             {
                 wP.AddWaterToBucket();
                 if (wP.BPTriggerArea)
@@ -44,11 +55,11 @@ public class EquipTool : Pickupable
                 }
             }
 
-            ////Pours in kettle
-            //else if (wP.BPTriggerArea)
-            //{
-            //    wP.AddWaterToKettle();   
-            //}
+            //Pours in kettle
+            else if (wP.BPTriggerArea)
+            {
+                wP.AddWaterToKettle();
+            }
 
             //drops tool
             else if (wP.PTriggerArea == false && wP.BPTriggerArea == false)
@@ -68,6 +79,8 @@ public class EquipTool : Pickupable
         gWIT = FindFirstObjectByType<Get_water_In_Teapot>();
         bSC = FindFirstObjectByType<BobaShooterController>();
         bTH = FindObjectOfType<BobaTeaHandler>();
+        bTHs = FindObjectsOfType<BobaTeaHandler>().ToList<BobaTeaHandler>();
+
         wP = FindObjectOfType<WaterPickup>();
     }
     //use meshcollider,turn on convex then add boxcollider as trigger

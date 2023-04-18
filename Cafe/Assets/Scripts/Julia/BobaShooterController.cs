@@ -47,7 +47,6 @@ public class BobaShooterController : MonoBehaviour
                 Ball.transform.position = PosOverHead.position;
                 // Arms.localEulerAngles = Vector3.right * 180;
                 transform.LookAt(Target.position);
-                Debug.Log(PosOverHead.position);
 
             }
             //dribbling
@@ -61,7 +60,6 @@ public class BobaShooterController : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 Ball.GetComponent<Rigidbody>().isKinematic = true;
-                Debug.Log(Ball.GetComponent<Rigidbody>().isKinematic);
                 //Ball.GetComponent<Rigidbody>().AddForce(new Vector3(1,1,1)*10, ForceMode.Impulse);// use this to shoot customers later
                 IsBallInHands = false;
                 IsBallFlying = true;

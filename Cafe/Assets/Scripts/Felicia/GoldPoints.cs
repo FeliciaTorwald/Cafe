@@ -10,7 +10,9 @@ public class GoldPoints : MonoBehaviour
         if (other.tag == ("Player"))
         {
            FindObjectOfType<GoldSpawner>().DestroyCoin();
+           //Destroy(gameObject);
            FindObjectOfType<GoldCounter>().AddGold(10);
         }
     }
+    
 }

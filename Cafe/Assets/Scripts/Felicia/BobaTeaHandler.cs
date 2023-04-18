@@ -32,7 +32,7 @@ public class BobaTeaHandler : MonoBehaviour
 
     private void ServedTea()
     {
-        GameObject tea = Instantiate(fakefullBobaTea, transform.position, Quaternion.identity) as GameObject;
+        GameObject tea = Instantiate(fakefullBobaTea, transform.position, Quaternion.identity);
         eT.equipped = false;
         Destroy(tea,1f);
     }
@@ -42,7 +42,6 @@ public class BobaTeaHandler : MonoBehaviour
         if (emptyTea == null)
         {
           emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
-          Debug.Log("spooky");
           guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
         }
     }

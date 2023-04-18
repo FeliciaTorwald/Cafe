@@ -19,11 +19,11 @@ public class WaterPickup : MonoBehaviour
         eQ = FindObjectOfType<EquipTool>();
     }
 
-    private void Update()
-    {
-        AddWaterToBucket();
-        AddWaterToKettle(); 
-    }
+    //private void Update()
+    //{
+    //    AddWaterToBucket();
+    //    AddWaterToKettle(); 
+    //}
     public void AddWaterToKettle()
     {
         //if (BPTriggerArea)
