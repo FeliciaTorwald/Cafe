@@ -14,17 +14,7 @@ public class BobaTeaHandler : MonoBehaviour
     public Guest guestRef;
     public bool inTriggerArea;
     EquipTool eT;
-    //public override void Interact()
-    //{
-    //    FindObjectOfType<BrewingInventory>().RemoveBobaTea();
-    //    ServedTea();
-    //    Invoke("FinishedTea", 2);
-    //    gS.onOrderFullfilled = true;
-    //    gS.Spawn();
-    //    FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
-    //    inTriggerArea = false;
-    //    gS.onOrderFullfilled = false;
-    //}
+
     private void Start()
     {
         eT = FindFirstObjectByType<EquipTool>();
@@ -33,26 +23,21 @@ public class BobaTeaHandler : MonoBehaviour
     private void ServedTea()
     {
         GameObject tea = Instantiate(fakefullBobaTea, transform.position, Quaternion.identity);
-        eT.equipped = false;
-        Destroy(tea,1f);
+        Destroy(tea, 1f);
     }
 
     private void FinishedTea()
     {
         if (emptyTea == null)
         {
-          emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
-          guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
+            emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
+            if(guestRef != null)
+            {
+            guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
+            }
         }
     }
 
-    // private void SpawnDish()
-    // {
-    //    if(Input.GetKeyDown(KeyCode.F))
-    //     {
-    //         emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
-    //     } 
-    // }
 
     private void DestroyDish()
     {
@@ -65,42 +50,35 @@ public class BobaTeaHandler : MonoBehaviour
     {
         if (emptyTea != null)
         {
-            Destroy(emptyTea,0.5f);
+            Destroy(emptyTea, 0.5f);
         }
     }
 
     private void Update()
     {
-        //if (Input.GetKeyUp(KeyCode.E))
-        //{
-        //    if (inTriggerArea)
-        //    {
-        //        FindObjectOfType<BrewingInventory>().RemoveBobaTea();
-        //        ServedTea();
-        //        Invoke("FinishedTea", 2);
-        //        gS.onOrderFullfilled = true;
-        //        gS.Spawn();
-        //        FindObjectOfType<GuestInteraction>().ServeGuest(TeaType.TypeA);
-        //        inTriggerArea = false;
-        //        gS.onOrderFullfilled = false;
-        //    }
-        //}
-        // SpawnDish();
+        
         DestroyDish();
     }
     public void ServedSequence()
     {
-        //if (inTriggerArea)
-        //{
-            FindObjectOfType<BrewingInventory>().RemoveBobaTea();
-            ServedTea();
-            Invoke("FinishedTea", 2);
-            gS.onOrderFullfilled = true;
-            gS.Spawn();
-            guestRef.GetComponent<GuestInteraction>().ServeGuest(TeaType.TypeA);
-            inTriggerArea = false;
-            gS.onOrderFullfilled = false;
-        //}
+
+        FindObjectOfType<BrewingInventory>().RemoveBobaTea();
+        ServedTea();
+        Invoke("FinishedTea", 2);
+        gS.onOrderFullfilled = true;
+        gS.Spawn();
+        if (guestRef != null)
+        {
+            if (guestRef.GetComponent<GuestInteraction>() != null)
+            {
+                guestRef.GetComponent<GuestInteraction>().ServeGuest(TeaType.TypeA);
+            }
+
+        }
+
+        inTriggerArea = false;
+        gS.onOrderFullfilled = false;
+
     }
     public void AddGuestToTeaOrder(Guest guest)
     {
