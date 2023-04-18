@@ -8,30 +8,29 @@ using TMPro;
 public class PickupManager : MonoBehaviour
 {
     List<Pickupable> pickupables;
-    [SerializeField] private Canvas interactionCanvas;
     [SerializeField] private TMP_Text pickUpDisplay;
-
+    [SerializeField] private Vector3 offset;
+    Camera mainCameraRef;
 
     void Start()
     {
-       pickupables= new List<Pickupable>();
-       Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
-       UpdatePlayerPickupDisplay();
+        pickupables= new List<Pickupable>();
+        Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+        UpdatePlayerPickupDisplay();
+        mainCameraRef = Camera.main;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            UpdateClosestPickupable().Interact();
+            UpdateClosestPickupable()?.Interact();
         }
-        
-       RotateCanvas();
     }
 
-    private void RotateCanvas()
+    private void LateUpdate()
     {
-        interactionCanvas.transform.forward = Camera.main.transform.forward;
+        pickUpDisplay.rectTransform.position = mainCameraRef.WorldToScreenPoint(transform.position) + offset;
     }
 
     private void UpdatePlayerPickupDisplay()

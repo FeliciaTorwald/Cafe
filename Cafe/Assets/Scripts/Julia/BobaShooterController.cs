@@ -8,7 +8,6 @@ public class BobaShooterController : MonoBehaviour
     //references
     public float MoveSpeed = 30;
     public GameObject Ball;
-    public List<GameObject> Balls;
     public Transform Arms;
     public Transform PosOverHead;
     public Transform posDribble;

@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class BobaLifespan : MonoBehaviour
 {
-    
-    void Start()
+    //Used for deactivating Boba ball after a certain lifetime.
+    //Sets when boba is selected from object pool.
+    public void Spawned(float time)
     {
-        
+        CancelInvoke(nameof(DeactivateBoba));
+        Invoke(nameof(DeactivateBoba), time);
     }
 
-
-    void Update()
+    private void DeactivateBoba()
     {
-        //Invoke("Destroy_boba", 20);
-    }
-
-    private void Destroy_boba()
-    {
-        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

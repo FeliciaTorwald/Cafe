@@ -8,8 +8,8 @@ public class GoldSpawner : MonoBehaviour
     public GameObject preFabGold;
     public bool onOrderFullfilled;
     GameObject coin;
-    //public Transform moneyPlace;
-    //private Vector3 spawnPointRef;
+    public Transform moneyPlace;
+    private Vector3 spawnPointRef;
 
     public void Start()
     {
