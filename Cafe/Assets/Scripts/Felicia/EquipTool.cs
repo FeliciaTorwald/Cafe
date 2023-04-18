@@ -49,10 +49,6 @@ public class EquipTool : Pickupable
             if (wP.PTriggerArea)
             {
                 wP.AddWaterToBucket();
-                if (wP.BPTriggerArea)
-                {
-                    wP.AddWaterToKettle();
-                }
             }
 
             //Pours in kettle
@@ -65,6 +61,7 @@ public class EquipTool : Pickupable
             else if (wP.PTriggerArea == false && wP.BPTriggerArea == false)
             {
                 Drop();
+                Debug.Log("dropped");
             }
 
             //Shoot();
@@ -88,6 +85,7 @@ public class EquipTool : Pickupable
     // Update is called once per frame
     void Update()
     {
+
         //pick up tools
         //if (!equipped && !slotIsfull && inCollision)
         //{
@@ -154,6 +152,8 @@ public class EquipTool : Pickupable
 
         equipped = false;
         slotIsFull = false;
+
+        Debug.Log("DroppedMetod");
     }
 
 

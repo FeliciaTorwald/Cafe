@@ -10,8 +10,8 @@ public class CleanDishes : MonoBehaviour
     private Vector3 spawnPointRef;
     void Start()
     {
-        spawnPosRef = GameObject.Find("SpawnDish").transform;
-        spawnPointRef = spawnPosRef.position;
+        //spawnPosRef = GameObject.Find("SpawnDish").transform;
+        //spawnPointRef = spawnPosRef.position;
     }
 
     public void Spawn()
