@@ -36,6 +36,7 @@ public class CraftingRecipeUI : MonoBehaviour
             }
         }
 
+        // Sets color depending if tea can be crafted or not
         backgroundImage.color = canCraft ? canCraftColor : cannotCraftColor;
 
         CheckCanMakeTea();
