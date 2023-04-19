@@ -6,6 +6,13 @@ public class BobaPoints : MonoBehaviour
 {
     public ItemData item;
 
+    CraftingTea canMakeTeaCheck;
+
+    private void Start()
+    {
+        canMakeTeaCheck = FindObjectOfType<CraftingTea>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Net")
@@ -20,6 +27,7 @@ public class BobaPoints : MonoBehaviour
         if (other.gameObject.CompareTag("BrewingPot"))
         {
             OnInteract();
+            canMakeTeaCheck.UpdateCanCraft();
             FindObjectOfType<BobaShooterController>().Despawn();
         }
     }
