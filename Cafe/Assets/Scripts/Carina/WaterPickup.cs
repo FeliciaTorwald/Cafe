@@ -36,8 +36,8 @@ public class WaterPickup : MonoBehaviour
             {
                 addWater.Gather();
                 hasWater = false;
-                canMakeTeaCheck.UpdateCanCraft();
                 waterInBucket.gameObject.SetActive(false);
+                canMakeTeaCheck.UpdateCanCraft();
             }
 
             }
