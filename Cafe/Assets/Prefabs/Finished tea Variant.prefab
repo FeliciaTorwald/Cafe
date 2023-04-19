@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
       propertyPath: m_LocalScale.x
@@ -67,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
       propertyPath: m_Name
       value: Finished tea Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
+      propertyPath: m_TagString
+      value: Boba
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -158,8 +162,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.2417152, y: 2.361697, z: 2.3431263}
-  m_Center: {x: -0.0027551467, y: 0.6808484, z: 0.2062855}
+  m_Size: {x: 2.2417152, y: 6.535336, z: 2.3431263}
+  m_Center: {x: -0.0027551467, y: -1.4059718, z: 0.2062855}
 --- !u!64 &7062311105207954339
 MeshCollider:
   m_ObjectHideFlags: 0
