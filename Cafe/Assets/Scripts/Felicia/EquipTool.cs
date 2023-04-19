@@ -15,6 +15,7 @@ public class EquipTool : Pickupable
     public float force = 200;
     List<BobaTeaHandler> bTHs;
     WaterPickup wP;
+    bool guestInRange;
 
     [SerializeField] private ToolType toolType;
 
@@ -28,6 +29,8 @@ public class EquipTool : Pickupable
 
         else if (equipped && slotIsFull)
         {
+            if(guestInRange)
+            {
             foreach (var bobaTea in bTHs)
             {
                 if (bobaTea.inTriggerArea)
@@ -35,6 +38,8 @@ public class EquipTool : Pickupable
                     bobaTea.ServedSequence();
                     return;
                 }
+            }
+
             }
 
             //Picks up water
@@ -119,6 +124,11 @@ public class EquipTool : Pickupable
         {
             inCollision = true;
         }
+
+        if(other.gameObject.tag == "Guest")
+        {
+            guestInRange = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -126,6 +136,11 @@ public class EquipTool : Pickupable
         if (!equipped && !slotIsFull && other.gameObject.tag == "Player")
         {
             inCollision = false;
+        }
+
+        if (other.gameObject.tag == "Guest")
+        {
+            guestInRange = false;
         }
     }
 }
