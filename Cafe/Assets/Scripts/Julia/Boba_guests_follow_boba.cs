@@ -7,7 +7,10 @@ public class Boba_guests_follow_boba : MonoBehaviour
     public string tagToDetect = "BobaPearls";
     public GameObject[] allBobaPearls;
     public GameObject closestBoba;
+    public GameObject preFab;
     public Transform toTheExit;
+    public Transform spat_out_boba;
+    hit_boba_eating_guest boba_eating_guest_got_hit_true;
 
     bool ful_Mouth = false;
     float speed = 2f;
@@ -15,15 +18,18 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     void Start()
     {
+        boba_eating_guest_got_hit_true = FindFirstObjectByType<hit_boba_eating_guest>();
+
         allBobaPearls = GameObject.FindGameObjectsWithTag(tagToDetect);
         Boba_In_Mouth = 0;
     }
 
     private void Update()
     {
+        //Debug.Log(Boba_In_Mouth);
         closestBoba = FindClosestBoba();
         //print(closestBoba.name);  
-        if(ful_Mouth == false)
+        if(ful_Mouth == false && boba_eating_guest_got_hit_true.Boba_guests_got_hit == false)
         {
         transform.position = Vector3.MoveTowards(transform.position, closestBoba.transform.position, speed * Time.deltaTime);
         }
@@ -31,6 +37,16 @@ public class Boba_guests_follow_boba : MonoBehaviour
         if(ful_Mouth == true)
         {
         transform.position = Vector3.MoveTowards(transform.position, toTheExit.position, speed * Time.deltaTime);
+        }
+
+        if(boba_eating_guest_got_hit_true.Boba_guests_got_hit == true)
+        {
+                for (int i = 0; i < Boba_In_Mouth; i++) 
+                {
+                    Debug.Log("Spawn boba");
+                    Instantiate(preFab, spat_out_boba.position, Quaternion.identity);
+                }
+                boba_eating_guest_got_hit_true.Boba_guests_got_hit = false;
         }
     }
 
@@ -56,11 +72,11 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        Debug.Log("collision");
         if (other.gameObject.tag == "BobaPearls" && ful_Mouth == false)
         {
+            Boba_In_Mouth +=1;
             Debug.Log("Is boba in mounth");
-            Boba_In_Mouth += 1;
+            Debug.Log(Boba_In_Mouth);
             Destroy(closestBoba);
             
             if (Boba_In_Mouth >= 5)

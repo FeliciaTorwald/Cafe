@@ -5,6 +5,7 @@ using UnityEngine;
 public class hit_boba_eating_guest : MonoBehaviour
 {
     bool intriggerarea = false;
+    public bool Boba_guests_got_hit = false;
 
     void Start()
     { 
@@ -19,6 +20,7 @@ public class hit_boba_eating_guest : MonoBehaviour
                 if (intriggerarea == true)
                 {
                     Debug.Log("slå boba ätar gästen!");
+                    Boba_guests_got_hit = true;
                 }
             }
     }
