@@ -2967,15 +2967,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3799396
+      value: 1.393725
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.9016771
+      value: 2.9017086
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.821974
+      value: 17.822062
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -4006,6 +4006,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.00013
       objectReference: {fileID: 0}
+    - target: {fileID: 3561890152038796612, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
+      propertyPath: recipeUIs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1998066771}
     - target: {fileID: 5811740937051264688, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
       propertyPath: gameTime
       value: 1
@@ -6302,15 +6306,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3798652
+      value: 1.3937454
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.7882204
+      value: -6.788188
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.502314
+      value: 23.502405
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -7846,6 +7850,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5487bfb339270948b4d8ae27526229d, type: 3}
+--- !u!114 &1998066771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8385616507851897686, guid: e5487bfb339270948b4d8ae27526229d, type: 3}
+  m_PrefabInstance: {fileID: 1998066770}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183227850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec342a821116bd4492e679faa9210fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2063667999 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2771865147524513132, guid: 328794df1d04d194d81beb050a63e081, type: 3}

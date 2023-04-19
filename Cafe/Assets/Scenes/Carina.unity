@@ -1594,6 +1594,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3561890152038796612, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
+      propertyPath: recipeUIs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6155077735616883786}
     - target: {fileID: 5811740937051264688, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
       propertyPath: queueText
       value: 
@@ -1665,31 +1669,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 59440733011113277, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 965890652253137188}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
---- !u!1 &965890652253137187 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 59440733011113277, guid: 9768f3367d897234eb143007c5d3db9d, type: 3}
-  m_PrefabInstance: {fileID: 965890652253137186}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &965890652253137188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965890652253137187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 491c3c8f7c10d5d4d800fd11ae672c37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recipe: {fileID: 11400000, guid: dfd1370ab8f485f468ec9c26352989d8, type: 2}
-  recipeUIs:
-  - {fileID: 6155077735616883786}
 --- !u!1001 &1937379515923633952
 PrefabInstance:
   m_ObjectHideFlags: 0
