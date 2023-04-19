@@ -29,16 +29,16 @@ public class EquipTool : Pickupable
 
         else if (equipped && slotIsFull)
         {
-            if(guestInRange)
+            if (guestInRange)
             {
-            foreach (var bobaTea in bTHs)
-            {
-                if (bobaTea.inTriggerArea)
+                foreach (var bobaTea in bTHs)
                 {
-                    bobaTea.ServedSequence();
-                    return;
+                    if (bobaTea.inTriggerArea)
+                    {
+                        bobaTea.ServedSequence();
+                        return;
+                    }
                 }
-            }
 
             }
 
@@ -70,7 +70,7 @@ public class EquipTool : Pickupable
         bTHs = FindObjectsOfType<BobaTeaHandler>().ToList();
         wP = FindObjectOfType<WaterPickup>();
     }
-    
+
     public ToolType IdentifyToolType()
     {
         return toolType;
@@ -125,7 +125,7 @@ public class EquipTool : Pickupable
             inCollision = true;
         }
 
-        if(other.gameObject.tag == "Guest")
+        if (other.gameObject.tag == "Guest")
         {
             guestInRange = true;
         }

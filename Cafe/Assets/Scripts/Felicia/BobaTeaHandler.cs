@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -66,7 +67,7 @@ public class BobaTeaHandler : MonoBehaviour
         ServedTea();
         Invoke("FinishedTea", 2);
         gS.onOrderFullfilled = true;
-        gS.Spawn();
+        gS.Invoke(nameof(gS.Spawn), 1);
         if (guestRef != null)
         {
             if (guestRef.GetComponent<GuestInteraction>() != null)

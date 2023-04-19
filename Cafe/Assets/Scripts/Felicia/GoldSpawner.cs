@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 // using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class GoldSpawner : MonoBehaviour
 {
@@ -10,45 +12,58 @@ public class GoldSpawner : MonoBehaviour
     GameObject coin;
     public Transform moneyPlace;
     private Vector3 spawnPointRef;
+    float amountOfCoins = 3;
+    List<GameObject> coins;
 
     public void Start()
     {
-        onOrderFullfilled= false;
-        //spawnPointRef = moneyPlace.position;
+        spawnPointRef = moneyPlace.transform.position; 
+        onOrderFullfilled = false;
+        coins = new List<GameObject>();
     }
     public void Update()
     {
-        // Spawn();
-        //DestroyCoin();
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Spawn();
+            Invoke(nameof(Spawn),1);
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
             DestroyCoin();
         }
+        //if(coin.transform.position.y <= 0)
+        //{
+        //    coin.GetComponent<Rigidbody>().isKinematic = true;
+        //}
     }
     public void Spawn()
     {
-        //if (onOrderFullfilled)
-        //{
-        if(coin == null)
+        if (coin == null)
         {
-            coin = Instantiate(preFabGold, transform.position, Quaternion.identity);//TODO Change so that coin spawn on moneyPlace, do this when we build in the gamescene together
+            for (int i = 0; i < amountOfCoins; i++)
+            {
+                coin = Instantiate(preFabGold, spawnPointRef, Quaternion.identity);
+                coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 0) , ForceMode.Impulse);
+                coins.Add(coin);
+               //Invoke(nameof(TurnOffPhysics),2);
+            }
         }
-        //}
+    }
+
+    public void TurnOffPhysics()
+    {
+        coin.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     public void DestroyCoin()
     {
-        //if (onOrderFullfilled == false)
-        //{
-        if(coin != null)
+        if (coin != null)
         {
-            Destroy(coin);
+            for (int i = 0; i < coins.Count; i++)
+            {
+                 Destroy(coin);
+            }
         }
-        //}
     }
 
 }

@@ -425,7 +425,6 @@ MonoBehaviour:
   bobaLifeTime: 20
   amountToPool: 1
   pooledObjects: []
-  playerPosRef: {fileID: 579412930}
   maxBobaInScene: 5
   spawnPoints:
   - {fileID: 318481888}
@@ -688,11 +687,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 19.392, y: -180.226, z: 0.78}
---- !u!4 &579412930 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1675228604024899621, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
-  m_PrefabInstance: {fileID: 1164382887}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &603940154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1752,7 @@ GameObject:
   - component: {fileID: 1652764250}
   - component: {fileID: 1652764249}
   - component: {fileID: 1652764255}
+  - component: {fileID: 1652764256}
   m_Layer: 0
   m_Name: Gold
   m_TagString: Untagged
@@ -1909,6 +1904,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.759172, y: 18.750177, z: 6.0615053}
   m_Center: {x: -0.6835303, y: -4.496999, z: -0.3387556}
+--- !u!54 &1652764256
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652764248}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1716136640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2587,7 +2609,7 @@ PrefabInstance:
     - target: {fileID: 6018833850296937033, guid: 810e7f607a3d5d949ba7b4784c095c79, type: 3}
       propertyPath: preFabGold
       value: 
-      objectReference: {fileID: 1652764248}
+      objectReference: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
     - target: {fileID: 8262033874667820737, guid: 810e7f607a3d5d949ba7b4784c095c79, type: 3}
       propertyPath: m_Name
       value: table_ordinary (1)
