@@ -21,7 +21,6 @@ public class CraftingRecipeUI : MonoBehaviour
     private void OnEnable()
     {
         UpdateCanCraft();
-        CheckCanMakeTea();
     }
 
     public void UpdateCanCraft()
@@ -38,6 +37,8 @@ public class CraftingRecipeUI : MonoBehaviour
         }
 
         backgroundImage.color = canCraft ? canCraftColor : cannotCraftColor;
+
+        CheckCanMakeTea();
     }
 
     private void Start()
@@ -66,7 +67,7 @@ public class CraftingRecipeUI : MonoBehaviour
     {
         if (canCraft)
         {
-            CraftingWindow.instance.Craft(recipe);
+            CraftingTea.instance.Craft(recipe);
         }
     }
 
@@ -74,7 +75,7 @@ public class CraftingRecipeUI : MonoBehaviour
     {
         if (canCraft)
         {
-            CraftingWindow.instance.Craft(recipe);
+            CraftingTea.instance.Craft(recipe);
         }
     }
 }

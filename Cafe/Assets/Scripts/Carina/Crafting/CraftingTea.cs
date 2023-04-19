@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CraftingWindow : MonoBehaviour
+public class CraftingTea : MonoBehaviour
 {
+
     BrewingInventory timerRef;
+
+    public CraftingRecipe recipe;
+    private bool canCraft;
 
     public CraftingRecipeUI[] recipeUIs;
 
-    public static CraftingWindow instance;
+    public static CraftingTea instance;
 
     private void Awake()
     {
@@ -16,22 +20,23 @@ public class CraftingWindow : MonoBehaviour
         timerRef = FindFirstObjectByType<BrewingInventory>();
     }
 
-    private void OnOpenInventory()
+
+    public void UpdateCanCraft()
     {
-        gameObject.SetActive(false);
+        canCraft = true;
+
+        for (int i = 0; i < recipe.cost.Length; i++)
+        {
+            if (!Inventory.instance.HasItems(recipe.cost[i].item, recipe.cost[i].quantity))
+            {
+                canCraft = false;
+                break;
+            }
+        }
+        CanMakeTea();
     }
 
-    private void OnEnable()
-    {
-        Inventory.instance.onOpenInventory.AddListener(OnOpenInventory);
-    }
-
-    private void OnDisable()
-    {
-        Inventory.instance.onOpenInventory.RemoveListener(OnOpenInventory);
-    }
-
-    /*public void Craft(CraftingRecipe recipe)
+    public void Craft(CraftingRecipe recipe)
     {
         for (int i = 0; i < recipe.cost.Length; i++)
         {
@@ -51,5 +56,13 @@ public class CraftingWindow : MonoBehaviour
         {
             recipeUIs[i].UpdateCanCraft();
         }
-    }*/
+    }
+
+    public void CanMakeTea()
+    {
+        if (canCraft)
+        {
+            Craft(recipe);
+        }
+    }
 }

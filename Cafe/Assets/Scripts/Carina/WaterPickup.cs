@@ -10,6 +10,7 @@ public class WaterPickup : MonoBehaviour
 
     [SerializeField] GameObject waterInBucket;
 
+    CraftingTea canMakeTeaCheck;
     Resource addWater;
     EquipTool eQ;
 
@@ -17,6 +18,7 @@ public class WaterPickup : MonoBehaviour
     {
         addWater = FindObjectOfType<Resource>();
         eQ = FindObjectOfType<EquipTool>();
+        canMakeTeaCheck = FindObjectOfType<CraftingTea>();
     }
 
     //private void Update()
@@ -34,6 +36,7 @@ public class WaterPickup : MonoBehaviour
             {
                 addWater.Gather();
                 hasWater = false;
+                canMakeTeaCheck.UpdateCanCraft();
                 waterInBucket.gameObject.SetActive(false);
             }
 
