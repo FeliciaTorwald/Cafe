@@ -48,6 +48,8 @@ public class BrewingInventory : MonoBehaviour
     {
         // Add timer IEnumerator to queue
         recipeQueue.Enqueue(Timer());
+
+        // add to queueamount and update queuetext
         queueAmount++;
         CheckQueueAmount();
 

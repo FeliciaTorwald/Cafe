@@ -32,6 +32,8 @@ public class CraftingArea : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         craftingWindow.gameObject.SetActive(true);
+
+        // Sets first button in crafting UI as highlighted
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstOptionButton);
     }

@@ -48,6 +48,7 @@ public class Inventory : MonoBehaviour
 
     }
 
+    // when pushing inventory button (here "I"), it opens or closes inventory window
     public void OnInventoryButton(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
@@ -144,6 +145,7 @@ public class Inventory : MonoBehaviour
         return null;
     }
 
+    // remove item from inventory
     public void RemoveItem(ItemData item)
     {
         for (int i = 0; i < slots.Length; i++)
