@@ -14,6 +14,7 @@ public class GoldSpawner : MonoBehaviour
     private Vector3 spawnPointRef;
     float amountOfCoins = 3;
     List<GameObject> coins;
+    float timer;
 
     public void Start()
     {
@@ -23,6 +24,8 @@ public class GoldSpawner : MonoBehaviour
     }
     public void Update()
     {
+        timer += Time.deltaTime;
+        //devtools
         if (Input.GetKeyDown(KeyCode.M))
         {
             Invoke(nameof(Spawn),1);
@@ -31,20 +34,26 @@ public class GoldSpawner : MonoBehaviour
         {
             DestroyCoin();
         }
-        //if(coin.transform.position.y <= 0)
+        //if (coin.transform.position.y < -3)
         //{
         //    coin.GetComponent<Rigidbody>().isKinematic = true;
         //}
     }
     public void Spawn()
     {
+       
         if (coin == null)
         {
             for (int i = 0; i < amountOfCoins; i++)
             {
+              if(timer >= 1)
+                {
                 coin = Instantiate(preFabGold, spawnPointRef, Quaternion.identity);
-                coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 0) , ForceMode.Impulse);
+                coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, 6, 0) , ForceMode.Impulse);
                 coins.Add(coin);
+                //timer = 0;
+                }
+                              
                //Invoke(nameof(TurnOffPhysics),2);
             }
         }
