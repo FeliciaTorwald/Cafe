@@ -15,14 +15,10 @@ public class BrewingInventory : MonoBehaviour
 
     private int queueAmount;
     private float timer = 0f;
-    private void Start()
-    {
-        eT = FindFirstObjectByType<EquipTool>();
-    }
+
     // Make a queue of IEnumerators
     public Queue<IEnumerator> recipeQueue = new Queue<IEnumerator>();
 
-    [SerializeField] private int boba = 0;
     [SerializeField] private int water = 0;
     [SerializeField] TextMeshProUGUI queueText;
     [SerializeField] GameObject finishedTea;
@@ -30,7 +26,10 @@ public class BrewingInventory : MonoBehaviour
     [SerializeField] Slider timerSlider;
     GameObject teaToHold;
 
-
+    private void Start()
+    {
+        eT = FindFirstObjectByType<EquipTool>();
+    }
 
     // On collision, will check if player has boba, and if they do, add boba to count
     private void OnTriggerEnter(Collider collision)

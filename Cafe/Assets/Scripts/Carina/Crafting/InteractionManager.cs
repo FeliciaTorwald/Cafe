@@ -8,7 +8,7 @@ public class InteractionManager : MonoBehaviour
 {
     public TextMeshProUGUI promptText;
 
-    private GameObject curInteractGameObject;
+    //private GameObject curInteractGameObject;
     private IInteractable curInteractable;
 
 
@@ -19,7 +19,7 @@ public class InteractionManager : MonoBehaviour
         promptText.text = string.Format("<b>[E]</b> {0}", curInteractable.GetInteractPrompt());
     }
 
-    public void OnInteractInput(InputAction.CallbackContext context)
+    /*public void OnInteractInput(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started && curInteractable != null)
         {
@@ -28,7 +28,7 @@ public class InteractionManager : MonoBehaviour
             curInteractable = null;
             promptText.gameObject.SetActive(false);
         }
-    }
+    }*/
 }
 
 public interface IInteractable
