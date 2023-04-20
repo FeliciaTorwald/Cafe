@@ -34,7 +34,7 @@ public class BobaTeaHandler : MonoBehaviour
     {
         if (emptyTea == null)
         {
-            emptyTea = Instantiate(emptyBobaTea, transform.position, Quaternion.identity);
+            emptyTea = Instantiate(emptyBobaTea, spawnPointRef, Quaternion.identity);
             if(guestRef != null)
             {
             guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
@@ -42,7 +42,13 @@ public class BobaTeaHandler : MonoBehaviour
         }
     }
 
-
+    private void SpawnDish()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            emptyTea = Instantiate(emptyBobaTea, spawnPointRef, Quaternion.identity);
+        }
+    }
     private void DestroyDish()
     {
         if (Input.GetKeyDown(KeyCode.G))
@@ -62,6 +68,7 @@ public class BobaTeaHandler : MonoBehaviour
     {
         
         DestroyDish();
+        SpawnDish();
     }
     public void ServedSequence()
     {
