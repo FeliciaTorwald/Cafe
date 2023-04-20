@@ -12,7 +12,6 @@ public class GuestAtTableState : GuestState
 
     public void Enter(Guest guest)
     {
-        Debug.Log("Switched to At table state");
         ShowOrder(guest);
         Order(guest);
     }
@@ -29,7 +28,7 @@ public class GuestAtTableState : GuestState
 
     public void Exit(Guest guest)
     {
-        Debug.Log("Left At table state");
+        
     }
     
     private void ShowOrder(Guest guest)

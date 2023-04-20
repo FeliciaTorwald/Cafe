@@ -9,7 +9,8 @@ public class GuestSpawner : MonoBehaviour
     private float guestSpawnTimer = 2f;
     public List<Transform> spawnPositions = new();
     private List<Door> doors = new();
-    
+    private int maxNumberOfGuests;
+
     void Start()
     {
         StartCoroutine(StartUpFunction());
@@ -22,7 +23,11 @@ public class GuestSpawner : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         AddDoors();
         yield return new WaitForSeconds(.1f);
+        maxNumberOfGuests = GameManager.Instance.SetNumberOfGuests();
+        Debug.Log(maxNumberOfGuests);
+        yield return new WaitForSeconds(.1f);
         SpawnNewGuest();
+        
     }
 
     private void AddSpawners()
@@ -31,7 +36,6 @@ public class GuestSpawner : MonoBehaviour
         {
             spawnPositions.Add(spawner.transform);
         }
-        
         //Adds the guest spawner objects as use when spawning new guests.
     }
     
@@ -47,16 +51,17 @@ public class GuestSpawner : MonoBehaviour
     
     public void SpawnNewGuest()
     {
-        if (guestSpawnTimer <= 0)
+        if (guestSpawnTimer <= 0 && GameManager.Instance.guestsInScene.Count < maxNumberOfGuests)
         {
             int guestRandomizerResult = GuestRandomizer();
             SetupGuest(guestRandomizerResult);
-            guestSpawnTimer = 8f;
+            guestSpawnTimer = Random.Range(5f, 8f);
+            
         }
         else
-         {
+        {
              guestSpawnTimer -= 1 * Time.deltaTime;
-         }
+        }
         //Spawns a new guest of random type.
     }
 
@@ -68,8 +73,7 @@ public class GuestSpawner : MonoBehaviour
         spawnedGuest.guestSpawnPos = spawnPos;
         spawnedGuest.guestSpawner = this;
         GameManager.Instance.AddGuest(spawnedGuest);
-        
-        
+
         //Setup the guest, here we seed the type of guest, what tea they want etc.
     }
 

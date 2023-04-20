@@ -12,7 +12,7 @@ public class GuestOrderedState : GuestState
     public void Enter(Guest guest)
     {
         guest.chairRef.tableRef.AddGuestToTeaOrder(guest);
-        Debug.Log("Entered ordered state");
+        
     }
 
     public void Update(Guest guest)
@@ -22,6 +22,6 @@ public class GuestOrderedState : GuestState
 
     public void Exit(Guest guest)
     {
-        Debug.Log("Left ordered state");
+        
     }
 }

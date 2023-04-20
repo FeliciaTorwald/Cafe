@@ -16,9 +16,8 @@ public class GuestAtDoorState : GuestState
 
     public void Enter(Guest guest)
     {
-        Debug.Log("Switched to At door state");
         guest.door.queue.Add(guest);
-        guest.door.OpenDoor();
+        // guest.door.OpenDoor();
     }
 
     public void Update(Guest guest)
@@ -34,7 +33,7 @@ public class GuestAtDoorState : GuestState
 
     public void Exit(Guest guest)
     {
-        Debug.Log("Left At door state");
+        
     }
 
     public void LookForFreeSeat(Guest guest)
@@ -48,7 +47,6 @@ public class GuestAtDoorState : GuestState
     
     private void MoveToDestination(Guest guest, Transform target)
     {
-        Debug.Log("Moving to table");
         guest.navMeshAgent.destination = target.position;
         moving = true;
         
