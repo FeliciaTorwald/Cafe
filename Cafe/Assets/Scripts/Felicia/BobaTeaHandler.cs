@@ -15,15 +15,18 @@ public class BobaTeaHandler : MonoBehaviour
     public Guest guestRef;
     public bool inTriggerArea;
     EquipTool eT;
+    public Transform dishPlace;
+    private Vector3 spawnPointRef;
 
     private void Start()
     {
         eT = FindFirstObjectByType<EquipTool>();
+        spawnPointRef = dishPlace.transform.position;
     }
 
     private void ServedTea()
     {
-        GameObject tea = Instantiate(fakefullBobaTea, transform.position, Quaternion.identity);
+        GameObject tea = Instantiate(fakefullBobaTea, spawnPointRef, Quaternion.identity);
         Destroy(tea, 1f);
     }
 
