@@ -35,10 +35,9 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private Difficulty difficulty;
     [SerializeField] private GuestSpawner guestSpawner;
-    [SerializeField] private float guestSpawnInterval;
-    [SerializeField] private int easyGuestNumber;
-    [SerializeField] private int normalGuestNumber;
-    [SerializeField] private int hardGuestNumber;
+    [SerializeField] private int easyGuestNumber = 3;
+    [SerializeField] private int normalGuestNumber = 5;
+    [SerializeField] private int hardGuestNumber = 9;
     
     private int maxNumberOfActiveGuests;
     
@@ -70,11 +69,11 @@ public class GameManager : MonoBehaviour
         switch (difficulty)
         {
             case Difficulty.Easy:
-                return 3;
+                return easyGuestNumber;
             case Difficulty.Normal:
-                return 5;
+                return normalGuestNumber;
             case Difficulty.Hard:
-                return 9;
+                return hardGuestNumber;
             default:
                 Debug.Log("Incorrect difficulty settings, check Game Manager");
                 return 0;
