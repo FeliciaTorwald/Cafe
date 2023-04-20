@@ -18,7 +18,8 @@ public class Door : MonoBehaviour
     public bool open;
     public bool closed = true;
     private Animator animator;
-    
+    private int objectsInDoorRange;
+
 
     private void Start()
     {
@@ -26,60 +27,19 @@ public class Door : MonoBehaviour
         openPos = openPosRef.position;
         animator = GetComponent<Animator>();
     }
-
-    public Transform GetTransform()
-    {
-        return transform;
-    }
-
-    public void OpenDoor()
-    {
-        // StartCoroutine(OpenDoor(1f));
-    }
-    
-    public void CloseDoor()
-    {
-        // StartCoroutine(CloseDoor(1f));
-    }
     
     private void Update()
     {
-        if (open)
-        {
-            if (timer <= 0f)
-            {
-                CloseDoor();
-                timer = 3f;
-            }
-            else
-                timer -= 1f * Time.deltaTime;
-        }
-            
-        // if (closed)
-        // {
-        //     if (Input.GetKeyDown(KeyCode.O))
-        //         StartCoroutine(OpenDoor(1f));
-        // }
-        //
         // if (open)
         // {
-        //     if (Input.GetKeyDown(KeyCode.C))
-        //         StartCoroutine(CloseDoor(1f));
+        //     if (timer <= 0f)
+        //     {
+        //         CloseDoor();
+        //         timer = 3f;
+        //     }
+        //     else
+        //         timer -= 1f * Time.deltaTime;
         // }
-    }
-
-    public IEnumerator OpenDoor(float moveTime)
-    {
-        closed = !closed;
-        
-        float time = 0;
-        while (time < moveTime)
-        {
-            doorModel.transform.position = Vector3.Lerp(closedPos, openPos, time / moveTime);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        open = !open;
     }
 
     public IEnumerator CloseDoor(float moveTime)
@@ -101,6 +61,7 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Guest") || other.CompareTag("Player"))
         {
             Debug.Log(other);
+            objectsInDoorRange++;
             animator.SetTrigger("Open");
         }
         
@@ -110,7 +71,9 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Guest") || other.CompareTag("Player"))
         {
-            animator.SetTrigger("Close");
+            objectsInDoorRange--;
+            if (objectsInDoorRange == 0)
+                animator.SetTrigger("Close");
         }
     }
 

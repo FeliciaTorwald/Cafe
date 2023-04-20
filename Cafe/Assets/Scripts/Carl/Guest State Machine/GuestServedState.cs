@@ -13,7 +13,6 @@ public class GuestServedState : GuestState
 
     public void Enter(Guest guest)
     {
-        Debug.Log("Entered served state");
         guest.orderText.SetText("Served!");
         MoveToDestination(guest, guest.door.doorExitSpot);
         GameManager.Instance.ReturnFreeSeat(guest.chairRef);
@@ -32,12 +31,10 @@ public class GuestServedState : GuestState
     {
         GameManager.Instance.freeSeats++;
         GameManager.Instance.ReturnFreeSeat(guest.chairRef);
-        Debug.Log("Left served state");
     }
     
     private void MoveToDestination(Guest guest, Transform target)
     {
-        Debug.Log("Moving to Door");
         guest.navMeshAgent.destination = target.position;
         moving = true;
         
@@ -50,7 +47,7 @@ public class GuestServedState : GuestState
         {
             guest.navMeshAgent.ResetPath();
             moving = !moving;
-            guest.door.OpenDoor();
+            // guest.door.OpenDoor();
         }
     }
     
