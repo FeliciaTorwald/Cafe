@@ -14,7 +14,6 @@ public class GuestArrivedState : GuestState
 
     public void Enter(Guest guest)
     {
-        Debug.Log("Switched to Arrived state");
         MoveToDestination(guest, guest.door.doorEnterSpot);
     }
 
@@ -25,12 +24,11 @@ public class GuestArrivedState : GuestState
     
     public void Exit(Guest guest)
     {
-        Debug.Log("Left Arrived state");
+        
     }
     
     private void MoveToDestination(Guest guest, Transform target)
     {
-        Debug.Log("Moving to door");
         guest.navMeshAgent.destination = target.position;
         moving = true;
         

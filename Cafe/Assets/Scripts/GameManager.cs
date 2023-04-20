@@ -1,9 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.SceneManagement;
+
+public enum Difficulty
+{
+    Easy,
+    Normal,
+    Hard
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -25,9 +33,14 @@ public class GameManager : MonoBehaviour
     }
     private static GameManager instance;
     
+    [SerializeField] private Difficulty difficulty;
     [SerializeField] private GuestSpawner guestSpawner;
-    public int maxGuests;
-    public float guestSpawnInterval;
+    [SerializeField] private float guestSpawnInterval;
+    [SerializeField] private int easyGuestNumber;
+    [SerializeField] private int normalGuestNumber;
+    [SerializeField] private int hardGuestNumber;
+    
+    private int maxNumberOfActiveGuests;
     
     public List<ISeat> freeSeatsInScene = new();
     //Maintains a list of seats that are in the scene
@@ -52,6 +65,22 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(1);
     }
 
+    public int SetNumberOfGuests()
+    {
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                return 3;
+            case Difficulty.Normal:
+                return 5;
+            case Difficulty.Hard:
+                return 9;
+            default:
+                Debug.Log("Incorrect difficulty settings, check Game Manager");
+                return 0;
+        }
+    }
+    
     public Chair AssignSeat()
     {
         int chosenSeat = Random.Range(0, freeSeatsInScene.Count - 1);

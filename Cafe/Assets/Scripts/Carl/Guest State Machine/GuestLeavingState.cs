@@ -14,9 +14,8 @@ public class GuestLeavingState : GuestState
 
     public void Enter(Guest guest)
     {
-        Debug.Log("Entered leaving state");
         MoveToDestination(guest, guest.guestSpawnPos);
-        guest.orderText.SetText("Pax vobiscum, assholes");
+        guest.orderText.SetText("Pax vobiscum");
         GameManager.Instance.RemoveGuest(guest);
     }
 
@@ -33,7 +32,6 @@ public class GuestLeavingState : GuestState
     
     private void MoveToDestination(Guest guest, Transform target)
     {
-        Debug.Log("Leave cafe");
         guest.navMeshAgent.destination = target.position;
         moving = true;
         
