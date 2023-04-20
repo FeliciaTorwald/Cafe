@@ -26,33 +26,31 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Boba_In_Mouth);
-        //Debug.Log(Boba_In_Mouth);
 
         //Ha inte denna i update utan kolla först på vilken är närmsta boba och sen när bobans förstörs kolla var nästa ligger
         closestBoba = FindClosestBoba();
 
         //print(closestBoba.name);  
-        if(ful_Mouth == false && boba_eating_guest_got_hit_true.Boba_guests_got_hit == false)
+        if (ful_Mouth == false && boba_eating_guest_got_hit_true.Boba_guests_got_hit == false)
         {
-        transform.position = Vector3.MoveTowards(transform.position, closestBoba.transform.position, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, closestBoba.transform.position, speed * Time.deltaTime);
         }
 
-        if(ful_Mouth == true)
+
+        if (ful_Mouth == true)
         {
-        transform.position = Vector3.MoveTowards(transform.position, toTheExit.position, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, toTheExit.position, speed * Time.deltaTime);
         }
 
-        if(boba_eating_guest_got_hit_true.Boba_guests_got_hit == true)
+        if (boba_eating_guest_got_hit_true.Boba_guests_got_hit == true)
         {
-                for (int i = 0; i < Boba_In_Mouth; i++) 
-                {
-                    Debug.Log("Spawn boba");
-                    Instantiate(preFab, spat_out_boba.position, Quaternion.identity);
-                    //Boba_In_Mouth = 0;
-                    boba_eating_guest_got_hit_true.Boba_guests_got_hit = false;
+            for (int i = 0; i < Boba_In_Mouth; i++)
+            {
+                Debug.Log("Spawn boba");
+                Instantiate(preFab, spat_out_boba.position, Quaternion.identity);
+                boba_eating_guest_got_hit_true.Boba_guests_got_hit = false;
             }
-                ful_Mouth = true;
+            ful_Mouth = true;
         }
     }
 
@@ -76,15 +74,13 @@ public class Boba_guests_follow_boba : MonoBehaviour
         return closest;
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "BobaPearls" && ful_Mouth == false)
         {
-            Boba_In_Mouth +=1;
-            Debug.Log(Boba_In_Mouth);
-            //Debug.Log(Boba_In_Mouth);
+            Boba_In_Mouth += 1;
             closestBoba.SetActive(false);
-            
+
             if (Boba_In_Mouth >= 5)
             {
                 ful_Mouth = true;

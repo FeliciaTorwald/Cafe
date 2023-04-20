@@ -17,35 +17,33 @@ public class hit_boba_eating_guest : MonoBehaviour
     void Update()
     //If you are close to boba eating quest and press space print "slå boba gäst"
     {
-       
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (intriggerarea == true && holdMop)
-                {
-                    Debug.Log("slå boba ätar gästen!");
-                    Boba_guests_got_hit = true;
-                    //hBEG.Boba_In_Mouth = 0;
-                }
-            }
 
-            if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (intriggerarea == true && holdMop)
+            {
+                Boba_guests_got_hit = true;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             hBEG.Boba_In_Mouth = 0;
         }
     }
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "boba eating guests")
         {
             intriggerarea = true;
         }
 
-        if(other.gameObject.tag == "Mop")
+        if (other.gameObject.tag == "Mop")
         {
             holdMop = true;
         }
     }
-    private void OnTriggerExit(Collider other) 
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "boba eating guests")
         {
