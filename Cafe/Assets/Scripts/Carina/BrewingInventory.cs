@@ -12,6 +12,7 @@ public class BrewingInventory : MonoBehaviour
     public bool isMakingTea;
     public float gameTime = 10f;
     public EquipTool eT;
+    public BobaShooterController bSC;
 
     private int queueAmount;
     private float timer = 0f;
@@ -42,7 +43,16 @@ public class BrewingInventory : MonoBehaviour
             hasWater = false;
             FindObjectOfType<Get_water_In_Teapot>().PouringWater();
         }
+
     }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("BobaPearls"))
+    //    {
+    //        bSC.Ball.SetActive(false); 
+    //    }
+    //}
 
     public void StartMakingTea()
     {

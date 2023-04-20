@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,30 +8,44 @@ public class BobaPoints : MonoBehaviour
     public ItemData item;
 
     CraftingTea canMakeTeaCheck;
+    BobaShooterController bSC;
 
     private void Start()
     {
         canMakeTeaCheck = FindObjectOfType<CraftingTea>();
+        bSC = FindObjectOfType<BobaShooterController>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Net")
-        {
-            gameObject.SetActive(false);
+        //if (other.tag == "Net")
+        //{
+        //    gameObject.SetActive(false);
            
-           FindObjectOfType<BobaCounter>().AddBoba(1);
+        //   FindObjectOfType<BobaCounter>().AddBoba(1);
 
-            OnInteract();
-        }
+        //    OnInteract();
+        //}
 
         if (other.gameObject.CompareTag("BrewingPot"))
         {
             OnInteract();
             canMakeTeaCheck.UpdateCanCraft();
-            FindObjectOfType<BobaShooterController>().Despawn();
+            bSC.IsBallFlying = false;
+            //gameObject.SetActive(false);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("BrewingPot"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+
     public string GetInteractPrompt()
     {
         return string.Format("Pickup {0}", item.displayName);

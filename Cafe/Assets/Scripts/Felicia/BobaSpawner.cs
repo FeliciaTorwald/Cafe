@@ -18,18 +18,16 @@ public class BobaSpawner : MonoBehaviour
     private void Start()
     {
         pooledObjects = new List<GameObject>();
-        StartCoroutine(SpawnBobas(bobaInterval, preFab));
-    }
 
-    private IEnumerator SpawnBobas(float interval, GameObject bobaBall)
-    {
-        yield return new WaitForSecondsRealtime(interval);
+        //instantiates all the boba once
         for (int i = 0; i < amountToPool; i++)
         {
-            Spawn();
+            GameObject newBoba = Instantiate(preFab, spawnPoints[firstIndex].position, spawnPoints[firstIndex].rotation, transform);
+            newBoba.SetActive(false);
+            pooledObjects.Add(newBoba);
         }
-        // makes it a loop
-        StartCoroutine(SpawnBobas(interval, bobaBall));
+
+        InvokeRepeating(nameof(Spawn), bobaInterval, bobaInterval);
     }
 
 
@@ -45,7 +43,7 @@ public class BobaSpawner : MonoBehaviour
                 pooledObjects[i].transform.position = spawnPoints[firstIndex].position;
                 pooledObjects[i].GetComponent<Rigidbody>().isKinematic = false;
                 pooledObjects[i].SetActive(true);
-                pooledObjects[i].GetComponent<BobaLifespan>().Spawned(bobaLifeTime);
+                //pooledObjects[i].GetComponent<BobaLifespan>().Spawned(bobaLifeTime);
                 return;
             }
         }
@@ -54,11 +52,5 @@ public class BobaSpawner : MonoBehaviour
         {
             return;
         }
-        //instantiates the boba once
-        GameObject newBoba = Instantiate(preFab, spawnPoints[firstIndex].position, spawnPoints[firstIndex].rotation);
-        newBoba.SetActive(true);
-        pooledObjects.Add(newBoba);
-        newBoba.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward * 100); //
-        newBoba.GetComponent<BobaLifespan>().Spawned(bobaLifeTime);
     }
 }

@@ -22,7 +22,7 @@ public class BobaShooterController : MonoBehaviour
 
     //variables
     public bool IsBallInHands = false;
-    private bool IsBallFlying = false;
+    public bool IsBallFlying = false;
     private float T = 0;
     public bool inTriggerArea;
 
@@ -109,26 +109,15 @@ public class BobaShooterController : MonoBehaviour
     //            }
     //        }
     //}
-    public void Despawn()
-    {
-        Ball.SetActive(false);
-    }
+
     public void PickingUpBall(GameObject bobaObject)
     {
-
         if (IsBallInHands == false && IsBallFlying == false)
         {
             Ball = bobaObject;
             IsBallInHands = true;
             Ball.GetComponent<Rigidbody>().isKinematic = false;
-
         }
 
     }
-
-  
-
-
-
 }
-
