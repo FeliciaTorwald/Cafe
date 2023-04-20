@@ -80,7 +80,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
             Boba_In_Mouth +=1;
             Debug.Log(Boba_In_Mouth);
             //Debug.Log(Boba_In_Mouth);
-            Destroy(closestBoba);
+            closestBoba.SetActive(false);
             
             if (Boba_In_Mouth >= 5)
             {
