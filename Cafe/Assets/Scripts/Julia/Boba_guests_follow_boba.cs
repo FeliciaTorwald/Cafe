@@ -14,7 +14,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     bool ful_Mouth = false;
     float speed = 2f;
-    float Boba_In_Mouth = 0;
+    public float Boba_In_Mouth = 0;
 
     void Start()
     {
@@ -26,6 +26,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(Boba_In_Mouth);
         //Debug.Log(Boba_In_Mouth);
 
         //Ha inte denna i update utan kolla först på vilken är närmsta boba och sen när bobans förstörs kolla var nästa ligger
@@ -44,12 +45,14 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
         if(boba_eating_guest_got_hit_true.Boba_guests_got_hit == true)
         {
-                for (int i = 0; i <= Boba_In_Mouth; i++) 
+                for (int i = 0; i < Boba_In_Mouth; i++) 
                 {
                     Debug.Log("Spawn boba");
                     Instantiate(preFab, spat_out_boba.position, Quaternion.identity);
-                }
-                boba_eating_guest_got_hit_true.Boba_guests_got_hit = false;
+                    //Boba_In_Mouth = 0;
+                    boba_eating_guest_got_hit_true.Boba_guests_got_hit = false;
+            }
+                ful_Mouth = true;
         }
     }
 

@@ -7,10 +7,11 @@ public class hit_boba_eating_guest : MonoBehaviour
     bool intriggerarea = false;
     public bool Boba_guests_got_hit = false;
     bool holdMop;
+    Boba_guests_follow_boba hBEG;
 
     void Start()
-    { 
-        
+    {
+        hBEG = FindFirstObjectByType<Boba_guests_follow_boba>();
     }
 
     void Update()
@@ -23,8 +24,14 @@ public class hit_boba_eating_guest : MonoBehaviour
                 {
                     Debug.Log("slå boba ätar gästen!");
                     Boba_guests_got_hit = true;
+                    //hBEG.Boba_In_Mouth = 0;
                 }
             }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+        {
+            hBEG.Boba_In_Mouth = 0;
+        }
     }
     private void OnTriggerEnter(Collider other) 
     {
