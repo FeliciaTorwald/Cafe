@@ -27,7 +27,10 @@ public class Boba_guests_follow_boba : MonoBehaviour
     private void Update()
     {
         //Debug.Log(Boba_In_Mouth);
+
+        //Ha inte denna i update utan kolla först på vilken är närmsta boba och sen när bobans förstörs kolla var nästa ligger
         closestBoba = FindClosestBoba();
+
         //print(closestBoba.name);  
         if(ful_Mouth == false && boba_eating_guest_got_hit_true.Boba_guests_got_hit == false)
         {
@@ -41,7 +44,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
         if(boba_eating_guest_got_hit_true.Boba_guests_got_hit == true)
         {
-                for (int i = 0; i < Boba_In_Mouth; i++) 
+                for (int i = 0; i <= Boba_In_Mouth; i++) 
                 {
                     Debug.Log("Spawn boba");
                     Instantiate(preFab, spat_out_boba.position, Quaternion.identity);
@@ -75,8 +78,8 @@ public class Boba_guests_follow_boba : MonoBehaviour
         if (other.gameObject.tag == "BobaPearls" && ful_Mouth == false)
         {
             Boba_In_Mouth +=1;
-            Debug.Log("Is boba in mounth");
             Debug.Log(Boba_In_Mouth);
+            //Debug.Log(Boba_In_Mouth);
             Destroy(closestBoba);
             
             if (Boba_In_Mouth >= 5)
