@@ -7,6 +7,7 @@ public class CraftingWindow : MonoBehaviour
     BrewingInventory timerRef;
 
     public CraftingRecipeUI[] recipeUIs;
+    public CraftingUI[] recipes;
 
     public static CraftingWindow instance;
 
