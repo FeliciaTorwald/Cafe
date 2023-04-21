@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OrderPopUpUI : MonoBehaviour
+public class OrderImageUI : MonoBehaviour
 {
 
     [SerializeField] GameObject orderImage;
