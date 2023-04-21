@@ -38,7 +38,8 @@ public class Boba_guests_follow_boba : MonoBehaviour
         //Debug.Log(Boba_In_Mouth);
 
         //Ha inte denna i update utan kolla först på vilken är närmsta boba och sen när bobans förstörs kolla var nästa ligger
-        
+        if(closestBoba == null)
+            return;
         
         //nav.destination = FindClosestBoba();
 
