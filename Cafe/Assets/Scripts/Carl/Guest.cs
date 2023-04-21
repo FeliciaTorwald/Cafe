@@ -24,7 +24,7 @@ public class Guest : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public float waitToBeSeatedTimer = 2f;
     public Chair chairRef;
-
+    public OrderImageUI orderImg;
     public GuestSpawner guestSpawner;
     
     //Enum to identify type of guest, can be set in prefab or when instantiating guest
@@ -45,6 +45,7 @@ public class Guest : MonoBehaviour
         
         //Create references for use in state machine state scripts
         navMeshAgent = GetComponent<NavMeshAgent>();
+        orderImg = FindObjectOfType<OrderImageUI>();
         camera = Camera.main;
         
         guestCanvas.worldCamera = camera;

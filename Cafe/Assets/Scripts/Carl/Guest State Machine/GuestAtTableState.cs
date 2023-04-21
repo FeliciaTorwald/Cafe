@@ -35,6 +35,7 @@ public class GuestAtTableState : GuestState
     {
         guest.orderText.SetText("Tea 1");
         //Display what the guest has ordered.
+        guest.orderImg.SpawnOrderImage();
     }
     
 }
