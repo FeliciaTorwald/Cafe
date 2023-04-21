@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     }
     private static GameManager instance;
     
-    [SerializeField] private Difficulty difficulty;
+    [SerializeField] public Difficulty difficulty;
     [SerializeField] private GuestSpawner guestSpawner;
     [SerializeField] private int easyGuestNumber = 3;
     [SerializeField] private int normalGuestNumber = 5;
