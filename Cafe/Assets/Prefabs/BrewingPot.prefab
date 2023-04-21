@@ -37,7 +37,7 @@ Transform:
   m_Children:
   - {fileID: 2900581185739192630}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6549946348110340904
 MeshFilter:
@@ -128,7 +128,7 @@ MonoBehaviour:
   isMakingTea: 0
   gameTime: 10
   eT: {fileID: 0}
-  boba: 0
+  bSC: {fileID: 0}
   water: 0
   queueText: {fileID: 0}
   finishedTea: {fileID: 4843697783794987271, guid: d6c63fbf3fc1e0d4195640bfdf1c5f84, type: 3}
