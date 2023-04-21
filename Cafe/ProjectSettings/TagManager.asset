@@ -15,6 +15,7 @@ TagManager:
   - BobaPearls
   - Guest
   - boba eating guests
+  - Enemy
   layers:
   - Default
   - TransparentFX
