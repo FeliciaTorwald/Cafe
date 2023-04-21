@@ -14,9 +14,6 @@ public class OrderPopUpUI : MonoBehaviour
     public void SpawnOrderImage()
     {
 
-        //orderImage= Instantiate(orderImage, new Vector3(0,0,0), Quaternion.identity) as GameObject;
-        //orderImage.transform.SetParent(parentSpawning.transform, false);
-
         teaOrders = Instantiate(orderImage, new Vector3(0, 0, 0), Quaternion.identity);
         teaOrders.transform.SetParent(parentSpawning.transform, false);
 
