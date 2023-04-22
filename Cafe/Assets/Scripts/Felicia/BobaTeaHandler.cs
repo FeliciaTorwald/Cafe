@@ -80,9 +80,14 @@ public class BobaTeaHandler : MonoBehaviour
         gS.Invoke(nameof(gS.Spawn), 1);
         if (guestRef != null)
         {
-            if (guestRef.GetComponent<GuestInteraction>() != null)
+            if (guestRef.GetComponentInChildren<GuestInteraction>() != null)
             {
-                guestRef.GetComponent<GuestInteraction>().ServeGuest(TeaType.TypeA);
+                guestRef.GetComponentInChildren<GuestInteraction>().ServeGuest(TeaType.TypeA);
+            }
+
+            if (guestRef.GetComponentInChildren<GuestInteraction>() == null)
+            {
+                Debug.Log("Null");
             }
 
         }

@@ -15,6 +15,13 @@ public class GuestSpawner : MonoBehaviour
     {
         StartCoroutine(StartUpFunction());
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            SpawnNewGuest();
+        }
+    }
 
     IEnumerator StartUpFunction()
     {

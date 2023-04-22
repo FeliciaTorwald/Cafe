@@ -12,7 +12,7 @@ public class GoldSpawner : MonoBehaviour
     GameObject coin;
     public Transform moneyPlace;
     private Vector3 spawnPointRef;
-    float amountOfCoins = 3;
+    float amountOfCoins = 5;
     List<GameObject> coins;
     float timer;
 
@@ -49,7 +49,10 @@ public class GoldSpawner : MonoBehaviour
               if(timer >= 1)
                 {
                 coin = Instantiate(preFabGold, spawnPointRef, Quaternion.identity);
-                coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, 6, 0) , ForceMode.Impulse);
+                coin.transform.position += Random.insideUnitSphere + new Vector3(0,1.2f,0);
+                Vector3 force = Random.insideUnitSphere * 5;
+                force.y = Mathf.Abs(force.y);
+                coin.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
                 coins.Add(coin);
                 //timer = 0;
                 }

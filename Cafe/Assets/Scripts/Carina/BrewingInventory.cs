@@ -32,6 +32,14 @@ public class BrewingInventory : MonoBehaviour
         eT = FindFirstObjectByType<EquipTool>();
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            BobaTea();
+        }
+    }
+
     // On collision, will check if player has boba, and if they do, add boba to count
     private void OnTriggerEnter(Collider collision)
     {
@@ -125,7 +133,7 @@ public class BrewingInventory : MonoBehaviour
         {
             eT.equipped = false;
             EquipTool.slotIsFull = false;
-            Invoke("DestroyBoba", 0.5f);
+            Invoke("DestroyBoba", 0.1f);
         }
     }
 

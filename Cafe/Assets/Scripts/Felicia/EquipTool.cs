@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using UnityEngine;
 
 //use meshcollider,turn on convex then add boxcollider as trigger
@@ -39,30 +40,40 @@ public class EquipTool : Pickupable
                         return;
                     }
                 }
-
-            }
-
-            //Picks up water
-
-            if (wP.PTriggerArea)
-            {
-                wP.AddWaterToBucket();
-            }
-
-            //Pours in kettle
-            else if (wP.BPTriggerArea)
-            {
-                wP.AddWaterToKettle();
             }
 
             //drops tool
-            else if (wP.PTriggerArea == false && wP.BPTriggerArea == false)
+            else if (IdentifyToolType() != ToolType.Bucket)
             {
                 Drop();
+            }
+            else if (wP.PTriggerArea == false)
+            {
+                if (wP.BPTriggerArea == false || !GetComponent<WaterPickup>().hasWater)
+                {
+                    Drop();
+                }
+            }
+
+            if (IdentifyToolType() == ToolType.Bucket)
+            {
+                //Picks up water
+
+                if (wP.PTriggerArea)
+                {
+                    wP.AddWaterToBucket();
+                }
+
+                //Pours in kettle
+                else if (wP.BPTriggerArea)
+                {
+                    wP.AddWaterToKettle();
+                }
             }
         }
     }
 
+ 
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;

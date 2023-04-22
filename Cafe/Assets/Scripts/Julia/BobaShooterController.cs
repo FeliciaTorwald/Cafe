@@ -117,6 +117,7 @@ public class BobaShooterController : MonoBehaviour
             Ball = bobaObject;
             IsBallInHands = true;
             Ball.GetComponent<Rigidbody>().isKinematic = false;
+           EquipTool.slotIsFull = true;
         }
 
     }

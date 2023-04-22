@@ -20,39 +20,39 @@ public class WaterPickup : MonoBehaviour
         eQ = FindObjectOfType<EquipTool>();
         canMakeTeaCheck = FindObjectOfType<CraftingTea>();
     }
-
-    //private void Update()
-    //{
-    //    AddWaterToBucket();
-    //    AddWaterToKettle(); 
-    //}
     public void AddWaterToKettle()
     {
-        //if (BPTriggerArea)
-        //{
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (hasWater)
-            {
-                addWater.Gather();
-                hasWater = false;
-                waterInBucket.gameObject.SetActive(false);
-                canMakeTeaCheck.UpdateCanCraft();
-            }
+        if (!HoldingBucket()) { return; }
+        if (!Input.GetKeyDown(KeyCode.E)) { return; }
+        if (!hasWater) { return; }
+        addWater.Gather();
+        hasWater = false;
+        waterInBucket.gameObject.SetActive(false);
+        canMakeTeaCheck.UpdateCanCraft();
 
+    }
+
+    private bool HoldingBucket()
+    {
+        EquipTool[] tools = FindObjectsOfType<EquipTool>();
+        foreach (EquipTool tool in tools)
+        {
+            if (tool.IdentifyToolType() == ToolType.Bucket && tool.equipped)
+            {
+                return true;
             }
-        //}
+        }
+        return false;
     }
     public void AddWaterToBucket()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (HoldingBucket())
         {
-        //    if (PTriggerArea)
-        //{
-            waterInBucket.gameObject.SetActive(true);
-            hasWater = true;
-        //}
-
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                waterInBucket.gameObject.SetActive(true);
+                hasWater = true;
+            }
         }
     }
 
