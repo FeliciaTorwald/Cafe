@@ -54,6 +54,7 @@ public class BobaPoints : MonoBehaviour
     public void OnInteract()
     {
         Inventory.instance.AddItem(item);
+        CraftingInventory.instance.AddItem(item);
     }
 
 

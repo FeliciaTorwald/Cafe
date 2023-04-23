@@ -14,6 +14,7 @@ public class Resource : MonoBehaviour
         for (int i = 0; i < quantityPerHit; i++)
         {
             Inventory.instance.AddItem(itemToGive);
+            CraftingInventory.instance.AddItem(itemToGive);
         }
 
     }
