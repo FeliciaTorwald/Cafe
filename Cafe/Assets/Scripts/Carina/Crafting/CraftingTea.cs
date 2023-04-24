@@ -7,10 +7,7 @@ public class CraftingTea : MonoBehaviour
 
     BrewingInventory timerRef;
 
-    public CraftingRecipe recipe; //
-    private bool canCraft; //
-
-    public CraftingRecipeUI[] recipeUIs; //
+    public CraftingUI[] recipesUIs;
 
     public static CraftingTea instance;
 
@@ -20,21 +17,6 @@ public class CraftingTea : MonoBehaviour
         timerRef = FindFirstObjectByType<BrewingInventory>();
     }
 
-
-    public void UpdateCanCraft() //
-    {
-        canCraft = true;
-
-        for (int i = 0; i < recipe.cost.Length; i++)
-        {
-            if (!Inventory.instance.HasItems(recipe.cost[i].item, recipe.cost[i].quantity))
-            {
-                canCraft = false;
-                break;
-            }
-        }
-        CanMakeTea();
-    }
 
     public void Craft(CraftingRecipe recipe)
     {
@@ -52,17 +34,9 @@ public class CraftingTea : MonoBehaviour
 
         //Inventory.instance.AddItem(recipe.itemToCraft);
 
-        for (int i = 0; i < recipeUIs.Length; i++)
+        for (int i = 0; i < recipesUIs.Length; i++)
         {
-            recipeUIs[i].UpdateCanCraft();
-        }
-    }
-
-    public void CanMakeTea() //
-    {
-        if (canCraft)
-        {
-            Craft(recipe);
+            recipesUIs[i].UpdateCanCraft();
         }
     }
 }

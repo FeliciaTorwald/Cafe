@@ -7,12 +7,12 @@ public class BobaPoints : MonoBehaviour
 {
     public ItemData item;
 
-    CraftingTea canMakeTeaCheck;
+    CraftingUI canMakeTeaCheck;
     BobaShooterController bSC;
 
     private void Start()
     {
-        canMakeTeaCheck = FindObjectOfType<CraftingTea>();
+        canMakeTeaCheck = FindObjectOfType<CraftingUI>();
         bSC = FindObjectOfType<BobaShooterController>();
     }
 

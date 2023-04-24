@@ -12,10 +12,6 @@ public class CraftingUI : MonoBehaviour
 
     private bool canCraft;
 
-    private void OnEnable()
-    {
-        UpdateCanCraft(); //
-    }
 
     public void UpdateCanCraft()
     {

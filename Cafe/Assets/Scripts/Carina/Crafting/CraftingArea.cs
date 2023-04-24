@@ -6,13 +6,11 @@ using UnityEngine.EventSystems;
 public class CraftingArea : MonoBehaviour, IInteractable
 {
     public GameObject firstOptionButton, optionsClosedButton;
-    [SerializeField] GameObject craftingWindoww;
-    private CraftingWindow craftingWindow;
+    [SerializeField] GameObject craftingWindow;
     private PlayerMovement player;
 
     private void Start()
     {
-        craftingWindow = FindObjectOfType<CraftingWindow>(true);
         player = FindObjectOfType<PlayerMovement>();
     }
 

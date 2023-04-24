@@ -12,12 +12,12 @@ public class Inventory : MonoBehaviour
     public ItemSlotUI[] uiSlots;
     public ItemSlot[] slots;
 
-    public GameObject inventoryWindow; //
+    //public GameObject inventoryWindow; //
     public Transform dropPosition;
 
-    [Header("Events")]
+    /*[Header("Events")]
     public UnityEvent onOpenInventory; //
-    public UnityEvent onCloseInventory; //
+    public UnityEvent onCloseInventory; //*/
 
     PlayerMovement player;
 
@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        inventoryWindow.gameObject.SetActive(false); //
+        //inventoryWindow.gameObject.SetActive(false); //
 
         slots = new ItemSlot[uiSlots.Length];
 
@@ -48,7 +48,7 @@ public class Inventory : MonoBehaviour
 
     }
 
-    // when pushing inventory button (here "I"), it opens or closes inventory window
+    /*// when pushing inventory button (here "I"), it opens or closes inventory window
     public void OnInventoryButton(InputAction.CallbackContext context) //
     {
         if (context.phase == InputActionPhase.Started)
@@ -70,7 +70,7 @@ public class Inventory : MonoBehaviour
             inventoryWindow.SetActive(true);
             onOpenInventory.Invoke();
         }
-    }
+    }*/
 
     // adds the requested item to the player's inventory
     public void AddItem(ItemData item)

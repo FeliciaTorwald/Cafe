@@ -17,7 +17,7 @@ public class CraftingWindow : MonoBehaviour
         timerRef = FindFirstObjectByType<BrewingInventory>();
     }
 
-    private void OnOpenInventory()
+    /*private void OnOpenInventory()
     {
         gameObject.SetActive(false);
     }
@@ -30,7 +30,7 @@ public class CraftingWindow : MonoBehaviour
     private void OnDisable()
     {
         Inventory.instance.onOpenInventory.RemoveListener(OnOpenInventory);
-    }
+    }*/
 
     /*public void Craft(CraftingRecipe recipe)
     {

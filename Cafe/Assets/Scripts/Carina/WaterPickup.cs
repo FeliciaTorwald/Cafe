@@ -10,7 +10,7 @@ public class WaterPickup : MonoBehaviour
 
     [SerializeField] GameObject waterInBucket;
 
-    CraftingTea canMakeTeaCheck;
+    CraftingUI canMakeTeaCheck;
     Resource addWater;
     EquipTool eQ;
 
@@ -18,7 +18,7 @@ public class WaterPickup : MonoBehaviour
     {
         addWater = FindObjectOfType<Resource>();
         eQ = FindObjectOfType<EquipTool>();
-        canMakeTeaCheck = FindObjectOfType<CraftingTea>();
+        canMakeTeaCheck = FindObjectOfType<CraftingUI>();
     }
     public void AddWaterToKettle()
     {

@@ -844,22 +844,6 @@ Transform:
   m_Father: {fileID: 1200490137}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &159201731 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7372080844801575375, guid: 328794df1d04d194d81beb050a63e081, type: 3}
-  m_PrefabInstance: {fileID: 522527533}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &183227851 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8385616507851897686, guid: e5487bfb339270948b4d8ae27526229d, type: 3}
-  m_PrefabInstance: {fileID: 1998066770}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ec342a821116bd4492e679faa9210fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &241715077
 GameObject:
   m_ObjectHideFlags: 0
@@ -3356,15 +3340,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.540503
+      value: 1.5404807
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.005804
+      value: 3.005825
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.848684
+      value: 17.848745
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -3895,15 +3879,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.208462
+      value: 6.895099
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.791079
+      value: 18.015001
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.549986
+      value: 23.464455
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4374,9 +4358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491c3c8f7c10d5d4d800fd11ae672c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipe: {fileID: 11400000, guid: dfd1370ab8f485f468ec9c26352989d8, type: 2}
-  recipeUIs:
-  - {fileID: 183227851}
+  recipesUIs: []
 --- !u!114 &916423152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4391,7 +4373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstOptionButton: {fileID: 0}
   optionsClosedButton: {fileID: 0}
-  craftingWindoww: {fileID: 0}
+  craftingWindow: {fileID: 0}
 --- !u!114 &916423153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4411,14 +4393,7 @@ MonoBehaviour:
   - {fileID: 2063667999}
   - {fileID: 1501495985}
   - {fileID: 1775745835}
-  inventoryWindow: {fileID: 159201731}
   dropPosition: {fileID: 0}
-  onOpenInventory:
-    m_PersistentCalls:
-      m_Calls: []
-  onCloseInventory:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &916423154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7101,15 +7076,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5404689
+      value: 1.5404468
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.684087
+      value: -6.684064
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.528894
+      value: 23.528955
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -7567,8 +7542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491c3c8f7c10d5d4d800fd11ae672c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipe: {fileID: 11400000, guid: dfd1370ab8f485f468ec9c26352989d8, type: 2}
-  recipeUIs: []
+  recipesUIs: []
 --- !u!1 &1613836669
 GameObject:
   m_ObjectHideFlags: 0
