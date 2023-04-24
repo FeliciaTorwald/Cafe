@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2176950606116242208}
   - component: {fileID: 6997415597266326021}
   - component: {fileID: 4820686480488261615}
+  - component: {fileID: 2364340186791767088}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -83,6 +84,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2364340186791767088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091325731638630033}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1.2710687, y: 0.2240151, z: 0.799143}
+  m_Center: {x: -0.13553315, y: 9, z: 0.080273606}
 --- !u!1 &2129117010304422979
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +204,8 @@ GameObject:
   - component: {fileID: 5480915506008029209}
   - component: {fileID: 4025483758385796069}
   - component: {fileID: 5628283362395248431}
+  - component: {fileID: 539516075408563141}
+  - component: {fileID: 7273478815683836222}
   m_Layer: 0
   m_Name: Player Object
   m_TagString: Player
@@ -197,8 +221,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2222518193980088155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.29706, y: 0.0090216, z: -0.15024}
+  m_LocalScale: {x: 1.3403413, y: 1.3403413, z: 1.3403413}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6987936021677127875}
@@ -326,7 +350,7 @@ MonoBehaviour:
   speed: 12
   rotationSpeed: 600
   acceleraion: 12
-  maxSpeed: 1.5
+  maxSpeed: 5
   brakeStrength: {x: 1, y: 0, z: 1}
 --- !u!114 &4025483758385796069
 MonoBehaviour:
@@ -342,7 +366,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 30
   Ball: {fileID: 0}
-  Balls: []
   Arms: {fileID: 6968943717041442736}
   PosOverHead: {fileID: 4599598111076307074}
   posDribble: {fileID: 7603465026384874555}
@@ -352,6 +375,7 @@ MonoBehaviour:
   Distance: 0
   sound_of_boba: {fileID: 8300000, guid: 04e58e9ccf1b1e04abf973ae90ae1cfd, type: 3}
   IsBallInHands: 0
+  IsBallFlying: 0
   inTriggerArea: 0
 --- !u!82 &5628283362395248431
 AudioSource:
@@ -449,6 +473,65 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &539516075408563141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222518193980088155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 11ad5004ce411224190b28d006bab5f4, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: OnInventoryButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 79a375c3-779c-4b70-8311-31e7dea8cd5c
+    m_ActionName: Main/Inventory[/Keyboard/i]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Main
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &7273478815683836222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222518193980088155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab8b3841cc040e48927b1a0e5a1f99e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boba_guests_got_hit: 0
 --- !u!1 &2639360615654153365
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +543,7 @@ GameObject:
   - component: {fileID: 868639501152592375}
   - component: {fileID: 842792839192680968}
   - component: {fileID: 5411248485988601950}
+  - component: {fileID: 7008790109477264487}
   m_Layer: 0
   m_Name: Sphere (2)
   m_TagString: Untagged
@@ -532,6 +616,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7008790109477264487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639360615654153365}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000007, y: 0.14152904, z: 0.6630958}
+  m_Center: {x: 0.00000094261316, y: 8.510182, z: 0.08154844}
 --- !u!1 &2803191647066307435
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,7 +655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1509144855029574047
 RectTransform:
   m_ObjectHideFlags: 0
@@ -659,13 +764,13 @@ Transform:
   m_GameObject: {fileID: 3347900847610597187}
   m_LocalRotation: {x: 0, y: 0.6865801, z: 0, w: 0.72705424}
   m_LocalPosition: {x: -0.35635537, y: 0.66, z: -1.7501719}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.94697, y: 0.94697, z: 0.94697}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6730550627522645838}
   - {fileID: 4485035094322854980}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 86.72, z: 0}
 --- !u!1 &3536947505327977887
 GameObject:
@@ -691,7 +796,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3536947505327977887}
   m_LocalRotation: {x: -0.1443689, y: -0.9599777, z: 0.09912033, w: -0.21857637}
-  m_LocalPosition: {x: 0.367, y: -0.01, z: 1.284}
+  m_LocalPosition: {x: 0.546, y: 0.005, z: 1.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -725,7 +830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3634372482179227799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -744,8 +849,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd8cf1c318ea274cb6fe794879035c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionCanvas: {fileID: 7470796474610161586}
-  pickUpDisplay: {fileID: 780661982996378183}
+  pickUpDisplay: {fileID: 0}
+  offset: {x: 0, y: 40, z: 0}
 --- !u!54 &3098931519036843045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -792,8 +897,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.2897677
-  m_Center: {x: 0.87277985, y: -0.026505232, z: 0.44141603}
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3947646293742921258
 GameObject:
   m_ObjectHideFlags: 0
