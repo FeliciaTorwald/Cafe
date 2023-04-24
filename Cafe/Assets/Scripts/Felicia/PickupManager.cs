@@ -7,14 +7,15 @@ using TMPro;
 
 public class PickupManager : MonoBehaviour
 {
-    List<Pickupable> pickupables;
+    public List<Pickupable> pickupables;
     [SerializeField] private TMP_Text pickUpDisplay;
     [SerializeField] private Vector3 offset;
+    public Pickupable heldToolRef;
     Camera mainCameraRef;
 
     void Start()
     {
-        pickupables= new List<Pickupable>();
+        pickupables = new List<Pickupable>();
         Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
         UpdatePlayerPickupDisplay();
         mainCameraRef = Camera.main;
@@ -35,26 +36,80 @@ public class PickupManager : MonoBehaviour
 
     private void UpdatePlayerPickupDisplay()
     {
-        Pickupable pickupable = UpdateClosestPickupable();  
+        Pickupable pickupable = UpdateClosestPickupable();
+        if (heldToolRef != null)
+        {
+            if (heldToolRef.toolType == ToolType.EmptyBucket)
+            {
+                if (heldToolRef.GetComponent<WaterPickup>().PTriggerArea)
+                {
+                    pickUpDisplay.SetText("E: Draw water");
+                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                    return;
+                }
+                if (heldToolRef.GetComponent<WaterPickup>().BPTriggerArea && heldToolRef.GetComponent<WaterPickup>().hasWater)
+                {
+                    pickUpDisplay.SetText("E: Add water to pot");
+                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                    return;
+                }
+            }
+            
+            if (heldToolRef.toolType is ToolType.Boba)
+            {
+                pickUpDisplay.SetText("Space: Throw boba pearl");
+                Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                return;
+            }
+
+            if (heldToolRef.toolType is ToolType.Tea)
+            {
+                //Add code to check if tea is servable
+            }
+
+            if (heldToolRef.toolType is ToolType.EmptyTea)
+            {
+                //Add code to add dish to water
+            }
+        }
+        
+        if (heldToolRef != null)
+        {
+            pickUpDisplay.SetText("E: Drop");
+            Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+            return;
+        }
+            
+        
         if (pickupable != null)
         {
-            if (pickupable.GetComponent<EquipTool>() != null)
-            {
-                string toolType = UpdateClosestPickupable().GetComponent<EquipTool>().IdentifyToolType().ToString();
-                pickUpDisplay.SetText("E: Pick up: " + toolType);
-                pickupable = null;
-            }
-            else if (pickupable.GetComponent<BobaBall>() != null)
-            {
-                string toolType = UpdateClosestPickupable().GetComponent<BobaBall>().IdentifyToolType().ToString();
-                pickUpDisplay.SetText("E: Pick up: " + toolType);
-                pickupable = null;
-            }
+            string toolType = UpdateClosestPickupable().IdentifyToolType().ToString();
+            pickUpDisplay.SetText("E: Pick up: " + toolType);
         }
         else
         {
             pickUpDisplay.SetText("");
         }
+        
+        // if (pickupable != null)
+        // {
+        //     if (pickupable.GetComponent<EquipTool>() != null)
+        //     {
+        //         string toolType = UpdateClosestPickupable().GetComponent<EquipTool>().IdentifyToolType().ToString();
+        //         pickUpDisplay.SetText("E: Pick up: " + toolType);
+        //         pickupable = null;
+        //     }
+        //     else if (pickupable.GetComponent<BobaBall>() != null)
+        //     {
+        //         string toolType = UpdateClosestPickupable().GetComponent<BobaBall>().IdentifyToolType().ToString();
+        //         pickUpDisplay.SetText("E: Pick up: " + toolType);
+        //         pickupable = null;
+        //     }
+        // }
+        // else
+        // {
+        //     pickUpDisplay.SetText("");
+        // }
         
         Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
     }
@@ -85,7 +140,7 @@ public class PickupManager : MonoBehaviour
     {
         if(other.GetComponent<Pickupable>() != null)
         {
-            Debug.Log("Added pearl to list");
+            Debug.Log("Added item to list");
             pickupables.Add(other.GetComponent<Pickupable>());
         }
     }
@@ -96,5 +151,15 @@ public class PickupManager : MonoBehaviour
         {
             pickupables.Remove(other.GetComponent<Pickupable>());
         }
+    }
+
+    public void HoldingSomething(Pickupable pickupable)
+    {
+        heldToolRef = pickupable;
+    }
+
+    public void NoLongerHoldingSomething()
+    {
+        heldToolRef = null;
     }
 }

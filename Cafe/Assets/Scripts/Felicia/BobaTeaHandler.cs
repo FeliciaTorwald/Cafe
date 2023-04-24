@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 // using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class BobaTeaHandler : MonoBehaviour
+public class BobaTeaHandler : Interactable
 {
     //add this script to tables
     public GameObject fakefullBobaTea;
@@ -20,6 +20,31 @@ public class BobaTeaHandler : MonoBehaviour
 
     OrderImageUI orderImg;
 
+    public override void Interact()
+    {
+
+        FindObjectOfType<BrewingInventory>().RemoveBobaTea();
+        ServedTea();
+        Invoke("FinishedTea", 2);
+        //gS.onOrderFullfilled = true;
+        gS.Invoke(nameof(gS.Spawn), 1);
+        if (guestRef != null)
+        {
+            if (guestRef.GetComponentInChildren<GuestInteraction>() != null)
+            {
+                guestRef.GetComponentInChildren<GuestInteraction>().ServeGuest(TeaType.TypeA);
+            }
+
+            if (guestRef.GetComponentInChildren<GuestInteraction>() == null)
+            {
+                Debug.Log("Null");
+            }
+
+        }
+
+        inTriggerArea = false;
+        gS.onOrderFullfilled = false;
+    }
     private void Start()
     {
         eT = FindFirstObjectByType<EquipTool>();
@@ -70,36 +95,35 @@ public class BobaTeaHandler : MonoBehaviour
 
     private void Update()
     {
-        
         DestroyDish();
         SpawnDish();
     }
-    public void ServedSequence()
-    {
+    //public void ServedSequence()
+    //{
 
-        FindObjectOfType<BrewingInventory>().RemoveBobaTea();
-        ServedTea();
-        Invoke("FinishedTea", 2);
-        gS.onOrderFullfilled = true;
-        gS.Invoke(nameof(gS.Spawn), 1);
-        if (guestRef != null)
-        {
-            if (guestRef.GetComponentInChildren<GuestInteraction>() != null)
-            {
-                guestRef.GetComponentInChildren<GuestInteraction>().ServeGuest(TeaType.TypeA);
-            }
+    //    FindObjectOfType<BrewingInventory>().RemoveBobaTea();
+    //    ServedTea();
+    //    Invoke("FinishedTea", 2);
+    //    //gS.onOrderFullfilled = true;
+    //    gS.Invoke(nameof(gS.Spawn), 1);
+    //    if (guestRef != null)
+    //    {
+    //        if (guestRef.GetComponentInChildren<GuestInteraction>() != null)
+    //        {
+    //            guestRef.GetComponentInChildren<GuestInteraction>().ServeGuest(TeaType.TypeA);
+    //        }
 
-            if (guestRef.GetComponentInChildren<GuestInteraction>() == null)
-            {
-                Debug.Log("Null");
-            }
+    //        if (guestRef.GetComponentInChildren<GuestInteraction>() == null)
+    //        {
+    //            Debug.Log("Null");
+    //        }
 
-        }
+    //    }
 
-        inTriggerArea = false;
-        gS.onOrderFullfilled = false;
+    //    inTriggerArea = false;
+    //    gS.onOrderFullfilled = false;
 
-    }
+    //}
     public void AddGuestToTeaOrder(Guest guest)
     {
         guestRef = guest;
@@ -113,7 +137,7 @@ public class BobaTeaHandler : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Boba"))
         {
