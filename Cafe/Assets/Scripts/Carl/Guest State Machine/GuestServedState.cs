@@ -32,6 +32,7 @@ public class GuestServedState : GuestState
     {
         GameManager.Instance.freeSeats++;
         GameManager.Instance.ReturnFreeSeat(guest.chairRef);
+        GameManager.Instance.servedGuests++;
     }
     
     private void MoveToDestination(Guest guest, Transform target)

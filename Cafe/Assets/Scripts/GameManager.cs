@@ -35,10 +35,12 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] public Difficulty difficulty;
     [SerializeField] private GuestSpawner guestSpawner;
+    [SerializeField] private GameUI gameUiRef;
     [SerializeField] private int easyGuestNumber = 3;
     [SerializeField] private int normalGuestNumber = 5;
     [SerializeField] private int hardGuestNumber = 9;
-    
+
+    private float timeSinceStart;
     private int maxNumberOfActiveGuests;
     
     public List<ISeat> freeSeatsInScene = new();
@@ -61,7 +63,15 @@ public class GameManager : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(1);
+            EndGame(false);
+
+        GameTimer();
+        CheckWinCondition();
+    }
+
+    private void GameTimer()
+    {
+        timeSinceStart += 1f * Time.deltaTime;
     }
 
     public int SetNumberOfGuests()
@@ -116,5 +126,23 @@ public class GameManager : MonoBehaviour
         return guestsInScene[index];
         
         //Can be used to look up a specific guest or trigger something in a random guest.
-    } 
+    }
+
+    private void CheckWinCondition()
+    {
+        if (servedGuests == 3)
+            EndGame(true);
+    }
+    
+    public void EndGame(bool win)
+    {
+        if (win)
+        {
+            gameUiRef.ShowEndGameUI(true, servedGuests, timeSinceStart);
+        }
+        else
+        {
+            gameUiRef.ShowEndGameUI(false, servedGuests, timeSinceStart);
+        }
+    }
 }

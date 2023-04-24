@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -18,10 +19,14 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject instructionsUI;
     [SerializeField] private GameObject instructionsUI2;
+    [SerializeField] private GameObject endGameUI;
+    [SerializeField] private TMP_Text endGameStatusText;
+    [SerializeField] private TMP_Text endGameGuestsServedCounter;
+    [SerializeField] private TMP_Text endGameTimeCounter;
 
-    private bool showingInstructions = false;
-    private bool gameStarted = false;
-    private bool gamePaused = false;
+    private bool showingInstructions;
+    private bool gameStarted;
+    private bool gamePaused;
     
     void Start()
     {
@@ -120,6 +125,31 @@ public class GameUI : MonoBehaviour
     {
         
     }
-    
-    
+
+    public void ShowEndGameUI(bool win, int servedGuests, float time)
+    {
+        if (win)
+        {
+            Time.timeScale = 0f;
+            gameStarted = !gameStarted;
+            mainGameUI.SetActive(false);
+            endGameUI.SetActive(true);
+            endGameStatusText.SetText("You win!");
+            endGameGuestsServedCounter.SetText(servedGuests.ToString());
+            TimeSpan timeSpan = TimeSpan.FromSeconds(time);
+            endGameTimeCounter.SetText("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            gameStarted = !gameStarted;
+            mainGameUI.SetActive(false);
+            endGameUI.SetActive(true);
+            endGameStatusText.SetText("Game over");
+            endGameStatusText.color = new Color(.85f, .5f, .5f, 1f);
+            endGameGuestsServedCounter.SetText(servedGuests.ToString());
+            TimeSpan timeSpan = TimeSpan.FromSeconds(time);
+            endGameTimeCounter.SetText("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
+        }
+    }
 }
