@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class BobMilkThowingAreaScript : MonoBehaviour
 {
-
     WashDishes washDishesRef;
-    
     
     void Start()
     {
@@ -18,13 +16,11 @@ public class BobMilkThowingAreaScript : MonoBehaviour
     {
         if (washDishesRef.startcleaningDirtyBobatea == true)
         {
-            // Get the center of the circle collider
-            Vector3 center = circleCollider.transform.position;
+           float xpos = Random.Range(0,10);
+           float ypos = Random.Range(0,10);
+           float zpos = Random.Range(0,10);
 
-            // Get a random point within the circle collider
-            float distance = Random.Range(0f, circleCollider.radius);
-            float angle = Random.Range(0f, 360f);
-            Vector3 randomPoint = center + new Vector3(distance * Mathf.Cos(angle * Mathf.Deg2Rad), 0f, distance * Mathf.Sin(angle * Mathf.Deg2Rad));
+           Vector3 Spawnpos = new Vector3(xpos, ypos, zpos);
         }
         
     }
