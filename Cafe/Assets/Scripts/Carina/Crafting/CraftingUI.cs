@@ -14,7 +14,7 @@ public class CraftingUI : MonoBehaviour
 
     private void OnEnable()
     {
-        UpdateCanCraft();
+        UpdateCanCraft(); //
     }
 
     public void UpdateCanCraft()
@@ -29,6 +29,8 @@ public class CraftingUI : MonoBehaviour
                 break;
             }
         }
+
+        CheckCanMakeTea();
     }
 
     public void OnClickButton()
