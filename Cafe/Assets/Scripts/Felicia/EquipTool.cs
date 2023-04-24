@@ -17,8 +17,7 @@ public class EquipTool : Pickupable
     List<BobaTeaHandler> bTHs;
     WaterPickup wP;
     bool guestInRange;
-
-    [SerializeField] private ToolType toolType;
+    private PickupManager pickupManager;
 
     public override void Interact()
     {
@@ -30,20 +29,20 @@ public class EquipTool : Pickupable
 
         else if (equipped && slotIsFull)
         {
-            if (guestInRange)
-            {
-                foreach (var bobaTea in bTHs)
-                {
-                    if (bobaTea.inTriggerArea)
-                    {
-                        bobaTea.ServedSequence();
-                        return;
-                    }
-                }
-            }
+            // if (guestInRange)
+            // {
+            //     foreach (var bobaTea in bTHs)
+            //     {
+            //         if (bobaTea.inTriggerArea)
+            //         {
+            //             bobaTea.ServedSequence();
+            //             return;
+            //         }
+            //     }
+            // }
 
             //drops tool
-            else if (IdentifyToolType() != ToolType.Bucket)
+            if (IdentifyToolType() != ToolType.EmptyBucket)
             {
                 Drop();
             }
@@ -55,7 +54,7 @@ public class EquipTool : Pickupable
                 }
             }
 
-            if (IdentifyToolType() == ToolType.Bucket)
+            if (IdentifyToolType() == ToolType.EmptyBucket)
             {
                 //Picks up water
 
@@ -73,18 +72,13 @@ public class EquipTool : Pickupable
         }
     }
 
- 
     void Start()
     {
         tool.GetComponent<Rigidbody>().isKinematic = true;
         toolParent = GameObject.Find("ToolParent").transform; //now transfom works with prefabs
         bTHs = FindObjectsOfType<BobaTeaHandler>().ToList();
         wP = FindObjectOfType<WaterPickup>();
-    }
-
-    public ToolType IdentifyToolType()
-    {
-        return toolType;
+        pickupManager = FindObjectOfType<PickupManager>();
     }
 
     void Drop()
@@ -96,6 +90,8 @@ public class EquipTool : Pickupable
 
         equipped = false;
         slotIsFull = false;
+        
+        pickupManager.NoLongerHoldingSomething();
     }
 
     void Equip()
@@ -111,6 +107,9 @@ public class EquipTool : Pickupable
 
         equipped = true;
         slotIsFull = true;
+        
+        pickupManager.HoldingSomething(this);
+        pickupManager.pickupables.Remove(this);
     }
 
     private void OnTriggerStay(Collider other) // should deal with some ghostobjects, if item is destroyed in your hand(parentTool) you need to set the equipped bool to false in the method that destroys it
@@ -123,7 +122,7 @@ public class EquipTool : Pickupable
 
         if (toolParent == null)
         {
-            toolParent.DetachChildren();
+            // toolParent.DetachChildren();
             slotIsFull = false;
             equipped = false;
         }

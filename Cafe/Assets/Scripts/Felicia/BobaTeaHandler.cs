@@ -70,7 +70,6 @@ public class BobaTeaHandler : MonoBehaviour
 
     private void Update()
     {
-        
         DestroyDish();
         SpawnDish();
     }

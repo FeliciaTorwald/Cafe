@@ -37,7 +37,7 @@ public class WaterPickup : MonoBehaviour
         EquipTool[] tools = FindObjectsOfType<EquipTool>();
         foreach (EquipTool tool in tools)
         {
-            if (tool.IdentifyToolType() == ToolType.Bucket && tool.equipped)
+            if (tool.IdentifyToolType() == ToolType.EmptyBucket && tool.equipped)
             {
                 return true;
             }

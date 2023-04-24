@@ -5,4 +5,10 @@ using UnityEngine;
 public abstract class Pickupable : MonoBehaviour
 {
     public abstract void Interact();
+    public ToolType toolType;
+
+    public ToolType IdentifyToolType()
+    {
+        return toolType;
+    }
 }
