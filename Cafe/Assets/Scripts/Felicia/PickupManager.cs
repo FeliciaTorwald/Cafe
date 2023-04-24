@@ -12,6 +12,7 @@ public class PickupManager : MonoBehaviour
     [SerializeField] private Vector3 offset;
     public Pickupable heldToolRef;
     Camera mainCameraRef;
+    private Player playerScriptRef;
 
     void Start()
     {
@@ -19,13 +20,19 @@ public class PickupManager : MonoBehaviour
         Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
         UpdatePlayerPickupDisplay();
         mainCameraRef = Camera.main;
+        playerScriptRef = FindObjectOfType<Player>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            UpdateClosestPickupable()?.Interact();
+            if (heldToolRef != null && heldToolRef.toolType is ToolType.Tea && playerScriptRef.interactables.Count == 0)
+                UpdateClosestPickupable()?.Interact();
+            else if (heldToolRef != null && heldToolRef.toolType is ToolType.Tea)
+                playerScriptRef.ServeTea();
+            else
+                UpdateClosestPickupable()?.Interact();
         }
     }
 

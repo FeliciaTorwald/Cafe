@@ -21,6 +21,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
 
+    }
+
+    public void ServeTea()
+    {
         if (HoldingTea())
         {
             //foreach (var guestRef in bTHs)
@@ -43,19 +47,19 @@ public class Player : MonoBehaviour
             //}
             if(interactables.Count > 0)
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
+                // if (Input.GetKeyDown(KeyCode.E))
+                // {
                 Interactable temp = UpdateClosest();
                 if (temp.GetComponent<BobaTeaHandler>().guestRef != null)
                     temp.GetComponent<BobaTeaHandler>().Interact();
 
-                }
+                // }
                 //UpdateClosest().GetComponent<BobaTeaHandler>().Interact();
             }
         }
-
+        
     }
-
+    
     private bool HoldingTea()
     {
         EquipTool[] tools = FindObjectsOfType<EquipTool>();
