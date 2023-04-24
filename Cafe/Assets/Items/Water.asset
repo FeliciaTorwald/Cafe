@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f88aa3e03cbe6a4ea0bf2aa7b31cd9f, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  canStack: 0
-  maxStackAmount: 0
+  canStack: 1
+  maxStackAmount: 10
   displayName: Water
   type: 0
   icon: {fileID: 21300000, guid: ec8024db32af253448f98c98b281000d, type: 3}
