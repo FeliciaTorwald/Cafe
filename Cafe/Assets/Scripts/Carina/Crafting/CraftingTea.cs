@@ -7,10 +7,10 @@ public class CraftingTea : MonoBehaviour
 
     BrewingInventory timerRef;
 
-    public CraftingRecipe recipe;
-    private bool canCraft;
+    public CraftingRecipe recipe; //
+    private bool canCraft; //
 
-    public CraftingRecipeUI[] recipeUIs;
+    public CraftingRecipeUI[] recipeUIs; //
 
     public static CraftingTea instance;
 
@@ -21,7 +21,7 @@ public class CraftingTea : MonoBehaviour
     }
 
 
-    public void UpdateCanCraft()
+    public void UpdateCanCraft() //
     {
         canCraft = true;
 
@@ -58,7 +58,7 @@ public class CraftingTea : MonoBehaviour
         }
     }
 
-    public void CanMakeTea()
+    public void CanMakeTea() //
     {
         if (canCraft)
         {

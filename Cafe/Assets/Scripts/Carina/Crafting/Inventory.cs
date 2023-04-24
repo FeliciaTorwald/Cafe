@@ -12,12 +12,12 @@ public class Inventory : MonoBehaviour
     public ItemSlotUI[] uiSlots;
     public ItemSlot[] slots;
 
-    public GameObject inventoryWindow;
+    public GameObject inventoryWindow; //
     public Transform dropPosition;
 
     [Header("Events")]
-    public UnityEvent onOpenInventory;
-    public UnityEvent onCloseInventory;
+    public UnityEvent onOpenInventory; //
+    public UnityEvent onCloseInventory; //
 
     PlayerMovement player;
 
@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        inventoryWindow.gameObject.SetActive(false);
+        inventoryWindow.gameObject.SetActive(false); //
 
         slots = new ItemSlot[uiSlots.Length];
 
@@ -49,7 +49,7 @@ public class Inventory : MonoBehaviour
     }
 
     // when pushing inventory button (here "I"), it opens or closes inventory window
-    public void OnInventoryButton(InputAction.CallbackContext context)
+    public void OnInventoryButton(InputAction.CallbackContext context) //
     {
         if (context.phase == InputActionPhase.Started)
         {
@@ -58,7 +58,7 @@ public class Inventory : MonoBehaviour
     }
 
     // opens or closes the inventory
-    public void Toggle()
+    public void Toggle() //
     {
         if (inventoryWindow.activeInHierarchy)
         {

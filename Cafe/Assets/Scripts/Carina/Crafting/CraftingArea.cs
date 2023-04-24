@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class CraftingArea : MonoBehaviour, IInteractable
 {
     public GameObject firstOptionButton, optionsClosedButton;
-
+    [SerializeField] GameObject craftingWindoww;
     private CraftingWindow craftingWindow;
     private PlayerMovement player;
 
