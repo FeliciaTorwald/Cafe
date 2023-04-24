@@ -14,7 +14,7 @@ public class GuestServedState : GuestState
     public void Enter(Guest guest)
     {
         guest.orderText.SetText("Served!");
-        guest.orderImg.RemoveOrderImage();
+        //guest.orderImg.RemoveOrderImage();
         MoveToDestination(guest, guest.door.doorExitSpot);
        // GameManager.Instance.ReturnFreeSeat(guest.chairRef);
         GameManager.Instance.AddServedGuest();

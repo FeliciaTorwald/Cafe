@@ -18,16 +18,20 @@ public class BobaTeaHandler : MonoBehaviour
     public Transform dishPlace;
     private Vector3 spawnPointRef;
 
+    OrderImageUI orderImg;
+
     private void Start()
     {
         eT = FindFirstObjectByType<EquipTool>();
         spawnPointRef = dishPlace.transform.position;
+        orderImg = FindObjectOfType<OrderImageUI>();
     }
 
     private void ServedTea()
     {
         GameObject tea = Instantiate(fakefullBobaTea, spawnPointRef, Quaternion.identity);
         Destroy(tea, 1f);
+        orderImg.RemoveOrderImage();
     }
 
     private void FinishedTea()
