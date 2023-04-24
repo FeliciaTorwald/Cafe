@@ -120,6 +120,11 @@ public class GameUI : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
+    }
     
     private void DayTimerCountDown()
     {
