@@ -4,40 +4,47 @@ using UnityEngine;
 
 public class WashDishes : MonoBehaviour
 {
-    bool inTriggerArea;
-    EquipTool eT;
+    // Kunna plocka up disken, DONE
+    // när vi håller smutsig disk och klickar på e och är nära pond, mug försvinner 
+    // mug spawnas vid ponden några sekunder senare och sen skjuts åt ett random håll med lerp
+    bool inTriggerArea = false;
+    bool holdDirtyBobatea = false;
+
+    public bool startcleaningDirtyBobatea = false;
+
+   
+    public GameObject preFab;
+
+    //EquipTool eT;
 
     private void Start()
     {
-        eT = FindFirstObjectByType<EquipTool>();
+        //eT = FindFirstObjectByType<EquipTool>();
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (inTriggerArea)
+            if (inTriggerArea == true)
             {
-                eT.equipped = false;
+                startcleaningDirtyBobatea = true;
                 Destroy(gameObject);
-                //FindObjectOfType<CleanDishes>().Spawn();
             }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Pond"))
+        if (other.CompareTag("Washzone"))
         {
             inTriggerArea = true;
-            Debug.Log(inTriggerArea);
         }
     }
-
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other) 
     {
-        if (other.CompareTag("Pond"))
+            
+        if (other.CompareTag("Washzone"))
         {
             inTriggerArea = false;
-            Debug.Log(inTriggerArea);
         }
     }
 }

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class CleanDishes : MonoBehaviour
 {
-    public GameObject cleanTeaCup;
-    bool inTriggerArea;
-    public Transform spawnPosRef;
-    private Vector3 spawnPointRef;
+    //public GameObject cleanTeaCup;
+    //bool inTriggerArea;
+    //public Transform spawnPosRef;
+    //private Vector3 spawnPointRef;
+
+    //
+
     void Start()
     {
         //spawnPosRef = GameObject.Find("SpawnDish").transform;
@@ -16,6 +19,6 @@ public class CleanDishes : MonoBehaviour
 
     public void Spawn()
     {
-        Instantiate(cleanTeaCup,spawnPosRef.transform.position,Quaternion.identity);
+        //Instantiate(cleanTeaCup,spawnPosRef.transform.position,Quaternion.identity);
     }
 }
