@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class hit_boba_eating_guest : MonoBehaviour
 {
-    bool intriggerarea = false;
-    public bool Boba_guests_got_hit = false;
-    bool holdMop;
+    public bool intriggerarea;
+    public bool Boba_guests_got_hit;
+    public bool holdMop;
     Boba_guests_follow_boba hBEG;
 
     void Start()
@@ -28,12 +28,15 @@ public class hit_boba_eating_guest : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            hBEG.Boba_In_Mouth = 0;
+            if (intriggerarea == true && holdMop)
+            {
+                hBEG.Boba_In_Mouth = 0;
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "boba eating guests")
+        if (other.gameObject.tag == "Player")
         {
             intriggerarea = true;
         }
@@ -45,7 +48,7 @@ public class hit_boba_eating_guest : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "boba eating guests")
+        if (other.gameObject.tag == "Player")
         {
             intriggerarea = false;
         }

@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 1001294531487315069}
   - component: {fileID: 2213306539856756938}
   - component: {fileID: 8792973360994871334}
+  - component: {fileID: 140158455568034623}
   m_Layer: 0
   m_Name: boba eating guests 2.0
-  m_TagString: Untagged
+  m_TagString: boba eating guests
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 7566796003887657257}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5844229049464961266
 MeshFilter:
@@ -177,7 +178,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9462515
+  m_Radius: 2
   m_Height: 3.2509515
   m_Direction: 1
   m_Center: {x: 0.05847423, y: -0.36821875, z: -0.10850052}
@@ -203,6 +204,21 @@ NavMeshAgent:
   m_BaseOffset: 0.99999994
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &140158455568034623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199364591896496408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab8b3841cc040e48927b1a0e5a1f99e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intriggerarea: 0
+  Boba_guests_got_hit: 0
+  holdMop: 0
 --- !u!1 &8808775973482166161
 GameObject:
   m_ObjectHideFlags: 0
