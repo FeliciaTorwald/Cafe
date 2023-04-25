@@ -22,8 +22,10 @@ public class BobaTeaHandler : Interactable
 
     public override void Interact()
     {
+        eT = FindFirstObjectByType<EquipTool>();
+        GameObject equipedBobaDrink = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<EquipTool>().gameObject;
 
-        FindObjectOfType<BrewingInventory>().RemoveBobaTea();
+        FindObjectOfType<BrewingInventory>().RemoveBobaTea(equipedBobaDrink);
         ServedTea();
         Invoke("FinishedTea", 2);
         //gS.onOrderFullfilled = true;
@@ -47,7 +49,6 @@ public class BobaTeaHandler : Interactable
     }
     private void Start()
     {
-        eT = FindFirstObjectByType<EquipTool>();
         spawnPointRef = dishPlace.transform.position;
         orderImg = FindObjectOfType<OrderImageUI>();
     }
