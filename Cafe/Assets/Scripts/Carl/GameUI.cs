@@ -27,10 +27,13 @@ public class GameUI : MonoBehaviour
     private bool showingInstructions;
     private bool gameStarted;
     private bool gamePaused;
+
+    EquipTool eT;
     
     void Start()
     {
         StartCoroutine(InitializeGame());
+        eT = FindObjectOfType<EquipTool>();
     }
     
     void Update()
@@ -114,6 +117,8 @@ public class GameUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        eT.equipped = false;
+        EquipTool.slotIsFull = false;
     }
 
     public void QuitGame()
