@@ -13,7 +13,7 @@ public class EquipTool : Pickupable
     public static bool slotIsFull;
     public bool inCollision;
     public bool canYouEquipBoba;
-    public float force = 200;
+    public float force = 1000;
     List<BobaTeaHandler> bTHs;
     WaterPickup wP;
     bool guestInRange;
@@ -80,6 +80,20 @@ public class EquipTool : Pickupable
         wP = FindObjectOfType<WaterPickup>();
         pickupManager = FindObjectOfType<PickupManager>();
     }
+    private void Update()
+    {
+        if (equipped)
+        {
+            if (IdentifyToolType() == ToolType.EmptyTea)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Shoot();
+                }
+
+            }
+        }
+    }
 
     void Drop()
     {
@@ -90,7 +104,7 @@ public class EquipTool : Pickupable
 
         equipped = false;
         slotIsFull = false;
-        
+
         pickupManager.NoLongerHoldingSomething();
     }
 
@@ -107,9 +121,22 @@ public class EquipTool : Pickupable
 
         equipped = true;
         slotIsFull = true;
-        
+
         pickupManager.HoldingSomething(this);
         pickupManager.pickupables.Remove(this);
+    }
+
+    void Shoot()
+    {
+        toolParent.DetachChildren();
+        tool.GetComponent<Rigidbody>().isKinematic = false;
+        tool.GetComponent<MeshCollider>().enabled = true;
+        tool.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0.5f, 2) * 10, ForceMode.Impulse);
+
+        equipped = false;
+        slotIsFull = false;
+
+        pickupManager.NoLongerHoldingSomething();
     }
 
     private void OnTriggerStay(Collider other) // should deal with some ghostobjects, if item is destroyed in your hand(parentTool) you need to set the equipped bool to false in the method that destroys it
