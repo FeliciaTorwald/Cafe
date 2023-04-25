@@ -15,22 +15,21 @@ public class WashDishes : MonoBehaviour
    
     public GameObject preFab;
 
-    //EquipTool eT;
+    EquipTool eT;
 
     private void Start()
     {
-        //eT = FindFirstObjectByType<EquipTool>();
+        eT = FindFirstObjectByType<EquipTool>();
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
             if (inTriggerArea == true)
             {
                 startcleaningDirtyBobatea = true;
                 Destroy(gameObject);
+                EquipTool.slotIsFull = false;
+                eT.equipped= false;
             }
-        }
     }
     private void OnTriggerEnter(Collider other)
     {

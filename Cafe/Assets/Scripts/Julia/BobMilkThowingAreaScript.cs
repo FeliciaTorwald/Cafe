@@ -5,6 +5,7 @@ using UnityEngine;
 public class BobMilkThowingAreaScript : MonoBehaviour
 {
     WashDishes washDishesRef;
+    public GameObject preFab;
     
     void Start()
     {
@@ -16,11 +17,13 @@ public class BobMilkThowingAreaScript : MonoBehaviour
     {
         if (washDishesRef.startcleaningDirtyBobatea == true)
         {
-           float xpos = Random.Range(0,10);
-           float ypos = Random.Range(0,10);
-           float zpos = Random.Range(0,10);
+           float xpos = Random.Range(10, 26);
+           float ypos = Random.Range(10, 10);
+            float zpos = Random.Range(-14, 17);
 
            Vector3 Spawnpos = new Vector3(xpos, ypos, zpos);
+           Instantiate(preFab, Spawnpos,transform.rotation);
+           washDishesRef.startcleaningDirtyBobatea = false;
         }
         
     }
