@@ -74,7 +74,7 @@ public class EquipTool : Pickupable
 
     void Start()
     {
-        tool.GetComponent<Rigidbody>().isKinematic = true;
+        //tool.GetComponent<Rigidbody>().isKinematic = true;
         toolParent = GameObject.Find("ToolParent").transform; //now transfom works with prefabs
         bTHs = FindObjectsOfType<BobaTeaHandler>().ToList();
         wP = FindObjectOfType<WaterPickup>();
