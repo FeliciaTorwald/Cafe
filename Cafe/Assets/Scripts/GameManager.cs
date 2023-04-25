@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     //Maintains a list of all guests in the scene, added to by the GuestSpawner object.
     
     public int servedGuests;
+    public int earnedGold;
 
 
     private void Update()
@@ -111,6 +112,11 @@ public class GameManager : MonoBehaviour
         servedGuests++;
     }
 
+    public void AddGoldToScore(int gold)
+    {
+        earnedGold += gold;
+    }
+
     public void AddGuest(Guest guest)
     {
         guestsInScene.Add(guest);
@@ -138,11 +144,11 @@ public class GameManager : MonoBehaviour
     {
         if (win)
         {
-            gameUiRef.ShowEndGameUI(true, servedGuests, timeSinceStart);
+            gameUiRef.ShowEndGameUI(true, servedGuests, earnedGold, timeSinceStart);
         }
         else
         {
-            gameUiRef.ShowEndGameUI(false, servedGuests, timeSinceStart);
+            gameUiRef.ShowEndGameUI(false, servedGuests, earnedGold, timeSinceStart);
         }
     }
 }
