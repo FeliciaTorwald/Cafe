@@ -33,7 +33,7 @@ public class WashDishes : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Washzone"))
+        if (other.CompareTag("Pond"))
         {
             inTriggerArea = true;
         }
@@ -41,7 +41,7 @@ public class WashDishes : MonoBehaviour
     private void OnTriggerExit(Collider other) 
     {
             
-        if (other.CompareTag("Washzone"))
+        if (other.CompareTag("Pond"))
         {
             inTriggerArea = false;
         }
