@@ -532,7 +532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab8b3841cc040e48927b1a0e5a1f99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intriggerarea: 0
   Boba_guests_got_hit: 0
+  holdMop: 0
 --- !u!114 &6519687290078450934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,7 +788,7 @@ Transform:
   - {fileID: 6730550627522645838}
   - {fileID: 4485035094322854980}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 86.72, z: 0}
 --- !u!1 &3536947505327977887
 GameObject:

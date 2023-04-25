@@ -8,11 +8,11 @@ public class VirtualCameraHandler : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private BoxCollider cameraChangeTrigger; 
-    [SerializeField] private bool isTopCamera;
+    [SerializeField] private bool isZoomedOutCamera;
     [SerializeField] private float idleTimer = 5f;
     private CameraController cameraController;
 
-    public bool topCameraActive;
+    public bool zoomOutCameraActive;
     
     private void Start()
     {
@@ -24,22 +24,22 @@ public class VirtualCameraHandler : MonoBehaviour
 
     private void Update()
     {
-        if (isTopCamera)
+        if (isZoomedOutCamera)
         {
-            if (!Input.anyKey && idleTimer <= 0f && !topCameraActive)
+            if (!Input.anyKey && idleTimer <= 0f && !zoomOutCameraActive)
             {
-                cameraController.SwitchCamera(virtualCamera, isTopCamera);
+                cameraController.SwitchCamera(virtualCamera, isZoomedOutCamera);
                 idleTimer = 5f;
-                topCameraActive = true;
+                zoomOutCameraActive = true;
             }
-            else if (!Input.anyKey && !topCameraActive)
+            else if (!Input.anyKey && !zoomOutCameraActive)
                 idleTimer -= 1 * Time.deltaTime;
-            else if (Input.anyKey && !topCameraActive)
+            else if (Input.anyKey && !zoomOutCameraActive)
                 idleTimer = 5f;
-            else if (Input.anyKey && topCameraActive)
+            else if (Input.anyKey && zoomOutCameraActive)
             {
-                cameraController.SwitchCamera(virtualCamera, isTopCamera);
-                topCameraActive = false;
+                cameraController.SwitchCamera(virtualCamera, isZoomedOutCamera);
+                zoomOutCameraActive = false;
             }
         }
     }
@@ -47,6 +47,6 @@ public class VirtualCameraHandler : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            cameraController.SwitchCamera(virtualCamera, isTopCamera);
+            cameraController.SwitchCamera(virtualCamera, isZoomedOutCamera);
     }
 }

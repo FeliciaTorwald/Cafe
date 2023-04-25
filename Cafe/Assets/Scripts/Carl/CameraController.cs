@@ -13,20 +13,16 @@ public class CameraController : MonoBehaviour
         return camera == activeCamera;
     }
     
-    public void SwitchCamera(CinemachineVirtualCamera camera, bool topCameraSwitch)
+    public void SwitchCamera(CinemachineVirtualCamera camera, bool zoomOutCameraSwitch)
     {
-        if (!topCameraSwitch)
+        if (!zoomOutCameraSwitch)
         {
-            camera.Priority = 10;
-            activeCamera = camera;
-
             foreach (CinemachineVirtualCamera c in cameras)
             {
-                if (c != activeCamera && c.Priority != 0)
-                {
-                    c.Priority = 0;
-                }
+                c.Priority = 0;
             }
+            
+            camera.Priority = 10;
         }
         else
         {
