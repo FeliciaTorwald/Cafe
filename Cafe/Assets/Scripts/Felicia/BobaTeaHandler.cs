@@ -79,12 +79,9 @@ public class BobaTeaHandler : Interactable
             emptyTea = Instantiate(emptyBobaTea, spawnPointRef, Quaternion.identity);
         }
     }
-    private void DestroyDish()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Destroy(emptyTea);
-        }
+    public void DestroyDish()
+    {     
+        Destroy(emptyTea);       
     }
     public void WashDish()
     {
@@ -96,35 +93,9 @@ public class BobaTeaHandler : Interactable
 
     private void Update()
     {
-        DestroyDish();
         SpawnDish();
     }
-    //public void ServedSequence()
-    //{
-
-    //    FindObjectOfType<BrewingInventory>().RemoveBobaTea();
-    //    ServedTea();
-    //    Invoke("FinishedTea", 2);
-    //    //gS.onOrderFullfilled = true;
-    //    gS.Invoke(nameof(gS.Spawn), 1);
-    //    if (guestRef != null)
-    //    {
-    //        if (guestRef.GetComponentInChildren<GuestInteraction>() != null)
-    //        {
-    //            guestRef.GetComponentInChildren<GuestInteraction>().ServeGuest(TeaType.TypeA);
-    //        }
-
-    //        if (guestRef.GetComponentInChildren<GuestInteraction>() == null)
-    //        {
-    //            Debug.Log("Null");
-    //        }
-
-    //    }
-
-    //    inTriggerArea = false;
-    //    gS.onOrderFullfilled = false;
-
-    //}
+   
     public void AddGuestToTeaOrder(Guest guest)
     {
         guestRef = guest;

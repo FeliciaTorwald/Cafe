@@ -216,59 +216,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2022407832848439006, guid: 2b66af05cb5a08d49a47608ce25a5e96, type: 3}
---- !u!1 &27791110
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 27791111}
-  - component: {fileID: 27791112}
-  m_Layer: 0
-  m_Name: Washingcollider
-  m_TagString: Washzone
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &27791111
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27791110}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.72, y: -3.27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1148734700}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &27791112
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27791110}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 15.480661, y: 1.4028101, z: 15.11961}
-  m_Center: {x: 2.8384867, y: 0.20140505, z: -0.24496555}
 --- !u!1 &60030102
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 60030105}
   chairRef: {fileID: 898616810}
   guestRef: {fileID: 0}
@@ -550,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 79596504}
   chairRef: {fileID: 1498495384}
   guestRef: {fileID: 0}
@@ -1116,7 +1063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 318934166}
   chairRef: {fileID: 1334545481}
   guestRef: {fileID: 0}
@@ -1205,7 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 349223390}
   chairRef: {fileID: 390680775}
   guestRef: {fileID: 0}
@@ -1294,7 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 355448128}
   chairRef: {fileID: 692440736}
   guestRef: {fileID: 0}
@@ -1982,7 +1929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 550720925}
   chairRef: {fileID: 665989897}
   guestRef: {fileID: 0}
@@ -2463,7 +2410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 631996943}
   chairRef: {fileID: 659249682}
   guestRef: {fileID: 0}
@@ -3105,15 +3052,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.570527
+      value: -8.584846
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3503218
+      value: 3.3699675
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31.443378
+      value: 31.463024
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -3539,10 +3486,7 @@ PrefabInstance:
       addedObject: {fileID: 1378514104809788788}
     - targetCorrespondingSourceObject: {fileID: 6207255411078231254, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1704138896}
-    - targetCorrespondingSourceObject: {fileID: 6207255411078231254, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 27791111}
+      addedObject: {fileID: 2094109295}
     - targetCorrespondingSourceObject: {fileID: -7054351025278781604, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1473888764}
@@ -3565,6 +3509,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6081609211045122234, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1174200715}
+    - targetCorrespondingSourceObject: {fileID: -6081609211045122234, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1174200721}
     - targetCorrespondingSourceObject: {fileID: 280177938009744751, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 935778415}
@@ -3789,15 +3736,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.876559
+      value: -16.393438
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.885
+      value: 29.574999
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.542174
+      value: 13.638857
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3958,7 +3905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 877165061}
   chairRef: {fileID: 970330549}
   guestRef: {fileID: 0}
@@ -4375,7 +4322,6 @@ MonoBehaviour:
   canMakeBoba: 1
   isMakingTea: 0
   gameTime: 1
-  eT: {fileID: 0}
   bSC: {fileID: 0}
   water: 0
   queueText: {fileID: 599282821}
@@ -4699,7 +4645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 993038797}
   chairRef: {fileID: 1676404651}
   guestRef: {fileID: 0}
@@ -4930,7 +4876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 1121986868}
   chairRef: {fileID: 1270018905}
   guestRef: {fileID: 0}
@@ -5310,6 +5256,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.19905803, y: 0.020064138, z: 0.1475658}
   m_Center: {x: 0.006329124, y: 0, z: 0}
+--- !u!114 &1174200721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174200713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea2853881f586746a050d47272c6645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preFab: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  spawnPos: {fileID: 2094109294}
 --- !u!1 &1174845871 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 38667232809975565, guid: 2bfed04eab049084aba71c8278b3dba7, type: 3}
@@ -5409,7 +5369,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.065061
+      value: 8.048411
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6167,7 +6127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 1465621778}
   chairRef: {fileID: 127308797}
   guestRef: {fileID: 0}
@@ -6410,15 +6370,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.549379
+      value: -8.679928
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.3483515
+      value: -6.226986
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.07079
+      value: 37.23607
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -6735,7 +6695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 1546657879}
   chairRef: {fileID: 1287001624}
   guestRef: {fileID: 0}
@@ -6952,159 +6912,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4168066180918724568, guid: 2b66af05cb5a08d49a47608ce25a5e96, type: 3}
---- !u!1 &1704138895
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1704138896}
-  - component: {fileID: 1704138900}
-  - component: {fileID: 1704138899}
-  - component: {fileID: 1704138898}
-  - component: {fileID: 1704138897}
-  m_Layer: 0
-  m_Name: BobMilkThowingArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1704138896
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704138895}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1148734700}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1704138897
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704138895}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 7
---- !u!114 &1704138898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704138895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cefb45ad0d7d45142ab8447aea951437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preFab: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
---- !u!66 &1704138899
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704138895}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 1704138895}
---- !u!50 &1704138900
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704138895}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1728803300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4484102740600097545, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
@@ -7444,7 +7251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 1870832407}
   chairRef: {fileID: 848300379}
   guestRef: {fileID: 0}
@@ -7666,7 +7473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 1953092242}
   chairRef: {fileID: 716099429}
   guestRef: {fileID: 0}
@@ -7782,7 +7589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 1984106945}
   chairRef: {fileID: 2114835313}
   guestRef: {fileID: 0}
@@ -7876,6 +7683,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -961505023904683543, guid: 2b66af05cb5a08d49a47608ce25a5e96, type: 3}
+--- !u!1 &2094109294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2094109295}
+  m_Layer: 0
+  m_Name: Spawnpos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2094109295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094109294}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.619999, y: -0.42, z: -1.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1148734700}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2114835311
 GameObject:
   m_ObjectHideFlags: 0
@@ -8058,7 +7896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
-  emptyBobaTea: {fileID: 797012958184308172, guid: c6a01271d9f93f749a10e3e60ac9fca3, type: 3}
+  emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
   gS: {fileID: 2119490282}
   chairRef: {fileID: 62031081}
   guestRef: {fileID: 0}
@@ -8074,15 +7912,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.33832
+      value: -9.363742
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.449341
+      value: 4.459256
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.94821
+      value: 9.962309
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
