@@ -11,7 +11,6 @@ public class BrewingInventory : MonoBehaviour
     public bool canMakeBoba = true;
     public bool isMakingTea;
     public float gameTime = 10f;
-    public EquipTool eT;
     public BobaShooterController bSC;
 
     private int queueAmount;
@@ -26,11 +25,7 @@ public class BrewingInventory : MonoBehaviour
     [SerializeField] GameObject spawnTeaPos;
     [SerializeField] Slider timerSlider;
     GameObject teaToHold;
-
-    private void Start()
-    {
-        eT = FindFirstObjectByType<EquipTool>();
-    }
+    List<GameObject> finTeaList = new List<GameObject>();
 
     private void Update()
     {
@@ -120,27 +115,28 @@ public class BrewingInventory : MonoBehaviour
     // Spawns finished tea at a spawnpoint set to pot position
     public void BobaTea()
     {
-        if (teaToHold == null)
-            teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
-
+        teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
+        finTeaList.Add(teaToHold);
         isMakingTea = false;
         timerSlider.value = 0;
     }
 
-    public void RemoveBobaTea()
+    public void RemoveBobaTea(GameObject teaToRemove)
     {
-        if (teaToHold != null)
+        //if (teaToHold != null)
         {
-            eT.equipped = false;
             EquipTool.slotIsFull = false;
-            Invoke("DestroyBoba", 0.1f);
+            //Invoke("DestroyBoba", 0.1f);
+            Destroy(teaToRemove, 0.1f);
         }
     }
 
     public void DestroyBoba()
     {
-
         Destroy(teaToHold);
+        //Destroy(finTeaList[0]);
+        
+        //finTeaList.RemoveAt(0);
     }
     public void CheckQueueAmount()
     {
