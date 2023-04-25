@@ -18,43 +18,16 @@ public class Player : MonoBehaviour
         bTHs = FindObjectsOfType<BobaTeaHandler>().ToList();
         interactables = new List<Interactable>();
     }
-    private void Update()
-    {
-
-    }
-
     public void ServeTea()
     {
         if (HoldingTea())
         {
-            //foreach (var guestRef in bTHs)
-            //{
-            //    if (guestRef.guestRef != null)
-            //    {
-            //        canServe = true;
-            //        if(canServe)
-            //        {
-            //            if (Input.GetKeyDown(KeyCode.E))
-            //            {
-            //             UpdateClosest();
-            //             guestRef.Interact();
-            //             Debug.Log(interactables);
-            //            }
-            //        }
-                    
-            //        return;
-            //    }
-            //}
+            
             if(interactables.Count > 0)
             {
-                // if (Input.GetKeyDown(KeyCode.E))
-                // {
                 Interactable temp = UpdateClosest();
                 if (temp.GetComponent<BobaTeaHandler>().guestRef != null)
                     temp.GetComponent<BobaTeaHandler>().Interact();
-
-                // }
-                //UpdateClosest().GetComponent<BobaTeaHandler>().Interact();
             }
         }
         
@@ -96,14 +69,6 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //chair = true;
-        //if(other.tag == "Boba")
-        //{
-        //    BobaTeaHandler temp = other.GetComponent<BobaTeaHandler>();
-        //    //BobaTeaHandler closest = bTHs.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).First();
-        //    bTHs.Add(temp);
-        //}
-
         if (other.GetComponent<Interactable>() != null)
         {
             interactables.Add(other.GetComponent<Interactable>());
@@ -112,14 +77,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //chair = false;
-        //if (other.tag == "Boba")
-        //{
-        //    BobaTeaHandler temp = other.GetComponent<BobaTeaHandler>();
-        //    //BobaTeaHandler closest = bTHs.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).First();
-        //    bTHs.Remove(temp);
-        //}
-
         if (other.GetComponent<Interactable>() != null)
         {
             interactables.Remove(other.GetComponent<Interactable>());
