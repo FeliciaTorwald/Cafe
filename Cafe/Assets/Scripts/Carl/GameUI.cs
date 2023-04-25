@@ -20,10 +20,14 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject instructionsUI;
     [SerializeField] private GameObject instructionsUI2;
     [SerializeField] private GameObject endGameUI;
+    [SerializeField] private GameObject goldCounterUI;
+    [SerializeField] private GameObject inventoryUI;
     [SerializeField] private TMP_Text endGameStatusText;
     [SerializeField] private TMP_Text endGameGuestsServedCounter;
+    [SerializeField] private TMP_Text endGameGoldEarnedCounter;
     [SerializeField] private TMP_Text endGameTimeCounter;
-
+    
+    
     private bool showingInstructions;
     private bool gameStarted;
     private bool gamePaused;
@@ -100,6 +104,8 @@ public class GameUI : MonoBehaviour
             Time.timeScale = 0f;
             gamePaused = !gamePaused;
             mainGameUI.SetActive(false);
+            goldCounterUI.SetActive(false);
+            inventoryUI.SetActive(false);
             pauseMenuUI.SetActive(true);
             instructionsUI2.SetActive(true);
         }
@@ -108,6 +114,8 @@ public class GameUI : MonoBehaviour
             Time.timeScale = 1f;
             gamePaused = !gamePaused;
             mainGameUI.SetActive(true);
+            goldCounterUI.SetActive(true);
+            inventoryUI.SetActive(true);
             pauseMenuUI.SetActive(false);
             instructionsUI2.SetActive(false);
         }
@@ -136,16 +144,19 @@ public class GameUI : MonoBehaviour
         
     }
 
-    public void ShowEndGameUI(bool win, int servedGuests, float time)
+    public void ShowEndGameUI(bool win, int servedGuests, int goldEarned, float time)
     {
         if (win)
         {
             Time.timeScale = 0f;
             gameStarted = !gameStarted;
             mainGameUI.SetActive(false);
+            goldCounterUI.SetActive(false);
+            inventoryUI.SetActive(false);
             endGameUI.SetActive(true);
             endGameStatusText.SetText("You win!");
             endGameGuestsServedCounter.SetText(servedGuests.ToString());
+            endGameGoldEarnedCounter.SetText(goldEarned.ToString());
             TimeSpan timeSpan = TimeSpan.FromSeconds(time);
             endGameTimeCounter.SetText("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
         }
@@ -154,10 +165,13 @@ public class GameUI : MonoBehaviour
             Time.timeScale = 0f;
             gameStarted = !gameStarted;
             mainGameUI.SetActive(false);
+            goldCounterUI.SetActive(false);
+            inventoryUI.SetActive(false);
             endGameUI.SetActive(true);
             endGameStatusText.SetText("Game over");
             endGameStatusText.color = new Color(.85f, .5f, .5f, 1f);
             endGameGuestsServedCounter.SetText(servedGuests.ToString());
+            endGameGoldEarnedCounter.SetText(goldEarned.ToString());
             TimeSpan timeSpan = TimeSpan.FromSeconds(time);
             endGameTimeCounter.SetText("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
         }
