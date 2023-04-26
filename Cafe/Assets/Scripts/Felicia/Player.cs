@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         
     }
     
-    private bool HoldingTea()
+    public bool HoldingTea()
     {
         EquipTool[] tools = FindObjectsOfType<EquipTool>();
         foreach (EquipTool tool in tools)

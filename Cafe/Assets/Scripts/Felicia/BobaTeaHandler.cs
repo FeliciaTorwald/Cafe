@@ -27,6 +27,7 @@ public class BobaTeaHandler : Interactable
 
         FindObjectOfType<BrewingInventory>().RemoveBobaTea(equipedBobaDrink);
         ServedTea();
+        FindObjectOfType<PickupManager>().NoLongerHoldingSomething();
         Invoke("FinishedTea", 2);
         //gS.onOrderFullfilled = true;
         gS.Invoke(nameof(gS.Spawn), 1);
@@ -41,7 +42,6 @@ public class BobaTeaHandler : Interactable
             {
                 Debug.Log("Null");
             }
-
         }
 
         inTriggerArea = false;

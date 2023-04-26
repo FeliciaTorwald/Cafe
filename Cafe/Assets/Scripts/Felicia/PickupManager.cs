@@ -64,19 +64,26 @@ public class PickupManager : MonoBehaviour
             
             if (heldToolRef.toolType is ToolType.Boba)
             {
-                pickUpDisplay.SetText("Space: Throw boba pearl");
+                pickUpDisplay.SetText("Space: Throw boba pearl \nE: Drop");
                 Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
                 return;
             }
 
             if (heldToolRef.toolType is ToolType.Tea)
             {
-                //Add code to check if tea is servable
+                if (playerScriptRef.HoldingTea() && playerScriptRef.interactables.Count > 0)
+                {
+                    pickUpDisplay.SetText("E: Serve tea");
+                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                    return;
+                }
             }
 
             if (heldToolRef.toolType is ToolType.EmptyTea)
             {
-                //Add code to add dish to water
+                pickUpDisplay.SetText("Space: Throw dirty dish \nE: Drop");
+                Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                return;
             }
         }
         
@@ -147,7 +154,6 @@ public class PickupManager : MonoBehaviour
     {
         if(other.GetComponent<Pickupable>() != null)
         {
-            Debug.Log("Added item to list");
             pickupables.Add(other.GetComponent<Pickupable>());
         }
     }
