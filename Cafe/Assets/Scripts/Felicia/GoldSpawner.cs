@@ -49,8 +49,8 @@ public class GoldSpawner : MonoBehaviour
               if(timer >= 1)
                 {
                 coin = Instantiate(preFabGold, spawnPointRef, Quaternion.identity);
-                coin.transform.position += Random.insideUnitSphere + new Vector3(0,1.2f,0);
-                Vector3 force = Random.insideUnitSphere * 5;
+                coin.transform.position += Random.insideUnitSphere + new Vector3(0,1,0);
+                Vector3 force = Random.insideUnitSphere * 7;
                 force.y = Mathf.Abs(force.y);
                 coin.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
                 coins.Add(coin);

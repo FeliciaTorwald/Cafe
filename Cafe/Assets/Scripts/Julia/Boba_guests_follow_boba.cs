@@ -58,7 +58,6 @@ public class Boba_guests_follow_boba : MonoBehaviour
         {
                 for (int i = 0; i < Boba_In_Mouth; i++) 
                 {
-                    Debug.Log("Spawn boba");
                     Instantiate(preFab, spat_out_boba.position, Quaternion.identity);
                     Boba_guests_got_hit = false;
                 }
@@ -117,8 +116,6 @@ public class Boba_guests_follow_boba : MonoBehaviour
         if (other.gameObject.tag == "BobaPearls" && ful_Mouth == false)
         {
             Boba_In_Mouth +=1;
-            Debug.Log(Boba_In_Mouth);
-            //Debug.Log(Boba_In_Mouth);
             closestBoba.SetActive(false);
             //closestBoba = FindClosestBoba();
             
