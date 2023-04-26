@@ -5,7 +5,7 @@ using UnityEngine;
 public class hit_boba_eating_guest : MonoBehaviour
 {
     public bool intriggerarea;
-    public bool Boba_guests_got_hit;
+    public bool Boba_guests_got_hit = false;
     public bool holdMop;
     Boba_guests_follow_boba hBEG;
 
