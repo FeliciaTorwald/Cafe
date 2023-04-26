@@ -118,8 +118,8 @@ public class BrewingInventory : MonoBehaviour
         teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
 
         teaToHold.GetComponent<Rigidbody>().isKinematic = false;
-        teaToHold.transform.position += Random.insideUnitSphere + new Vector3(0, 1.2f, 0);
-        Vector3 force = Random.insideUnitSphere * 5;
+        teaToHold.transform.position += Random.insideUnitSphere + new Vector3(0, 1.5f, 0);
+        Vector3 force = Random.insideUnitSphere * 6;
         force.y = Mathf.Abs(force.y);
         teaToHold.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
 
