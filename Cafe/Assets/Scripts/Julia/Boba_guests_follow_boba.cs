@@ -16,12 +16,14 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     
     bool ful_Mouth = false;
+    bool intriggerarea;
+    bool Boba_guests_got_hit;
     float speed = 500f;
     public float Boba_In_Mouth = 0;
 
     void Start()
     {
-        boba_eating_guest_got_hit_true = FindFirstObjectByType<hit_boba_eating_guest>();
+        //boba_eating_guest_got_hit_true = FindFirstObjectByType<hit_boba_eating_guest>();
 
         //Find all bobaPearls
         allBobaPearls = GameObject.FindGameObjectsWithTag(tagToDetect);
@@ -35,13 +37,30 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     private void Update()
     {
-        if(boba_eating_guest_got_hit_true.Boba_guests_got_hit == true)
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (intriggerarea == true)
+            {
+                Boba_guests_got_hit = true;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (intriggerarea == true)
+            {
+                Boba_In_Mouth = 0;
+            }
+        }
+
+        if (Boba_guests_got_hit == true)
         {
                 for (int i = 0; i < Boba_In_Mouth; i++) 
                 {
                     Debug.Log("Spawn boba");
                     Instantiate(preFab, spat_out_boba.position, Quaternion.identity);
-                    boba_eating_guest_got_hit_true.Boba_guests_got_hit = false;
+                    Boba_guests_got_hit = false;
                 }
                 ful_Mouth = true;
         }
@@ -53,7 +72,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
         //nav.destination = FindClosestBoba();
 
         //print(closestBoba.name);  
-        if(ful_Mouth == false && boba_eating_guest_got_hit_true.Boba_guests_got_hit == false)
+        if(ful_Mouth == false && Boba_guests_got_hit == false)
         {
         //nav.destination = Vector3.MoveTowards(transform.position, closestBoba.transform.position, speed * Time.deltaTime);
         nav.destination = closestBoba.transform.position;
@@ -87,6 +106,11 @@ public class Boba_guests_follow_boba : MonoBehaviour
         }
         return closest;
     }
+    public void closestBobas()
+    {
+    //find first boba
+    closestBoba = FindClosestBoba();
+    }
 
     private void OnTriggerEnter(Collider other) 
     {
@@ -103,11 +127,20 @@ public class Boba_guests_follow_boba : MonoBehaviour
                 ful_Mouth = true;
             }
         }
+
+        if (other.gameObject.tag == "Player")
+        {
+            intriggerarea = true;
+        }
     }
 
-    public void closestBobas()
+
+    private void OnTriggerExit(Collider other)
     {
-    //find first boba
-    closestBoba = FindClosestBoba();
+        if (other.gameObject.tag == "Player")
+        {
+            intriggerarea = false;
+        }
+
     }
 }
