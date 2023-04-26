@@ -67,6 +67,7 @@ public class BobaShooterController : MonoBehaviour
                 eQ.equipped = false;
                 EquipTool.slotIsFull = false;
                 startThrowPos = PosOverHead.position;
+                FindObjectOfType<PickupManager>().NoLongerHoldingSomething();
             }
 
         }
