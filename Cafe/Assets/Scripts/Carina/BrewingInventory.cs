@@ -12,6 +12,7 @@ public class BrewingInventory : MonoBehaviour
     public bool isMakingTea;
     public float gameTime = 10f;
     public BobaShooterController bSC;
+    public ParticleSystem boiling;
 
     private int queueAmount;
     private float timer = 0f;
@@ -27,6 +28,10 @@ public class BrewingInventory : MonoBehaviour
     GameObject teaToHold;
     List<GameObject> finTeaList = new List<GameObject>();
 
+    private void Start()
+    {
+        boiling.Pause();
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.B))
@@ -72,6 +77,7 @@ public class BrewingInventory : MonoBehaviour
             canMakeBoba = false;
             //isMakingTea = true;
         }
+        boiling.Play();
     }
 
     // When called will wait 10sec before calling function Bobatea, while filling the slider to show progress remaining
