@@ -35,7 +35,16 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(Boba_In_Mouth);
+        if(boba_eating_guest_got_hit_true.Boba_guests_got_hit == true)
+        {
+                for (int i = 0; i < Boba_In_Mouth; i++) 
+                {
+                    Debug.Log("Spawn boba");
+                    Instantiate(preFab, spat_out_boba.position, Quaternion.identity);
+                    boba_eating_guest_got_hit_true.Boba_guests_got_hit = false;
+                }
+                ful_Mouth = true;
+        }
 
         //Ha inte denna i update utan kolla först på vilken är närmsta boba och sen när bobans förstörs kolla var nästa ligger
         if(closestBoba == null)
@@ -56,16 +65,6 @@ public class Boba_guests_follow_boba : MonoBehaviour
         nav.destination = toTheExit.position;
         }
 
-        if(boba_eating_guest_got_hit_true.Boba_guests_got_hit == true)
-        {
-                for (int i = 0; i < Boba_In_Mouth; i++) 
-                {
-                    Debug.Log("Spawn boba");
-                    Instantiate(preFab, spat_out_boba.position, Quaternion.identity);
-                    boba_eating_guest_got_hit_true.Boba_guests_got_hit = false;
-                }
-                ful_Mouth = true;
-        }
     }
 
     public GameObject FindClosestBoba()

@@ -20,7 +20,7 @@ public class hit_boba_eating_guest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (intriggerarea == true && holdMop)
+            if (intriggerarea == true)
             {
                 Boba_guests_got_hit = true;
             }
@@ -28,7 +28,7 @@ public class hit_boba_eating_guest : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            if (intriggerarea == true && holdMop)
+            if (intriggerarea == true)
             {
                 hBEG.Boba_In_Mouth = 0;
             }
