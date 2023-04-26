@@ -63,8 +63,8 @@ public class GameManager : MonoBehaviour
             guestSpawner.SpawnNewGuest();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-            EndGame(false);
+        /*if (Input.GetKeyDown(KeyCode.R))
+            EndGame(false);*/
 
         GameTimer();
         CheckWinCondition();
