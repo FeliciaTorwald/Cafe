@@ -21,6 +21,8 @@ public class NewPlayerMovement : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private Vector3 brakeStrength = new Vector3(1, 0, 1);
 
+    public ParticleSystem dust;
+
     private void Start()
     {
         SetRelativeVector();
@@ -77,6 +79,7 @@ public class NewPlayerMovement : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation,rotationSpeed * Time.deltaTime);
+            dust.Play();
         }
     }
 }
