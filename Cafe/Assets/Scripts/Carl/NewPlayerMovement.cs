@@ -27,6 +27,7 @@ public class NewPlayerMovement : MonoBehaviour
     {
         SetRelativeVector();
         rgbd = GetComponent<Rigidbody>();
+        dust.Pause();
     }
 
     private void Update()
