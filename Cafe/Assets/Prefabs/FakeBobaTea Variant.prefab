@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
       propertyPath: m_LocalScale.x
@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8608707453176302737, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6732737cb16d63248aea72d83f1c3a34, type: 2}
     - target: {fileID: 919132149155446097, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
       propertyPath: m_Name
       value: FakeBobaTea Variant

@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8608707453176302737, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6732737cb16d63248aea72d83f1c3a34, type: 2}
     - target: {fileID: 919132149155446097, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
       propertyPath: m_Name
       value: Finished tea Variant
@@ -136,13 +140,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25160ea33ee2241409b784ac73a9b1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolType: 3
   tool: {fileID: 636333080650323168}
   toolParent: {fileID: 0}
   equipped: 0
   inCollision: 0
   canYouEquipBoba: 0
   force: 200
-  toolType: 3
 --- !u!65 &136888029373688522
 BoxCollider:
   m_ObjectHideFlags: 0
