@@ -22,6 +22,11 @@ public class MainMenuScript : MonoBehaviour
     private void Start()
     {
         thisAnimator = GetComponent<Animator>();
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void StartGame(int sceneID)

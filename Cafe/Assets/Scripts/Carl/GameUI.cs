@@ -39,7 +39,7 @@ public class GameUI : MonoBehaviour
         StartCoroutine(InitializeGame());
         eT = FindObjectOfType<EquipTool>();
     }
-    
+
     void Update()
     {
         if (showingInstructions)
@@ -85,7 +85,6 @@ public class GameUI : MonoBehaviour
     {
         instructionsUI.SetActive(true);
         showingInstructions = !showingInstructions;
-        
     }
 
     private void StartGame()
@@ -95,6 +94,7 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 1f;
         mainGameUI.SetActive(true);
         gameStarted = !gameStarted;
+        gamePaused = false;
     }
     
     public void TogglePause()
@@ -102,7 +102,7 @@ public class GameUI : MonoBehaviour
         if (!gamePaused)
         {
             Time.timeScale = 0f;
-            gamePaused = !gamePaused;
+            gamePaused = true; ;
             mainGameUI.SetActive(false);
             goldCounterUI.SetActive(false);
             inventoryUI.SetActive(false);
@@ -112,7 +112,7 @@ public class GameUI : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
-            gamePaused = !gamePaused;
+            gamePaused = false;
             mainGameUI.SetActive(true);
             goldCounterUI.SetActive(true);
             inventoryUI.SetActive(true);
@@ -125,8 +125,10 @@ public class GameUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gamePaused = false;
         eT.equipped = false;
         EquipTool.slotIsFull = false;
+ 
     }
 
     public void QuitGame()
