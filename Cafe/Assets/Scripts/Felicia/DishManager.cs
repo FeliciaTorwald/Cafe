@@ -7,10 +7,12 @@ public class DishManager : MonoBehaviour
     BobaTeaHandler bTH;
     public GameObject preFab;
     public GameObject spawnPos;
+    BubbleSpawner bS;
 
     private void Start()
     {
         bTH = FindObjectOfType<BobaTeaHandler>();
+        bS = FindObjectOfType<BubbleSpawner>();
     }
 
     //void Spawn()
@@ -28,6 +30,7 @@ public class DishManager : MonoBehaviour
         if(other.gameObject.tag == "DirtyBobatea")
         {
             bTH.DestroyDish();
+            bS.StartCoroutine(bS.Spawn());
             //Spawn();
         }
     }
