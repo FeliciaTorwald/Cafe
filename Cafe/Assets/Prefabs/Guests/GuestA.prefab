@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8675251801881133073}
   - component: {fileID: -8075359401094702259}
   - component: {fileID: -1128281530230445281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GuestA
   m_TagString: Guest
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   waitToBeSeatedTimer: 2
   chairRef: {fileID: 0}
+  orderImg: {fileID: 0}
   guestSpawner: {fileID: 0}
   guestType: 0
   teaType: 0
@@ -198,7 +199,7 @@ GameObject:
   - component: {fileID: 1055807184337538290}
   - component: {fileID: 5463937453844531555}
   - component: {fileID: 8799141597569359364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OrderElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +335,7 @@ GameObject:
   - component: {fileID: 7645055476772757985}
   - component: {fileID: 4975559743088028396}
   - component: {fileID: 3045066777540072025}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GuestCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3288782135259535618}
   - component: {fileID: 1266874527961247281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InteractionObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
