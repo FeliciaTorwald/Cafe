@@ -18,16 +18,24 @@ public class Player : MonoBehaviour
         bTHs = FindObjectsOfType<BobaTeaHandler>().ToList();
         interactables = new List<Interactable>();
     }
-    public void ServeTea()
+    public void ServeTea(bool serving)
     {
         if (HoldingTea())
         {
-            
             if(interactables.Count > 0)
             {
                 Interactable temp = UpdateClosest();
                 if (temp.GetComponent<BobaTeaHandler>().guestRef != null)
-                    temp.GetComponent<BobaTeaHandler>().Interact();
+                    temp.GetComponent<BobaTeaHandler>().Interact(serving);
+            }
+        }
+        else
+        {
+            if(interactables.Count > 0)
+            {
+                Interactable temp = UpdateClosest();
+                if (temp.GetComponent<BobaTeaHandler>().guestRef != null)
+                    temp.GetComponent<BobaTeaHandler>().Interact(serving);
             }
         }
         

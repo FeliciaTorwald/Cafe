@@ -13,12 +13,12 @@ public class GuestAtTableState : GuestState
     public void Enter(Guest guest)
     {
         ShowOrder(guest);
-        Order(guest);
+        
     }
 
     private void Order(Guest guest)
     {
-        guest.stateMachine.ChangeState(GuestStateID.Ordered);
+        
     }
 
     public void Update(Guest guest)
@@ -33,9 +33,8 @@ public class GuestAtTableState : GuestState
     
     private void ShowOrder(Guest guest)
     {
-        guest.orderText.SetText("Tea 1");
+        guest.chairRef.tableRef.AddGuestToTeaOrder(guest);
+        guest.orderText.SetText("Ready to order!");
         //Display what the guest has ordered.
-        guest.orderImg.SpawnOrderImage();
     }
-    
 }

@@ -22,32 +22,41 @@ public class BobaTeaHandler : Interactable
     
     OrderImageUI orderImg;
 
-    public override void Interact()
+    public override void Interact(bool serving)
     {
-        eT = FindFirstObjectByType<EquipTool>();
-        GameObject equipedBobaDrink = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<EquipTool>().gameObject;
-
-        FindObjectOfType<BrewingInventory>().RemoveBobaTea(equipedBobaDrink);
-        ServedTea();
-        FindObjectOfType<PickupManager>().NoLongerHoldingSomething();
-        Invoke("FinishedTea", 2);
-        //gS.onOrderFullfilled = true;
-        gS.Invoke(nameof(gS.Spawn), 1);
-        if (guestRef != null)
+        if (serving)
         {
-            if (guestRef.GetComponentInChildren<GuestInteraction>() != null)
+            eT = FindFirstObjectByType<EquipTool>();
+            GameObject equipedBobaDrink = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<EquipTool>().gameObject;
+
+            FindObjectOfType<BrewingInventory>().RemoveBobaTea(equipedBobaDrink);
+            ServedTea();
+            FindObjectOfType<PickupManager>().NoLongerHoldingSomething();
+            Invoke("FinishedTea", 2);
+            //gS.onOrderFullfilled = true;
+            gS.Invoke(nameof(gS.Spawn), 1);
+            if (guestRef != null)
             {
-                guestRef.GetComponentInChildren<GuestInteraction>().ServeGuest(TeaType.TypeA);
+                if (guestRef.GetComponentInChildren<GuestInteraction>() != null)
+                {
+                    guestRef.GetComponentInChildren<GuestInteraction>().ServeGuest(TeaType.TypeA);
+                }
+
+                if (guestRef.GetComponentInChildren<GuestInteraction>() == null)
+                {
+                    Debug.Log("Null");
+                }
             }
 
-            if (guestRef.GetComponentInChildren<GuestInteraction>() == null)
-            {
-                Debug.Log("Null");
-            }
+            inTriggerArea = false;
+            gS.onOrderFullfilled = false;
         }
-
-        inTriggerArea = false;
-        gS.onOrderFullfilled = false;
+        else
+        {
+            if (guestRef != null)
+                if (guestRef.stateMachine.currentState == GuestStateID.AtTable)
+                    guestRef.guestInteraction.TakeOrder();
+        }
     }
     private void Start()
     {

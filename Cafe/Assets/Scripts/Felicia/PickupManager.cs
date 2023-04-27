@@ -30,7 +30,9 @@ public class PickupManager : MonoBehaviour
             if (heldToolRef != null && heldToolRef.toolType is ToolType.Tea && playerScriptRef.interactables.Count == 0)
                 UpdateClosestPickupable()?.Interact();
             else if (heldToolRef != null && heldToolRef.toolType is ToolType.Tea)
-                playerScriptRef.ServeTea();
+                playerScriptRef.ServeTea(true);
+            else if (playerScriptRef.interactables.Count > 0)
+                playerScriptRef.ServeTea(false);
             else
                 UpdateClosestPickupable()?.Interact();
         }

@@ -11,8 +11,7 @@ public class GuestOrderedState : GuestState
 
     public void Enter(Guest guest)
     {
-        guest.chairRef.tableRef.AddGuestToTeaOrder(guest);
-        
+        AddOrder(guest);
     }
 
     public void Update(Guest guest)
@@ -23,5 +22,12 @@ public class GuestOrderedState : GuestState
     public void Exit(Guest guest)
     {
         
+    }
+
+    private void AddOrder(Guest guest)
+    {
+        
+        guest.orderImg.SpawnOrderImage();
+        guest.orderText.SetText("Ordered Tea 1");
     }
 }
