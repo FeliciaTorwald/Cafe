@@ -13,7 +13,7 @@ public class GuestAtTableState : GuestState
     public void Enter(Guest guest)
     {
         ShowOrder(guest);
-        
+        guest.guestInteraction.ToggleAngerMeter(true);
     }
 
     private void Order(Guest guest)

@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int easyGuestNumber = 3;
     [SerializeField] private int normalGuestNumber = 5;
     [SerializeField] private int hardGuestNumber = 9;
-
+    [SerializeField] private int GuestsServedToWin;
+    
     private float timeSinceStart;
     private int maxNumberOfActiveGuests;
     
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     
     public int servedGuests;
     public int earnedGold;
+    public int angryGuests;
 
 
     private void Update()
@@ -159,7 +161,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckWinCondition()
     {
-        if (servedGuests == 3)
+        if (servedGuests == GuestsServedToWin)
             EndGame(true);
     }
     

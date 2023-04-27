@@ -66,7 +66,7 @@ public class Guest : MonoBehaviour
     {
         stateMachine.Update();
     }
-
+    
     public void DespawnGuest()
     {
         Destroy(gameObject);
