@@ -28,13 +28,22 @@ public class PickupManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (heldToolRef != null && heldToolRef.toolType is ToolType.Tea && playerScriptRef.interactables.Count == 0)
+            {
                 UpdateClosestPickupable()?.Interact();
+            }
             else if (heldToolRef != null && heldToolRef.toolType is ToolType.Tea)
+            {
                 playerScriptRef.ServeTea(true);
+            }
             else if (playerScriptRef.interactables.Count > 0)
+            {
                 playerScriptRef.ServeTea(false);
-            else
                 UpdateClosestPickupable()?.Interact();
+            }
+            else
+            {
+                UpdateClosestPickupable()?.Interact();
+            }
         }
     }
 
@@ -156,7 +165,10 @@ public class PickupManager : MonoBehaviour
     {
         if(other.GetComponent<Pickupable>() != null)
         {
-            pickupables.Add(other.GetComponent<Pickupable>());
+            if (!pickupables.Contains(other.GetComponent<Pickupable>()))
+            {
+                pickupables.Add(other.GetComponent<Pickupable>());
+            }
         }
     }
 
@@ -164,7 +176,10 @@ public class PickupManager : MonoBehaviour
     {
         if (other.GetComponent<Pickupable>() != null)
         {
-            pickupables.Remove(other.GetComponent<Pickupable>());
+            if (pickupables.Contains(other.GetComponent<Pickupable>()))
+            {
+                pickupables.Remove(other.GetComponent<Pickupable>());
+            }
         }
     }
 
