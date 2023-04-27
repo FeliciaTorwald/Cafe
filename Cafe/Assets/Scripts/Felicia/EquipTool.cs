@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using Unity.VisualScripting;
 using UnityEngine;
 
 //use meshcollider,turn on convex then add boxcollider as trigger
@@ -24,6 +25,9 @@ public class EquipTool : Pickupable
     public AudioClip pourSound;
     public AudioClip swooshSound;
 
+    private BobaTeaHandler tableRef;
+    private bool dirtyDishOnTable;
+    
     public override void Interact()
     {
         //picks up tools
@@ -132,6 +136,13 @@ public class EquipTool : Pickupable
 
         pickupManager.HoldingSomething(this);
         pickupManager.pickupables.Remove(this);
+
+        if (toolType is ToolType.EmptyTea && dirtyDishOnTable)
+        {
+            dirtyDishOnTable = false;
+            tableRef.hasDirtyDish = false;
+        }
+        
     }
 
     void Shoot()
@@ -147,6 +158,12 @@ public class EquipTool : Pickupable
         pickupManager.NoLongerHoldingSomething();
     }
 
+    public void AddTableRef(BobaTeaHandler table)
+    {
+        tableRef = table;
+        dirtyDishOnTable = true;
+    } 
+    
     private void OnTriggerStay(Collider other) // should deal with some ghostobjects, if item is destroyed in your hand(parentTool) you need to set the equipped bool to false in the method that destroys it
     {
         if (tool == null)

@@ -32,4 +32,9 @@ public class Chair : MonoBehaviour, ISeat
     {
         tableRef.AddGuestToTeaOrder(guest);
     }
+
+    public bool HasDirtyDish()
+    {
+        return tableRef.hasDirtyDish;
+    }
 }

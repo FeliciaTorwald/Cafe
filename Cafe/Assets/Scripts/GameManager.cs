@@ -93,11 +93,34 @@ public class GameManager : MonoBehaviour
     
     public Chair AssignSeat()
     {
-        int chosenSeat = Random.Range(0, freeSeatsInScene.Count - 1);
-        Chair chosenRef = freeSeatsInScene[chosenSeat].GetGameObject();
-        freeSeatsInScene.RemoveAt(chosenSeat);
-        freeSeats--;
-        return chosenRef;
+        System.Random rand = new System.Random();
+        for (int i = freeSeatsInScene.Count - 1; i > 0; i--)
+        {
+            int j = rand.Next(i + 1);
+            ISeat temp = freeSeatsInScene[i];
+            freeSeatsInScene[i] = freeSeatsInScene[j];
+            freeSeatsInScene[j] = temp;
+        }
+        
+        foreach (ISeat seat in freeSeatsInScene)
+        {
+            if (!seat.HasDirtyDish())
+            {
+                Chair chosenRef = seat.GetGameObject();
+                freeSeatsInScene.Remove(seat);
+                freeSeats--;
+                return chosenRef;
+                
+            }
+        }
+
+        Debug.Log("If you see this, something has gone wrong in the AssignSeat function in the Game Manager");
+        return null;
+        // int chosenSeat = Random.Range(0, freeSeatsInScene.Count - 1);
+        // Chair chosenRef = freeSeatsInScene[chosenSeat].GetGameObject();
+        // freeSeatsInScene.RemoveAt(chosenSeat);
+        // freeSeats--;
+        // return chosenRef;
 
         //Gives a reference to a free seat to a guest upon request.
     }

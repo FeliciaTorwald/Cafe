@@ -7,4 +7,6 @@ public interface ISeat
     void AddSelf();
     
     Chair GetGameObject();
+
+    public bool HasDirtyDish();
 }

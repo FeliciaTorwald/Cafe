@@ -18,6 +18,8 @@ public class BobaTeaHandler : Interactable
     public Transform dishPlace;
     private Vector3 spawnPointRef;
 
+    public bool hasDirtyDish;
+    
     OrderImageUI orderImg;
 
     public override void Interact()
@@ -65,9 +67,11 @@ public class BobaTeaHandler : Interactable
         if (emptyTea == null)
         {
             emptyTea = Instantiate(emptyBobaTea, spawnPointRef, Quaternion.identity);
+            emptyTea.GetComponent<EquipTool>().AddTableRef(this);
+            hasDirtyDish = true;
             if(guestRef != null)
             {
-            guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
+                guestRef.guestInteraction.ServeGuest(TeaType.TypeA);
             }
         }
     }
