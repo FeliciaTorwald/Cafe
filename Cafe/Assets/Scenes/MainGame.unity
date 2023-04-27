@@ -1901,6 +1901,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d90e05b37a31b05428f614461668103f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 71fb72834aaa42b49b40110e0985ea47, type: 2}
     - target: {fileID: 919132149155446097, guid: d90e05b37a31b05428f614461668103f, type: 3}
       propertyPath: m_Name
       value: Longlamp_handtag (1)
@@ -2214,6 +2218,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d90e05b37a31b05428f614461668103f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 71fb72834aaa42b49b40110e0985ea47, type: 2}
     - target: {fileID: 919132149155446097, guid: d90e05b37a31b05428f614461668103f, type: 3}
       propertyPath: m_Name
       value: Longlamp_handtag
@@ -3314,7 +3322,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.898663
+      value: -9.904198
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3322,7 +3330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.249643
+      value: 28.249647
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -4013,15 +4021,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.949642
+      value: -16.39344
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.885
+      value: 29.574999
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.08109
+      value: 15.338311
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9849,10 +9857,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c496dd94f1266724dac2965b4dda6869, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6704ca11789166c4488f8dc122d64cb2, type: 2}
     - target: {fileID: 919132149155446097, guid: c496dd94f1266724dac2965b4dda6869, type: 3}
       propertyPath: m_Name
       value: Lampa (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5310189088037062697, guid: c496dd94f1266724dac2965b4dda6869, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ecdb0b7636c4814abf390fe3f8109a5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10606,7 +10622,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.02836
+      value: 8.04059
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11626,10 +11642,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -17.970194
       objectReference: {fileID: 0}
+    - target: {fileID: -5559456209885258998, guid: d28fa3052d4cf2a4bacb06916dd694ed, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6704ca11789166c4488f8dc122d64cb2, type: 2}
     - target: {fileID: 919132149155446097, guid: d28fa3052d4cf2a4bacb06916dd694ed, type: 3}
       propertyPath: m_Name
       value: "V\xE4gg_cirkel"
       objectReference: {fileID: 0}
+    - target: {fileID: 2183291650807738926, guid: d28fa3052d4cf2a4bacb06916dd694ed, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ecdb0b7636c4814abf390fe3f8109a5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11898,7 +11922,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.898627
+      value: -9.918597
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11906,7 +11930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.929646
+      value: 33.92964
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -12026,10 +12050,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2620845457793175083, guid: 65c00dfd7d5f9d74693a154315789ae7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ecdb0b7636c4814abf390fe3f8109a5, type: 2}
     - target: {fileID: 919132149155446097, guid: 65c00dfd7d5f9d74693a154315789ae7, type: 3}
       propertyPath: m_Name
       value: Lampa_pine
       objectReference: {fileID: 0}
+    - target: {fileID: 2123563430642679367, guid: 65c00dfd7d5f9d74693a154315789ae7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6704ca11789166c4488f8dc122d64cb2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12443,6 +12475,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 03a92a69800ce0d4e96d4605558e66fb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6704ca11789166c4488f8dc122d64cb2, type: 2}
     - target: {fileID: 919132149155446097, guid: 03a92a69800ce0d4e96d4605558e66fb, type: 3}
       propertyPath: m_Name
       value: Litet_bord
@@ -13828,11 +13864,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.930825
+      value: -9.918594
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.454528
+      value: 5.454526
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14019,6 +14055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pond Object
       objectReference: {fileID: 0}
+    - target: {fileID: 5757212134833104846, guid: d3e33d05be2b7d645bc14e412fab30a1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 357c41f430b1f4e4cafca9ed23a6e1de, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
