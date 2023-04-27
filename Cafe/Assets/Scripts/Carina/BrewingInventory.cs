@@ -13,6 +13,8 @@ public class BrewingInventory : MonoBehaviour
     public float gameTime = 10f;
     public BobaShooterController bSC;
     public ParticleSystem boiling;
+    public ParticleSystem leftFire;
+    public ParticleSystem rightFire;
     public AudioSource source;
     public AudioClip boilingSound;
 
@@ -33,6 +35,8 @@ public class BrewingInventory : MonoBehaviour
     private void Start()
     {
         boiling.Pause();
+        rightFire.Pause();
+        leftFire.Pause();
     }
     private void Update()
     {
@@ -81,6 +85,8 @@ public class BrewingInventory : MonoBehaviour
         }
         boiling.Play();
         source.PlayOneShot(boilingSound);
+        rightFire.Play();
+        leftFire.Play();
     }
 
     // When called will wait 10sec before calling function Bobatea, while filling the slider to show progress remaining
