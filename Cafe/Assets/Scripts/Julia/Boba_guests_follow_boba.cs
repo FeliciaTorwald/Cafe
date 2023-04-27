@@ -21,12 +21,16 @@ public class Boba_guests_follow_boba : MonoBehaviour
     float speed = 500f;
     public float Boba_In_Mouth = 0;
 
+    public AudioSource source;
+    public AudioClip hit;
+
     void Start()
     {
         //boba_eating_guest_got_hit_true = FindFirstObjectByType<hit_boba_eating_guest>();
 
         //Find all bobaPearls
         allBobaPearls = GameObject.FindGameObjectsWithTag(tagToDetect);
+
 
         Boba_In_Mouth = 0;
         nav = GetComponent<NavMeshAgent>();
@@ -43,6 +47,8 @@ public class Boba_guests_follow_boba : MonoBehaviour
             if (intriggerarea == true)
             {
                 Boba_guests_got_hit = true;
+                source.PlayOneShot(hit);
+
             }
         }
 

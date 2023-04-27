@@ -15,12 +15,14 @@ public class GoldSpawner : MonoBehaviour
     float amountOfCoins = 5;
     List<GameObject> coins;
     float timer;
+    SoundManager sM;
 
     public void Start()
     {
         spawnPointRef = moneyPlace.transform.position; 
         onOrderFullfilled = false;
         coins = new List<GameObject>();
+        sM = FindObjectOfType<SoundManager>();
     }
     public void Update()
     {
@@ -48,6 +50,7 @@ public class GoldSpawner : MonoBehaviour
             {
               if(timer >= 1)
                 {
+                sM.Coin();
                 coin = Instantiate(preFabGold, spawnPointRef, Quaternion.identity);
                 coin.transform.position += Random.insideUnitSphere + new Vector3(0,1,0);
                 Vector3 force = Random.insideUnitSphere * 6;

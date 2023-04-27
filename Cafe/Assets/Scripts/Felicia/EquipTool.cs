@@ -19,6 +19,11 @@ public class EquipTool : Pickupable
     bool guestInRange;
     private PickupManager pickupManager;
 
+    public AudioSource source;
+    public AudioClip waterSound;
+    public AudioClip pourSound;
+    public AudioClip swooshSound;
+
     public override void Interact()
     {
         //picks up tools
@@ -61,12 +66,14 @@ public class EquipTool : Pickupable
                 if (wP.PTriggerArea)
                 {
                     wP.AddWaterToBucket();
+                    source.PlayOneShot(waterSound);
                 }
 
                 //Pours in kettle
                 else if (wP.BPTriggerArea)
                 {
                     wP.AddWaterToKettle();
+                    source.PlayOneShot(pourSound);
                 }
             }
         }
@@ -89,6 +96,7 @@ public class EquipTool : Pickupable
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     Shoot();
+                    source.PlayOneShot(swooshSound);
                 }
 
             }

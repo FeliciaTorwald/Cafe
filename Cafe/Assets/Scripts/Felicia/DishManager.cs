@@ -9,6 +9,8 @@ public class DishManager : MonoBehaviour
     public GameObject spawnPos;
     BubbleSpawner bS;
     public ParticleSystem bubbles;
+    public AudioSource source;
+    public AudioClip bubbleSound;
 
     private void Start()
     {
@@ -34,6 +36,7 @@ public class DishManager : MonoBehaviour
             bTH.DestroyDish();
             //bS.StartCoroutine(bS.Spawn());
             bubbles.Play();
+            source.PlayOneShot(bubbleSound);
             //Spawn();
         }
     }
