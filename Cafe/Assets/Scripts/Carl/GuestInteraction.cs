@@ -20,4 +20,10 @@ public class GuestInteraction : MonoBehaviour
         if (teaType == parentGuest.teaType && parentGuest.stateMachine.currentState == GuestStateID.Ordered)
             parentGuest.stateMachine.ChangeState(GuestStateID.Served);
     }
+
+    public void TakeOrder()
+    {
+        if (parentGuest.stateMachine.currentState == GuestStateID.AtTable)
+            parentGuest.stateMachine.ChangeState(GuestStateID.Ordered);
+    }
 }
