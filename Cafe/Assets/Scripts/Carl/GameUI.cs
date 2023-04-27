@@ -38,6 +38,10 @@ public class GameUI : MonoBehaviour
     {
         StartCoroutine(InitializeGame());
         eT = FindObjectOfType<EquipTool>();
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     void Update()
@@ -123,12 +127,11 @@ public class GameUI : MonoBehaviour
 
     public void RestartLevel()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
         gamePaused = false;
         eT.equipped = false;
         EquipTool.slotIsFull = false;
- 
     }
 
     public void QuitGame()
