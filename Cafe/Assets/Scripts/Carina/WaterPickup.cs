@@ -20,6 +20,15 @@ public class WaterPickup : MonoBehaviour
         eQ = FindObjectOfType<EquipTool>();
         canMakeTeaCheck = FindObjectOfType<CraftingUI>();
     }
+
+    private void Update()
+    {
+        if (hasWater)
+        {
+            RemoveWater();
+        }
+    }
+
     public void AddWaterToKettle()
     {
         if (!HoldingBucket()) { return; }
@@ -89,7 +98,18 @@ public class WaterPickup : MonoBehaviour
         {
             PTriggerArea = false;
         }
+    }
 
+    public void RemoveWater()
+    {
 
+        var x = transform.rotation.eulerAngles.x;
+        var z = transform.rotation.eulerAngles.z;
+
+        if (x <= 91 && x >= 89 || x <= 271 && x >= 268 || z <= 91 && z >= 89 || z <= 271 && z >= 268)
+        {
+            hasWater = false;
+            waterInBucket.gameObject.SetActive(false);
+        }
     }
 }
