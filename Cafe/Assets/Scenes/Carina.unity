@@ -4280,6 +4280,7 @@ MonoBehaviour:
   isMakingTea: 0
   gameTime: 1
   bSC: {fileID: 0}
+  boiling: {fileID: 2083505439}
   water: 0
   queueText: {fileID: 599282821}
   finishedTea: {fileID: 636333080650323168, guid: 6973b5054db137049975701ae51f6dab, type: 3}
@@ -7031,6 +7032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: boba eating guests 2.0
       objectReference: {fileID: 0}
+    - target: {fileID: 2199364591896496408, guid: 8be4936c807e61d44b358ab2a7aedc66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3747843502766572535, guid: 8be4936c807e61d44b358ab2a7aedc66, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -7587,6 +7592,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -961505023904683543, guid: 2b66af05cb5a08d49a47608ce25a5e96, type: 3}
+--- !u!198 &2083505439 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6054379966992184106, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
+  m_PrefabInstance: {fileID: 1151335878}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2114835311
 GameObject:
   m_ObjectHideFlags: 0
