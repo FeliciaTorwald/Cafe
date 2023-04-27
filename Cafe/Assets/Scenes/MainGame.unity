@@ -244,6 +244,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 60030103}
+  hasDirtyDish: 0
 --- !u!1 &62031079
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +443,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 484979522}
+  hasDirtyDish: 0
 --- !u!1 &89141981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,6 +1253,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 318934164}
+  hasDirtyDish: 0
 --- !u!1 &349223387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1343,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 1187257195}
+  hasDirtyDish: 0
 --- !u!1 &355448125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1433,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 355448126}
+  hasDirtyDish: 0
 --- !u!1001 &371608557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2047,6 +2052,10 @@ PrefabInstance:
       propertyPath: guestSpawner
       value: 
       objectReference: {fileID: 602733670}
+    - target: {fileID: 657211672954829217, guid: 2471c22abe4d0d84f847e8e847cce0f2, type: 3}
+      propertyPath: GuestsServedToWin
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5457173324846722100, guid: 2471c22abe4d0d84f847e8e847cce0f2, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -2348,6 +2357,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 1613836670}
+  hasDirtyDish: 0
 --- !u!1001 &569669439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3055,6 +3065,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 1905357195}
+  hasDirtyDish: 0
 --- !u!1001 &656809003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4646,6 +4657,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 441848273}
+  hasDirtyDish: 0
 --- !u!1001 &883692199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10322,6 +10334,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 401095578}
+  hasDirtyDish: 0
 --- !u!1 &1025404836
 GameObject:
   m_ObjectHideFlags: 0
@@ -10622,6 +10635,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 1121986866}
+  hasDirtyDish: 0
 --- !u!1 &1127915382 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ae6d44d2433bfb4a81efc4b32c62dc9, type: 3}
@@ -12189,6 +12203,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 1465621776}
+  hasDirtyDish: 0
 --- !u!1 &1473888763
 GameObject:
   m_ObjectHideFlags: 0
@@ -13008,6 +13023,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 1546657877}
+  hasDirtyDish: 0
 --- !u!1 &1567623845 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3426606061141860991, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
@@ -13847,6 +13863,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 1870832405}
+  hasDirtyDish: 0
 --- !u!1001 &1876579426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14069,6 +14086,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 1025404837}
+  hasDirtyDish: 0
 --- !u!1 &1958753478 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32e913b072761934c9c3ddfca810c330, type: 3}
@@ -14185,6 +14203,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 1485720155}
+  hasDirtyDish: 0
 --- !u!1001 &1984383934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14542,6 +14561,7 @@ MonoBehaviour:
   guestRef: {fileID: 0}
   inTriggerArea: 0
   dishPlace: {fileID: 2119490280}
+  hasDirtyDish: 0
 --- !u!1001 &2134702166
 PrefabInstance:
   m_ObjectHideFlags: 0
