@@ -18,6 +18,7 @@ public class GuestServedState : GuestState
         MoveToDestination(guest, guest.door.doorExitSpot);
        // GameManager.Instance.ReturnFreeSeat(guest.chairRef);
         GameManager.Instance.AddServedGuest();
+        guest.teaOrderImg.gameObject.SetActive(false);
     }
 
     public void Update(Guest guest)
