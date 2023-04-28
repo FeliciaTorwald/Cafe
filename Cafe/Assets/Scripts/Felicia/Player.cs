@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
             {
                 Interactable temp = UpdateClosest();
                 if (temp.GetComponent<BobaTeaHandler>().guestRef != null)
-                    temp.GetComponent<BobaTeaHandler>().Interact(serving);
+                    if (temp.GetComponent<BobaTeaHandler>().guestRef.stateMachine.currentState == GuestStateID.Ordered)
+                        temp.GetComponent<BobaTeaHandler>().Interact(serving);
             }
         }
         else
@@ -38,7 +39,6 @@ public class Player : MonoBehaviour
                     temp.GetComponent<BobaTeaHandler>().Interact(serving);
             }
         }
-        
     }
     
     public bool HoldingTea()
