@@ -213,7 +213,7 @@ MonoBehaviour:
   waitToBeSeatedTimer: 2
   chairRef: {fileID: 0}
   orderImg: {fileID: 0}
-  teaOrderImg: {fileID: 0}
+  teaOrderImg: {fileID: 2643281494013193535}
   guestSpawner: {fileID: 0}
   guestType: 0
   teaType: 0
