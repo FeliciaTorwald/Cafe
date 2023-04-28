@@ -25,6 +25,7 @@ public class Guest : MonoBehaviour
     public float waitToBeSeatedTimer = 2f;
     public Chair chairRef;
     public OrderImageUI orderImg;
+    public OrderImageUI teaOrderImg;
     public GuestSpawner guestSpawner;
     
     //Enum to identify type of guest, can be set in prefab or when instantiating guest
