@@ -46,9 +46,9 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
-        if (showingInstructions)
-            if (Input.GetKeyDown(KeyCode.Space))
-                StartGame();
+        //if (showingInstructions)
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //        StartGame();
 
         if (gameStarted)
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -74,7 +74,8 @@ public class GameUI : MonoBehaviour
         }
         
         difficultySelectionUI.SetActive(false);
-        ShowInstructions();
+        StartGame();
+        //ShowInstructions();
     }
     
 
