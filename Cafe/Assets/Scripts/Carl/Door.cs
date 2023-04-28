@@ -57,10 +57,8 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger enter");
         if (other.CompareTag("Guest") || other.CompareTag("Player") || other.CompareTag("boba eating guests"))
         {
-            Debug.Log(other);
             objectsInDoorRange++;
             animator.SetTrigger("Open");
         }

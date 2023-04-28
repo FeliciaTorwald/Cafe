@@ -31,7 +31,6 @@ public class GuestSpawner : MonoBehaviour
         AddDoors();
         yield return new WaitForSeconds(.1f);
         maxNumberOfGuests = GameManager.Instance.SetNumberOfGuests();
-        Debug.Log(maxNumberOfGuests);
         yield return new WaitForSeconds(.1f);
         SpawnNewGuest();
         
