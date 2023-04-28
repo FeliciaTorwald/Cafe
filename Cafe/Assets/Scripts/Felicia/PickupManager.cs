@@ -84,9 +84,13 @@ public class PickupManager : MonoBehaviour
             {
                 if (playerScriptRef.HoldingTea() && playerScriptRef.interactables.Count > 0)
                 {
-                    pickUpDisplay.SetText("E: Serve tea");
-                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
-                    return;
+                    Interactable temp = playerScriptRef.UpdateClosest();
+                    if (temp.GetComponent<BobaTeaHandler>().guestRef.stateMachine.currentState == GuestStateID.Ordered)
+                    {
+                        pickUpDisplay.SetText("E: Serve tea");
+                        Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
+                        return;
+                    }
                 }
             }
 
@@ -126,9 +130,11 @@ public class PickupManager : MonoBehaviour
             }
             pickUpDisplay.SetText("");
             Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
+            return;
         }
-        
-        
+
+        pickUpDisplay.SetText("");
+        Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
         
         // if (pickupable != null)
         // {
