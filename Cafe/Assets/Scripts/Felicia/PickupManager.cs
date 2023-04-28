@@ -12,7 +12,7 @@ public class PickupManager : MonoBehaviour
     [SerializeField] private Vector3 offset;
     public Pickupable heldToolRef;
     Camera mainCameraRef;
-    private Player playerScriptRef;
+    public Player playerScriptRef;
 
     void Start()
     {
@@ -62,13 +62,13 @@ public class PickupManager : MonoBehaviour
                 if (heldToolRef.GetComponent<WaterPickup>().PTriggerArea)
                 {
                     pickUpDisplay.SetText("E: Draw water");
-                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
                     return;
                 }
                 if (heldToolRef.GetComponent<WaterPickup>().BPTriggerArea && heldToolRef.GetComponent<WaterPickup>().hasWater)
                 {
                     pickUpDisplay.SetText("E: Add water to pot");
-                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
                     return;
                 }
             }
@@ -76,7 +76,7 @@ public class PickupManager : MonoBehaviour
             if (heldToolRef.toolType is ToolType.Boba)
             {
                 pickUpDisplay.SetText("Space: Throw boba pearl \nE: Drop");
-                Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
                 return;
             }
 
@@ -85,7 +85,7 @@ public class PickupManager : MonoBehaviour
                 if (playerScriptRef.HoldingTea() && playerScriptRef.interactables.Count > 0)
                 {
                     pickUpDisplay.SetText("E: Serve tea");
-                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                    Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
                     return;
                 }
             }
@@ -93,7 +93,7 @@ public class PickupManager : MonoBehaviour
             if (heldToolRef.toolType is ToolType.EmptyTea)
             {
                 pickUpDisplay.SetText("Space: Throw dirty dish \nE: Drop");
-                Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+                Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
                 return;
             }
         }
@@ -101,20 +101,34 @@ public class PickupManager : MonoBehaviour
         if (heldToolRef != null)
         {
             pickUpDisplay.SetText("E: Drop");
-            Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
+            Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
             return;
         }
-            
         
         if (pickupable != null)
         {
             string toolType = UpdateClosestPickupable().IdentifyToolType().ToString();
-            pickUpDisplay.SetText("E: Pick up: " + toolType);
+            pickUpDisplay.SetText("E: Pick up " + toolType);
+            Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
+            return;
         }
-        else
+        
+        if (heldToolRef == null)
         {
+            if (playerScriptRef.interactables.Count > 0)
+            {
+                Interactable temp = playerScriptRef.UpdateClosest();
+                if (temp.GetComponent<BobaTeaHandler>().guestRef != null)
+                    if (temp.GetComponent<BobaTeaHandler>().guestRef.stateMachine.currentState == GuestStateID.AtTable)
+                        pickUpDisplay.SetText("E: Take order");
+                Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
+                return;
+            }
             pickUpDisplay.SetText("");
+            Invoke(nameof(UpdatePlayerPickupDisplay), 0.25f);
         }
+        
+        
         
         // if (pickupable != null)
         // {
@@ -135,8 +149,6 @@ public class PickupManager : MonoBehaviour
         // {
         //     pickUpDisplay.SetText("");
         // }
-        
-        Invoke(nameof(UpdatePlayerPickupDisplay), 0.5f);
     }
     
     private Pickupable UpdateClosestPickupable()

@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    private Interactable UpdateClosest()
+    public Interactable UpdateClosest()
     {
         CleanList();
         if (interactables.Count == 0)
