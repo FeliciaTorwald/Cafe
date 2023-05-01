@@ -33,9 +33,16 @@ public class Resource : MonoBehaviour
         {
             if (waterInKettle.activeInHierarchy)
             {
-                waterInKettle.gameObject.SetActive(false);
+                StartCoroutine(RemoveWaterFromKettle());
             }
         }
+    }
+
+    IEnumerator RemoveWaterFromKettle()
+    {
+        yield return new WaitForSeconds(1f);
+
+        waterInKettle.gameObject.SetActive(false);
     }
 
 }
