@@ -162,7 +162,7 @@ public class EquipTool : Pickupable
     {
         tableRef = table;
         dirtyDishOnTable = true;
-    } 
+    }
     
     private void OnTriggerStay(Collider other) // should deal with some ghostobjects, if item is destroyed in your hand(parentTool) you need to set the equipped bool to false in the method that destroys it
     {
