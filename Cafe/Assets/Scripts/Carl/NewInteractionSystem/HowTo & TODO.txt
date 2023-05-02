@@ -1,0 +1,41 @@
+Every interactable script inherits from NewAbstractInteractables.
+The following is inherited directly:
+    - NewItemType newItemType               >>> Set the item type of the object
+    - bool isHoldAble                       >>> To be set on a prefab basis, to identify if the player can
+                                            hold the object
+    - bool isHeld                           >>> checks if the item is held or not
+    - NewInteract playerInteractRef         >>> a reference to the interaction script that is on the player 
+                                            object
+    - Transform toolParent                  >>> a reference to the ToolParent object on the player
+    
+    - Hold function                         >>> Will let the player pick up the object
+    - Drop function                         >>> Will let the player drop the object
+    
+The following are inherit abstract functions that need to be defined in each object:
+    - Interact                              >>> Is called by the player's interact script on button press
+    - Throw                                 >>> Throws the object
+    - Serve                                 >>> Serves the object to a customer
+    - WaterOperation                        >>> Performs operations related to the water (pond, pot)
+    
+Most functions in the new interactable script require that a reference to the player interaction script is
+passed along.
+
+--------------------------------------------------------------------------------------------------------------
+
+NewInteract is the new interaction script that is placed on the player, this script can only interact with
+the new NewAbstractInteractable class, meaning it will only interact with objects that are using the new
+interaction system.
+
+When the player press the "E" or "Space" key, the script will execute as follows:
+1. If the player is not close to an interactable and not holding anything, nothing happens.
+2. If the player is close to an interactable and nothing is being held, it will be picked up.
+3. If the player is holding something, the held object's interact function will launch.
+
+!!! Everytime the held object leaves the player's hands, it's important to run the "NoLongerHoldingSomething"
+!!! function in the NewInteract script as this will clear the object reference.
+
+TODO: Update the following scripts to work with the established systems:
+TODO: Interactable_NewBucket
+TODO: Interactable_NewFullTea
+TODO: Interactable_NewDirtyTea
+TODO: Interactable_NewBoba
