@@ -53,6 +53,7 @@ public class WaterPickup : MonoBehaviour
         }
         return false;
     }
+    
     public void AddWaterToBucket()
     {
         if (HoldingBucket())
@@ -102,7 +103,6 @@ public class WaterPickup : MonoBehaviour
 
     public void RemoveWater()
     {
-
         var x = transform.rotation.eulerAngles.x;
         var z = transform.rotation.eulerAngles.z;
 
