@@ -9,6 +9,7 @@ public class WaterPickup : MonoBehaviour
     public bool PTriggerArea;
 
     [SerializeField] GameObject waterInBucket;
+    [SerializeField] GameObject waterInKettle;
 
     CraftingUI canMakeTeaCheck;
     Resource addWater;
@@ -38,7 +39,10 @@ public class WaterPickup : MonoBehaviour
         hasWater = false;
         waterInBucket.gameObject.SetActive(false);
         canMakeTeaCheck.UpdateCanCraft();
-
+        if (!waterInKettle.activeInHierarchy)
+        {
+            waterInKettle.gameObject.SetActive(true);
+        }
     }
 
     private bool HoldingBucket()

@@ -44,5 +44,4 @@ public class Resource : MonoBehaviour
 
         waterInKettle.gameObject.SetActive(false);
     }
-
 }
