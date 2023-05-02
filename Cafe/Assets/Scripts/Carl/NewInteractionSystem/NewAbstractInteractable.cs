@@ -14,54 +14,45 @@ namespace Carl.NewInteractionSystem
 
     public abstract class NewAbstractInteractable : MonoBehaviour
     {
-        [SerializeField] public bool isThrowAble;
-        [SerializeField] public bool isHoldAble;
         [SerializeField] public NewItemType newItemType;
         public bool isHeld;
-
+        
         public NewInteract playerInteractRef;
+        public Transform toolParent;
         
-        //Positioning bools
-        public bool closeToWater;
-        public bool closeToPot;
-        public bool closeToServableCustomer;
-        public bool closeToNastyCustomer;
-
-        public void Interact(NewInteract newInteract)
+        public abstract void Interact(NewInteract newInteract);
+        
+        public void Hold(NewInteract newInteract)
         {
-            playerInteractRef = newInteract;
-        
-            if (isHeld)
-            {
-                if (newItemType is NewItemType.boba or NewItemType.dirtyTea)
-                {
-                    Throw(playerInteractRef);
-                }
-                else if (newItemType is NewItemType.finishedTea)
-                {
-                    Serve(playerInteractRef);
-                }
-                else if (newItemType is NewItemType.emptyBucket or NewItemType.fullBucket)
-                {
-                    WaterOperations(playerInteractRef);
-                }
-            }
-            else if (isHoldAble)
-                Hold(playerInteractRef);
-            else if (isThrowAble) 
-                Throw(playerInteractRef); 
-            else
-            {
-                //Do interaction things
-            }
+            //Connect holdable to player model
+            toolParent = GameObject.Find("ToolParent").transform;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+
+            gameObject.transform.position = toolParent.transform.position;
+            gameObject.transform.rotation = toolParent.transform.rotation;
+
+            gameObject.GetComponent<MeshCollider>().enabled = false;
+
+            gameObject.transform.SetParent(toolParent);
+
+            isHeld = true;
+
+            newInteract.HoldingSomething(this);
+            newInteract.interactables.Remove(this);
         }
-        //Default interact function that is called on all interactables
 
-        public abstract void Hold(NewInteract newInteract);
-        //Connect holdable to player model
+        public void Drop(NewInteract newInteract)
+        {
+            //Detach holdable from player model
+            toolParent.DetachChildren();
+            gameObject.transform.eulerAngles = new Vector3(gameObject.transform.position.x, gameObject.transform.position.z, gameObject.transform.position.y);
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            gameObject.GetComponent<MeshCollider>().enabled = true;
 
-        public abstract void Drop(NewInteract newInteract);
-        //Detach holdable from player model
+            isHeld = false;
+        
+            playerInteractRef.NoLongerHoldingSomething();
+        }
 
         public abstract void Throw(NewInteract newInteract);
         //If held item is throwable, throw it
