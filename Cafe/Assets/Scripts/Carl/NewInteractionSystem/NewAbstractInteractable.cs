@@ -26,12 +26,14 @@ namespace Carl.NewInteractionSystem
         {
             //Connect holdable to player model
             toolParent = GameObject.Find("ToolParent").transform;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
-
+            
             gameObject.transform.position = toolParent.transform.position;
             gameObject.transform.rotation = toolParent.transform.rotation;
-
-            gameObject.GetComponent<MeshCollider>().enabled = false;
+            
+            
+            gameObject.GetComponent<Collider>().enabled = false;
 
             gameObject.transform.SetParent(toolParent);
 
