@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 8425197312262195313}
   - component: {fileID: 6241797274690508488}
   - component: {fileID: -8386337745170197298}
-  - component: {fileID: 7061777886104735929}
-  - component: {fileID: -4621772736692804192}
   - component: {fileID: -9000322010881034584}
   - component: {fileID: 2417213725229297749}
+  - component: {fileID: -506459597673483925}
+  - component: {fileID: -8814853605713979338}
   m_Layer: 0
   m_Name: PH_Boba
   m_TagString: BobaPearls
@@ -97,8 +97,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6648930191670280467}
   serializedVersion: 4
-  m_Mass: 10
-  m_Drag: 0.05
+  m_Mass: 1
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -113,7 +113,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &-8386337745170197298
@@ -129,31 +129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: fbf5df9a41bae48499b70a878e731ad6, type: 2}
---- !u!114 &7061777886104735929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6648930191670280467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f24b0b70fff9e4cae0c792e7a9bc1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-4621772736692804192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6648930191670280467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c217bdf1129a678499fb40000ccdda1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toolType: 0
 --- !u!135 &-9000322010881034584
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -190,3 +165,43 @@ MonoBehaviour:
   speed: 3
   minTime: 1
   maxTime: 5
+--- !u!114 &-506459597673483925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648930191670280467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a179398aac1b653458b01bc6e100ef6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newItemType: 2
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  target: {fileID: 0}
+  posOverHead: {fileID: 0}
+  isBallFlying: 0
+--- !u!135 &-8814853605713979338
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648930191670280467}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.7341075
+  m_Center: {x: -0.10508919, y: 0, z: 0}

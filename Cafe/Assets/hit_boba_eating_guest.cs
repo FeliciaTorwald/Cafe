@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class hit_boba_eating_guest : MonoBehaviour
 {
     public bool intriggerarea;
@@ -30,7 +31,7 @@ public class hit_boba_eating_guest : MonoBehaviour
         {
             if (intriggerarea == true)
             {
-                hBEG.Boba_In_Mouth = 0;
+                hBEG.Boba_In_Hand = 0;
             }
         }
     }
