@@ -13,7 +13,7 @@ public class BobaPoints : MonoBehaviour
     private void Start()
     {
         canMakeTeaCheck = FindObjectOfType<CraftingUI>();
-        bSC = FindObjectOfType<BobaShooterController>();
+        //bSC = FindObjectOfType<BobaShooterController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +31,8 @@ public class BobaPoints : MonoBehaviour
         {
             OnInteract();
             canMakeTeaCheck.UpdateCanCraft();
-            bSC.IsBallFlying = false;
+            
+            //bSC.IsBallFlying = false;
             //gameObject.SetActive(false);
         }
     }

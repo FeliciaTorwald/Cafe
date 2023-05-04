@@ -8,9 +8,41 @@ public class Interactable_NewBucket : NewAbstractInteractable
 {
     private readonly string poolString = "Pond";
     private readonly string potString = "BrewingPot";
+
     private bool closeToWater;
     private bool closeToPot;
+    public bool hasWater;
 
+    CraftingUI canMakeTeaCheck;
+    Resource addWater;
+
+    [SerializeField] GameObject waterInBucket;
+    [SerializeField] GameObject waterInKettle;
+
+    private void Start()
+    {
+        addWater = FindObjectOfType<Resource>();
+        canMakeTeaCheck = FindObjectOfType<CraftingUI>();
+    }
+
+    private void Update()
+    {
+        if (hasWater)
+        {
+            RemoveWater();
+        }
+    }
+    public void RemoveWater()
+    {
+        var x = transform.rotation.eulerAngles.x;
+        var z = transform.rotation.eulerAngles.z;
+
+        if (x <= 91 && x >= 89 || x <= 271 && x >= 268 || z <= 91 && z >= 89 || z <= 271 && z >= 268)
+        {
+            hasWater = false;
+            waterInBucket.gameObject.SetActive(false);
+        }
+    }
     public override void Interact(NewInteract newInteract)
     {
         playerInteractRef = newInteract;
@@ -41,10 +73,25 @@ public class Interactable_NewBucket : NewAbstractInteractable
         if (closeToWater)
         {
             //Add collect water functionality
+            waterInBucket.gameObject.SetActive(true);
+            hasWater = true;
+        }
+        else if (!hasWater && closeToPot)
+        {
+            Drop(playerInteractRef);
         }
         else if (closeToPot)
         {
             //Add dump water to pot functionality
+            if (!hasWater) { return; }
+            addWater.Gather();
+            hasWater = false;
+            waterInBucket.gameObject.SetActive(false);
+            canMakeTeaCheck.UpdateCanCraft();
+            if (!waterInKettle.activeInHierarchy)
+            {
+                waterInKettle.gameObject.SetActive(true);
+            }
         }
         else
             Drop(playerInteractRef);

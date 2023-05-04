@@ -1279,9 +1279,6 @@ PrefabInstance:
       addedObject: {fileID: 458}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c18f73ccf2bac124f9b295aed7c0eaf0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 532}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c18f73ccf2bac124f9b295aed7c0eaf0, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 521}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c18f73ccf2bac124f9b295aed7c0eaf0, type: 3}
       insertIndex: -1
@@ -1292,6 +1289,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c18f73ccf2bac124f9b295aed7c0eaf0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 473}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c18f73ccf2bac124f9b295aed7c0eaf0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9181397763453102858}
   m_SourcePrefab: {fileID: 100100000, guid: c18f73ccf2bac124f9b295aed7c0eaf0, type: 3}
 --- !u!4 &19245562012706678 stripped
 Transform:
@@ -1373,29 +1373,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 797012958184308172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25160ea33ee2241409b784ac73a9b1b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toolType: 4
-  tool: {fileID: 797012958184308172}
-  toolParent: {fileID: 0}
-  equipped: 0
-  inCollision: 0
-  canYouEquipBoba: 0
-  force: 20
-  source: {fileID: 473}
-  waterSound: {fileID: 0}
-  pourSound: {fileID: 0}
-  swooshSound: {fileID: 8300000, guid: a9b96e010fd010142a20877b333db6dd, type: 3}
 --- !u!114 &521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,3 +1516,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-9181397763453102858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797012958184308172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1369974f9734843a8e7cabee6bfa00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newItemType: 4
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  target: {fileID: 0}
+  posOverHead: {fileID: 0}

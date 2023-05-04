@@ -5,16 +5,23 @@ using UnityEngine;
 
 public class Interactable_NewBoba : NewAbstractInteractable
 {
-    public Transform Target;
     Vector3 startThrowPos;
+
+    public Transform target;
+    public Transform posOverHead;
+
     private float t = 0;
+
+    public bool isBallFlying = false;
+
     private void Start()
     {
-        Target = GameObject.Find("TargetPoint Boba shooter").transform;
+        target = GameObject.Find("TargetPoint Boba shooter").transform;
+        posOverHead = GameObject.Find("PosOverHead").transform;
     }
     private void Update()
     {
-        t += Time.deltaTime;
+        Throw(playerInteractRef);
     }
     public override void Interact(NewInteract newInteract)
     {
@@ -22,36 +29,55 @@ public class Interactable_NewBoba : NewAbstractInteractable
 
         if (isHeld)
         {
+            startThrowPos = posOverHead.position;
+            isBallFlying = true;
+            t = 0;
             Throw(playerInteractRef);
+            isHeld = false;
         }
         else
         {
+            gameObject.GetComponent<BobaMovement>().enabled = false;
             Hold(playerInteractRef);
         }
     }
 
     public override void Throw(NewInteract newInteract)
     {
-        //Implement throwing functionality
-        float duration = 1.5f;
-        float t01 = t / duration;
-
-        // move to target
-        Vector3 A = startThrowPos;
-        Vector3 B = Target.position;
-        Vector3 pos = Vector3.Lerp(A, B, t01);
-
-        // move in arc
-        Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
-        gameObject.transform.position = pos + arc;
-
-
-        if (t01 >= 2)
+        if (isBallFlying)
         {
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+            // bobashooter script logic
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+
+            t += Time.deltaTime;
+            toolParent.DetachChildren();
+
+            //Implement throwing functionality
+            float duration = 1.5f;
+            float t01 = t / duration;
+
+            // move to target
+            Vector3 A = startThrowPos;
+            Vector3 B = target.position;
+            Vector3 pos = Vector3.Lerp(A, B, t01);
+
+            // move in arc
+            Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
+            gameObject.transform.position = pos + arc;
+
+
+            if (t01 >= 0.9f)
+            {
+                gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                isBallFlying = false;
+                gameObject.GetComponent<SphereCollider>().enabled = true;
+
+            }
+
+            //Ensure the below function call is included
+            playerInteractRef.NoLongerHoldingSomething();
         }
-        //Ensure the below function call is included
-        playerInteractRef.NoLongerHoldingSomething();
     }
 
     public override void Serve(NewInteract newInteract)
@@ -62,5 +88,24 @@ public class Interactable_NewBoba : NewAbstractInteractable
     public override void WaterOperations(NewInteract newInteract)
     {
         //Not a bucket
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("BrewingPot"))
+        {
+            gameObject.SetActive(false);
+            //gameObject.GetComponent<SphereCollider>().enabled = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("BrewingPot"))
+        {
+            isBallFlying = false;
+        }
     }
 }
