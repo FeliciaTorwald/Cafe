@@ -59,7 +59,7 @@ namespace Carl.NewInteractionSystem
         public abstract void Throw(NewInteract newInteract);
         //If held item is throwable, throw it
 
-        public abstract void Serve(NewInteract newInteract);
+        public abstract void TeaOperations(NewInteract newInteract);
         //Serve customer if possible
 
         public abstract void WaterOperations(NewInteract newInteract);

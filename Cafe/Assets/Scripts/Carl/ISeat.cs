@@ -6,7 +6,7 @@ public interface ISeat
 {
     void AddSelf();
     
-    Chair GetGameObject();
+    Chair GetChairRef();
 
     public bool HasDirtyDish();
 }

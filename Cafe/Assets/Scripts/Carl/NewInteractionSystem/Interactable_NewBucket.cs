@@ -30,7 +30,7 @@ public class Interactable_NewBucket : NewAbstractInteractable
         //Not throwable
     }
 
-    public override void Serve(NewInteract newInteract)
+    public override void TeaOperations(NewInteract newInteract)
     {
         //Not servable
     }

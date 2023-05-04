@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         {
             if (!seat.HasDirtyDish())
             {
-                Chair chosenRef = seat.GetGameObject();
+                Chair chosenRef = seat.GetChairRef();
                 freeSeatsInScene.Remove(seat);
                 freeSeats--;
                 return chosenRef;

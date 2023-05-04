@@ -58,6 +58,7 @@ public class BobaTeaHandler : Interactable
                     guestRef.guestInteraction.TakeOrder();
         }
     }
+    
     private void Start()
     {
         spawnPointRef = dishPlace.transform.position;
@@ -92,9 +93,10 @@ public class BobaTeaHandler : Interactable
             emptyTea = Instantiate(emptyBobaTea, spawnPointRef, Quaternion.identity);
         }
     }
+    
     public void DestroyDish()
-    {     
-        Destroy(emptyTea);       
+    {
+        Destroy(emptyTea);
     }
     public void WashDish()
     {

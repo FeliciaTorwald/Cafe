@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Interactable_NewFullTea : NewAbstractInteractable
 {
-    public List<BobaTeaHandler> nearbyTables = new();
+    public List<NewBobaTeaHandler> nearbyTables = new();
     private readonly string tableString = "Table";
     
     public override void Interact(NewInteract newInteract)
@@ -18,7 +18,7 @@ public class Interactable_NewFullTea : NewAbstractInteractable
         {
             if (nearbyTables.Count != 0)
             {
-                Serve(playerInteractRef);
+                TeaOperations(playerInteractRef);
             }
             else
             {
@@ -36,10 +36,14 @@ public class Interactable_NewFullTea : NewAbstractInteractable
         //Not throwable
     }
 
-    public override void Serve(NewInteract newInteract)
+    public override void TeaOperations(NewInteract newInteract)
     {
-        //Add serving functionality
-        FindClosestTable().Interact(true);
+        NewBobaTeaHandler closest = FindClosestTable();
+        
+        if (closest.guestRef.stateMachine.currentState is GuestStateID.AtTable)
+            closest.TakeOrder(playerInteractRef);
+        else if (closest.guestRef.stateMachine.currentState is GuestStateID.Ordered)
+            closest.ServeTable(playerInteractRef, this);
         
         //Ensure the below function call is included
         playerInteractRef.NoLongerHoldingSomething();
@@ -50,12 +54,12 @@ public class Interactable_NewFullTea : NewAbstractInteractable
         //Not a bucket
     }
 
-    private BobaTeaHandler FindClosestTable()
+    private NewBobaTeaHandler FindClosestTable()
     {
         CleanList();
         if (nearbyTables.Count == 0)
             return null;
-        BobaTeaHandler closest = nearbyTables.OrderBy(x => Vector3.Distance(transform.position, x.transform.position))
+        NewBobaTeaHandler closest = nearbyTables.OrderBy(x => Vector3.Distance(transform.position, x.transform.position))
             .First();
         return closest;
     }
@@ -75,7 +79,7 @@ public class Interactable_NewFullTea : NewAbstractInteractable
     {
         if (other.CompareTag(tableString))
         {
-            nearbyTables.Add(other.GetComponent<BobaTeaHandler>());
+            nearbyTables.Add(other.GetComponent<NewBobaTeaHandler>());
         }
     }
 
@@ -83,7 +87,7 @@ public class Interactable_NewFullTea : NewAbstractInteractable
     {
         if (other.CompareTag(tableString))
         {
-            nearbyTables.Remove(other.GetComponent<BobaTeaHandler>());
+            nearbyTables.Remove(other.GetComponent<NewBobaTeaHandler>());
         }
     }
 }

@@ -12,10 +12,12 @@ public class Interactable_NewBoba : NewAbstractInteractable
     {
         Target = GameObject.Find("TargetPoint Boba shooter").transform;
     }
+    
     private void Update()
     {
         t += Time.deltaTime;
     }
+    
     public override void Interact(NewInteract newInteract)
     {
         playerInteractRef = newInteract;
@@ -32,6 +34,8 @@ public class Interactable_NewBoba : NewAbstractInteractable
 
     public override void Throw(NewInteract newInteract)
     {
+        toolParent.DetachChildren();
+        isHeld = false;
         //Implement throwing functionality
         float duration = 1.5f;
         float t01 = t / duration;
@@ -54,7 +58,7 @@ public class Interactable_NewBoba : NewAbstractInteractable
         playerInteractRef.NoLongerHoldingSomething();
     }
 
-    public override void Serve(NewInteract newInteract)
+    public override void TeaOperations(NewInteract newInteract)
     {
         //Not servable
     }

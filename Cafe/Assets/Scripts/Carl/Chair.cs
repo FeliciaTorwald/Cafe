@@ -23,7 +23,7 @@ public class Chair : MonoBehaviour, ISeat
         GameManager.Instance.freeSeats++;
     }
     
-    public Chair GetGameObject()
+    public Chair GetChairRef()
     {
         return this;
     }
