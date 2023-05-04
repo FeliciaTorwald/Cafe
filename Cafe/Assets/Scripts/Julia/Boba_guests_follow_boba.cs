@@ -136,8 +136,6 @@ public class Boba_guests_follow_boba : MonoBehaviour
             intriggerarea = true;
         }
     }
-
-
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")

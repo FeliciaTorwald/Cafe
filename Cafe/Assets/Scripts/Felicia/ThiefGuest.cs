@@ -31,11 +31,7 @@ public class ThiefGuest : MonoBehaviour
         if (closestBoba == null)
             return;
 
-   
-
             nav.destination = closestBoba.transform.position;
-
-
         //if (hand != null)
         //{
         //    nav.destination = toTheExit.position;
@@ -69,7 +65,6 @@ public class ThiefGuest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.gameObject.tag == "Player")
         {
             intriggerarea = true;
