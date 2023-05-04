@@ -12,8 +12,8 @@ public class BobaSpawner : MonoBehaviour
     public List<GameObject> pooledObjects;
     private Vector3 spawnPointRef;
     public float maxBobaInScene = 5;
-    public Transform[] spawnPoints; 
-    int firstIndex; 
+    public Transform[] spawnPoints;
+    int firstIndex;
 
     private void Start()
     {

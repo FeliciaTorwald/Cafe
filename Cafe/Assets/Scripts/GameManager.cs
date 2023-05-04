@@ -65,9 +65,6 @@ public class GameManager : MonoBehaviour
             guestSpawner.SpawnNewGuest();
         }
 
-        /*if (Input.GetKeyDown(KeyCode.R))
-            EndGame(false);*/
-
         GameTimer();
         CheckWinCondition();
     }
@@ -91,6 +88,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Incorrect difficulty settings, check Game Manager");
                 return 0;
         }
+        
+        
     }
     
     public Chair AssignSeat()
