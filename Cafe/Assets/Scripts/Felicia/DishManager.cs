@@ -33,7 +33,7 @@ public class DishManager : MonoBehaviour
     {
         if(other.gameObject.tag == "DirtyBobatea")
         {
-            bTH.Invoke(nameof(bTH.DestroyDish),0.5f);
+            //bTH.Invoke(nameof(bTH.DestroyDish),0.5f);
             //bS.StartCoroutine(bS.Spawn());
             bubbles.Play();
             source.PlayOneShot(bubbleSound);
