@@ -12,7 +12,7 @@ public class Interactable_NewBoba : NewAbstractInteractable
 
     private float t = 0;
 
-    public bool isBallFlying = false;
+    public bool isBallFlying;
 
     private void Start()
     {
@@ -46,23 +46,6 @@ public class Interactable_NewBoba : NewAbstractInteractable
 
     public override void Throw(NewInteract newInteract)
     {
-        toolParent.DetachChildren();
-        isHeld = false;
-        //Implement throwing functionality
-        float duration = 1.5f;
-        float t01 = t / duration;
-
-        // move to target
-        Vector3 A = startThrowPos;
-        Vector3 B = Target.position;
-        Vector3 pos = Vector3.Lerp(A, B, t01);
-
-        // move in arc
-        Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
-        gameObject.transform.position = pos + arc;
-
-
-        if (t01 >= 2)
         if (isBallFlying)
         {
 
