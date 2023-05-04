@@ -1,20 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Carl.NewInteractionSystem;
 using UnityEngine;
 
 public class Chair : MonoBehaviour, ISeat
 {
-    public BobaTeaHandler tableRef;
+    public NewBobaTeaHandler tableRef;
     
     void Start()
     {
         Invoke(nameof(AddSelf), .1f);
-        tableRef = GetComponentInChildren<BobaTeaHandler>();
-    }
-    
-    void Update()
-    {
-        
+        tableRef = GetComponentInChildren<NewBobaTeaHandler>();
     }
 
     public void AddSelf()

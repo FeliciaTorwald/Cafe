@@ -9,7 +9,8 @@ namespace Carl.NewInteractionSystem
         boba,
         finishedTea,
         dirtyTea,
-        cleanTea
+        cleanTea,
+        bobaHandler
     }
 
     public abstract class NewAbstractInteractable : MonoBehaviour

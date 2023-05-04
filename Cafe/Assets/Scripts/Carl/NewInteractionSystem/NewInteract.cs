@@ -14,11 +14,15 @@ public class NewInteract : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space))
         {
-            if (interactables.Count != 0 && heldObjRef is null)
+            NewAbstractInteractable closest;
+            
+            if (interactables.Count != 0 && !heldObjRef)
             {
-                FindClosestInteractable().Interact(this);
+                closest = FindClosestInteractable();
+                if (closest)
+                    closest.Interact(this);
             }
-            else if (interactables.Count != 0 && !(heldObjRef is null))
+            else if (interactables.Count != 0 && heldObjRef)
             {
                 heldObjRef.Interact(this);
             }
@@ -40,6 +44,11 @@ public class NewInteract : MonoBehaviour
         for (int i = interactables.Count - 1; i >= 0; i--)
         {
             if (interactables[i] is null)
+            {
+                interactables.RemoveAt(i);
+            }
+            else if (interactables[i].newItemType is NewItemType.bobaHandler &&
+                     !interactables[i].GetComponent<NewBobaTeaHandler>().guestRef)
             {
                 interactables.RemoveAt(i);
             }

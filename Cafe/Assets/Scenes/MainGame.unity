@@ -218,12 +218,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 60030103}
-  - component: {fileID: 60030106}
   - component: {fileID: 60030105}
   - component: {fileID: 60030104}
+  - component: {fileID: 60030106}
   m_Layer: 0
   m_Name: TableRef (8)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,16 +288,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 60030102}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 60030105}
   chairRef: {fileID: 898616810}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 60030103}
+  goldSpawner: {fileID: 60030105}
   hasDirtyDish: 0
 --- !u!1 &62031079
 GameObject:
@@ -417,12 +420,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 79596502}
-  - component: {fileID: 79596505}
   - component: {fileID: 79596504}
   - component: {fileID: 79596503}
+  - component: {fileID: 79596505}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -487,16 +490,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 79596501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 79596504}
   chairRef: {fileID: 1498495384}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 484979522}
+  goldSpawner: {fileID: 79596504}
   hasDirtyDish: 0
 --- !u!1 &79994256 stripped
 GameObject:
@@ -11155,12 +11161,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 318934164}
-  - component: {fileID: 318934167}
   - component: {fileID: 318934166}
   - component: {fileID: 318934165}
+  - component: {fileID: 318934167}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11225,16 +11231,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 318934163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 318934166}
   chairRef: {fileID: 1334545481}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 318934164}
+  goldSpawner: {fileID: 318934166}
   hasDirtyDish: 0
 --- !u!1 &349223387
 GameObject:
@@ -11245,12 +11254,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 349223388}
-  - component: {fileID: 349223391}
   - component: {fileID: 349223390}
   - component: {fileID: 349223389}
+  - component: {fileID: 349223391}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11315,16 +11324,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 349223387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 349223390}
   chairRef: {fileID: 390680775}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 1187257195}
+  goldSpawner: {fileID: 349223390}
   hasDirtyDish: 0
 --- !u!1 &355448125
 GameObject:
@@ -11335,12 +11347,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 355448126}
-  - component: {fileID: 355448129}
   - component: {fileID: 355448128}
   - component: {fileID: 355448127}
+  - component: {fileID: 355448129}
   m_Layer: 0
   m_Name: TableRef (8)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11405,16 +11417,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 355448125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 355448128}
   chairRef: {fileID: 692440736}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 355448126}
+  goldSpawner: {fileID: 355448128}
   hasDirtyDish: 0
 --- !u!1 &357411798 stripped
 GameObject:
@@ -26825,12 +26840,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 550720923}
-  - component: {fileID: 550720926}
   - component: {fileID: 550720925}
   - component: {fileID: 550720924}
+  - component: {fileID: 550720926}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26895,16 +26910,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 550720922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 550720925}
-  chairRef: {fileID: 665989897}
+  chairRef: {fileID: 0}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 1613836670}
+  goldSpawner: {fileID: 550720925}
   hasDirtyDish: 0
 --- !u!1001 &569669439
 PrefabInstance:
@@ -27454,12 +27472,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 631996941}
-  - component: {fileID: 631996944}
   - component: {fileID: 631996943}
   - component: {fileID: 631996942}
+  - component: {fileID: 631996944}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27524,16 +27542,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 631996940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 631996943}
   chairRef: {fileID: 659249682}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 1905357195}
+  goldSpawner: {fileID: 631996943}
   hasDirtyDish: 0
 --- !u!1001 &656809003
 PrefabInstance:
@@ -28258,11 +28279,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.713047
+      value: -9.714871
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.454526
+      value: 5.454528
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28988,15 +29009,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.39344
+      value: 11.87656
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.574999
+      value: 19.885
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.023439
+      value: 13.363037
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29084,12 +29105,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 877165059}
-  - component: {fileID: 877165062}
   - component: {fileID: 877165061}
   - component: {fileID: 877165060}
+  - component: {fileID: 877165062}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29154,16 +29175,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 877165058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 877165061}
   chairRef: {fileID: 970330549}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 441848273}
+  goldSpawner: {fileID: 877165061}
   hasDirtyDish: 0
 --- !u!1001 &883692199
 PrefabInstance:
@@ -34913,12 +34937,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993038795}
-  - component: {fileID: 993038798}
   - component: {fileID: 993038797}
   - component: {fileID: 993038796}
+  - component: {fileID: 993038798}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34983,16 +35007,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 993038794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 993038797}
   chairRef: {fileID: 1676404651}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 401095578}
+  goldSpawner: {fileID: 993038797}
   hasDirtyDish: 0
 --- !u!1 &1025404836
 GameObject:
@@ -40255,12 +40282,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1121986866}
-  - component: {fileID: 1121986869}
   - component: {fileID: 1121986868}
   - component: {fileID: 1121986867}
+  - component: {fileID: 1121986869}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40325,16 +40352,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1121986865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 1121986868}
   chairRef: {fileID: 1270018905}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 1121986866}
+  goldSpawner: {fileID: 1121986868}
   hasDirtyDish: 0
 --- !u!1 &1127915382 stripped
 GameObject:
@@ -40484,6 +40514,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2959302576133825844, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
+      propertyPath: interactables.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3347900847610597187, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -40511,6 +40545,10 @@ PrefabInstance:
     - target: {fileID: 6054379966992184106, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
       value: 0.40540314
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519687290078450934, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6987936021677127875, guid: 17535b5c9caa9cc40b085e561d8609b1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -40551,7 +40589,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1151335878}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de5f19ab091fc354d83f262f5d2327df, type: 3}
   m_Name: 
@@ -41042,11 +41080,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.27105
+      value: 8.2697935
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.454528
+      value: 5.454526
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -51869,12 +51907,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1465621776}
-  - component: {fileID: 1465621779}
   - component: {fileID: 1465621778}
   - component: {fileID: 1465621777}
+  - component: {fileID: 1465621779}
   m_Layer: 0
   m_Name: TableRef (8)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51939,16 +51977,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1465621775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 1465621778}
   chairRef: {fileID: 127308797}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 1465621776}
+  goldSpawner: {fileID: 1465621778}
   hasDirtyDish: 0
 --- !u!1 &1473888763
 GameObject:
@@ -52341,7 +52382,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.6891
+      value: -9.690988
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -52349,7 +52390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.92964
+      value: 33.929646
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -52727,12 +52768,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1546657877}
-  - component: {fileID: 1546657880}
   - component: {fileID: 1546657879}
   - component: {fileID: 1546657878}
+  - component: {fileID: 1546657880}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52797,16 +52838,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1546657876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 1546657879}
   chairRef: {fileID: 1287001624}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 1546657877}
+  goldSpawner: {fileID: 1546657879}
   hasDirtyDish: 0
 --- !u!1 &1567623845 stripped
 GameObject:
@@ -53712,12 +53756,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1870832405}
-  - component: {fileID: 1870832408}
   - component: {fileID: 1870832407}
   - component: {fileID: 1870832406}
+  - component: {fileID: 1870832408}
   m_Layer: 0
   m_Name: TableRef (8)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53782,16 +53826,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1870832404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 1870832407}
   chairRef: {fileID: 848300379}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 1870832405}
+  goldSpawner: {fileID: 1870832407}
   hasDirtyDish: 0
 --- !u!1001 &1876579426
 PrefabInstance:
@@ -53935,12 +53982,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953092240}
-  - component: {fileID: 1953092243}
   - component: {fileID: 1953092242}
   - component: {fileID: 1953092241}
+  - component: {fileID: 1953092243}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54005,16 +54052,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1953092239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 1953092242}
   chairRef: {fileID: 716099429}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 1025404837}
+  goldSpawner: {fileID: 1953092242}
   hasDirtyDish: 0
 --- !u!1 &1958658983 stripped
 GameObject:
@@ -54078,12 +54128,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1984106943}
-  - component: {fileID: 1984106946}
   - component: {fileID: 1984106945}
   - component: {fileID: 1984106944}
+  - component: {fileID: 1984106946}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54148,16 +54198,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1984106942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 1984106945}
   chairRef: {fileID: 2114835313}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 1485720155}
+  goldSpawner: {fileID: 1984106945}
   hasDirtyDish: 0
 --- !u!1001 &1984383934
 PrefabInstance:
@@ -54533,12 +54586,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2119490280}
-  - component: {fileID: 2119490283}
   - component: {fileID: 2119490282}
   - component: {fileID: 2119490281}
+  - component: {fileID: 2119490283}
   m_Layer: 0
   m_Name: TableRef (7)
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54603,16 +54656,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2119490279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2badb704febbf44bbc5804a0fd4dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aed863ccce8fe145ba1ee1a566f9fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakefullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
+  newItemType: 6
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  fakeFullBobaTea: {fileID: 925297172554815770, guid: 1599cdaa821451f45a61824835bafa47, type: 3}
   emptyBobaTea: {fileID: 797012958184308172, guid: 2060279acde7662449befc41ca2e2a90, type: 3}
-  gS: {fileID: 2119490282}
   chairRef: {fileID: 62031081}
   guestRef: {fileID: 0}
-  inTriggerArea: 0
   dishPlace: {fileID: 2119490280}
+  goldSpawner: {fileID: 2119490282}
   hasDirtyDish: 0
 --- !u!1001 &2134702166
 PrefabInstance:
@@ -54624,7 +54680,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.688451
+      value: -9.704305
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y

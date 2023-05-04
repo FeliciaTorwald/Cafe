@@ -95,6 +95,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1705563661961775906}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1197905336517787840}
   m_SourcePrefab: {fileID: 100100000, guid: a43c8eb6196ed6f41806f787746c4ba1, type: 3}
 --- !u!1 &636333080650323168 stripped
 GameObject:
@@ -135,7 +138,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636333080650323168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25160ea33ee2241409b784ac73a9b1b0, type: 3}
   m_Name: 
@@ -147,6 +150,10 @@ MonoBehaviour:
   inCollision: 0
   canYouEquipBoba: 0
   force: 200
+  source: {fileID: 0}
+  waterSound: {fileID: 0}
+  pourSound: {fileID: 0}
+  swooshSound: {fileID: 0}
 --- !u!65 &136888029373688522
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -211,3 +218,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.2357473, z: 1}
   m_Center: {x: 0, y: 0.5803227, z: 0}
+--- !u!114 &-1197905336517787840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636333080650323168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01876203b292c94f81ea158ae1392b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newItemType: 3
+  isHeld: 0
+  playerInteractRef: {fileID: 0}
+  toolParent: {fileID: 0}
+  nearbyTables: []

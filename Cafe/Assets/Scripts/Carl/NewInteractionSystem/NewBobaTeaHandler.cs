@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Carl.NewInteractionSystem;
 using UnityEngine;
 
-public class NewBobaTeaHandler : MonoBehaviour
+public class NewBobaTeaHandler : NewAbstractInteractable
 {
     [SerializeField] private GameObject fakeFullBobaTea;
     [SerializeField] private GameObject emptyBobaTea;
@@ -12,7 +13,7 @@ public class NewBobaTeaHandler : MonoBehaviour
     public Transform dishPlace;
     private Vector3 spawnPointRef;
     private GameObject emptyTea;
-    private GoldSpawner goldSpawner;
+    public GoldSpawner goldSpawner;
 
     public bool hasDirtyDish;
 
@@ -32,7 +33,7 @@ public class NewBobaTeaHandler : MonoBehaviour
         }
     }
     
-    public void ServeTable(NewInteract newInteract, Interactable_NewFullTea tea)
+    public void ServeTable(NewInteract newInteract, GameObject tea)
     {
         Destroy(tea, .1f);
         ServedTea();
@@ -47,6 +48,8 @@ public class NewBobaTeaHandler : MonoBehaviour
                 Debug.Log("Null, något är fel med GuestInteraction");
             }
         }
+        
+        
     }
 
     public void TakeOrder(NewInteract newInteract)
@@ -79,5 +82,31 @@ public class NewBobaTeaHandler : MonoBehaviour
     private void SpawnDish()
     {
         emptyTea = Instantiate(emptyBobaTea, spawnPointRef, Quaternion.identity);
+    }
+    
+    public void AddGuestToTeaOrder(Guest guest)
+    {
+        guestRef = guest;
+    }
+
+    public override void Interact(NewInteract newInteract)
+    {
+        if (guestRef && guestRef.stateMachine.currentState is GuestStateID.AtTable)
+            TakeOrder(newInteract);
+    }
+
+    public override void Throw(NewInteract newInteract)
+    {
+        //Not throwable
+    }
+
+    public override void TeaOperations(NewInteract newInteract)
+    {
+        //Not tea
+    }
+
+    public override void WaterOperations(NewInteract newInteract)
+    {
+        //Not a bucket
     }
 }

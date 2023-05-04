@@ -9,6 +9,7 @@ public class Interactable_NewFullTea : NewAbstractInteractable
 {
     public List<NewBobaTeaHandler> nearbyTables = new();
     private readonly string tableString = "Table";
+    [SerializeField] private TeaType teaType;
     
     public override void Interact(NewInteract newInteract)
     {
@@ -43,10 +44,13 @@ public class Interactable_NewFullTea : NewAbstractInteractable
         if (closest.guestRef.stateMachine.currentState is GuestStateID.AtTable)
             closest.TakeOrder(playerInteractRef);
         else if (closest.guestRef.stateMachine.currentState is GuestStateID.Ordered)
-            closest.ServeTable(playerInteractRef, this);
+        {
+            closest.ServeTable(playerInteractRef, gameObject);
+            playerInteractRef.NoLongerHoldingSomething();
+            playerInteractRef.interactables.Remove(this);
+        }
         
         //Ensure the below function call is included
-        playerInteractRef.NoLongerHoldingSomething();
     }
 
     public override void WaterOperations(NewInteract newInteract)
