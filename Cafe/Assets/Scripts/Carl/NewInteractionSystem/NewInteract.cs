@@ -4,11 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using Carl.NewInteractionSystem;
 using UnityEngine;
+using TMPro;
+using Unity.VisualScripting;
 
 public class NewInteract : MonoBehaviour
 {
+    [SerializeField] private TMP_Text toolTipDisplay;
+    [SerializeField] private Vector3 offset;
+    
     public List<NewAbstractInteractable> interactables = new();
-    private NewAbstractInteractable heldObjRef;
+    private NewAbstractInteractable heldObjectRef;
+    private Camera mainCameraRef;
+
+    private void Start()
+    {
+        mainCameraRef = Camera.main;
+        Invoke(nameof(UpdatePlayerToolTip), .5f);
+    }
 
     private void Update()
     {
@@ -16,19 +28,126 @@ public class NewInteract : MonoBehaviour
         {
             NewAbstractInteractable closest;
             
-            if (interactables.Count != 0 && !heldObjRef)
+            if (interactables.Count != 0 && !heldObjectRef)
             {
                 closest = FindClosestInteractable();
                 if (closest)
                     closest.Interact(this);
             }
-            else if (interactables.Count != 0 && heldObjRef)
+            else if (interactables.Count != 0 && heldObjectRef)
             {
-                heldObjRef.Interact(this);
+                heldObjectRef.Interact(this);
             }
         }
     }
 
+    private void LateUpdate()
+    {
+        toolTipDisplay.rectTransform.position = mainCameraRef.WorldToScreenPoint(transform.position) + offset;
+    }
+
+    private void UpdatePlayerToolTip()
+    {
+        if (heldObjectRef)
+        {
+            switch (heldObjectRef.newItemType)
+            {
+                case NewItemType.boba:
+                    toolTipDisplay.SetText("E: Throw boba");
+                    break;
+                case NewItemType.fullBucket:
+                    Interactable_NewBucket bucketScript = heldObjectRef.GetComponent<Interactable_NewBucket>();
+                    if (bucketScript.hasWater)
+                    {
+                        if (bucketScript.closeToPot)
+                        {
+                            toolTipDisplay.SetText("E: Add water to pot");
+                        }
+                        else
+                        {
+                            toolTipDisplay.SetText("E: Drop");
+                        }
+                    }
+                    else if (!bucketScript.hasWater)
+                    {
+                        if (bucketScript.closeToWater)
+                        {
+                            toolTipDisplay.SetText("E: Draw water");
+                        }
+                        else
+                        {
+                            toolTipDisplay.SetText("E: Drop");
+                        }
+                    }
+                    break;
+                case NewItemType.finishedTea:
+                    Interactable_NewFullTea fullTeaScript = heldObjectRef.GetComponent<Interactable_NewFullTea>();
+                    NewBobaTeaHandler closestTable = fullTeaScript.FindClosestTable();
+                    if (closestTable.guestRef)
+                    {
+                        if (closestTable.guestRef.stateMachine.currentState is GuestStateID.Ordered)
+                        {
+                            toolTipDisplay.SetText("E: Serve tea");
+                        }
+                        else if (closestTable.guestRef.stateMachine.currentState is GuestStateID.AtTable)
+                        {
+                            toolTipDisplay.SetText("E: Take order");
+                        }
+                    }
+                    else
+                    {
+                        toolTipDisplay.SetText("E: Drop");
+                    }
+                    break;
+                case NewItemType.dirtyTea:
+                    toolTipDisplay.SetText("E: Throw dirty dish");
+                    break;
+            }
+        }
+        else
+        {
+            NewAbstractInteractable closest = FindClosestInteractable();
+
+            if (!closest)
+            {
+                toolTipDisplay.SetText("");
+            }
+            else
+            {
+                switch (closest.newItemType)
+                {
+                    case NewItemType.boba:
+                        toolTipDisplay.SetText("E: Pick up boba pearl");
+                        break;
+                    case NewItemType.fullBucket:
+                        Interactable_NewBucket bucketScript = closest.GetComponent<Interactable_NewBucket>();
+                        if (bucketScript.hasWater)
+                            toolTipDisplay.SetText("E: Pick up full bucket");
+                        else if (!bucketScript.hasWater)
+                            toolTipDisplay.SetText("E: Pick up empty bucket");
+                        break;
+                    case NewItemType.finishedTea:
+                        toolTipDisplay.SetText("E: Pick up tea");
+                        break;
+                    case NewItemType.dirtyTea:
+                        toolTipDisplay.SetText("E: Pick up dirty dishes");
+                        break;
+                    case NewItemType.bobaHandler:
+                        NewBobaTeaHandler bobaHandlerRef = closest.GetComponent<NewBobaTeaHandler>();
+                        if (bobaHandlerRef.guestRef.stateMachine.currentState is GuestStateID.AtTable)
+                            toolTipDisplay.SetText("E: Take order");
+                        else
+                            toolTipDisplay.SetText("");
+                        break;
+                }
+            }
+            
+        }
+        
+        Invoke(nameof(UpdatePlayerToolTip), .3f);
+    }
+    
+    
     private NewAbstractInteractable FindClosestInteractable()
     {
         CleanList();
@@ -57,12 +176,12 @@ public class NewInteract : MonoBehaviour
     
     public void HoldingSomething(NewAbstractInteractable newInteractable)
     {
-        heldObjRef = newInteractable;
+        heldObjectRef = newInteractable;
     }
 
     public void NoLongerHoldingSomething()
     {
-        heldObjRef = null;
+        heldObjectRef = null;
     }
 
     private void OnTriggerEnter(Collider other)

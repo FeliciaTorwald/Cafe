@@ -40,14 +40,21 @@ public class Interactable_NewFullTea : NewAbstractInteractable
     public override void TeaOperations(NewInteract newInteract)
     {
         NewBobaTeaHandler closest = FindClosestTable();
-        
-        if (closest.guestRef.stateMachine.currentState is GuestStateID.AtTable)
-            closest.TakeOrder(playerInteractRef);
-        else if (closest.guestRef.stateMachine.currentState is GuestStateID.Ordered)
+
+        if (closest.guestRef)
         {
-            closest.ServeTable(playerInteractRef, gameObject);
-            playerInteractRef.NoLongerHoldingSomething();
-            playerInteractRef.interactables.Remove(this);
+            if (closest.guestRef.stateMachine.currentState is GuestStateID.AtTable)
+                closest.TakeOrder(playerInteractRef);
+            else if (closest.guestRef.stateMachine.currentState is GuestStateID.Ordered)
+            {
+                closest.ServeTable(playerInteractRef, gameObject);
+                playerInteractRef.NoLongerHoldingSomething();
+                playerInteractRef.interactables.Remove(this);
+            }
+        }
+        else
+        {
+            Drop(newInteract);
         }
         
         //Ensure the below function call is included
@@ -58,7 +65,7 @@ public class Interactable_NewFullTea : NewAbstractInteractable
         //Not a bucket
     }
 
-    private NewBobaTeaHandler FindClosestTable()
+    public NewBobaTeaHandler FindClosestTable()
     {
         CleanList();
         if (nearbyTables.Count == 0)

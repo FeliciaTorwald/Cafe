@@ -9,8 +9,8 @@ public class Interactable_NewBucket : NewAbstractInteractable
     private readonly string poolString = "Pond";
     private readonly string potString = "BrewingPot";
 
-    private bool closeToWater;
-    private bool closeToPot;
+    public bool closeToWater;
+    public bool closeToPot;
     public bool hasWater;
 
     CraftingUI canMakeTeaCheck;
