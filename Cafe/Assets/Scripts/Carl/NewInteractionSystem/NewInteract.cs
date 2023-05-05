@@ -83,20 +83,23 @@ public class NewInteract : MonoBehaviour
                 case NewItemType.finishedTea:
                     Interactable_NewFullTea fullTeaScript = heldObjectRef.GetComponent<Interactable_NewFullTea>();
                     NewBobaTeaHandler closestTable = fullTeaScript.FindClosestTable();
-                    if (closestTable.guestRef)
+                    if (closestTable)
                     {
-                        if (closestTable.guestRef.stateMachine.currentState is GuestStateID.Ordered)
+                        if (closestTable.guestRef)
                         {
-                            toolTipDisplay.SetText("E: Serve tea");
+                            if (closestTable.guestRef.stateMachine.currentState is GuestStateID.Ordered)
+                            {
+                                toolTipDisplay.SetText("E: Serve tea");
+                            }
+                            else if (closestTable.guestRef.stateMachine.currentState is GuestStateID.AtTable)
+                            {
+                                toolTipDisplay.SetText("E: Take order");
+                            }
                         }
-                        else if (closestTable.guestRef.stateMachine.currentState is GuestStateID.AtTable)
+                        else
                         {
-                            toolTipDisplay.SetText("E: Take order");
+                            toolTipDisplay.SetText("E: Drop");
                         }
-                    }
-                    else
-                    {
-                        toolTipDisplay.SetText("E: Drop");
                     }
                     break;
                 case NewItemType.dirtyTea:
