@@ -29,9 +29,9 @@ public class GuestSpawner : MonoBehaviour
         AddSpawners();
         yield return new WaitForSeconds(.1f);
         AddDoors();
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.5f);
         maxNumberOfGuests = GameManager.Instance.SetNumberOfGuests();
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         SpawnNewGuest();
         
     }

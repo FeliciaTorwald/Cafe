@@ -77,8 +77,6 @@ public class Interactable_NewDirtyTea : NewAbstractInteractable
             //Ensure the below function call is included
             playerInteractRef.NoLongerHoldingSomething();
         }
-
-
     }
 
     public void AddTableRef(NewBobaTeaHandler newBobaTeaHandler)
