@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+[RequireComponent(typeof(NavMeshAgent))]
 
 public class Boba_guests_follow_boba : MonoBehaviour
 {
@@ -15,12 +16,10 @@ public class Boba_guests_follow_boba : MonoBehaviour
     public Transform toTheExit;
     public Transform spat_out_boba;
     hit_boba_eating_guest boba_eating_guest_got_hit_true;
-    private NavMeshAgent nav;
-    public float range = 10; //radius of sphere
-
-    public Transform centrePoint; //centre of the area the agent wants to move around in
-    //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
-
+    [SerializeField] private float Radius = 20;
+    [SerializeField] private bool Debug_Bool;
+    NavMeshAgent nav;
+    Vector3 Next_pos;
     bool ful_Hands = false;
     bool intriggerarea;
     bool Boba_guests_got_hit;
@@ -44,15 +43,21 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
         Boba_In_Hand = 0;
         nav = GetComponent<NavMeshAgent>();
+        Next_pos = transform.position;
 
-        //Invoke("closestTeacups", 3.0f);
         InvokeRepeating(nameof(closestTeacups), 1,1);
+
+        //generate first random position and walk to it
+        Next_pos = Generate_Random_Pos.R_Pos(transform.position,Radius);
+        nav.SetDestination(Next_pos);
     }
 
     private void Update()
     {
+        //timer for when boba guest drinks tea
         timer_guestGoAroundRandom += Time.deltaTime;
 
+        //Looks so their is no BobaTeacups in scene
         for (int i = 0; i < allBobaTeacups.Length; i++)
         {
             if (allBobaTeacups[i] != null)
@@ -61,12 +66,21 @@ public class Boba_guests_follow_boba : MonoBehaviour
             }
         }
 
+        //If no BobaTeacups is in scene go to an random Location (NOT DONE)
         if (counter == 0)
         {
-            WalkRandom();
-            //Debug.Log("is this going random");
+            //SKapa bool som kollar om man kommit fram och när man kommit fram gör ny position. 
+            //ev använd carls funcktion ReachedDestinationOrGaveUp i scriptet GuestArrivedState.
+            Debug.Log(Vector3.Distance(Next_pos, transform.position));
+            if(Vector3.Distance(Next_pos, transform.position) <= 14.5f)
+            {
+                Debug.Log("Framme?");
+                Next_pos = Generate_Random_Pos.R_Pos(transform.position,Radius);
+                nav.SetDestination(Next_pos);
+            }
         }
         
+        //Looks if boba guest got hit and if it has been hit it makes a sound
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (intriggerarea == true)
@@ -76,6 +90,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
             }
         }
 
+        //empty bobaguest hands on BobaTeacups
         if (Input.GetKeyUp(KeyCode.Space))
         {
             if (intriggerarea == true)
@@ -84,52 +99,49 @@ public class Boba_guests_follow_boba : MonoBehaviour
             }
         }
 
+        //If bobaguest got hit drop BobaTeacups (NOT DONE)
         if (Boba_guests_got_hit == true)
         {
                 for (int i = 0; i < Boba_In_Hand; i++) 
                 {
                     closestTeacup.GetComponent<Rigidbody>().isKinematic = false;
                     Inhands = false;
-                    //Instantiate(prefab_FullTeacup, spat_out_boba.position, Quaternion.identity);
-                    //Boba_guests_got_hit = false;
                 }
                 ful_Hands = true;
         }
 
+        //Picks up boba
         if (Inhands == true)
         {
             closestTeacup.transform.position = Boba_guests_pick_up_bobatea.transform.position;
         }
 
-        //Ha inte denna i update utan kolla först på vilken är närmsta boba och sen när bobans förstörs kolla var nästa ligger
         if(closestTeacup == null)
             return;
-        
-        //nav.destination = FindclosestTeacup();
-
-        //print(closestTeacup.name);  
+    
+        //If boba guest dose not have boba in hands and not got hit by the player and if their exits boba in scene follow closest bobatea
         if(ful_Hands == false && Boba_guests_got_hit == false)
-        {
-        //nav.destination = Vector3.MoveTowards(transform.position, closestTeacup.transform.position, speed * Time.deltaTime);
-        nav.destination = closestTeacup.transform.position;
-        }
+            {
+            nav.destination = closestTeacup.transform.position;
+            }
 
         //Boba guest ska hitta närmaste boba tea och ta upp den och sen dricka den under 6s och sen ska den toma boba tean popa up och 
         //droppas på marken och sen ska han försöka hitta nästa närmaste boba tea för att göra samma sak.
+        
+        //If bobaguest has boba in hands and have drinked it (takes 6s) it goas out.
         if(ful_Hands == true)
         {
-        timer_guestGoAroundRandom = 0;
-        
+            timer_guestGoAroundRandom = 0;
+            
 
-        if (timer_guestGoAroundRandom >= 6)
-        {
-        nav.destination = Vector3.MoveTowards(transform.position, toTheExit.position, speed * Time.deltaTime);
-        }
-
+            if (timer_guestGoAroundRandom >= 6)
+                {
+                nav.destination = Vector3.MoveTowards(transform.position, toTheExit.position, speed * Time.deltaTime);
+                }
         }
     }
 
-
+    //calclates the closest Teacup
     public GameObject FindclosestTeacup()
     {
         //List over boba perls
@@ -158,48 +170,28 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     public void WalkRandom()
     {
-        bool RandomPoint(Vector3 center, float range, out Vector3 result)
+    }
+
+    void OnDrawGizmos() 
+    {
+        if (Debug_Bool == true)
         {
-
-            Vector3 randomPoint = center + Random.insideUnitSphere * range; //random point in a sphere 
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas)) //documentation: https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
-            { 
-                //the 1.0f is the max distance from the random point to a point on the navmesh, might want to increase if range is big
-                //or add a for loop like in the documentation
-                result = hit.position;
-                return true;
-            }
-
-            result = Vector3.zero;
-            return false;
-        }
-
-
-        if(nav.remainingDistance <= nav.stoppingDistance) //done with path
-        {
-            Vector3 point;
-            if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
-            {
-                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //so you can see with gizmos
-                nav.SetDestination(point);
-            }
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, Next_pos);
         }
     }
 
 
     private void OnTriggerEnter(Collider other) 
     {
+        //If guest collides with boba and hands is not ful oick up boba
         if (other.gameObject.tag == "Boba" && ful_Hands == false)
         {
             Boba_In_Hand +=1;
-
-            
-            closestTeacup.GetComponent<Rigidbody>().isKinematic = true;
             Inhands = true;
-
-            //closestTeacup.SetActive(false);
-            //closestTeacup = FindclosestTeacup();
+            
+            //Get boba to stay in guests hand
+            closestTeacup.GetComponent<Rigidbody>().isKinematic = true;
             
             if (Boba_In_Hand >= 1)
             {
