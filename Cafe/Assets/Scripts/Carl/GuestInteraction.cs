@@ -57,7 +57,7 @@ public class GuestInteraction : MonoBehaviour
 
     public void ToggleAngerMeter(bool toggle)
     {
-        angerMeter.gameObject.SetActive(toggle);
+        //angerMeter.gameObject.SetActive(toggle);
     }
     
     private void UpdateAngerMeter()
