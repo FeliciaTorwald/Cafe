@@ -13,7 +13,7 @@ public class NewInteract : MonoBehaviour
     [SerializeField] private Vector3 offset;
     
     public List<NewAbstractInteractable> interactables = new();
-    private NewAbstractInteractable heldObjectRef;
+    public NewAbstractInteractable heldObjectRef;
     private Camera mainCameraRef;
 
     private void Start()
@@ -96,10 +96,10 @@ public class NewInteract : MonoBehaviour
                                 toolTipDisplay.SetText("E: Take order");
                             }
                         }
-                        else
-                        {
-                            toolTipDisplay.SetText("E: Drop");
-                        }
+                    }
+                    else
+                    {
+                        toolTipDisplay.SetText("E: Drop");
                     }
                     break;
                 case NewItemType.dirtyTea:
@@ -144,7 +144,6 @@ public class NewInteract : MonoBehaviour
                         break;
                 }
             }
-            
         }
         
         Invoke(nameof(UpdatePlayerToolTip), .3f);

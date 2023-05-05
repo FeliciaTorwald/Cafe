@@ -33,6 +33,7 @@ public class GuestServedState : GuestState
     {
         GameManager.Instance.freeSeats++;
         GameManager.Instance.ReturnFreeSeat(guest.chairRef);
+        guest.chairRef.tableRef.guestRef = null;
         guest.guestInteraction.ToggleAngerMeter(false);
     }
     
