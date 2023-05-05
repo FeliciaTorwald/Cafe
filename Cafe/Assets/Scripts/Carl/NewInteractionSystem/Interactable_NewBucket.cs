@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Carl.NewInteractionSystem;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class Interactable_NewBucket : NewAbstractInteractable
 {
@@ -18,6 +19,10 @@ public class Interactable_NewBucket : NewAbstractInteractable
 
     [SerializeField] GameObject waterInBucket;
     [SerializeField] GameObject waterInKettle;
+
+    public AudioClip waterSound;
+    public AudioClip pourSound;
+    public AudioSource source;
 
     private void Start()
     {
@@ -75,6 +80,7 @@ public class Interactable_NewBucket : NewAbstractInteractable
             //Add collect water functionality
             waterInBucket.gameObject.SetActive(true);
             hasWater = true;
+            source.PlayOneShot(waterSound);
         }
         else if (!hasWater && closeToPot)
         {
@@ -88,6 +94,7 @@ public class Interactable_NewBucket : NewAbstractInteractable
             hasWater = false;
             waterInBucket.gameObject.SetActive(false);
             canMakeTeaCheck.UpdateCanCraft();
+            source.PlayOneShot(pourSound);
             if (!waterInKettle.activeInHierarchy)
             {
                 waterInKettle.gameObject.SetActive(true);
