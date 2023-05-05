@@ -14,10 +14,13 @@ public class Interactable_NewBoba : NewAbstractInteractable
 
     public bool isBallFlying;
 
+    SoundManager soundManager;
+
     private void Start()
     {
         target = GameObject.Find("TargetPoint Boba shooter").transform;
         posOverHead = GameObject.Find("PosOverHead").transform;
+        soundManager = FindFirstObjectByType<SoundManager>();
     }
     
     private void Update()
@@ -36,6 +39,7 @@ public class Interactable_NewBoba : NewAbstractInteractable
             t = 0;
             Throw(playerInteractRef);
             isHeld = false;
+            soundManager.BobaThrow();
         }
         else
         {
@@ -79,6 +83,7 @@ public class Interactable_NewBoba : NewAbstractInteractable
 
             //Ensure the below function call is included
             playerInteractRef.NoLongerHoldingSomething();
+
         }
     }
 

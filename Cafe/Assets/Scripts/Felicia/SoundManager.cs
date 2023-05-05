@@ -8,12 +8,13 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioSource audioSource;
 
     public AudioClip coinSound;
+    public AudioClip bobaThrowSound;
 
 
     public enum Sound
     {
         coinSound,
-        hitSound,
+        bobaThrowSound,
     }
 
     public void Coin()
@@ -22,5 +23,10 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(coinSound);
         audioSource.volume = 0.5f;
     }
-    
+
+    public void BobaThrow()
+    {
+
+        audioSource.PlayOneShot(bobaThrowSound);
+    }
 }
