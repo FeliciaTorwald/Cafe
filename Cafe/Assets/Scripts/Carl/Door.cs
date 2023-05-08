@@ -9,34 +9,15 @@ public class Door : MonoBehaviour
 {
     public Transform doorEnterSpot;
     public Transform doorExitSpot;
-    public GameObject doorModel;
     public List<Guest> queue;
-    private Vector3 closedPos;
-    private Vector3 openPos;
-    private float timer = 3f;
     public bool open;
-    public bool closed = true;
     public Animator animator;
     private int objectsInDoorRange;
 
 
     private void Start()
     {
-        closedPos = doorModel.transform.position;
         animator = GetComponent<Animator>();
-    }
-    
-    public IEnumerator CloseDoor(float moveTime)
-    {
-        open = !open;
-        float time = 0;
-        while (time < moveTime)
-        {
-            doorModel.transform.position = Vector3.Lerp(openPos, closedPos, time / moveTime);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        closed = !closed;
     }
 
     private void OnTriggerEnter(Collider other)
