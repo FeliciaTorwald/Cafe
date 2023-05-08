@@ -25,9 +25,9 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Guest") || other.CompareTag("Player") || other.CompareTag("boba eating guests"))
         {
             objectsInDoorRange++;
+            animator.ResetTrigger("Close");
             animator.SetTrigger("Open");
         }
-        
     }
 
     private void OnTriggerExit(Collider other)
@@ -36,7 +36,11 @@ public class Door : MonoBehaviour
         {
             objectsInDoorRange--;
             if (objectsInDoorRange == 0)
+            {
+                animator.ResetTrigger("Open");
                 animator.SetTrigger("Close");
+            }
+                
         }
     }
 
