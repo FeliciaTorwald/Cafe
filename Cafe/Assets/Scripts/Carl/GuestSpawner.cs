@@ -78,7 +78,7 @@ public class GuestSpawner : MonoBehaviour
         spawnedGuest.door = doors[doors.Count-1];
         spawnedGuest.guestSpawnPos = spawnPos;
         spawnedGuest.guestSpawner = this;
-        GameManager.Instance.AddGuest(spawnedGuest);
+        GameManager.Instance.AddVisitingGuest(spawnedGuest);
 
         //Setup the guest, here we seed the type of guest, what tea they want etc.
     }

@@ -59,6 +59,7 @@ public class Guest : MonoBehaviour
         stateMachine.RegisterState(new GuestOrderedState());
         stateMachine.RegisterState(new GuestServedState());
         stateMachine.RegisterState(new GuestLeavingState());
+        stateMachine.RegisterState(new GuestAngryState());
         //Sets the initial state of the guest, should always be "Arriving"
         stateMachine.SetInitialState(initialState);
     }

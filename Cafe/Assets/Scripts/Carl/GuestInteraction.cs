@@ -9,36 +9,40 @@ public class GuestInteraction : MonoBehaviour
     public Guest parentGuest;
     public BobaTeaHandler table;
     public float irritation;
-    public float mad;
+    public float maxIrritationBeforeLeaving;
     [SerializeField] private Slider angerMeter;
-    
+
+    private void Start()
+    {
+        angerMeter.maxValue = maxIrritationBeforeLeaving;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
             ServeGuest(TeaType.TypeA);
 
-        if (parentGuest.stateMachine.currentState == GuestStateID.AtTable && irritation < mad)
+        if (parentGuest.stateMachine.currentState == GuestStateID.AtTable && irritation < maxIrritationBeforeLeaving)
         {
             irritation += 1 * Time.deltaTime;
             UpdateAngerMeter();
         }
-        else if (parentGuest.stateMachine.currentState == GuestStateID.AtTable && irritation >= mad)
+        else if (parentGuest.stateMachine.currentState == GuestStateID.AtTable && irritation >= maxIrritationBeforeLeaving)
         {
-            //parentGuest.stateMachine.ChangeState(GuestAngry);
-            //TODO: Implement angry state
-            // irritation = 0f;
+            parentGuest.stateMachine.ChangeState(GuestStateID.Angry);
+            ToggleAngerMeter(false);
         }
         
-        if (parentGuest.stateMachine.currentState == GuestStateID.Ordered && irritation < mad)
+        if (parentGuest.stateMachine.currentState == GuestStateID.Ordered && irritation < maxIrritationBeforeLeaving)
         {
             irritation += 1 * Time.deltaTime;
             UpdateAngerMeter();
         }
-        else if (parentGuest.stateMachine.currentState == GuestStateID.Ordered && irritation >= mad)
+        else if (parentGuest.stateMachine.currentState == GuestStateID.Ordered && irritation >= maxIrritationBeforeLeaving)
         {
-            //parentGuest.stateMachine.ChangeState(GuestAngry);
-            //TODO: Implement angry state
-            // irritation = 0f;
+            parentGuest.stateMachine.ChangeState(GuestStateID.Angry);
+            ToggleAngerMeter(false);
+            
         }
     }
 
@@ -57,7 +61,7 @@ public class GuestInteraction : MonoBehaviour
 
     public void ToggleAngerMeter(bool toggle)
     {
-        //angerMeter.gameObject.SetActive(toggle);
+        angerMeter.gameObject.SetActive(toggle);
     }
     
     private void UpdateAngerMeter()
