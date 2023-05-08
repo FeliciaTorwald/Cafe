@@ -9,7 +9,6 @@ public class Door : MonoBehaviour
 {
     public Transform doorEnterSpot;
     public Transform doorExitSpot;
-    public Transform openPosRef;
     public GameObject doorModel;
     public List<Guest> queue;
     private Vector3 closedPos;
@@ -17,31 +16,16 @@ public class Door : MonoBehaviour
     private float timer = 3f;
     public bool open;
     public bool closed = true;
-    private Animator animator;
+    public Animator animator;
     private int objectsInDoorRange;
 
 
     private void Start()
     {
         closedPos = doorModel.transform.position;
-        openPos = openPosRef.position;
         animator = GetComponent<Animator>();
     }
     
-    private void Update()
-    {
-        // if (open)
-        // {
-        //     if (timer <= 0f)
-        //     {
-        //         CloseDoor();
-        //         timer = 3f;
-        //     }
-        //     else
-        //         timer -= 1f * Time.deltaTime;
-        // }
-    }
-
     public IEnumerator CloseDoor(float moveTime)
     {
         open = !open;
