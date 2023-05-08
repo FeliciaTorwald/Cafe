@@ -27,6 +27,7 @@ public class Guest : MonoBehaviour
     public OrderImageUI orderImg;
     public GameObject teaOrderImg;
     public GuestSpawner guestSpawner;
+    public bool angry;
     
     //Enum to identify type of guest, can be set in prefab or when instantiating guest
     public enum GuestType

@@ -15,7 +15,16 @@ public class GuestLeavingState : GuestState
     public void Enter(Guest guest)
     {
         MoveToDestination(guest, guest.guestSpawnPos);
-        guest.orderText.SetText("Pax vobiscum");
+        switch (guest.angry)
+        {
+            case false:
+                guest.orderText.SetText("Pax vobiscum");
+                break;
+            
+            case true:
+                guest.orderText.SetText("Your tea is bad anyway!");
+                break;
+        }
         GameManager.Instance.RemoveGuest(guest);
     }
 

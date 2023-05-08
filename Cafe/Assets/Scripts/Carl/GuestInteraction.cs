@@ -29,6 +29,7 @@ public class GuestInteraction : MonoBehaviour
         }
         else if (parentGuest.stateMachine.currentState == GuestStateID.AtTable && irritation >= maxIrritationBeforeLeaving)
         {
+            parentGuest.angry = true;
             parentGuest.stateMachine.ChangeState(GuestStateID.Angry);
             ToggleAngerMeter(false);
         }
@@ -40,6 +41,7 @@ public class GuestInteraction : MonoBehaviour
         }
         else if (parentGuest.stateMachine.currentState == GuestStateID.Ordered && irritation >= maxIrritationBeforeLeaving)
         {
+            parentGuest.angry = true;
             parentGuest.stateMachine.ChangeState(GuestStateID.Angry);
             ToggleAngerMeter(false);
             
