@@ -72,7 +72,8 @@ public class Boba_guests_follow_boba : MonoBehaviour
             //SKapa bool som kollar om man kommit fram och när man kommit fram gör ny position. 
             //ev använd carls funcktion ReachedDestinationOrGaveUp i scriptet GuestArrivedState.
             Debug.Log(Vector3.Distance(Next_pos, transform.position));
-            if(Vector3.Distance(Next_pos, transform.position) <= 14.5f)
+            
+            if(Vector3.Distance(Next_pos, transform.position) <= 13f)
             {
                 Debug.Log("Framme?");
                 Next_pos = Generate_Random_Pos.R_Pos(transform.position,Radius);
