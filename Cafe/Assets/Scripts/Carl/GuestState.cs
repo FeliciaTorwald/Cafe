@@ -9,7 +9,8 @@ public enum GuestStateID
     AtTable,
     Ordered,
     Served,
-    Leaving
+    Leaving,
+    Angry
 }
 
 public interface GuestState

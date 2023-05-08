@@ -28,7 +28,7 @@ public class GuestAtTableState : GuestState
 
     public void Exit(Guest guest)
     {
-        
+        guest.guestInteraction.irritation /= 2f;
     }
     
     private void ShowOrder(Guest guest)

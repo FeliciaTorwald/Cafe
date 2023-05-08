@@ -88,8 +88,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Incorrect difficulty settings, check Game Manager");
                 return 0;
         }
-        
-        
     }
     
     public Chair AssignSeat()
@@ -136,12 +134,17 @@ public class GameManager : MonoBehaviour
         servedGuests++;
     }
 
+    public void AddAngryGuest()
+    {
+        angryGuests++;
+    }
+
     public void AddGoldToScore(int gold)
     {
         earnedGold += gold;
     }
 
-    public void AddGuest(Guest guest)
+    public void AddVisitingGuest(Guest guest)
     {
         guestsInScene.Add(guest);
     }

@@ -894,7 +894,7 @@ MonoBehaviour:
   parentGuest: {fileID: -8675251801881133073}
   table: {fileID: 0}
   irritation: 0
-  mad: 10
+  maxIrritationBeforeLeaving: 30
   angerMeter: {fileID: 6495045180809977342}
 --- !u!1 &9172077892518051386
 GameObject:
