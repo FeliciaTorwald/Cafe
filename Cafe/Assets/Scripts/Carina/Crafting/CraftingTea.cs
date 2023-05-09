@@ -28,8 +28,8 @@ public class CraftingTea : MonoBehaviour
             }
         }
 
-        timerRef.canMakeBoba = true;
-        timerRef.StartMakingTea();
+        timerRef.craftQueue.Enqueue(recipe);
+        timerRef.StartMakingTea(recipe);
         timerRef.isMakingTea = true;
 
         //Inventory.instance.AddItem(recipe.itemToCraft);

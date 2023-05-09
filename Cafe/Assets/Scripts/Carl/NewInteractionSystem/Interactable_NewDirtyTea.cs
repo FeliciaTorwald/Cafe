@@ -18,10 +18,13 @@ public class Interactable_NewDirtyTea : NewAbstractInteractable
 
     bool isDishFlying;
 
+    SoundManager soundManager;
+
     private void Start()
     {
         target = GameObject.Find("TargetPointDirtyDish").transform;
         posOverHead = GameObject.Find("PosOverHead").transform;
+        soundManager = FindFirstObjectByType<SoundManager>();
     }
     private void Update()
     {
@@ -37,6 +40,7 @@ public class Interactable_NewDirtyTea : NewAbstractInteractable
             isDishFlying = true;
             t = 0;
             Throw(playerInteractRef);
+            soundManager.Swoosh();
         }
         else
         {

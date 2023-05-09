@@ -40,6 +40,7 @@ public class Interactable_NewBoba : NewAbstractInteractable
             Throw(playerInteractRef);
             isHeld = false;
             soundManager.BobaThrow();
+            gameObject.GetComponent<BobaMovement>().enabled = true;
         }
         else
         {
@@ -73,11 +74,10 @@ public class Interactable_NewBoba : NewAbstractInteractable
             gameObject.transform.position = pos + arc;
 
 
-            if (t01 >= 0.9f)
+            if (t01 >= 1)
             {
                 gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 isBallFlying = false;
-                gameObject.GetComponent<SphereCollider>().enabled = true;
 
             }
 
@@ -103,7 +103,8 @@ public class Interactable_NewBoba : NewAbstractInteractable
         if (other.gameObject.CompareTag("BrewingPot"))
         {
             gameObject.SetActive(false);
-            //gameObject.GetComponent<SphereCollider>().enabled = true;
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+            isBallFlying = false;
         }
     }
 
@@ -113,6 +114,7 @@ public class Interactable_NewBoba : NewAbstractInteractable
         if (other.gameObject.CompareTag("BrewingPot"))
         {
             isBallFlying = false;
+            gameObject.GetComponent<SphereCollider>().enabled = false;
         }
     }
 }
