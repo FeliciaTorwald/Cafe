@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Boba2
   m_EditorClassIdentifier: 
   canStack: 1
-  maxStackAmount: 10
+  maxStackAmount: 20
   displayName: Boba2
   type: 0
-  icon: {fileID: 21300000, guid: 897c3a3f5c4038345a7143573bbb4a40, type: 3}
+  icon: {fileID: 21300000, guid: fc90212a8bfc4844cb88f32631fdad22, type: 3}
   dropPrefab: {fileID: 0}
