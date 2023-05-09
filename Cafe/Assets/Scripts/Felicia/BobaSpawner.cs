@@ -6,14 +6,20 @@ using UnityEngine;
 public class BobaSpawner : MonoBehaviour
 {
     public GameObject preFab;
+    public List<GameObject> pooledObjects;
+
     public float bobaInterval = 1f;
     public float bobaLifeTime;
-    public int amountToPool;
-    public List<GameObject> pooledObjects;
-    private Vector3 spawnPointRef;
     public float maxBobaInScene = 5;
-    public Transform[] spawnPoints;
+
+    public int amountToPool;
     int firstIndex;
+
+    private Vector3 spawnPointRef;
+
+    public Transform[] spawnPoints;
+
+    Interactable_NewBoba interactable_NewBoba;
 
     private void Start()
     {
@@ -28,6 +34,8 @@ public class BobaSpawner : MonoBehaviour
         }
 
         InvokeRepeating(nameof(Spawn), bobaInterval, bobaInterval);
+
+        interactable_NewBoba = FindObjectOfType<Interactable_NewBoba>();
     }
 
 
@@ -43,6 +51,8 @@ public class BobaSpawner : MonoBehaviour
                 pooledObjects[i].transform.position = spawnPoints[firstIndex].position;
                 pooledObjects[i].GetComponent<Rigidbody>().isKinematic = false;
                 pooledObjects[i].SetActive(true);
+                pooledObjects[i].GetComponent<SphereCollider>().enabled = true;
+                //interactable_NewBoba.isBallFlying = false;
                 //pooledObjects[i].GetComponent<BobaLifespan>().Spawned(bobaLifeTime);
                 return;
             }

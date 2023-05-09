@@ -33,6 +33,7 @@ public class GameUI : MonoBehaviour
     private bool gamePaused;
 
     EquipTool eT;
+    SoundManager soundManager;  
     
     void Start()
     {
@@ -42,6 +43,7 @@ public class GameUI : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     void Update()
@@ -165,6 +167,7 @@ public class GameUI : MonoBehaviour
             endGameGoldEarnedCounter.SetText(goldEarned.ToString());
             TimeSpan timeSpan = TimeSpan.FromSeconds(time);
             endGameTimeCounter.SetText("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
+            soundManager.Winning();
         }
         else
         {
@@ -181,5 +184,11 @@ public class GameUI : MonoBehaviour
             TimeSpan timeSpan = TimeSpan.FromSeconds(time);
             endGameTimeCounter.SetText("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
         }
+    }
+
+    IEnumerator WinningSound()
+    {
+        soundManager.Winning();
+        yield return new WaitForSeconds(3f);
     }
 }

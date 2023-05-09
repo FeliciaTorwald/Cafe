@@ -7,22 +7,35 @@ using UnityEngine.Pool;
 
 public class GoldSpawner : MonoBehaviour
 {
-    public GameObject preFabGold;
-    public bool onOrderFullfilled;
-    GameObject coin;
-    public Transform moneyPlace;
-    private Vector3 spawnPointRef;
-    float amountOfCoins = 5;
-    List<GameObject> coins;
-    float timer;
     SoundManager sM;
+    GameObject coin;
+
+    public GameObject preFabGold;
+
+    public Transform moneyPlace;
+    public Transform playerTarget;
+
+    private Vector3 spawnPointRef;
+
+    int amountOfCoins = 1;
+    float timer;
+    float t;
+    public float goldInterval = 1f;
+
+    public bool onOrderFullfilled;
+    bool coinIsFlying;
+    bool keepSpawningCoins;
+
+    List<GameObject> coinList;
 
     public void Start()
     {
-        spawnPointRef = moneyPlace.transform.position; 
+        spawnPointRef = moneyPlace.transform.position;
+        coinList = new List<GameObject>();
         onOrderFullfilled = false;
-        coins = new List<GameObject>();
         sM = FindObjectOfType<SoundManager>();
+        playerTarget = GameObject.Find("ToolParent").transform;
+
     }
     public void Update()
     {
@@ -30,55 +43,52 @@ public class GoldSpawner : MonoBehaviour
         //devtools
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Invoke(nameof(Spawn),1);
+            //Invoke(nameof(Spawn),1);
+            Spawn();
+            //StartCoroutine(Spawn());
         }
-        if (Input.GetKeyDown(KeyCode.N))
+
+        if (coinIsFlying)
         {
-            DestroyCoin();
+            t += Time.deltaTime;
+            //Implement throwing functionality
+            float duration = 1.2f;
+            float t01 = t / duration;
+
+            // move to target
+            Vector3 A = moneyPlace.position;
+            Vector3 B = playerTarget.position;
+            Vector3 pos = Vector3.Lerp(A, B, t01);
+
+            // move in arc
+            Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
+            coin.transform.position = pos + arc;
+
+            if (t01 >= 0.95)
+            {
+                coin.GetComponent<Rigidbody>().isKinematic = false;
+                coin.GetComponent<BoxCollider>().enabled = true;
+                coinIsFlying = false;
+                Destroy(coin);
+            }
+
         }
-        //if (coin.transform.position.y < -3)
-        //{
-        //    coin.GetComponent<Rigidbody>().isKinematic = true;
-        //}
     }
     public void Spawn()
     {
-       
+        //WaitForSeconds wait = new WaitForSeconds(3f);
         if (coin == null)
         {
             for (int i = 0; i < amountOfCoins; i++)
             {
-              if(timer >= 1)
-                {
-                sM.Coin();
-                coin = Instantiate(preFabGold, spawnPointRef, Quaternion.identity);
-                coin.transform.position += Random.insideUnitSphere + new Vector3(0,1,0);
-                Vector3 force = Random.insideUnitSphere * 6;
-                force.y = Mathf.Abs(force.y);
-                coin.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
-                coins.Add(coin);
-                //timer = 0;
-                }
-                              
-               //Invoke(nameof(TurnOffPhysics),2);
+                    sM.Coin();
+                    coin = Instantiate(preFabGold, spawnPointRef, transform.rotation * Quaternion.Euler(180f, 180f, 0f));
+                    coinList.Add(coin);
+                    coinIsFlying = true;
+                    t = 0;
+                    //yield return wait;
             }
+
         }
     }
-
-    public void TurnOffPhysics()
-    {
-        coin.GetComponent<Rigidbody>().isKinematic = true;
-    }
-
-    public void DestroyCoin()
-    {
-        if (coin != null)
-        {
-            for (int i = 0; i < coins.Count; i++)
-            {
-                 Destroy(coin);
-            }
-        }
-    }
-
 }

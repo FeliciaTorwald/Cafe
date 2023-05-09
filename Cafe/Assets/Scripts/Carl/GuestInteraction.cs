@@ -11,10 +11,12 @@ public class GuestInteraction : MonoBehaviour
     public float irritation;
     public float maxIrritationBeforeLeaving;
     [SerializeField] private Slider angerMeter;
+    SoundManager soundManager;
 
     private void Start()
     {
         angerMeter.maxValue = maxIrritationBeforeLeaving;
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     private void Update()
@@ -32,6 +34,7 @@ public class GuestInteraction : MonoBehaviour
             parentGuest.angry = true;
             parentGuest.stateMachine.ChangeState(GuestStateID.Angry);
             ToggleAngerMeter(false);
+            soundManager.Angry();
         }
         
         if (parentGuest.stateMachine.currentState == GuestStateID.Ordered && irritation < maxIrritationBeforeLeaving)
@@ -44,7 +47,7 @@ public class GuestInteraction : MonoBehaviour
             parentGuest.angry = true;
             parentGuest.stateMachine.ChangeState(GuestStateID.Angry);
             ToggleAngerMeter(false);
-            
+            soundManager.Angry();
         }
     }
 

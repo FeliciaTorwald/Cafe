@@ -5,13 +5,21 @@ using UnityEngine;
 
 public class GoldPoints : MonoBehaviour
 {
+    private void Update()
+    {
+        if (gameObject == null)
+        {
+            return;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {   
         if (other.tag == ("Player"))
         {
            //FindObjectOfType<GoldSpawner>().DestroyCoin();
-           Destroy(gameObject);
+           //Destroy(gameObject);
            FindObjectOfType<GoldCounter>().AddGold(10);
+
         }
     }
     

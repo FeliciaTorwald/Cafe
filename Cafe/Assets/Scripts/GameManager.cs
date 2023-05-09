@@ -16,14 +16,14 @@ public enum Difficulty
 public class GameManager : MonoBehaviour
 {
     //Use "GameManager.Instance" to reference functions and variables in the GM.
-    
+
     public static GameManager Instance
     {
         get
         {
             if (instance == null)
                 instance = FindObjectOfType(typeof(GameManager)) as GameManager;
- 
+
             return instance;
         }
         set
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         }
     }
     private static GameManager instance;
-    
+
     [SerializeField] public Difficulty difficulty;
     [SerializeField] private GuestSpawner guestSpawner;
     [SerializeField] private GameUI gameUiRef;
@@ -40,24 +40,31 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int normalGuestNumber = 5;
     [SerializeField] private int hardGuestNumber = 9;
     [SerializeField] private int GuestsServedToWin;
-    
+
     private float timeSinceStart;
     private int maxNumberOfActiveGuests;
-    
+
+    SoundManager soundManager;
+
     public List<ISeat> freeSeatsInScene = new();
     //Maintains a list of seats that are in the scene
-    
+
     public int freeSeats = 0;
     //Shows how many free seats in the scene, added to by the Seats upon play start.
-    
+
     public List<Guest> guestsInScene = new();
     //Maintains a list of all guests in the scene, added to by the GuestSpawner object.
-    
+
     public int servedGuests;
     public int earnedGold;
     public int angryGuests;
 
+    bool goToEndGame;
 
+    private void Start()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
     private void Update()
     {
         if (freeSeats > 0)
@@ -66,7 +73,18 @@ public class GameManager : MonoBehaviour
         }
 
         GameTimer();
-        CheckWinCondition();
+        
+
+        if (servedGuests == GuestsServedToWin)
+        {
+            goToEndGame = true;
+            GuestsServedToWin = 0;  
+            if(goToEndGame)
+            {
+                CheckWinCondition();
+                goToEndGame= false;
+            }
+        }
     }
 
     private void GameTimer()
@@ -89,7 +107,7 @@ public class GameManager : MonoBehaviour
                 return 0;
         }
     }
-    
+
     public Chair AssignSeat()
     {
         System.Random rand = new System.Random();
@@ -100,7 +118,7 @@ public class GameManager : MonoBehaviour
             freeSeatsInScene[i] = freeSeatsInScene[j];
             freeSeatsInScene[j] = temp;
         }
-        
+
         foreach (ISeat seat in freeSeatsInScene)
         {
             if (!seat.HasDirtyDish())
@@ -109,7 +127,7 @@ public class GameManager : MonoBehaviour
                 freeSeatsInScene.Remove(seat);
                 freeSeats--;
                 return chosenRef;
-                
+
             }
         }
 
@@ -153,25 +171,28 @@ public class GameManager : MonoBehaviour
     {
         guestsInScene.Remove(guest);
     }
-    
+
     public Guest GetGuest(int index)
     {
         return guestsInScene[index];
-        
+
         //Can be used to look up a specific guest or trigger something in a random guest.
     }
 
     private void CheckWinCondition()
     {
-        if (servedGuests == GuestsServedToWin)
+        //if (servedGuests == GuestsServedToWin)
+        //{
             EndGame(true);
+        //}
     }
-    
+
     public void EndGame(bool win)
     {
         if (win)
         {
             gameUiRef.ShowEndGameUI(true, servedGuests, earnedGold, timeSinceStart);
+ 
         }
         else
         {

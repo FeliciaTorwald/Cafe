@@ -19,10 +19,13 @@ public class NewBobaTeaHandler : NewAbstractInteractable
 
     private OrderImageUI orderImg;
 
+    SoundManager soundManager;
+
     private void Start()
     {
         spawnPointRef = dishPlace.transform.position;
         orderImg = FindObjectOfType<OrderImageUI>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     private void Update()
@@ -37,6 +40,7 @@ public class NewBobaTeaHandler : NewAbstractInteractable
     {
         Destroy(tea, .1f);
         ServedTea();
+        soundManager.Serve();
         Invoke(nameof(FinishedTea), 2f);
         goldSpawner.Invoke(nameof(goldSpawner.Spawn), 1f);
         if (guestRef != null)
