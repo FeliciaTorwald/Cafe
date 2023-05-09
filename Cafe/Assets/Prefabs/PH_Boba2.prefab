@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: -506459597673483925}
   - component: {fileID: -8814853605713979338}
   m_Layer: 0
-  m_Name: PH_Boba 1
-  m_TagString: Untagged
+  m_Name: PH_Boba2
+  m_TagString: BobaTwo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

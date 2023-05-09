@@ -31,7 +31,13 @@ public class BobaPoints : MonoBehaviour
         {
             OnInteract();
             canMakeTeaCheck.UpdateCanCraft();
-            
+
+            if (gameObject.CompareTag("BobaTwo"))
+            {
+                Destroy(gameObject);
+                FindObjectOfType<BobaTwoSpawner>().GetComponent<BobaTwoSpawner>().bobaAmount--;
+            }
+
             //bSC.IsBallFlying = false;
             //gameObject.SetActive(false);
         }

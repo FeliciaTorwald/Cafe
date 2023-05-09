@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Difficulty difficulty;
     [SerializeField] private GuestSpawner guestSpawner;
     [SerializeField] private GameUI gameUiRef;
+    [SerializeField] private GuestServedCounter guestsServed;
     [SerializeField] private int easyGuestNumber = 3;
     [SerializeField] private int normalGuestNumber = 5;
     [SerializeField] private int hardGuestNumber = 9;
@@ -150,6 +151,7 @@ public class GameManager : MonoBehaviour
     public void AddServedGuest()
     {
         servedGuests++;
+        guestsServed.ServedGuestsCheck(servedGuests);
     }
 
     public void AddAngryGuest()

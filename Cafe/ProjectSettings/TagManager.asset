@@ -18,6 +18,7 @@ TagManager:
   - Enemy
   - DirtyBobatea
   - Washzone
+  - BobaTwo
   layers:
   - Default
   - TransparentFX

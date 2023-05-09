@@ -9,6 +9,7 @@ public class BobaTwoSpawner : MonoBehaviour
     [SerializeField] GameObject bobaTwo;
     GameObject newBobaTwo;
     public int bobaAmount = 0;
+    public int maxBobaAmount;
     int minTime = 1;
     int maxTime = 8;
 
@@ -18,11 +19,13 @@ public class BobaTwoSpawner : MonoBehaviour
     private void Awake()
     {
         isSpawning = false;
+
+        firstIndex = Random.Range(0, 2);
     }
 
     private void Update()
     {
-        if (!isSpawning && bobaAmount <= 1)
+        if (!isSpawning && bobaAmount <= maxBobaAmount)
         {
             float timer = Random.Range(minTime, maxTime);
             Invoke("SpawnBoba", timer);
