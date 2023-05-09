@@ -27,6 +27,7 @@ public class GuestServedState : GuestState
             guest.stateMachine.ChangeState(GuestStateID.Leaving);
         CheckIfAtDestination(guest);
         guest.guestCanvas.transform.forward = guest.camera.transform.forward;
+        guest.animator.SetBool("Moving", true);
     }
 
     public void Exit(Guest guest)
