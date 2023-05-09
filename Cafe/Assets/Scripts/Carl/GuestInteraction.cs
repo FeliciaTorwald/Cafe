@@ -13,6 +13,9 @@ public class GuestInteraction : MonoBehaviour
     [SerializeField] private Slider angerMeter;
     [SerializeField] private float angerShakeAmount;
     [SerializeField] private float angerShakeTime;
+    [SerializeField] private Image sliderFill;
+    [SerializeField] private Color minIrritationColor;
+    [SerializeField] private Color maxIrritationColor;
     private Transform guestPos;
     [SerializeField] private Transform sliderRect;
     SoundManager soundManager;
@@ -87,6 +90,13 @@ public class GuestInteraction : MonoBehaviour
     private void UpdateAngerMeter()
     {
         angerMeter.value = irritation;
+        ChangeAngerMeterColor();
+    }
+    
+    private void ChangeAngerMeterColor()
+    {
+        float fillAmount = angerMeter.value / angerMeter.maxValue;
+        sliderFill.color = Color.Lerp(minIrritationColor, maxIrritationColor, fillAmount);
     }
     
     private void AngerShake()
