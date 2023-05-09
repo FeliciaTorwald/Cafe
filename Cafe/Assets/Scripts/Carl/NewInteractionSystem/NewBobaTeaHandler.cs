@@ -36,24 +36,27 @@ public class NewBobaTeaHandler : NewAbstractInteractable
         }
     }
     
-    public void ServeTable(NewInteract newInteract, GameObject tea)
+    public void ServeTable(NewInteract newInteract, GameObject tea, TeaType type)
     {
-        Destroy(tea, .1f);
-        ServedTea();
-        soundManager.Serve();
-        Invoke(nameof(FinishedTea), 2f);
-        goldSpawner.Invoke(nameof(goldSpawner.Spawn), 1f);
-        if (guestRef != null)
+        if (type == guestRef.teaType)
         {
-            guestRef.GetComponentInChildren<GuestInteraction>().ServeGuest(TeaType.TypeA);
-
-            if (guestRef.GetComponentInChildren<GuestInteraction>() == null)
+            Destroy(tea, .1f);
+            ServedTea();
+            soundManager.Serve();
+            Invoke(nameof(FinishedTea), 2f);
+            goldSpawner.Invoke(nameof(goldSpawner.Spawn), 1f);
+            if (guestRef != null)
             {
-                Debug.Log("Null, något är fel med GuestInteraction");
+                guestRef.GetComponentInChildren<GuestInteraction>().ServeGuest(type);
+
+                if (guestRef.GetComponentInChildren<GuestInteraction>() == null)
+                {
+                    Debug.Log("Null, något är fel med GuestInteraction");
+                }
             }
         }
-        
-        
+
+
     }
 
     public void TakeOrder(NewInteract newInteract)

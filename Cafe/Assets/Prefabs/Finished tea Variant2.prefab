@@ -235,4 +235,4 @@ MonoBehaviour:
   playerInteractRef: {fileID: 0}
   toolParent: {fileID: 0}
   nearbyTables: []
-  teaType: 0
+  teaType: 1
