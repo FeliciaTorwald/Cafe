@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Carl.NewInteractionSystem;
 using UnityEngine;
 using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
@@ -165,7 +166,17 @@ public class Boba_guests_follow_boba : MonoBehaviour
             //Boaba guest starts drinking tea and drinks it up after 6s
             if (guestDrinks_Timer >= 6)
             {
-            Destroy(closestTeacup);
+                if (closestTeacup.GetComponent<NewAbstractInteractable>().isHeld)
+                {
+                    
+                    closestTeacup.GetComponent<Interactable_NewFullTea>().playerInteractRef.NoLongerHoldingSomething();
+                    closestTeacup.GetComponent<Interactable_NewFullTea>().playerInteractRef.interactables.Remove(closestTeacup.GetComponent<NewAbstractInteractable>());
+
+                }
+
+                Destroy(closestTeacup);
+            }
+
             if(spawnOneDirtybobaTea == false)
             {
             Instantiate(prefab_EmptyTeacup, closestTeacup.transform.position, Quaternion.identity);
