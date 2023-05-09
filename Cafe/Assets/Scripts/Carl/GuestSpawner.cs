@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GuestSpawner : MonoBehaviour
 {
@@ -78,8 +81,26 @@ public class GuestSpawner : MonoBehaviour
         spawnedGuest.door = doors[doors.Count-1];
         spawnedGuest.guestSpawnPos = spawnPos;
         spawnedGuest.guestSpawner = this;
-        GameManager.Instance.AddVisitingGuest(spawnedGuest);
 
+        if (GameManager.Instance.CheckDay() is Day.Day3)
+        {
+            float teaRandom = Random.Range(0, 1);
+            switch (teaRandom)
+            {
+                case float n when n < .74f:
+                    spawnedGuest.teaType = TeaType.TypeA;
+                    break;
+                default:
+                    spawnedGuest.teaType = TeaType.TypeB;
+                    break;
+            }
+        }
+        else
+        {
+            spawnedGuest.teaType = TeaType.TypeA;
+        }
+        
+        GameManager.Instance.AddVisitingGuest(spawnedGuest);
         //Setup the guest, here we seed the type of guest, what tea they want etc.
     }
 

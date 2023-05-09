@@ -13,6 +13,13 @@ public enum Difficulty
     Hard
 }
 
+public enum Day
+{
+    Day1,
+    Day2,
+    Day3
+}
+
 public class GameManager : MonoBehaviour
 {
     //Use "GameManager.Instance" to reference functions and variables in the GM.
@@ -40,10 +47,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int easyGuestNumber = 3;
     [SerializeField] private int normalGuestNumber = 5;
     [SerializeField] private int hardGuestNumber = 9;
-    [SerializeField] private int GuestsServedToWin;
-
+    [SerializeField] private int goldEarnedToWin;
+    [SerializeField] private int maxNumberOfAngryGuests;
+    
+    [SerializeField] private Day day;
     private float timeSinceStart;
     private int maxNumberOfActiveGuests;
+    public int servedGuests;
+    public int earnedGold;
+    public int angryGuests;
+
+    [Header("Day 1 settings")]
+    [SerializeField] private int day1GoldToWin;
+    
+    [Header("Day 2 settings")]
+    [SerializeField] private int day2GoldToWin;
+    
+    [Header("Day 3 settings")]
+    [SerializeField] private int day3GoldToWin;
+    
 
     SoundManager soundManager;
 
@@ -56,15 +78,21 @@ public class GameManager : MonoBehaviour
     public List<Guest> guestsInScene = new();
     //Maintains a list of all guests in the scene, added to by the GuestSpawner object.
 
-    public int servedGuests;
-    public int earnedGold;
-    public int angryGuests;
-
-    bool goToEndGame;
-
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
+        switch (day)
+        {
+            case Day.Day1:
+                goldEarnedToWin = day1GoldToWin;
+                break;
+            case Day.Day2:
+                goldEarnedToWin = day2GoldToWin;
+                break;
+            case Day.Day3:
+                goldEarnedToWin = day3GoldToWin;
+                break;
+        }
     }
     private void Update()
     {
@@ -74,18 +102,6 @@ public class GameManager : MonoBehaviour
         }
 
         GameTimer();
-        
-
-        if (servedGuests == GuestsServedToWin)
-        {
-            goToEndGame = true;
-            GuestsServedToWin = 0;  
-            if(goToEndGame)
-            {
-                CheckWinCondition();
-                goToEndGame= false;
-            }
-        }
     }
 
     private void GameTimer()
@@ -128,21 +144,20 @@ public class GameManager : MonoBehaviour
                 freeSeatsInScene.Remove(seat);
                 freeSeats--;
                 return chosenRef;
-
             }
         }
 
         Debug.Log("If you see this, something has gone wrong in the AssignSeat function in the Game Manager");
         return null;
-        // int chosenSeat = Random.Range(0, freeSeatsInScene.Count - 1);
-        // Chair chosenRef = freeSeatsInScene[chosenSeat].GetGameObject();
-        // freeSeatsInScene.RemoveAt(chosenSeat);
-        // freeSeats--;
-        // return chosenRef;
 
         //Gives a reference to a free seat to a guest upon request.
     }
 
+    public Day CheckDay()
+    {
+        return day;
+    }
+    
     public void ReturnFreeSeat(Chair chair)
     {
         freeSeatsInScene.Add(chair);
@@ -157,11 +172,13 @@ public class GameManager : MonoBehaviour
     public void AddAngryGuest()
     {
         angryGuests++;
+        CheckWinCondition(false);
     }
 
     public void AddGoldToScore(int gold)
     {
         earnedGold += gold;
+        CheckWinCondition(true);
     }
 
     public void AddVisitingGuest(Guest guest)
@@ -181,24 +198,24 @@ public class GameManager : MonoBehaviour
         //Can be used to look up a specific guest or trigger something in a random guest.
     }
 
-    private void CheckWinCondition()
+    private void CheckWinCondition(bool gold)
     {
-        //if (servedGuests == GuestsServedToWin)
-        //{
-            EndGame(true);
-        //}
-    }
-
-    public void EndGame(bool win)
-    {
-        if (win)
+        //Function to check if the player has won
+        if (gold)
         {
-            gameUiRef.ShowEndGameUI(true, servedGuests, earnedGold, timeSinceStart);
- 
+            if (earnedGold >= goldEarnedToWin)
+                EndGame(true);
         }
         else
         {
-            gameUiRef.ShowEndGameUI(false, servedGuests, earnedGold, timeSinceStart);
+            if (angryGuests >= maxNumberOfAngryGuests)
+                EndGame(false);
         }
+    }
+
+    private void EndGame(bool win)
+    {
+        //Triggers the endgame screen
+        gameUiRef.ShowEndGameUI(win, servedGuests, earnedGold, timeSinceStart);
     }
 }

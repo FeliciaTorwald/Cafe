@@ -43,7 +43,7 @@ public class NewInteract : MonoBehaviour
 
     private void LateUpdate()
     {
-        toolTipDisplay.rectTransform.position = mainCameraRef.WorldToScreenPoint(transform.position) + offset;
+        // toolTipDisplay.rectTransform.position = mainCameraRef.WorldToScreenPoint(transform.position) + offset;
     }
 
     private void UpdatePlayerToolTip()
