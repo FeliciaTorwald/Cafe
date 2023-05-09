@@ -11,19 +11,34 @@ public class GuestInteraction : MonoBehaviour
     public float irritation;
     public float maxIrritationBeforeLeaving;
     [SerializeField] private Slider angerMeter;
+    [SerializeField] private float angerShakeAmount;
+    [SerializeField] private float angerShakeTime;
+    private Transform guestPos;
+    [SerializeField] private Transform sliderRect;
     SoundManager soundManager;
 
     private void Start()
     {
         angerMeter.maxValue = maxIrritationBeforeLeaving;
         soundManager = FindObjectOfType<SoundManager>();
+        guestPos = parentGuest.GetComponent<Transform>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
             ServeGuest(TeaType.TypeA);
-
+        
+        if (parentGuest.stateMachine.currentState is GuestStateID.AtTable or GuestStateID.Ordered)
+        {
+            if (irritation > maxIrritationBeforeLeaving*.75)
+            // if (irritation % maxIrritationBeforeLeaving <= (2 * maxIrritationBeforeLeaving) % 3)
+            {
+                Debug.Log("Shaking");
+                AngerShake();            
+            }
+        }
+        
         if (parentGuest.stateMachine.currentState == GuestStateID.AtTable && irritation < maxIrritationBeforeLeaving)
         {
             irritation += 1 * Time.deltaTime;
@@ -72,5 +87,18 @@ public class GuestInteraction : MonoBehaviour
     private void UpdateAngerMeter()
     {
         angerMeter.value = irritation;
+    }
+    
+    private void AngerShake()
+    {
+        Vector3 originalPosition = guestPos.position;
+        Vector2 fillAreaOriginalPosition = sliderRect.position;
+        
+        float shakeX = Mathf.Sin(Time.time * angerShakeTime) * angerShakeAmount;
+        float shakeZ = Mathf.Cos(Time.time * angerShakeTime) * angerShakeAmount;
+        Vector3 offset = new Vector3(shakeX, 0f, shakeZ);
+        Vector2 fillOffset = new Vector3(shakeX,shakeZ, 0f);
+        guestPos.position = originalPosition + offset;
+        sliderRect.localPosition = fillAreaOriginalPosition + fillOffset;
     }
 }
