@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6698113, g: 0.06003024, b: 0.15976539, a: 1}
+  m_Color: {r: 0.8490566, g: 0.06728367, b: 0.1975794, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -896,7 +896,11 @@ MonoBehaviour:
   table: {fileID: 0}
   irritation: 0
   maxIrritationBeforeLeaving: 30
+  guestCanvasRef: {fileID: 915519601924515225}
   angerMeter: {fileID: 6495045180809977342}
+  sliderFill: {fileID: 9134746610056846705}
+  minIrritationColor: {r: 0.4971099, g: 1, b: 0, a: 1}
+  maxIrritationColor: {r: 0.9433962, g: 0, b: 0.12043377, a: 1}
 --- !u!1 &9172077892518051386
 GameObject:
   m_ObjectHideFlags: 0
