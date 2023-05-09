@@ -15,7 +15,8 @@ public class Generate_Random_Pos : MonoBehaviour
         //kollla sampelposition och ändra masken
         //eventuellt generera mask
         //skapa toma objecet med box coliders där bara bobagästen får gå
-        if (NavMesh.SamplePosition(Dir, out Hit_, Radius, 3))
+        //Debug.Log(NavMesh.GetAreaFromName("Bobatea_guest"));
+        if (NavMesh.SamplePosition(Dir, out Hit_, Radius, -1))
         {
             Final_Pos = Hit_.position;
         }
