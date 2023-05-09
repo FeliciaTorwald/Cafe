@@ -30810,15 +30810,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.851802
+      value: -9.852094
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.454528
+      value: 5.454526
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.249643
+      value: 28.249647
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -31494,6 +31494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Huset_Bobapipe
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 998532762603085600, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -31801,15 +31805,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.949642
+      value: -16.39344
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.075
+      value: 31.765001
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.08109
+      value: 15.247671
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -32668,8 +32672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBoba: 0
-  hasWater: 0
-  canMakeBoba: 1
   isMakingTea: 0
   gameTime: 1
   bSC: {fileID: 0}
@@ -32678,7 +32680,6 @@ MonoBehaviour:
   rightFire: {fileID: 275002521}
   source: {fileID: 916423157}
   boilingSound: {fileID: 8300000, guid: 86775a82cd7bd0844b4e3df5e7e10a2e, type: 3}
-  water: 0
   queueText: {fileID: 599282821}
   finishedTea: {fileID: 636333080650323168, guid: 6973b5054db137049975701ae51f6dab, type: 3}
   spawnTeaPos: {fileID: 3524713289433041870}
@@ -44865,7 +44866,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.127999
+      value: 8.127866
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57017,7 +57018,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.851016
+      value: -9.852534
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -61985,11 +61986,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.882988
+      value: -9.88318
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.454526
+      value: 5.454528
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
