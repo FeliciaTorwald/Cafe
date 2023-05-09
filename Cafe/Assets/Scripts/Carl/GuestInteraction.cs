@@ -16,15 +16,11 @@ public class GuestInteraction : MonoBehaviour
     [SerializeField] private Color minIrritationColor;
     [SerializeField] private Color maxIrritationColor;
     
+    SoundManager soundManager;
     private void Start()
     {
         angerMeter.maxValue = maxIrritationBeforeLeaving;
         guestCanvasRef.GetComponent<Canvas>().worldCamera = Camera.main;
-    SoundManager soundManager;
-
-    private void Start()
-    {
-        angerMeter.maxValue = maxIrritationBeforeLeaving;
         soundManager = FindObjectOfType<SoundManager>();
     }
 
