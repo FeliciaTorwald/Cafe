@@ -811,7 +811,7 @@ RectTransform:
   - {fileID: 7061281594363204155}
   - {fileID: 2963230712289052290}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2438,8 +2438,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Served Guests: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6a27d141fc86f054cb3c43c4c9f6700d, type: 2}
-  m_sharedMaterial: {fileID: 7059678981429624013, guid: 6a27d141fc86f054cb3c43c4c9f6700d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9571833d7f9f34346beec903d62bc054, type: 2}
+  m_sharedMaterial: {fileID: -9072374788342062581, guid: 9571833d7f9f34346beec903d62bc054, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5903,7 +5903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 499422224851189939, guid: c452503d7a19ebd4bbd2cd1d8eb91a8f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 64.80002
+      value: 64.799805
       objectReference: {fileID: 0}
     - target: {fileID: 499422224851189939, guid: c452503d7a19ebd4bbd2cd1d8eb91a8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
