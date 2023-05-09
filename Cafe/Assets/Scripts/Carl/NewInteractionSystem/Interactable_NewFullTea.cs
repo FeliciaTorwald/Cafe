@@ -47,9 +47,12 @@ public class Interactable_NewFullTea : NewAbstractInteractable
                 closest.TakeOrder(playerInteractRef);
             else if (closest.guestRef.stateMachine.currentState is GuestStateID.Ordered)
             {
-                closest.ServeTable(playerInteractRef, gameObject);
-                playerInteractRef.NoLongerHoldingSomething();
-                playerInteractRef.interactables.Remove(this);
+                closest.ServeTable(playerInteractRef, gameObject, teaType);
+                if (closest.guestRef.stateMachine.currentState is GuestStateID.Served)
+                {
+                    playerInteractRef.NoLongerHoldingSomething();
+                    playerInteractRef.interactables.Remove(this);
+                }
             }
         }
         else
