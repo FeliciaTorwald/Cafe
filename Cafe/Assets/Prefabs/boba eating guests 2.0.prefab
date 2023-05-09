@@ -37,8 +37,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7566796003887657257}
+  - {fileID: 9165351093484441783}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5844229049464961266
 MeshFilter:
@@ -153,12 +154,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagToDetect: BobaPearls
-  allBobaPearls: []
-  closestBoba: {fileID: 0}
-  preFab: {fileID: 6648930191670280467, guid: 6ee6a662eabf5c44fb46a09359fe253e, type: 3}
+  allBobaTeacups: []
+  closestTeacup: {fileID: 0}
+  prefab_FullTeacup: {fileID: 0}
+  prefab_EmptyTeacup: {fileID: 0}
+  Boba_guests_pick_up_bobatea: {fileID: 0}
   toTheExit: {fileID: 0}
   spat_out_boba: {fileID: 7566796003887657257}
-  Boba_In_Mouth: 0
+  Radius: 20
+  Debug_Bool: 0
+  Boba_In_Hand: 0
+  source: {fileID: 0}
+  hit: {fileID: 0}
 --- !u!136 &2213306539856756938
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -219,6 +226,37 @@ MonoBehaviour:
   intriggerarea: 0
   Boba_guests_got_hit: 0
   holdMop: 0
+--- !u!1 &4736796998082411747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9165351093484441783}
+  m_Layer: 0
+  m_Name: Hands
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9165351093484441783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736796998082411747}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.04, y: 0.15, z: -0.98}
+  m_LocalScale: {x: 0.6211566, y: 0.6211566, z: 0.6211566}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3747843502766572535}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8808775973482166161
 GameObject:
   m_ObjectHideFlags: 0

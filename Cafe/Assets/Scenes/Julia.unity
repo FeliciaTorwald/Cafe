@@ -250,8 +250,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 60030103}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &60030106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,8 +537,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 484979522}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &79596505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,6 +993,10 @@ MonoBehaviour:
   audioSource: {fileID: 162436313}
   coinSound: {fileID: 8300000, guid: 8d50c64e32e9ade4f885d2ce32af5759, type: 3}
   bobaThrowSound: {fileID: 0}
+  swooshSound: {fileID: 0}
+  serveSound: {fileID: 0}
+  angrySound: {fileID: 0}
+  winningSound: {fileID: 0}
 --- !u!4 &162436312
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,11 +1512,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFab: {fileID: 6648930191670280467, guid: 6ee6a662eabf5c44fb46a09359fe253e, type: 3}
+  pooledObjects: []
   bobaInterval: 3.5
   bobaLifeTime: 20
-  amountToPool: 5
-  pooledObjects: []
   maxBobaInScene: 5
+  amountToPool: 5
   spawnPoints:
   - {fileID: 1504159774}
   - {fileID: 1486930655}
@@ -11388,8 +11396,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 318934164}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &318934167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11481,8 +11491,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 1187257195}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &349223391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11574,8 +11586,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 355448126}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &355448129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27235,8 +27249,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 1613836670}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &550720926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28007,8 +28023,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 1905357195}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &631996944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28744,11 +28762,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.323755
+      value: -9.323966
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.454528
+      value: 5.454526
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29574,15 +29592,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.39344
+      value: 11.87656
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.574999
+      value: 22.075
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.528486
+      value: 13.363037
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29729,8 +29747,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 441848273}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &877165062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30263,7 +30283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7626849753994422744, guid: 2bfed04eab049084aba71c8278b3dba7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7626849753994422744, guid: 2bfed04eab049084aba71c8278b3dba7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -30624,8 +30644,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBoba: 0
-  hasWater: 0
-  canMakeBoba: 1
   isMakingTea: 0
   gameTime: 1
   bSC: {fileID: 0}
@@ -30634,7 +30652,6 @@ MonoBehaviour:
   rightFire: {fileID: 275002521}
   source: {fileID: 916423157}
   boilingSound: {fileID: 8300000, guid: 86775a82cd7bd0844b4e3df5e7e10a2e, type: 3}
-  water: 0
   queueText: {fileID: 599282821}
   finishedTea: {fileID: 636333080650323168, guid: 6973b5054db137049975701ae51f6dab, type: 3}
   spawnTeaPos: {fileID: 3524713289433041870}
@@ -36038,8 +36055,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 401095578}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &993038798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41361,8 +41380,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 1121986866}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &1121986869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41452,11 +41473,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorEnterSpot: {fileID: 454514576}
   doorExitSpot: {fileID: 1496789785}
-  openPosRef: {fileID: 1033514357}
-  doorModel: {fileID: 833853600}
   queue: []
   open: 0
-  closed: 1
+  animator: {fileID: 0}
 --- !u!4 &1148734700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6207255411078231254, guid: d58a7a66c251fce42a546d57c75079d7, type: 3}
@@ -42150,7 +42169,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.648026
+      value: 8.6478815
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -53370,8 +53389,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 1465621776}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &1465621779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53786,7 +53807,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.328347
+      value: -9.328558
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -54162,8 +54183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 1546657877}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &1546657880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55556,8 +55579,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 1870832405}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &1870832408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55883,8 +55908,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 1025404837}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &1953092243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56108,8 +56135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 1485720155}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &1984106946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56623,8 +56652,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preFabGold: {fileID: 5855194005249689738, guid: 6a617d9f615580e4fab85529b5f9f844, type: 3}
-  onOrderFullfilled: 0
   moneyPlace: {fileID: 2119490280}
+  playerTarget: {fileID: 0}
+  goldInterval: 1
+  onOrderFullfilled: 0
 --- !u!114 &2119490283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56658,7 +56689,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.326868
+      value: -9.3286085
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
