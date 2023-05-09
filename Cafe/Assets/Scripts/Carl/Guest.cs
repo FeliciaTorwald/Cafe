@@ -28,6 +28,7 @@ public class Guest : MonoBehaviour
     public GameObject teaOrderImg;
     public GuestSpawner guestSpawner;
     public bool angry;
+    public Animator animator;
     
     //Enum to identify type of guest, can be set in prefab or when instantiating guest
     public enum GuestType
@@ -64,10 +65,12 @@ public class Guest : MonoBehaviour
         //Sets the initial state of the guest, should always be "Arriving"
         stateMachine.SetInitialState(initialState);
     }
+
     
     void Update()
     {
         stateMachine.Update();
+
     }
     
     public void DespawnGuest()

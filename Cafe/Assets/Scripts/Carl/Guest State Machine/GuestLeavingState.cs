@@ -19,10 +19,12 @@ public class GuestLeavingState : GuestState
         {
             case false:
                 guest.orderText.SetText("Pax vobiscum");
+                guest.animator.SetBool("Moving", true);
                 break;
             
             case true:
                 guest.orderText.SetText("Your tea is bad anyway!");
+                guest.animator.SetBool("Moving", true);
                 break;
         }
         GameManager.Instance.RemoveGuest(guest);

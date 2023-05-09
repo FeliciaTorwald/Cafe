@@ -14,6 +14,7 @@ public class GuestAtTableState : GuestState
     {
         ShowOrder(guest);
         guest.guestInteraction.ToggleAngerMeter(true);
+        guest.animator.SetBool("Moving", false);
     }
 
     private void Order(Guest guest)
