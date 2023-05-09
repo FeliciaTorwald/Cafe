@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class BrewingInventory : MonoBehaviour
 {
     public bool hasBoba;
-
+    public bool hasWater;
+    public bool canMakeBoba = true;
     public bool isMakingTea;
     public float gameTime = 10f;
     public BobaShooterController bSC;
@@ -22,14 +23,14 @@ public class BrewingInventory : MonoBehaviour
 
     // Make a queue of IEnumerators
     public Queue<IEnumerator> recipeQueue = new Queue<IEnumerator>();
-    public Queue<CraftingRecipe> craftQueue = new Queue<CraftingRecipe>();
 
+    [SerializeField] private int water = 0;
     [SerializeField] TextMeshProUGUI queueText;
     [SerializeField] GameObject finishedTea;
     [SerializeField] GameObject spawnTeaPos;
     [SerializeField] Slider timerSlider;
     GameObject teaToHold;
-
+    List<GameObject> finTeaList = new List<GameObject>();
 
     private void Start()
     {
@@ -41,8 +42,22 @@ public class BrewingInventory : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.B))
         {
-            BobaTea(craftQueue);
+            BobaTea();
         }
+    }
+
+    // On collision, will check if player has boba, and if they do, add boba to count
+    private void OnTriggerEnter(Collider collision)
+    {
+     
+        // If player has water it will add water to it
+        if (collision.gameObject.CompareTag("Player") && hasWater)
+        {
+            water++;
+            hasWater = false;
+            FindObjectOfType<Get_water_In_Teapot>().PouringWater();
+        }
+
     }
 
     //private void OnTriggerStay(Collider other)
@@ -53,7 +68,7 @@ public class BrewingInventory : MonoBehaviour
     //    }
     //}
 
-    public void StartMakingTea(CraftingRecipe tea)
+    public void StartMakingTea()
     {
         // Add timer IEnumerator to queue
         recipeQueue.Enqueue(Timer());
@@ -65,7 +80,7 @@ public class BrewingInventory : MonoBehaviour
         if (!isMakingTea)
         {
             StartCoroutine(Timer());
-
+            canMakeBoba = false;
             //isMakingTea = true;
         }
         boiling.Play();
@@ -97,7 +112,7 @@ public class BrewingInventory : MonoBehaviour
 
         } while (timer > 0);
 
-        BobaTea(craftQueue);
+        BobaTea();
         queueAmount--;
         CheckQueueAmount();
 
@@ -113,9 +128,9 @@ public class BrewingInventory : MonoBehaviour
     }
 
     // Spawns finished tea at a spawnpoint set to pot position
-    public void BobaTea(Queue<CraftingRecipe> teaQueue)
+    public void BobaTea()
     {
-        teaToHold = Instantiate(teaQueue.Dequeue().teaToCraft, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
+        teaToHold = Instantiate(finishedTea, spawnTeaPos.transform.position, Quaternion.identity) as GameObject;
 
         teaToHold.GetComponent<Rigidbody>().isKinematic = false;
         teaToHold.transform.position += Random.insideUnitSphere + new Vector3(0, 1.5f, 0);
@@ -123,6 +138,7 @@ public class BrewingInventory : MonoBehaviour
         force.y = Mathf.Abs(force.y);
         teaToHold.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
 
+        finTeaList.Add(teaToHold);
         isMakingTea = false;
         timerSlider.value = 0;
     }
@@ -137,6 +153,13 @@ public class BrewingInventory : MonoBehaviour
         }
     }
 
+    public void DestroyBoba()
+    {
+        Destroy(teaToHold);
+        //Destroy(finTeaList[0]);
+        
+        //finTeaList.RemoveAt(0);
+    }
     public void CheckQueueAmount()
     {
         queueText.text = queueAmount.ToString();

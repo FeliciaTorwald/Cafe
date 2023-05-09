@@ -17,7 +17,7 @@ public class BobaFinishedInteract : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                //pot.GetComponent<BrewingInventory>().canMakeBoba = true;
+                pot.GetComponent<BrewingInventory>().canMakeBoba = true;
                 //Invoke("RemoveTea", 1f);
             }
         }

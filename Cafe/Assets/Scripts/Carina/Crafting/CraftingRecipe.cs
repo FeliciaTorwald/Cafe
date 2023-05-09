@@ -8,7 +8,6 @@ public class CraftingRecipe : ScriptableObject
 
     public ItemData itemToCraft;
     public ResourceCost[] cost;
-    public GameObject teaToCraft;
 }
 
 [System.Serializable]

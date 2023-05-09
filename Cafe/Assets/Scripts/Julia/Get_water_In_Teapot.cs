@@ -34,7 +34,7 @@ public class Get_water_In_Teapot : MonoBehaviour
         if (inTriggerArea == true)
         {
             water_In_Teapot_of_on.SetActive(true);
-            //brewPot.hasWater = true;
+            brewPot.hasWater = true;
         }
     }
 

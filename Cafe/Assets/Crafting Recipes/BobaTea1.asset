@@ -18,4 +18,3 @@ MonoBehaviour:
     quantity: 1
   - item: {fileID: 11400000, guid: 87a523158d597d54c9629ef49f84e0c0, type: 2}
     quantity: 1
-  teaToCraft: {fileID: 636333080650323168, guid: 6973b5054db137049975701ae51f6dab, type: 3}

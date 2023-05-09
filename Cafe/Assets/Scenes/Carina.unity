@@ -2326,7 +2326,6 @@ GameObject:
   m_Component:
   - component: {fileID: 241715079}
   - component: {fileID: 241715078}
-  - component: {fileID: 241715080}
   m_Layer: 0
   m_Name: BobaSpawner
   m_TagString: Untagged
@@ -2372,23 +2371,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &241715080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241715077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ada51f5526d4094a9e78be7b99d0470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoints:
-  - {fileID: 1504159774}
-  - {fileID: 1486930655}
-  bobaTwo: {fileID: 6648930191670280467, guid: 3761ad78b0caf15488f80e3a4a7332e2, type: 3}
-  bobaAmount: 0
 --- !u!1001 &251532836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29812,7 +29794,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.33333334
+  m_VoxelSize: 0.1
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 953defcdb5fe74e4ab104052b7b5d158, type: 2}
   m_BuildHeightMesh: 1
@@ -30784,7 +30766,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.918597
+      value: -9.944735
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30792,7 +30774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.249643
+      value: 28.249645
       objectReference: {fileID: 0}
     - target: {fileID: 1469488772221735702, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_RootOrder
@@ -31817,7 +31799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.713441
+      value: 11.87656
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31825,7 +31807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.338312
+      value: 13.363037
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -32297,14 +32279,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7868661575918543656, guid: 2bfed04eab049084aba71c8278b3dba7, type: 3}
-      propertyPath: recipe1
-      value: 
-      objectReference: {fileID: 11400000, guid: dfd1370ab8f485f468ec9c26352989d8, type: 2}
-    - target: {fileID: 7868661575918543656, guid: 2bfed04eab049084aba71c8278b3dba7, type: 3}
-      propertyPath: recipe2
-      value: 
-      objectReference: {fileID: 11400000, guid: a1a13c0433d67334c8ce21b3e9ef8e97, type: 2}
     - target: {fileID: 9086411579777173243, guid: 2bfed04eab049084aba71c8278b3dba7, type: 3}
       propertyPath: m_text
       value: 'E: Drop'
@@ -32621,6 +32595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasBoba: 0
+  hasWater: 0
+  canMakeBoba: 1
   isMakingTea: 0
   gameTime: 1
   bSC: {fileID: 0}
@@ -32629,6 +32605,7 @@ MonoBehaviour:
   rightFire: {fileID: 275002521}
   source: {fileID: 916423157}
   boilingSound: {fileID: 8300000, guid: 86775a82cd7bd0844b4e3df5e7e10a2e, type: 3}
+  water: 0
   queueText: {fileID: 599282821}
   finishedTea: {fileID: 636333080650323168, guid: 6973b5054db137049975701ae51f6dab, type: 3}
   spawnTeaPos: {fileID: 3524713289433041870}
@@ -44294,9 +44271,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorEnterSpot: {fileID: 454514576}
   doorExitSpot: {fileID: 1496789785}
+  openPosRef: {fileID: 1033514357}
+  doorModel: {fileID: 833853600}
   queue: []
   open: 0
-  animator: {fileID: 0}
+  closed: 1
 --- !u!1001 &1147695818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45068,11 +45047,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.211656
+      value: 8.212512
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.454528
+      value: 5.454526
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57247,7 +57226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.918597
+      value: -10.023494
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -62117,7 +62096,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.886876
+      value: -9.8788
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
