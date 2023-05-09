@@ -120,7 +120,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
                     nav.SetDestination(VectorExit);
                 }
                 //ful_Hands = true;
-        }
+        
 
         //Picks up boba
         if (Inhands == true)
