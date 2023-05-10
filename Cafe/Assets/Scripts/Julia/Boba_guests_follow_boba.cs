@@ -19,7 +19,8 @@ public class Boba_guests_follow_boba : MonoBehaviour
     hit_boba_eating_guest boba_eating_guest_got_hit_true;
     [SerializeField] private float Radius = 20;
     [SerializeField] private bool Debug_Bool;
-    NavMeshAgent nav;
+    
+    public NavMeshAgent nav;
     Vector3 Next_pos;
     bool ful_Hands = false;
     bool intriggerarea;
@@ -44,7 +45,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
     void Start()
     {
-        VectorExit = toTheExit.transform.position;
+        // VectorExit = toTheExit.transform.position;
         //boba_eating_guest_got_hit_true = FindFirstObjectByType<hit_boba_eating_guest>();
 
         

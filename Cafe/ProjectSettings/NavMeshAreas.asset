@@ -11,9 +11,9 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: Ordenery guest
+  - name: RegularGuest
     cost: 1
-  - name: Bobatea guest
+  - name: BobaStealer
     cost: 3
   - name: 
     cost: 1
@@ -74,9 +74,9 @@ NavMeshProjectSettings:
   - serializedVersion: 3
     agentTypeID: 0
     agentRadius: 1
-    agentHeight: 2
+    agentHeight: 1.96
     agentSlope: 45
-    agentClimb: 0.75
+    agentClimb: 1.26
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
