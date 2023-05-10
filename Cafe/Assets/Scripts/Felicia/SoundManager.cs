@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip angrySound;
     public AudioClip winningSound;
     public AudioClip losingSound;
+    public AudioClip slurpSound;  
 
 
     public enum Sound
@@ -25,6 +26,7 @@ public class SoundManager : MonoBehaviour
         angrySound,
         winningSound,
         losingSound,
+        slurpSound,
     }
 
     public void Coin()
@@ -36,30 +38,41 @@ public class SoundManager : MonoBehaviour
     public void BobaThrow()
     {
         audioSource.PlayOneShot(bobaThrowSound);
+        audioSource.volume = 1f;
     }
 
     public void Swoosh()
     {
         audioSource.PlayOneShot(swooshSound);
+        audioSource.volume = 1f;
     }
 
     public void Serve()
     {
         audioSource.PlayOneShot(serveSound);
+        audioSource.volume = 1f;
     }
 
     public void Angry()
     {
         audioSource.PlayOneShot(angrySound);
+        audioSource.volume = 1f;
     }
 
     public void Winning()
     {
         audioSource.PlayOneShot(winningSound);
+        audioSource.volume = 1f;
     }
 
     public void Losing()
     {
         audioSource.PlayOneShot(losingSound);
+        audioSource.volume = 1f;
+    }
+    public void Slurp()
+    {
+        audioSource.PlayOneShot(slurpSound);
+        audioSource.volume = 2f;
     }
 }
