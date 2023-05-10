@@ -6,11 +6,12 @@ using TMPro;
 public class GuestServedCounter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI servedGuestsText;
-    [SerializeField] int maxServed;
+    [SerializeField] int maxGold;
 
     public void ServedGuestsCheck(int guests)
     {
-        servedGuestsText.text = string.Format("Served Guests: {0} / {1}", guests, maxServed);
+        //servedGuestsText.text = string.Format("Served Guests: {0} / {1}", guests, maxServed);
+        servedGuestsText.text = string.Format("Gold To Win: {0}", maxGold);
     }
 
 }
