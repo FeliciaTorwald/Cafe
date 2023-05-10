@@ -41,6 +41,8 @@ public class Boba_guests_follow_boba : MonoBehaviour
     bool StartDrinking_bobatea = false;
 
     float counter;
+
+    SoundManager soundManager;
     //bool Inhands = false;
 
     void Start()
@@ -57,6 +59,8 @@ public class Boba_guests_follow_boba : MonoBehaviour
         Next_pos = Generate_Random_Pos.R_Pos(transform.position,Radius);
         nav.SetDestination(Next_pos);
         timer_guestGoAroundRandom = 0;
+
+        soundManager = FindFirstObjectByType<SoundManager>();
     }
     private void Update()
     {
@@ -106,14 +110,14 @@ public class Boba_guests_follow_boba : MonoBehaviour
         //If boba guest dose not have boba in hands and not got hit by the player and if their exits boba in scene follow closest bobatea
         if(ful_Hands == false && allBobaTeacups.Length >= 1)
             {
-                Debug.Log("Inne här?");
+                //Debug.Log("Inne här?");
                 if (nollställ_huntBobatea == false)
                 {
                 timer_before_hunt_of_boba = 0;
                 nollställ_huntBobatea = true;
                 }
 
-                if (timer_before_hunt_of_boba <= 4)
+                if (timer_before_hunt_of_boba <= 10)
                 {
                 Random();
                 }
@@ -146,6 +150,8 @@ public class Boba_guests_follow_boba : MonoBehaviour
             {
             guestDrinks_Timer = 0;
             StartDrinking_bobatea = true;
+                Debug.Log("SLurp");
+                soundManager.Slurp();
             }
             
             //Boaba guest starts drinking tea and drinks it up after 6s
