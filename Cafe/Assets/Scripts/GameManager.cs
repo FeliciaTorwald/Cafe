@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
     public void AddServedGuest()
     {
         servedGuests++;
-        //guestsServed.ServedGuestsCheck(servedGuests);
+        guestsServed.ServedGuestsCheck(servedGuests);
     }
 
     public void AddAngryGuest()
