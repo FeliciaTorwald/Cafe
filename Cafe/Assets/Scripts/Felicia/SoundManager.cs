@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip serveSound;
     public AudioClip angrySound;
     public AudioClip winningSound;
+    public AudioClip losingSound;
 
 
     public enum Sound
@@ -23,6 +24,7 @@ public class SoundManager : MonoBehaviour
         serveSound,
         angrySound,
         winningSound,
+        losingSound,
     }
 
     public void Coin()
@@ -54,5 +56,10 @@ public class SoundManager : MonoBehaviour
     public void Winning()
     {
         audioSource.PlayOneShot(winningSound);
+    }
+
+    public void Losing()
+    {
+        audioSource.PlayOneShot(losingSound);
     }
 }

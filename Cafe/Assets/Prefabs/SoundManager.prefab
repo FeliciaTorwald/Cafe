@@ -52,6 +52,7 @@ MonoBehaviour:
   serveSound: {fileID: 8300000, guid: db126bde53eac2749a6867b10bdae46b, type: 3}
   angrySound: {fileID: 8300000, guid: 3cc1a5d3dc1d2764ea3eb151ba33b4d8, type: 3}
   winningSound: {fileID: 8300000, guid: 2e554b85275043046b415491eb3a9324, type: 3}
+  losingSound: {fileID: 8300000, guid: ac88ec41cf31a174f903c3ab4d4c7c18, type: 3}
 --- !u!82 &7572398450237548782
 AudioSource:
   m_ObjectHideFlags: 0

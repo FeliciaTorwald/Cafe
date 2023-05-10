@@ -183,6 +183,7 @@ public class GameUI : MonoBehaviour
             endGameGoldEarnedCounter.SetText(goldEarned.ToString());
             TimeSpan timeSpan = TimeSpan.FromSeconds(time);
             endGameTimeCounter.SetText("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
+            soundManager.Losing();
         }
     }
 
