@@ -19,15 +19,15 @@ public class Boba_guests_follow_boba : MonoBehaviour
     hit_boba_eating_guest boba_eating_guest_got_hit_true;
     [SerializeField] private float Radius = 20;
     [SerializeField] private bool Debug_Bool;
-    
-    public NavMeshAgent nav;
+    NavMeshAgent nav;
     Vector3 Next_pos;
     bool ful_Hands = false;
     bool intriggerarea;
     bool nollställ_huntBobatea = false;
 
     bool spawnOneDirtybobaTea = false;
-    bool Boba_guests_got_hit;
+    bool boba_guests_got_hit;
+    bool boba_guest_is_hunting = false;
     float speed = 500f;
     public float Boba_In_Hand = 0;
     float timer_guestGoAroundRandom;
@@ -41,14 +41,11 @@ public class Boba_guests_follow_boba : MonoBehaviour
     bool StartDrinking_bobatea = false;
 
     float counter;
-    bool Inhands = false;
+    //bool Inhands = false;
 
     void Start()
     {
-        // VectorExit = toTheExit.transform.position;
-        //boba_eating_guest_got_hit_true = FindFirstObjectByType<hit_boba_eating_guest>();
-
-        
+        boba_eating_guest_got_hit_true = FindFirstObjectByType<hit_boba_eating_guest>();
 
         Boba_In_Hand = 0;
         nav = GetComponent<NavMeshAgent>();
@@ -61,7 +58,6 @@ public class Boba_guests_follow_boba : MonoBehaviour
         nav.SetDestination(Next_pos);
         timer_guestGoAroundRandom = 0;
     }
-
     private void Update()
     {
         timer_guestGoAroundRandom += Time.deltaTime;
@@ -69,26 +65,22 @@ public class Boba_guests_follow_boba : MonoBehaviour
         //timer for when boba guest drinks tea
         guestDrinks_Timer += Time.deltaTime;
 
+        //timer before guest starts looking after next bobatea
         timer_before_hunt_of_boba += Time.deltaTime;
 
-        //Looks so their is no BobaTeacups in scene
+        //Looks if their is BobaTeacups in scene and count them
         allBobaTeacups = GameObject.FindGameObjectsWithTag("Boba");
-        
         for (int i = 0; i < allBobaTeacups.Length; i++)
         {
             if (allBobaTeacups[i] != null)
             {
                 counter++;
-                //Debug.Log(counter);
             }
         }
 
-        //If no BobaTeacups is in scene go to an random Location (NOT DONE)
+        //If no BobaTeacups is in scene go to an random Location
         if (counter == 0)
         {
-            //Debug.Log(Vector3.Distance(Next_pos, transform.position));
-            //Debug.Log(Next_pos);
-            //Kolla omm de går att komma fram till the target annars generera ny position.
             Random();
         }
         
@@ -97,56 +89,38 @@ public class Boba_guests_follow_boba : MonoBehaviour
         {
             if (intriggerarea == true)
             {
-                Boba_guests_got_hit = true;
                 source.PlayOneShot(hit);
+                ful_Hands = false;
+                closestTeacup.GetComponent<Rigidbody>().isKinematic = false;
+                StartDrinking_bobatea = false;
             }
-        }
-
-        //empty bobaguest hands on BobaTeacups
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            if (intriggerarea == true)
-            {
-                Boba_In_Hand = 0;
-            }
-        }
-
-        //If bobaguest got hit drop BobaTeacups (NOT DONE)
-        if (Boba_guests_got_hit == true)
-        {
-                for (int i = 0; i < Boba_In_Hand; i++) 
-                {
-                    closestTeacup.GetComponent<Rigidbody>().isKinematic = false;
-                    Inhands = false;
-                    nav.SetDestination(VectorExit);
-                }
-                //ful_Hands = true;
-        
-
-        //Picks up boba
-        if (Inhands == true)
-        {
-            closestTeacup.transform.position = Boba_guests_pick_up_bobatea.transform.position;
-            nollställ_huntBobatea = false;
         }
 
         if(closestTeacup == null)
+        {
             return;
-    
+        }
+        
+        //Debug.Log(boba_guests_got_hit);
+        //Debug.Log(allBobaTeacups.Length);
         //If boba guest dose not have boba in hands and not got hit by the player and if their exits boba in scene follow closest bobatea
-        if(ful_Hands == false && Boba_guests_got_hit == false && allBobaTeacups.Length >= 1)
+        if(ful_Hands == false && allBobaTeacups.Length >= 1)
             {
+                Debug.Log("Inne här?");
                 if (nollställ_huntBobatea == false)
                 {
                 timer_before_hunt_of_boba = 0;
                 nollställ_huntBobatea = true;
                 }
-                Debug.Log(timer_before_hunt_of_boba);
-                Random();
-                if (timer_before_hunt_of_boba >= 20)
+
+                if (timer_before_hunt_of_boba <= 4)
                 {
+                Random();
+                }
+                else
+                {
+                boba_guest_is_hunting = true;
                 nav.destination = closestTeacup.transform.position;
-                spawnOneDirtybobaTea = false;
                 }
             }
 
@@ -157,6 +131,16 @@ public class Boba_guests_follow_boba : MonoBehaviour
         
         if(ful_Hands == true)
         {
+                
+            //Picks up boba
+            closestTeacup.transform.position = Boba_guests_pick_up_bobatea.transform.position;
+            nollställ_huntBobatea = false;
+
+            //Fix so boba guest can´t pick up more bobatea
+            boba_guest_is_hunting = false;
+
+            //Get boba to stay in guests hand
+            closestTeacup.GetComponent<Rigidbody>().isKinematic = true;
 
             if (StartDrinking_bobatea == false)
             {
@@ -174,22 +158,21 @@ public class Boba_guests_follow_boba : MonoBehaviour
                     closestTeacup.GetComponent<Interactable_NewFullTea>().playerInteractRef.interactables.Remove(closestTeacup.GetComponent<NewAbstractInteractable>());
 
                 }
-
-                Destroy(closestTeacup);
+                spawnOneDirtybobaTea = true;
             }
 
-            if(spawnOneDirtybobaTea == false)
+            if(spawnOneDirtybobaTea == true)
             {
             Instantiate(prefab_EmptyTeacup, closestTeacup.transform.position, Quaternion.identity);
-            spawnOneDirtybobaTea = true;
-            }
-            Inhands = false;
+            Destroy(closestTeacup);
             ful_Hands = false;
+            StartDrinking_bobatea = false;
+            Boba_In_Hand = 0;
+            spawnOneDirtybobaTea = false;
             }
-
+        }
             //Walk to random position
             Random();
-        }
     }
 
     //calclates the closest Teacup
@@ -213,6 +196,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
         }
         return closest;
     }
+
     public void closestTeacups()
     {
     //find first Teacups
@@ -249,22 +233,14 @@ public class Boba_guests_follow_boba : MonoBehaviour
             }
     }
 
-
+//Kombinera ful_Hands och Inhands
     private void OnTriggerEnter(Collider other) 
     {
-        //If guest collides with boba and hands is not ful oick up boba
-        if (other.gameObject.tag == "Boba" && ful_Hands == false)
+        //If guest collides with boba and hands is not ful oick up boba (NOT DONE, TAKES BOBA BIFORE 20s)
+        if (other.gameObject.tag == "Boba" && ful_Hands == false && boba_guest_is_hunting == true)
         {
-            Boba_In_Hand +=1;
-            Inhands = true;
-            
-            //Get boba to stay in guests hand
-            closestTeacup.GetComponent<Rigidbody>().isKinematic = true;
-            
-            if (Boba_In_Hand >= 1)
-            {
-                ful_Hands = true;
-            }
+            ful_Hands = true;
+            Debug.Log(ful_Hands);
         }
 
         if (other.gameObject.tag == "Player")
