@@ -18,7 +18,7 @@ public class ThiefGuest : MonoBehaviour
 
     public bool pickedUp;
 
-    bool intriggerarea;
+    //bool intriggerarea;
     void Start()
     {
         allBobaPearls = GameObject.FindGameObjectsWithTag(tagToDetect);
@@ -63,36 +63,36 @@ public class ThiefGuest : MonoBehaviour
         closestBoba = FindClosestBoba();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            intriggerarea = true;
-        }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        intriggerarea = true;
+    //    }
 
-        if (other.gameObject.tag == "BobaPearls")
-        {
-            pickedUp = true;
-            pickedUpBoba = closestBoba;
-            pickedUpBoba.GetComponent<Rigidbody>().isKinematic = true;
-            pickedUpBoba.transform.position = hand.transform.position;
-            pickedUpBoba.transform.SetParent(hand);
-            pickedUpBoba.GetComponent<BobaMovement>().enabled = false;
-        }
-    }
+    //    if (other.gameObject.tag == "BobaPearls")
+    //    {
+    //        pickedUp = true;
+    //        pickedUpBoba = closestBoba;
+    //        pickedUpBoba.GetComponent<Rigidbody>().isKinematic = true;
+    //        pickedUpBoba.transform.position = hand.transform.position;
+    //        pickedUpBoba.transform.SetParent(hand);
+    //        pickedUpBoba.GetComponent<BobaMovement>().enabled = false;
+    //    }
+    //}
 
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            intriggerarea = false;
-        }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        intriggerarea = false;
+    //    }
 
-        if (other.gameObject.tag == "BobaPearls")
-        {
-            pickedUp = false;
-        }
+    //    if (other.gameObject.tag == "BobaPearls")
+    //    {
+    //        pickedUp = false;
+    //    }
 
-    }
+    //}
 }
