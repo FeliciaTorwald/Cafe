@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6997415597266326021}
   - component: {fileID: 4820686480488261615}
   - component: {fileID: 2364340186791767088}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 79068005769546038}
   - component: {fileID: 5812890612343800492}
   - component: {fileID: 294188128644506758}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 539516075408563141}
   - component: {fileID: 7273478815683836222}
   - component: {fileID: 6519687290078450934}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player Object
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 842792839192680968}
   - component: {fileID: 5411248485988601950}
   - component: {fileID: 7008790109477264487}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 7470796474610161586}
   - component: {fileID: 5976823944748307430}
   - component: {fileID: 336943348800768912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ Transform:
   - {fileID: 6730550627522645838}
   - {fileID: 4485035094322854980}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 86.72, z: 0}
 --- !u!1 &3536947505327977887
 GameObject:
@@ -802,7 +802,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6987936021677127875}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ToolParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 3098931519036843045}
   - component: {fileID: 6039187376071142303}
   - component: {fileID: 2959302576133825844}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PickupManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,6 +921,7 @@ MonoBehaviour:
   toolTipDisplay: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   interactables: []
+  heldObjectRef: {fileID: 0}
 --- !u!1 &3947646293742921258
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +931,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4599598111076307074}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PosOverHead
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -961,7 +962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6968943717041442736}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hands
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -994,7 +995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7603465026384874555}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PosDribble
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -1028,7 +1029,7 @@ GameObject:
   - component: {fileID: 5340634264845117674}
   - component: {fileID: 780661982996378183}
   - component: {fileID: 2498333980113009653}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InteractDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1214,7 +1215,7 @@ GameObject:
   - component: {fileID: 6331709598628019426}
   - component: {fileID: 6054379966992184106}
   - component: {fileID: 194450205445095350}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6098,6 +6099,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7a9967d4410b66544bc82146db9e03c9, type: 3}
       propertyPath: m_Name
       value: Maincharacter_finished_with_lowpoly
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a9967d4410b66544bc82146db9e03c9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
