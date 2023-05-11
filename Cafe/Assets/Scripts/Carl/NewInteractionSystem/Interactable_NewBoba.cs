@@ -13,21 +13,25 @@ public class Interactable_NewBoba : NewAbstractInteractable
     private float t = 0;
 
     public bool isBallFlying;
+    bool bobaIsStolen;
 
     SoundManager soundManager;
+    Boba_guests_follow_boba boba_Guests_Follow_Boba;
 
     private void Start()
     {
         target = GameObject.Find("TargetPoint Boba shooter").transform;
         posOverHead = GameObject.Find("PosOverHead").transform;
         soundManager = FindFirstObjectByType<SoundManager>();
+        boba_Guests_Follow_Boba = FindObjectOfType<Boba_guests_follow_boba>();
     }
-    
+
     private void Update()
     {
         Throw(playerInteractRef);
+
     }
-    
+
     public override void Interact(NewInteract newInteract)
     {
         playerInteractRef = newInteract;
@@ -47,6 +51,7 @@ public class Interactable_NewBoba : NewAbstractInteractable
             gameObject.GetComponent<BobaMovement>().enabled = false;
             Hold(playerInteractRef);
         }
+
     }
 
     public override void Throw(NewInteract newInteract)
@@ -97,6 +102,9 @@ public class Interactable_NewBoba : NewAbstractInteractable
         //Not a bucket
     }
 
+
+    //check if bobatheif has taken your boba and tell player that they have lost it
+
     private void OnTriggerStay(Collider other)
     {
 
@@ -116,5 +124,9 @@ public class Interactable_NewBoba : NewAbstractInteractable
             isBallFlying = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
         }
+
+
     }
+
+
 }
