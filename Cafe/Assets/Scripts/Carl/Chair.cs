@@ -6,6 +6,7 @@ using UnityEngine;
 public class Chair : MonoBehaviour, ISeat
 {
     public NewBobaTeaHandler tableRef;
+    public Transform seatPosition;
     
     void Start()
     {

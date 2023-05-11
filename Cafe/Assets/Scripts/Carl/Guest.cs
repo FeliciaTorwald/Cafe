@@ -81,4 +81,30 @@ public class Guest : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void GuestsSitDown()
+    {
+        Vector3 targetPos = chairRef.tableRef.goldSpawner.moneyPlace.transform.position;
+        float time = 1f * Time.deltaTime;
+
+        StartCoroutine(RotateTowardsSequence(targetPos, time));
+        if (chairRef.seatPosition)
+            transform.position = chairRef.seatPosition.position;
+    }
+    
+    private IEnumerator RotateTowardsSequence(Vector3 target, float totalTime)
+    {
+        Quaternion startRotation = transform.rotation;
+        Quaternion endRotation = Quaternion.LookRotation(target - transform.position);
+
+        float elapsedTime = 0f;
+        while (elapsedTime < totalTime)
+        {
+            transform.rotation = Quaternion.Slerp(startRotation, endRotation, elapsedTime / totalTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
+        transform.rotation = endRotation;
+    }
 }
