@@ -190,7 +190,6 @@ MonoBehaviour:
   tool: {fileID: 636333080650323168}
   toolParent: {fileID: 0}
   equipped: 0
-  inCollision: 0
   canYouEquipBoba: 0
   force: 200
   source: {fileID: 0}
@@ -347,6 +346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test_kopp_17
       objectReference: {fileID: 0}
+    - target: {fileID: 4662454356361509494, guid: 823aa8534c7dfff4584059a8033f7f78, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 992b0c2f330cdb04694873de8369b8f9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
