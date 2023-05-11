@@ -919,7 +919,7 @@ MonoBehaviour:
   parentGuest: {fileID: -8675251801881133073}
   table: {fileID: 0}
   irritation: 0
-  maxIrritationBeforeLeaving: 45
+  maxIrritationBeforeLeaving: 30
   angerMeter: {fileID: 6495045180809977342}
   angerShakeAmount: 0.009
   angerShakeTime: 100
