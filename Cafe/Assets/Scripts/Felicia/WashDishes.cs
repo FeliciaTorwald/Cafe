@@ -8,7 +8,7 @@ public class WashDishes : MonoBehaviour
     // när vi håller smutsig disk och klickar på e och är nära pond, mug försvinner 
     // mug spawnas vid ponden några sekunder senare och sen skjuts åt ett random håll med lerp
     bool inTriggerArea = false;
-    bool holdDirtyBobatea = false;
+    //bool holdDirtyBobatea = false;
 
     public bool startcleaningDirtyBobatea = false;
 
