@@ -9,14 +9,17 @@ public class DishManager : MonoBehaviour
     public GameObject spawnPos;
     BubbleSpawner bS;
     public ParticleSystem bubbles;
+    public ParticleSystem splash;
     public AudioSource source;
     public AudioClip bubbleSound;
+    SoundManager soundManager;
 
     private void Start()
     {
         bTH = FindObjectOfType<BobaTeaHandler>();
         //bS = FindObjectOfType<BubbleSpawner>();
         bubbles.Pause();
+        soundManager = FindFirstObjectByType<SoundManager>();
     }
 
     //void Spawn()
@@ -36,7 +39,9 @@ public class DishManager : MonoBehaviour
             //bTH.Invoke(nameof(bTH.DestroyDish),0.5f);
             //bS.StartCoroutine(bS.Spawn());
             bubbles.Play();
+            splash.Play();
             source.PlayOneShot(bubbleSound);
+            soundManager.Splash();
             //Spawn();
         }
     }
