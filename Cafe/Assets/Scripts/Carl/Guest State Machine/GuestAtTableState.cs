@@ -35,6 +35,7 @@ public class GuestAtTableState : GuestState
     private void ShowOrder(Guest guest)
     {
         guest.chairRef.tableRef.AddGuestToTeaOrder(guest);
+        guest.orderTextFrameElement.SetActive(true);
         guest.orderText.SetText("Ready to order!");
         //Display what the guest has ordered.
     }

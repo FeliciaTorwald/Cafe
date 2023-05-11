@@ -18,6 +18,7 @@ public class Guest : MonoBehaviour
     public TMP_FontAsset gibberishFont;
     public Canvas guestCanvas;
     public TMP_Text orderText;
+    public GameObject orderTextFrameElement;
     public Color angryTextColor;
     public Color happyTextColor;
     

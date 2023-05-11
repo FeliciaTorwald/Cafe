@@ -12,6 +12,7 @@ public class GuestOrderedState : GuestState
     public void Enter(Guest guest)
     {
         AddOrder(guest);
+        guest.orderTextFrameElement.SetActive(false);
     }
 
     public void Update(Guest guest)
