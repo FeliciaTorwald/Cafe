@@ -12,12 +12,12 @@ public class EquipTool : Pickupable
     public Transform toolParent;
     public bool equipped;
     public static bool slotIsFull;
-    public bool inCollision;
+    //public bool inCollision;
     public bool canYouEquipBoba;
     public float force = 1000;
     List<BobaTeaHandler> bTHs;
     WaterPickup wP;
-    bool guestInRange;
+    //bool guestInRange;
     private PickupManager pickupManager;
 
     public AudioSource source;
@@ -31,7 +31,7 @@ public class EquipTool : Pickupable
     public override void Interact()
     {
         //picks up tools
-        if (!equipped && !slotIsFull && inCollision)
+        if (!equipped && !slotIsFull)
         {
             Equip();
         }
@@ -184,12 +184,12 @@ public class EquipTool : Pickupable
     {
         if (!equipped && !slotIsFull && other.gameObject.tag == "Player")
         {
-            inCollision = true;
+            //inCollision = true;
         }
 
         if (other.gameObject.tag == "Guest")
         {
-            guestInRange = true;
+            //guestInRange = true;
         }
     }
 
@@ -197,12 +197,12 @@ public class EquipTool : Pickupable
     {
         if (!equipped && !slotIsFull && other.gameObject.tag == "Player")
         {
-            inCollision = false;
+            //inCollision = false;
         }
 
         if (other.gameObject.tag == "Guest")
         {
-            guestInRange = false;
+            //guestInRange = false;
         }
     }
 }

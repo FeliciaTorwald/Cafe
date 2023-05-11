@@ -35,7 +35,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
     //floats
     [SerializeField] private float Radius = 20;
     public float Boba_In_Hand = 0;
-    float speed = 500f;
+    //float speed = 500f;
     float counter;
 
         //timer

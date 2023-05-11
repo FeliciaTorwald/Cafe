@@ -16,7 +16,7 @@ public class BobaShooterController : MonoBehaviour
     public Transform PlayerRef;
     public float Distance;
     Vector3 startThrowPos;
-    bool equipped = false;
+    //bool equipped = false;
 
     public AudioClip sound_of_boba;
 
