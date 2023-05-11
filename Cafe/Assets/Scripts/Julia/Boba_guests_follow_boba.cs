@@ -106,17 +106,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
                 StartDrinking_bobatea = false;
             }
         } 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-             if (intriggerarea == true && ful_Hands == true)
-            {
-                source.PlayOneShot(hit);
-                ful_Hands = false;
-                //closestTeacup.GetComponent<Rigidbody>().isKinematic = false;
-                StartDrinking_bobatea = false;
-            }
-        }
-        
+       
 
         if(closestTeacup == null)
         {
@@ -158,6 +148,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
             nollställ_huntBobatea = false;
 
             closestTeacup.GetComponent<Interactable_NewFullTea>().StolenTea();
+            closestTeacup.GetComponent<Interactable_NewFullTea>().enabled = false;
             //Buggen med att teakoppen blir ett ufo runt spelaren när space klickas och man står när bobaätaren är troligen för att
             //När playern håller i bobateet och sen att boba ätaren tar den från playern så tror fortfarande playern att den håller 
             //i boba teet och därför när vi klickar på space så droppas teet men eftersom 
