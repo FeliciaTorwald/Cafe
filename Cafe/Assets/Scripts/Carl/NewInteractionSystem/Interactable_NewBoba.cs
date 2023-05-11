@@ -25,12 +25,13 @@ public class Interactable_NewBoba : NewAbstractInteractable
         soundManager = FindFirstObjectByType<SoundManager>();
         boba_Guests_Follow_Boba = FindObjectOfType<Boba_guests_follow_boba>();
     }
-    
+
     private void Update()
     {
         Throw(playerInteractRef);
+
     }
-    
+
     public override void Interact(NewInteract newInteract)
     {
         playerInteractRef = newInteract;
@@ -51,10 +52,6 @@ public class Interactable_NewBoba : NewAbstractInteractable
             Hold(playerInteractRef);
         }
 
-        if (bobaIsStolen)
-        {
-            playerInteractRef.NoLongerHoldingSomething();
-        }
     }
 
     public override void Throw(NewInteract newInteract)
@@ -128,14 +125,7 @@ public class Interactable_NewBoba : NewAbstractInteractable
             gameObject.GetComponent<SphereCollider>().enabled = false;
         }
 
-        if (other.gameObject.CompareTag("BrewingPot"))
-        {
-            if(boba_Guests_Follow_Boba.ful_Hands == true)
-            {
-                bobaIsStolen = true;
-            }
 
-        }
     }
 
 

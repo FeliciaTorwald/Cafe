@@ -37,13 +37,6 @@ public class BrewingInventory : MonoBehaviour
         rightFire.Pause();
         leftFire.Pause();
     }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.B))
-        {
-            BobaTea(craftQueue);
-        }
-    }
 
     //private void OnTriggerStay(Collider other)
     //{
