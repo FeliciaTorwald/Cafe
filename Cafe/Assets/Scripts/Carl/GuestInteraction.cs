@@ -36,7 +36,7 @@ public class GuestInteraction : MonoBehaviour
         {
             if (irritation > maxIrritationBeforeLeaving*.88)
             {
-                Debug.Log("Shaking");
+                //Debug.Log("Shaking");
                 AngerShake();
             }
         }
