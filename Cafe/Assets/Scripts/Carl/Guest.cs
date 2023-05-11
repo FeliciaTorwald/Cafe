@@ -37,7 +37,8 @@ public class Guest : MonoBehaviour
     public enum GuestType
     {
         TypeA,
-        TypeB
+        TypeB,
+        TypeC
     }
     public GuestType guestType;
     

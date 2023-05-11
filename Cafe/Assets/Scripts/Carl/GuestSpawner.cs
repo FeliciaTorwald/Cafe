@@ -83,7 +83,7 @@ public class GuestSpawner : MonoBehaviour
 
         if (GameManager.Instance.CheckDay() is Day.Day3)
         {
-            float teaRandom = Random.Range(0, 1);
+            float teaRandom = Random.Range(0f, 1f);
             switch (teaRandom)
             {
                 case float n when n < .74f:

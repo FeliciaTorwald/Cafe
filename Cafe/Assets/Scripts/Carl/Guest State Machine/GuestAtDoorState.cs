@@ -9,7 +9,7 @@ public class GuestAtDoorState : GuestState
 {
     private bool moving;
     private bool askedForSeat;
-    private float nextSeatCheckTimer;
+    private float nextSeatCheckTimer = 3f;
     
     public GuestStateID GetID()
     {
@@ -23,7 +23,7 @@ public class GuestAtDoorState : GuestState
 
     public void Update(Guest guest)
     {
-        if (guest.door.open && !askedForSeat)
+        if (!askedForSeat)
         {
             LookForFreeSeat(guest);
             askedForSeat = !askedForSeat;
