@@ -17,7 +17,7 @@ public class BobaAnimation : MonoBehaviour
         
     }
 
-    public void TriggerAnimation()
+    public void OnEnable()
     {
         animator.SetTrigger("Smol2Standard");
     }
