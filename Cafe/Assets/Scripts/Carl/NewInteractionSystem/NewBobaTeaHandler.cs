@@ -55,8 +55,6 @@ public class NewBobaTeaHandler : NewAbstractInteractable
                 }
             }
         }
-
-
     }
 
     public void TakeOrder(NewInteract newInteract)

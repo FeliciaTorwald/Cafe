@@ -33,6 +33,11 @@ public class Interactable_NewDirtyTea : NewAbstractInteractable
     public override void Interact(NewInteract newInteract)
     {
         playerInteractRef = newInteract;
+        if (dirtyDishOnTable)
+        {
+            dirtyDishOnTable = !dirtyDishOnTable;
+            tableRef.hasDirtyDish = false;
+        }
         
         if (isHeld)
         {

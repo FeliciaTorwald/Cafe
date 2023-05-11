@@ -59,7 +59,7 @@ public class GuestSpawner : MonoBehaviour
     
     public void SpawnNewGuest()
     {
-        if (guestSpawnTimer <= 0 && GameManager.Instance.guestsInScene.Count < maxNumberOfGuests)
+        if (guestSpawnTimer <= 0 && GameManager.Instance.guestsInScene.Count <= maxNumberOfGuests)
         {
             int guestRandomizerResult = GuestRandomizer();
             SetupGuest(guestRandomizerResult);
