@@ -86,13 +86,13 @@ public class BobaTeaHandler : Interactable
         }
     }
 
-    private void SpawnDish()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            emptyTea = Instantiate(emptyBobaTea, spawnPointRef, Quaternion.identity);
-        }
-    }
+    //private void SpawnDish()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.H))
+    //    {
+    //        emptyTea = Instantiate(emptyBobaTea, spawnPointRef, Quaternion.identity);
+    //    }
+    //}
     
     public void DestroyDish()
     {
@@ -108,7 +108,7 @@ public class BobaTeaHandler : Interactable
 
     private void Update()
     {
-        SpawnDish();
+    //    SpawnDish();
     }
    
     public void AddGuestToTeaOrder(Guest guest)
