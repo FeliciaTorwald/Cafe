@@ -31,13 +31,13 @@ public class Guest : MonoBehaviour
     public GuestSpawner guestSpawner;
     public bool angry;
     public Animator animator;
+    public teaOrderTicket orderTicketRef;
     
     //Enum to identify type of guest, can be set in prefab or when instantiating guest
     public enum GuestType
     {
         TypeA,
-        TypeB,
-        TypeC
+        TypeB
     }
     public GuestType guestType;
     

@@ -27,7 +27,7 @@ public class GuestOrderedState : GuestState
     private void AddOrder(Guest guest)
     {
         
-        guest.orderImg.SpawnOrderImage();
+        guest.orderImg.SpawnOrderImage(guest.teaType, guest);
         //guest.orderText.SetText("Ordered Tea 1");
         guest.teaOrderImg.gameObject.SetActive(true);
         guest.orderText.SetText(" ");

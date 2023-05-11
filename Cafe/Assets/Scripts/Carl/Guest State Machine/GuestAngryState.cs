@@ -18,6 +18,7 @@ public class GuestAngryState : GuestState
         guest.orderText.SetText("Leaving! Grr!");
         MoveToDestination(guest, guest.door.doorExitSpot);
         GameManager.Instance.AddAngryGuest();
+        guest.orderImg.RemoveOrderImage(guest.orderTicketRef);
         guest.teaOrderImg.gameObject.SetActive(false);
         guest.animator.SetBool("Moving", true);
     }

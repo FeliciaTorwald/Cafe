@@ -67,7 +67,7 @@ public class NewBobaTeaHandler : NewAbstractInteractable
     {
         GameObject tea = Instantiate(fakeFullBobaTea, spawnPointRef, Quaternion.identity);
         Destroy(tea, 1f);
-        orderImg.RemoveOrderImage();
+        orderImg.RemoveOrderImage(guestRef.orderTicketRef);
     }
 
     private void FinishedTea()
