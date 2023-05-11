@@ -7,43 +7,50 @@ using UnityEngine.AI;
 
 public class Boba_guests_follow_boba : MonoBehaviour
 {
-    //public string tagToDetect = "Boba";
+    //Gameobjects
     public GameObject[] allBobaTeacups;
-    //public List<GameObject> allBobaTeacups;
     public GameObject closestTeacup;
     public GameObject prefab_FullTeacup;
     public GameObject prefab_EmptyTeacup;
     public GameObject Boba_guests_pick_up_bobatea;
-    public Transform toTheExit;
-    public Transform spat_out_boba;
-    hit_boba_eating_guest boba_eating_guest_got_hit_true;
-    [SerializeField] private float Radius = 20;
-    [SerializeField] private bool Debug_Bool;
-    NavMeshAgent nav;
-    Vector3 Next_pos;
-    bool ful_Hands = false;
-    bool intriggerarea;
-    bool nollställ_huntBobatea = false;
+    public GameObject UI_Text;
 
+    //bools
+    [SerializeField] private bool Debug_Bool;
     bool spawnOneDirtybobaTea = false;
     bool boba_guests_got_hit;
     bool boba_guest_is_hunting = false;
-    float speed = 500f;
-    public float Boba_In_Hand = 0;
-    float timer_guestGoAroundRandom;
-    float guestDrinks_Timer;
-    float timer_before_hunt_of_boba;
-
-    public AudioSource source;
-    public AudioClip hit;
-    Vector3 VectorExit;
-
+    bool ful_Hands = false;
+    bool intriggerarea;
+    bool nollställ_huntBobatea = false;
     bool StartDrinking_bobatea = false;
 
+    //transforms
+    public Transform toTheExit;
+
+    //refrences
+    hit_boba_eating_guest boba_eating_guest_got_hit_true;
+    NavMeshAgent nav;
+
+    //floats
+    [SerializeField] private float Radius = 20;
+    public float Boba_In_Hand = 0;
+    float speed = 500f;
     float counter;
 
+        //timer
+        float timer_guestGoAroundRandom;
+        float guestDrinks_Timer;
+        float timer_before_hunt_of_boba;
+
+    //Audio
     SoundManager soundManager;
-    //bool Inhands = false;
+    public AudioSource source;
+    public AudioClip hit;
+
+    //Vector3
+    Vector3 Next_pos;
+    Vector3 VectorExit;
 
     void Start()
     {
@@ -89,28 +96,36 @@ public class Boba_guests_follow_boba : MonoBehaviour
         }
         
         //Looks if boba guest got hit and if it has been hit it makes a sound
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Space)))
         {
-            if (intriggerarea == true)
+            if (intriggerarea == true && ful_Hands == true)
             {
                 source.PlayOneShot(hit);
                 ful_Hands = false;
                 closestTeacup.GetComponent<Rigidbody>().isKinematic = false;
                 StartDrinking_bobatea = false;
             }
+        } 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+             if (intriggerarea == true && ful_Hands == true)
+            {
+                source.PlayOneShot(hit);
+                ful_Hands = false;
+                //closestTeacup.GetComponent<Rigidbody>().isKinematic = false;
+                StartDrinking_bobatea = false;
+            }
         }
+        
 
         if(closestTeacup == null)
         {
             return;
         }
         
-        //Debug.Log(boba_guests_got_hit);
-        //Debug.Log(allBobaTeacups.Length);
         //If boba guest dose not have boba in hands and not got hit by the player and if their exits boba in scene follow closest bobatea
         if(ful_Hands == false && allBobaTeacups.Length >= 1)
             {
-                //Debug.Log("Inne här?");
                 if (nollställ_huntBobatea == false)
                 {
                 timer_before_hunt_of_boba = 0;
@@ -135,10 +150,18 @@ public class Boba_guests_follow_boba : MonoBehaviour
         
         if(ful_Hands == true)
         {
-                
+            
+            //HÄR SKA VI HA EN IFSATS SOM KOLLAR OM PLAYER HÅLLER I BOBATEET OCH ISÅFALL SLUTAR HÅLLA I BOBATEET
+
             //Picks up boba
             closestTeacup.transform.position = Boba_guests_pick_up_bobatea.transform.position;
             nollställ_huntBobatea = false;
+
+            //Buggen med att teakoppen blir ett ufo runt spelaren när space klickas och man står när bobaätaren är troligen för att
+            //När playern håller i bobateet och sen att boba ätaren tar den från playern så tror fortfarande playern att den håller 
+            //i boba teet och därför när vi klickar på space så droppas teet men eftersom 
+            //spelaren fortfarande håller i det så rör det sig runt med spelaren
+            // så vi behöver göra så när bobaätaren snor boba från playern så förstår även playern att den inte har bobatea i handen.
 
             //Fix so boba guest can´t pick up more bobatea
             boba_guest_is_hunting = false;
@@ -148,8 +171,8 @@ public class Boba_guests_follow_boba : MonoBehaviour
 
             if (StartDrinking_bobatea == false)
             {
-            guestDrinks_Timer = 0;
-            StartDrinking_bobatea = true;
+                guestDrinks_Timer = 0;
+                StartDrinking_bobatea = true;
                 Debug.Log("SLurp");
                 soundManager.Slurp();
             }
@@ -159,18 +182,16 @@ public class Boba_guests_follow_boba : MonoBehaviour
             {
                 if (closestTeacup.GetComponent<NewAbstractInteractable>().isHeld)
                 {
-                    
                     closestTeacup.GetComponent<Interactable_NewFullTea>().playerInteractRef.NoLongerHoldingSomething();
                     closestTeacup.GetComponent<Interactable_NewFullTea>().playerInteractRef.interactables.Remove(closestTeacup.GetComponent<NewAbstractInteractable>());
-
                 }
                 spawnOneDirtybobaTea = true;
             }
 
             if(spawnOneDirtybobaTea == true)
             {
-            Instantiate(prefab_EmptyTeacup, closestTeacup.transform.position, Quaternion.identity);
             Destroy(closestTeacup);
+            Instantiate(prefab_EmptyTeacup, closestTeacup.transform.position, Quaternion.identity);
             ful_Hands = false;
             StartDrinking_bobatea = false;
             Boba_In_Hand = 0;
@@ -238,20 +259,18 @@ public class Boba_guests_follow_boba : MonoBehaviour
                 nav.SetDestination(Next_pos);
             }
     }
-
-//Kombinera ful_Hands och Inhands
     private void OnTriggerEnter(Collider other) 
     {
-        //If guest collides with boba and hands is not ful oick up boba (NOT DONE, TAKES BOBA BIFORE 20s)
+        //If guest collides with boba and hands is not ful pick up boba
         if (other.gameObject.tag == "Boba" && ful_Hands == false && boba_guest_is_hunting == true)
         {
             ful_Hands = true;
-            Debug.Log(ful_Hands);
         }
 
         if (other.gameObject.tag == "Player")
         {
             intriggerarea = true;
+            UI_Text.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -259,6 +278,9 @@ public class Boba_guests_follow_boba : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             intriggerarea = false;
+            UI_Text.SetActive(false);
         }
     }
+
+    
 }
