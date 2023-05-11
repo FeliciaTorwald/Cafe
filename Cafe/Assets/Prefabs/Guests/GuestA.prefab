@@ -224,6 +224,7 @@ MonoBehaviour:
   guestSpawner: {fileID: 0}
   angry: 0
   animator: {fileID: 2272582220331927439}
+  orderTicketRef: {fileID: 0}
   guestType: 0
   teaType: 0
 --- !u!195 &-8075359401094702259
@@ -541,7 +542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1055807184337538290
 RectTransform:
   m_ObjectHideFlags: 0
