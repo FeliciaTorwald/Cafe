@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,7 +9,8 @@ public class GuestAtDoorState : GuestState
 {
     private bool moving;
     private bool askedForSeat;
-
+    private float nextSeatCheckTimer;
+    
     public GuestStateID GetID()
     {
         return GuestStateID.AtDoor;
@@ -17,7 +19,6 @@ public class GuestAtDoorState : GuestState
     public void Enter(Guest guest)
     {
         guest.door.queue.Add(guest);
-        // guest.door.OpenDoor();
     }
 
     public void Update(Guest guest)
@@ -27,13 +28,24 @@ public class GuestAtDoorState : GuestState
             LookForFreeSeat(guest);
             askedForSeat = !askedForSeat;
         }
+        else if (guest.door.open)
+        {
+            if (nextSeatCheckTimer <= 0f)
+            {
+                LookForFreeSeat(guest);
+                nextSeatCheckTimer = 3f;
+            }
+            else
+            {
+                nextSeatCheckTimer -= 1 * Time.deltaTime;
+            }
+        }
         CheckIfAtDestination(guest);
     }
 
-
     public void Exit(Guest guest)
     {
-        
+        guest.door.queue.Remove(guest);
     }
 
     public void LookForFreeSeat(Guest guest)
@@ -41,7 +53,8 @@ public class GuestAtDoorState : GuestState
         if (GameManager.Instance.freeSeats > 0)
         {
             guest.chairRef = GameManager.Instance.AssignSeat();
-            MoveToDestination(guest, guest.chairRef.transform);
+            if (guest.chairRef)
+                MoveToDestination(guest, guest.chairRef.transform);
         }
     }
     
