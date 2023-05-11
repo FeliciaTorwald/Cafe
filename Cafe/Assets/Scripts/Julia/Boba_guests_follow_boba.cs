@@ -20,7 +20,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
     bool spawnOneDirtybobaTea = false;
     bool boba_guests_got_hit;
     bool boba_guest_is_hunting = false;
-    bool ful_Hands = false;
+    public bool ful_Hands = false;
     bool intriggerarea;
     bool nollställ_huntBobatea = false;
     bool StartDrinking_bobatea = false;
