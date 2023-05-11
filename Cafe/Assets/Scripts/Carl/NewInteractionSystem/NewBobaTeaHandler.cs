@@ -30,10 +30,10 @@ public class NewBobaTeaHandler : NewAbstractInteractable
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            SpawnDish();
-        }
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    //SpawnDish();
+        //}
     }
     
     public void ServeTable(NewInteract newInteract, GameObject tea, TeaType type)
