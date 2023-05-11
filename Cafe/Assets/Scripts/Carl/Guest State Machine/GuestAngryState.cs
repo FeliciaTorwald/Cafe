@@ -19,6 +19,7 @@ public class GuestAngryState : GuestState
         MoveToDestination(guest, guest.door.doorExitSpot);
         GameManager.Instance.AddAngryGuest();
         guest.teaOrderImg.gameObject.SetActive(false);
+        guest.animator.SetBool("Moving", true);
     }
 
     public void Update(Guest guest)
