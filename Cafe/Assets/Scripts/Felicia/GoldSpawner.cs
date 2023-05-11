@@ -41,12 +41,12 @@ public class GoldSpawner : MonoBehaviour
     {
         timer += Time.deltaTime;
         //devtools
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            //Invoke(nameof(Spawn),1);
-            Spawn();
-            //StartCoroutine(Spawn());
-        }
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    //Invoke(nameof(Spawn),1);
+        //    Spawn();
+        //    //StartCoroutine(Spawn());
+        //}
 
         if (coinIsFlying)
         {
