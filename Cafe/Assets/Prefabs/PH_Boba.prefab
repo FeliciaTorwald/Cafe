@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 2417213725229297749}
   - component: {fileID: -506459597673483925}
   - component: {fileID: -8814853605713979338}
+  - component: {fileID: 1484650659692678105}
+  - component: {fileID: 4400155771525585295}
   m_Layer: 0
   m_Name: PH_Boba
   m_TagString: BobaPearls
@@ -205,3 +207,37 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.7341075
   m_Center: {x: -0.10508919, y: 0, z: 0}
+--- !u!114 &1484650659692678105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648930191670280467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0af64ef906ca341b69008b581453f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4400155771525585295}
+--- !u!95 &4400155771525585295
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648930191670280467}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 523e55ac058f9c644a11bfb77d21fad9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
