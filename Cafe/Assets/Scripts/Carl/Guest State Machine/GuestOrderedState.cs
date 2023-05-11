@@ -22,7 +22,7 @@ public class GuestOrderedState : GuestState
 
     public void Exit(Guest guest)
     {
-        
+        guest.orderTextFrameElement.SetActive(true);
     }
 
     private void AddOrder(Guest guest)
