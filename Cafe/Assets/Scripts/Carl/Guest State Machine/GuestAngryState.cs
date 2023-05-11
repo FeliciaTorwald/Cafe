@@ -13,6 +13,8 @@ public class GuestAngryState : GuestState
 
     public void Enter(Guest guest)
     {
+        guest.orderText.color = guest.angryTextColor;
+        guest.orderText.font = guest.gibberishFont;
         guest.orderText.SetText("Leaving! Grr!");
         MoveToDestination(guest, guest.door.doorExitSpot);
         GameManager.Instance.AddAngryGuest();

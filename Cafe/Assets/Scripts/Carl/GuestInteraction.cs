@@ -34,8 +34,7 @@ public class GuestInteraction : MonoBehaviour
         
         if (parentGuest.stateMachine.currentState is GuestStateID.AtTable or GuestStateID.Ordered)
         {
-            if (irritation > maxIrritationBeforeLeaving*.75)
-            // if (irritation % maxIrritationBeforeLeaving <= (2 * maxIrritationBeforeLeaving) % 3)
+            if (irritation > maxIrritationBeforeLeaving*.88)
             {
                 Debug.Log("Shaking");
                 AngerShake();            

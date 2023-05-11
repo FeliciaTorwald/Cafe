@@ -15,9 +15,11 @@ public class Guest : MonoBehaviour
     public GuestInteraction guestInteraction;
 
     public Transform guestSpawnPos;
-    
+    public TMP_FontAsset gibberishFont;
     public Canvas guestCanvas;
     public TMP_Text orderText;
+    public Color angryTextColor;
+    public Color happyTextColor;
     
     public new Camera camera;
     public Door door;

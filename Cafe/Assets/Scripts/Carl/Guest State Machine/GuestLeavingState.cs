@@ -18,11 +18,14 @@ public class GuestLeavingState : GuestState
         switch (guest.angry)
         {
             case false:
+                guest.orderText.color = guest.happyTextColor;
                 guest.orderText.SetText("Pax vobiscum");
                 guest.animator.SetBool("Moving", true);
                 break;
             
             case true:
+                guest.orderText.color = guest.angryTextColor;
+                guest.orderText.font = guest.gibberishFont;
                 guest.orderText.SetText("Your tea is bad anyway!");
                 guest.animator.SetBool("Moving", true);
                 break;
