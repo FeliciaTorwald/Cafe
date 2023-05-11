@@ -23,12 +23,12 @@ public class GuestAtDoorState : GuestState
 
     public void Update(Guest guest)
     {
-        if (!askedForSeat)
+        if (!askedForSeat && !guest.chairRef)
         {
             LookForFreeSeat(guest);
             askedForSeat = !askedForSeat;
         }
-        else if (guest.door.open)
+        else if (guest.door.open && !guest.chairRef)
         {
             if (nextSeatCheckTimer <= 0f)
             {
