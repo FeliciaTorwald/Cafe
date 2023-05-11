@@ -4474,7 +4474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ada51f5526d4094a9e78be7b99d0470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 1504159774}
+  - {fileID: 1486930655}
   bobaTwo: {fileID: 6648930191670280467, guid: 3761ad78b0caf15488f80e3a4a7332e2, type: 3}
   bobaAmount: 0
   maxBobaAmount: 1
@@ -36571,7 +36573,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.616803
+      value: -9.617231
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38556,7 +38558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.924249
+      value: 14.924836
       objectReference: {fileID: 0}
     - target: {fileID: 690264995210279854, guid: 3ff0a82a12c09454e883382f623a5b02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -54790,7 +54792,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.344467
+      value: 8.344437
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -73496,7 +73498,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.758999
+      value: -9.759054
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -83599,7 +83601,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.694267
+      value: -9.694322
       objectReference: {fileID: 0}
     - target: {fileID: 925909876084713504, guid: d84156aec9929254fac5b25970ad93a2, type: 3}
       propertyPath: m_LocalPosition.y
