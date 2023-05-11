@@ -157,7 +157,7 @@ public class Boba_guests_follow_boba : MonoBehaviour
             closestTeacup.transform.position = Boba_guests_pick_up_bobatea.transform.position;
             nollställ_huntBobatea = false;
 
-            closestTeacup.GetComponent<Interactable_NewFullTea>().playerInteractRef.NoLongerHoldingSomething();
+            closestTeacup.GetComponent<Interactable_NewFullTea>().StolenTea();
             //Buggen med att teakoppen blir ett ufo runt spelaren när space klickas och man står när bobaätaren är troligen för att
             //När playern håller i bobateet och sen att boba ätaren tar den från playern så tror fortfarande playern att den håller 
             //i boba teet och därför när vi klickar på space så droppas teet men eftersom 

@@ -88,7 +88,12 @@ public class Interactable_NewFullTea : NewAbstractInteractable
             }
         }        
     }
-    
+    public void StolenTea()
+    {
+        toolParent.DetachChildren();
+        playerInteractRef.NoLongerHoldingSomething();
+        //gör andra grejer
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(tableString))
