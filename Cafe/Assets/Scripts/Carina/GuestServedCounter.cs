@@ -8,7 +8,7 @@ public class GuestServedCounter : MonoBehaviour
     [SerializeField] TextMeshProUGUI servedGuestsText;
     [SerializeField] int maxGold;
 
-    public void ServedGuestsCheck(int guests)
+    public void ServedGuestsCheck()
     {
         //servedGuestsText.text = string.Format("Served Guests: {0} / {1}", guests, maxServed);
         servedGuestsText.text = string.Format("Gold To Win: {0}", maxGold);

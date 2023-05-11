@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        guestsServed.ServedGuestsCheck();
         soundManager = FindObjectOfType<SoundManager>();
         switch (day)
         {
@@ -166,7 +167,6 @@ public class GameManager : MonoBehaviour
     public void AddServedGuest()
     {
         servedGuests++;
-        guestsServed.ServedGuestsCheck(servedGuests);
     }
 
     public void AddAngryGuest()
