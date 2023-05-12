@@ -64,7 +64,7 @@ public class GoldSpawner : MonoBehaviour
             Vector3 arc = Vector3.up * 5 * Mathf.Sin(t01 * 3.14f);
             coin.transform.position = pos + arc;
 
-            if (t01 >= 0.935)
+            if (t01 >= 1)
             {
                 coin.GetComponent<Rigidbody>().isKinematic = false;
                 coin.GetComponent<BoxCollider>().enabled = true;
@@ -90,5 +90,17 @@ public class GoldSpawner : MonoBehaviour
             }
 
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            coin.GetComponent<SphereCollider>().enabled = false;
+            coin.GetComponent<BoxCollider>().enabled = false;
+        }
+
+
     }
 }
