@@ -45,7 +45,7 @@ public class Interactable_NewFullTea : NewAbstractInteractable
         {
             if (closest.guestRef.stateMachine.currentState is GuestStateID.AtTable)
                 closest.TakeOrder(playerInteractRef);
-            else if (closest.guestRef.stateMachine.currentState is GuestStateID.Ordered)
+            else if (closest.guestRef.stateMachine.currentState is GuestStateID.Ordered && teaType == closest.guestRef.teaType)
             {
                 closest.ServeTable(playerInteractRef, gameObject, teaType);
                 if (closest.guestRef.stateMachine.currentState is GuestStateID.Served)
@@ -92,7 +92,7 @@ public class Interactable_NewFullTea : NewAbstractInteractable
     {
         toolParent.DetachChildren();
         playerInteractRef.NoLongerHoldingSomething();
-        //gör andra grejer
+        //gï¿½r andra grejer
     }
     private void OnTriggerEnter(Collider other)
     {
