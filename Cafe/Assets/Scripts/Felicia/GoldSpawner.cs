@@ -99,6 +99,7 @@ public class GoldSpawner : MonoBehaviour
         {
             coin.GetComponent<SphereCollider>().enabled = false;
             coin.GetComponent<BoxCollider>().enabled = false;
+            coinIsFlying= false;
         }
 
 
