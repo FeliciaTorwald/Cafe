@@ -11,7 +11,7 @@ public class BobaTwoSpawner : MonoBehaviour
     public int bobaAmount = 0;
     public int maxBobaAmount;
     int minTime = 1;
-    int maxTime = 8;
+    int maxTime = 12;
 
     bool isSpawning;
 
@@ -29,6 +29,7 @@ public class BobaTwoSpawner : MonoBehaviour
         {
             float timer = Random.Range(minTime, maxTime);
             Invoke("SpawnBoba", timer);
+            bobaAmount++;
             isSpawning = true;
         }
     }
@@ -36,7 +37,6 @@ public class BobaTwoSpawner : MonoBehaviour
     private void SpawnBoba()
     {
         newBobaTwo = Instantiate(bobaTwo, spawnPoints[firstIndex].position, spawnPoints[firstIndex].rotation, transform);
-        bobaAmount++;
         isSpawning = false;
     }
 }
