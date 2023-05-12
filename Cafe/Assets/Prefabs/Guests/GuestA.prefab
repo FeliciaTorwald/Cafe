@@ -226,6 +226,8 @@ MonoBehaviour:
   angry: 0
   animator: {fileID: 2272582220331927439}
   orderTicketRef: {fileID: 0}
+  teaOrderImg1: {fileID: 21300000, guid: 89dee65d0c2fdd34d813d86f8118901c, type: 3}
+  teaOrderImg2: {fileID: 21300000, guid: 381efe24daef45e489974f5a8b1b93c0, type: 3}
   guestType: 0
   teaType: 0
 --- !u!195 &-8075359401094702259

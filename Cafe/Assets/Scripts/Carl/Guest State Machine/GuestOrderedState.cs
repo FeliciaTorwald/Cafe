@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GuestOrderedState : GuestState
 {
@@ -31,6 +32,15 @@ public class GuestOrderedState : GuestState
         guest.orderImg.SpawnOrderImage(guest.teaType, guest);
         //guest.orderText.SetText("Ordered Tea 1");
         guest.teaOrderImg.gameObject.SetActive(true);
+        if (guest.teaType is TeaType.TypeA)
+        {
+            guest.teaOrderImg.GetComponent<Image>().sprite = guest.teaOrderImg1;
+        }
+        else if (guest.teaType is TeaType.TypeB)
+        {
+            guest.teaOrderImg.GetComponent<Image>().sprite = guest.teaOrderImg2;
+        }
+        
         guest.orderText.SetText(" ");
 
     }
