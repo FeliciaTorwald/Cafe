@@ -16,5 +16,5 @@ MonoBehaviour:
   maxStackAmount: 20
   displayName: Water
   type: 0
-  icon: {fileID: 21300000, guid: ec8024db32af253448f98c98b281000d, type: 3}
+  icon: {fileID: 21300000, guid: 648b9e1f6805d5c449f7afbebb59d190, type: 3}
   dropPrefab: {fileID: 0}
