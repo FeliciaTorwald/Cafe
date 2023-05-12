@@ -33,6 +33,9 @@ public class Guest : MonoBehaviour
     public bool angry;
     public Animator animator;
     public teaOrderTicket orderTicketRef;
+
+    public Sprite teaOrderImg1;
+    public Sprite teaOrderImg2;
     
     //Enum to identify type of guest, can be set in prefab or when instantiating guest
     public enum GuestType
