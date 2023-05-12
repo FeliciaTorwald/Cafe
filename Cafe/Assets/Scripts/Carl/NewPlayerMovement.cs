@@ -21,7 +21,10 @@ public class NewPlayerMovement : MonoBehaviour
     [SerializeField] private float maxSpeed;
     [SerializeField] private Vector3 brakeStrength = new Vector3(1, 0, 1);
 
+
     public ParticleSystem dust;
+
+    public Animator animator;
 
     private void Start()
     {
@@ -81,6 +84,29 @@ public class NewPlayerMovement : MonoBehaviour
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation,rotationSpeed * Time.deltaTime);
             dust.Play();
+            //animator.SetTrigger("Walking");
+        }
+        if(movement== Vector3.zero)
+        {
+            //animator.SetTrigger("Idle");
+        }
+
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        {
+           // animator.SetTrigger("Walking");
+        }
+        else
+        {
+            //animator.SetTrigger("Idle");
+        }
+
+        if(Mathf.Abs(verticalInput ) > 0.01f || Mathf.Abs(horizontalInput) > 0.01f)
+        {
+            animator.SetBool("WalkingBool", true);
+        }
+        else
+        {
+            animator.SetBool("WalkingBool", false);
         }
     }
 }
