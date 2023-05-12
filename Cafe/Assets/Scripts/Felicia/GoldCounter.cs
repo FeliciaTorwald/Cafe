@@ -11,7 +11,7 @@ public class GoldCounter : MonoBehaviour
     public void AddGold(int points)//int adds to gold counter
     {
         amountOfGold += points;
-        goldCounterText.text = string.Format("gold " + "{0:0}", amountOfGold);
+        goldCounterText.text = string.Format("gold {0}", amountOfGold);
         GameManager.Instance.AddGoldToScore(points);
     }
 }
