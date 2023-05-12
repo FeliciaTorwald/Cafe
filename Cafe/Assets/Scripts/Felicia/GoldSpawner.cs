@@ -95,7 +95,7 @@ public class GoldSpawner : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && preFabGold.activeInHierarchy)
         {
             coin.GetComponent<SphereCollider>().enabled = false;
             coin.GetComponent<BoxCollider>().enabled = false;
