@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainGame.unity
     guid: ef7b30cac54c71a4b8de3ab470c4dac8
   - enabled: 1
+    path: Assets/Scenes/DayTwo.unity
+    guid: dd79d85972829c44f9275f293d6493e7
+  - enabled: 1
+    path: Assets/Scenes/DayThree.unity
+    guid: af5d473d6c87200408c636c2bdae9f66
+  - enabled: 0
     path: Assets/Scenes/MainGame Day2.unity
     guid: 5df072a07600dce4fa2db5d3930a2efb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainGame Day3.unity
     guid: b6e5607982b7fc44383c2a40b39cf60a
   m_configObjects: {}

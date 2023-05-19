@@ -22,6 +22,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject endGameUI;
     [SerializeField] private GameObject goldCounterUI;
     [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private GameObject nextDayButton;
     [SerializeField] private TMP_Text endGameStatusText;
     [SerializeField] private TMP_Text endGameGuestsServedCounter;
     [SerializeField] private TMP_Text endGameGoldEarnedCounter;
@@ -162,6 +163,7 @@ public class GameUI : MonoBehaviour
             goldCounterUI.SetActive(false);
             inventoryUI.SetActive(false);
             endGameUI.SetActive(true);
+            nextDayButton.SetActive(true);
             endGameStatusText.SetText("You win!");
             endGameGuestsServedCounter.SetText(servedGuests.ToString());
             endGameGoldEarnedCounter.SetText(goldEarned.ToString());
@@ -177,6 +179,7 @@ public class GameUI : MonoBehaviour
             goldCounterUI.SetActive(false);
             inventoryUI.SetActive(false);
             endGameUI.SetActive(true);
+            nextDayButton.SetActive(false);
             endGameStatusText.SetText("Game over");
             endGameStatusText.color = new Color(.85f, .5f, .5f, 1f);
             endGameGuestsServedCounter.SetText(servedGuests.ToString());
